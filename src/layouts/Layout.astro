@@ -11,6 +11,24 @@ import '../styles/global.css';
     <meta name="description" content="Structural Burnout Strategist & Leadership Architecture" />
   </head>
   <body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans antialiased">
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+      <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+        <a href="/" class="text-2xl font-bold tracking-tighter">Nikki Cates</a>
+        
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="/structural-burnout" class="hover:text-teal-400 transition">Structural Burnout</a>
+          <a href="/structural-burnout/nexus" class="hover:text-teal-400 transition">Nexus Card</a>
+          <a href="/structural-burnout/services" class="hover:text-teal-400 transition">Services</a>
+        </div>
+
+        <a href="/structural-burnout/nexus" 
+           class="text-xs px-5 py-2.5 border border-zinc-700 hover:border-teal-400 rounded-full transition">
+          Open Networking Card
+        </a>
+      </div>
+    </nav>
+
     <slot />
   </body>
 </html>
