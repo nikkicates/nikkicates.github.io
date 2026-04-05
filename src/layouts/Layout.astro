@@ -1,0 +1,17 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nikki Cates</title>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans antialiased">
+    <Nav />
+    <slot />
+  </body>
+</html>

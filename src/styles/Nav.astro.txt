@@ -1,0 +1,25 @@
+---
+---
+
+<nav class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <!-- Logo / Name -->
+    <a href="/" class="text-2xl font-bold tracking-tighter">Nikki Cates</a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="/structural-burnout" class="hover:text-white transition">Structural Burnout</a>
+      <a href="/ops" class="hover:text-white transition">Ops Hub</a>
+      <a href="/speaker-pages" class="hover:text-white transition">Speaker Pages</a>
+      <a href="/manuals" class="hover:text-white transition">Manuals</a>
+    </div>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-4">
+      <button id="theme-toggle" 
+              class="w-9 h-9 flex items-center justify-center rounded-xl border border-zinc-700 hover:bg-zinc-900 transition">
+        🌙
+      </button>
+    </div>
+  </div>
+</nav>

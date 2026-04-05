@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --st-navy: #064680;
+  --st-teal: #58bbc2;
+  --uri-plum: #31245a;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, 'Times New Roman', serif; /* close to Lora */
+  font-weight: 700;
+}
