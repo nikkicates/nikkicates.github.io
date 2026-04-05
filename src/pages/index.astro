@@ -1,17 +1,32 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <div class="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col items-center justify-center px-6 py-24 text-center">
+    <div class="max-w-2xl">
+      <h1 class="text-6xl md:text-7xl font-bold tracking-tighter mb-6">
+        Nikki Cates
+      </h1>
+      
+      <p class="text-2xl text-zinc-400 mb-12">
+        One home for Structural Burnout, Ops, Leadership & Tools
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/structural-burnout" 
+           class="px-10 py-5 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-zinc-200 transition text-lg">
+          Structural Burnout
+        </a>
+        <a href="/ops" 
+           class="px-10 py-5 border border-zinc-700 hover:border-zinc-500 font-semibold rounded-2xl transition text-lg">
+          Ops Hub
+        </a>
+      </div>
+
+      <p class="text-xs text-zinc-500 mt-16">
+        Strategic Transformations • Unbothered Resistance International
+      </p>
+    </div>
+  </div>
+</Layout>
