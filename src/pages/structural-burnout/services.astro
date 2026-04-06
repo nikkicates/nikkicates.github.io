@@ -12,11 +12,10 @@ const tiers = [
       'Pre-event discovery call',
       'Custom talk arc aligned to conference theme',
       'Post-keynote digital resource for attendees',
-      'Comfort Plus/Business Class travel + 4-star hotel required',
+      'Travel & hospitality requirements apply (see below)',
     ],
     cta: 'Inquire About Speaking',
     href: '/structural-burnout/briefing',
-    accent: 'teal',
   },
   {
     tag: 'Tier 01',
@@ -29,11 +28,10 @@ const tiers = [
       'Half-day interactive workshop (up to 40 leaders)',
       'Custom facilitation guide',
       'Post-workshop integration notes',
-      'Comfort Plus/Business Class + 4-star hotel required',
+      'Travel & hospitality requirements apply',
     ],
     cta: 'Inquire About This Engagement',
     href: '/structural-burnout/briefing',
-    accent: 'teal',
   },
   {
     tag: 'Tier 02',
@@ -51,7 +49,6 @@ const tiers = [
     ],
     cta: 'Request Diagnostic Briefing',
     href: '/structural-burnout/briefing',
-    accent: 'teal',
     featured: true,
   },
   {
@@ -71,7 +68,6 @@ const tiers = [
     ],
     cta: 'Request Recalibration Briefing',
     href: '/structural-burnout/briefing',
-    accent: 'teal',
   },
   {
     tag: 'Tier 04',
@@ -88,7 +84,6 @@ const tiers = [
     ],
     cta: 'Apply for Retainer',
     href: '/structural-burnout/briefing',
-    accent: 'navy',
   },
   {
     tag: 'AI Audit',
@@ -105,7 +100,6 @@ const tiers = [
     ],
     cta: 'Request AI Audit Briefing',
     href: '/structural-burnout/briefing',
-    accent: 'teal',
   },
 ];
 ---
@@ -122,9 +116,9 @@ const tiers = [
     <div class="absolute inset-0 bg-st-gradient"></div>
     <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
     <div class="container-mid relative z-10 text-center">
-      <span class="st-tag mb-5 inline-flex animate-on-scroll">Services & Pricing</span>
+      <img src="/logos/st-logo.svg" alt="Strategic Transformations" width="220" height="44" class="h-10 w-auto mx-auto mb-6 animate-on-scroll" />
       <h1 class="font-heading text-4xl md:text-6xl text-light font-bold mb-5 animate-on-scroll">
-        Every engagement<br/>begins with a question.
+        Every engagement begins<br/>with a question.
       </h1>
       <p class="text-muted text-lg max-w-2xl mx-auto mb-8 animate-on-scroll" style="animation-delay:0.1s">
         "Is your organization ready to examine the structure?"
@@ -137,29 +131,6 @@ const tiers = [
     </div>
   </section>
 
-  <!-- ─── BOOKING TERMS STRIP ───────────────────────── -->
-  <section class="bg-surface border-y border-border py-6">
-    <div class="container-wide">
-      <div class="flex flex-wrap gap-x-8 gap-y-3 justify-center text-xs text-muted">
-        {[
-          '50% deposit at signing',
-          'Balance due 7 days prior',
-          'Comfort Plus / Business Class air',
-          '4-star+ hotel with pre/post night',
-          'Executive ground transport',
-          '$100/day meal per diem',
-          '10% reduction for virtual',
-          'Signed agreement required',
-        ].map((term) => (
-          <span class="flex items-center gap-1.5">
-            <span class="text-teal-DEFAULT">✓</span>
-            {term}
-          </span>
-        ))}
-      </div>
-    </div>
-  </section>
-
 
   <!-- ─── TIERS ─────────────────────────────────────── -->
   <section class="section-pad">
@@ -169,25 +140,22 @@ const tiers = [
           <div class={`card teal-hover flex flex-col gap-4 relative animate-on-scroll ${tier.featured ? 'border-teal-DEFAULT/60 bg-teal-glow' : ''}`}>
             {tier.featured && (
               <div class="absolute -top-3 left-5">
-                <span class="bg-teal-DEFAULT text-[#0f172a] text-xs font-800 uppercase tracking-widest px-3 py-1 rounded-sm font-body">
+                <span class="bg-teal-DEFAULT text-[#0f172a] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-sm font-body">
                   Most Requested
                 </span>
               </div>
             )}
-
             <div class="flex items-start justify-between gap-4">
               <div>
                 <span class="st-tag text-xs mb-2 inline-flex">{tier.tag}</span>
                 <h2 class="font-heading text-xl text-light font-bold">{tier.name}</h2>
               </div>
               <div class="text-right shrink-0">
-                <p class="font-body text-teal-DEFAULT font-700 text-sm">{tier.price}</p>
+                <p class="font-body text-teal-DEFAULT font-bold text-sm">{tier.price}</p>
                 <p class="text-muted text-xs mt-1">{tier.duration}</p>
               </div>
             </div>
-
             <p class="text-muted text-sm leading-relaxed">{tier.desc}</p>
-
             <ul class="space-y-2 flex-1">
               {tier.includes.map((item) => (
                 <li class="flex items-start gap-2 text-sm text-muted">
@@ -196,7 +164,6 @@ const tiers = [
                 </li>
               ))}
             </ul>
-
             <a href={tier.href} class="btn-teal mt-2 justify-center !text-sm">
               {tier.cta}
             </a>
@@ -246,6 +213,27 @@ const tiers = [
               <p class="text-muted text-sm">{talk.desc}</p>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── BOOKING TERMS (below speaking, trimmed) ──────── -->
+  <section class="bg-surface border-y border-border py-6">
+    <div class="container-wide">
+      <p class="text-center text-xs font-body font-bold uppercase tracking-widest text-muted mb-4">Booking Terms</p>
+      <div class="flex flex-wrap gap-x-10 gap-y-3 justify-center text-sm text-muted">
+        {[
+          '50% deposit at signing',
+          'Balance due 7 days prior',
+          '10% reduction for virtual engagements',
+          'Signed agreement required for all engagements',
+        ].map((term) => (
+          <span class="flex items-center gap-2">
+            <span class="text-teal-DEFAULT font-bold">✓</span>
+            {term}
+          </span>
         ))}
       </div>
     </div>

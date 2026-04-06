@@ -10,6 +10,7 @@ import Layout from '../../layouts/Layout.astro';
 >
 
   <!-- ─── HERO ─────────────────────────────────────── -->
+  <!-- ─── HERO ─────────────────────────────────────── -->
   <section class="relative py-20 overflow-hidden">
     <div class="absolute inset-0 bg-st-gradient"></div>
     <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
@@ -28,6 +29,107 @@ import Layout from '../../layouts/Layout.astro';
         That's not an obstacle — it's a feature. The vetting process ensures every engagement is
         resourced for actual transformation.
       </p>
+    </div>
+  </section>
+
+  <!-- ─── WHO THIS IS FOR ───────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+
+        <!-- Who it IS for -->
+        <div class="animate-on-scroll">
+          <span class="st-tag mb-5 inline-flex">Who This Is For</span>
+          <h2 class="font-heading text-2xl md:text-3xl text-light mb-6">
+            This briefing is for leaders<br/>who are ready to be honest<br/>about what's happening.
+          </h2>
+          <div class="space-y-3">
+            {[
+              'C-suite executives facing attrition they cannot explain with standard HR language',
+              'CHROs and CPOs who have tried every engagement program and need something structural',
+              'CEOs and COOs who know the burnout problem is systemic but lack the diagnostic framework to prove it',
+              'Conference and event organizers seeking a keynote speaker who will move the room, not just fill the hour',
+              'Boards and investors reviewing organizations where talent loss is eroding mission delivery',
+              'Leaders who are personally exhausted and recognize their structure is unsustainable',
+            ].map((item) => (
+              <div class="flex items-start gap-3 p-4 bg-surface border border-border rounded-md hover:border-teal-DEFAULT/40 transition-colors">
+                <span class="text-teal-DEFAULT shrink-0 mt-0.5">✓</span>
+                <p class="text-muted text-sm">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Who it is NOT for -->
+        <div class="animate-on-scroll" style="animation-delay:0.1s">
+          <span class="st-tag mb-5 inline-flex" style="color: #f87171; border-color: rgba(248,113,113,0.3);">Who This Is Not For</span>
+          <h2 class="font-heading text-2xl md:text-3xl text-light mb-6">
+            This engagement is not right<br/>for every organization.
+          </h2>
+          <div class="space-y-3 mb-8">
+            {[
+              'Organizations looking for a motivational speaker who will affirm rather than diagnose',
+              'Leaders who need leadership to be comfortable before it can be honest',
+              'Organizations unwilling to examine the structure — only the people in it',
+              'Those seeking a quick workshop fix for a multi-year systemic problem',
+              'Engagements where the budget decision-maker is not part of the conversation',
+            ].map((item) => (
+              <div class="flex items-start gap-3 p-4 bg-surface border border-red-500/15 rounded-md">
+                <span class="text-red-400/70 shrink-0 mt-0.5">✗</span>
+                <p class="text-muted text-sm">{item}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="bg-teal-glow border border-teal-DEFAULT/30 rounded-md p-5">
+            <p class="font-heading text-teal-DEFAULT font-semibold text-sm mb-2">A note on fit:</p>
+            <p class="text-muted text-sm leading-relaxed">
+              Not every organization is ready for this work — and that's not a judgment.
+              The vetting process exists to protect both of us. If it's not the right time,
+              I will tell you that directly. The UNMASK Blueprint Series is a strong starting point
+              for organizations earlier in their diagnostic journey.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── THE REAL COST ─────────────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">The Pain</span>
+        <h2 class="font-heading text-3xl text-light">
+          You already know something is wrong.<br/>
+          <span class="text-teal-DEFAULT">You might not yet know what to call it.</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        {[
+          { icon: '📉', label: 'Invisible Attrition Drivers', desc: 'Staff leave citing "burnout" or "better opportunities" — but the real driver is structural conditions they couldn\'t name. And you couldn\'t fix what you couldn\'t see.' },
+          { icon: '🔁', label: 'The Replacement Spiral', desc: 'You replace one burned-out leader. Within 18 months, the new one is showing the same symptoms. The structure is replicating the problem.' },
+          { icon: '🔇', label: 'Silenced Capacity', desc: 'Your most talented, mission-aligned people have quietly stopped speaking up. Not because they don\'t care — because the structure taught them their input doesn\'t matter.' },
+          { icon: '📊', label: 'Survey Fatigue Without Change', desc: 'Engagement surveys go out. Scores dip. Plans are made. Nothing structurally changes. Staff stop believing the surveys matter.' },
+          { icon: '🤖', label: 'AI Amplifying the Strain', desc: 'AI tools deployed without a human architecture assessment are compressing timelines and raising output expectations — without adding human capacity. The strain is accelerating.' },
+          { icon: '😶‍🌫️', label: 'Leadership Running on Empty', desc: 'The leaders holding everything together are the ones closest to burnout. And the organization has no structural failsafe for when they finally break.' },
+        ].map((item) => (
+          <div class="card teal-hover animate-on-scroll">
+            <span class="text-2xl block mb-3">{item.icon}</span>
+            <p class="font-heading text-light font-semibold text-sm mb-2">{item.label}</p>
+            <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center animate-on-scroll">
+        <p class="font-heading text-light text-xl mb-2">This is what the briefing is for.</p>
+        <p class="text-muted text-sm max-w-lg mx-auto">
+          The form below gives me enough context to know whether I can help — and how.
+          It takes 8–12 minutes. Please bring your honest assessment of what's happening.
+        </p>
+      </div>
     </div>
   </section>
 

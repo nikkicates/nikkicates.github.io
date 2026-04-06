@@ -5,13 +5,6 @@ interface Props {
 }
 const { section = 'home', accentColor = 'teal' } = Astro.props;
 
-const isST  = section === 'st';
-const isURI = section === 'uri';
-
-const accent = accentColor === 'gold'
-  ? { text: 'text-gold', border: 'border-gold', bg: 'hover:bg-gold/10' }
-  : { text: 'text-teal-DEFAULT', border: 'border-teal-DEFAULT', bg: 'hover:bg-teal-glow' };
-
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/structural-burnout/', label: 'Structural Burnout' },
@@ -24,28 +17,21 @@ const navLinks = [
 <header
   id="site-nav"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  style="background: rgba(15,23,42,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(51,65,85,0.4);"
+  style="background: rgba(15,23,42,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(51,65,85,0.4);"
 >
   <div class="container-wide">
     <div class="flex items-center justify-between h-16 md:h-18">
 
-      <!-- LOGO: swaps by section -->
-      <a href="/" class="flex items-center gap-3 group" aria-label="Return to homepage">
+      <!-- LOGO: SVG swap by section. Replace each img src with your actual logo file when ready. -->
+      <a href="/" class="flex items-center group" aria-label="Return to homepage">
         {section === 'home' && (
-          <span class="font-heading font-bold text-lg text-light tracking-tight">
-            Nikki <span class="text-teal-DEFAULT">Cates</span>
-          </span>
+          <img src="/logos/nc-logo.svg" alt="Nikki Cates" width="200" height="44" class="h-9 w-auto" />
         )}
         {section === 'st' && (
-          <span class="font-heading font-bold text-lg text-light tracking-tight">
-            Strategic <span class="text-teal-DEFAULT">Transformations</span>
-          </span>
+          <img src="/logos/st-logo.svg" alt="Strategic Transformations" width="220" height="44" class="h-9 w-auto" />
         )}
         {section === 'uri' && (
-          <span class="font-heading font-bold text-lg text-light tracking-tight">
-            <span class="text-gold">URI</span>
-            <span class="text-muted text-sm font-body font-normal ml-2">Formation</span>
-          </span>
+          <img src="/logos/uri-logo.svg" alt="URI — Unbothered Resistance International" width="200" height="44" class="h-9 w-auto" />
         )}
       </a>
 
@@ -54,26 +40,18 @@ const navLinks = [
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="font-body text-sm font-500 text-muted px-3 py-2 rounded-sm transition-colors duration-150 hover:text-light"
+            class="font-body text-sm font-medium text-muted px-3 py-2 rounded-sm transition-colors duration-150 hover:text-light"
           >
             {link.label}
           </a>
         ))}
-        <a
-          href="/structural-burnout/briefing"
-          class={`ml-3 btn-teal !text-sm !py-2 !px-4 ${isST ? '' : ''}`}
-        >
+        <a href="/structural-burnout/briefing" class="ml-3 btn-teal !text-sm !py-2 !px-4">
           Request Briefing
         </a>
       </nav>
 
       <!-- Mobile hamburger -->
-      <button
-        id="nav-toggle"
-        class="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer"
-        aria-label="Open menu"
-        aria-expanded="false"
-      >
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer" aria-label="Open menu" aria-expanded="false">
         <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar1"></span>
         <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar2"></span>
         <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar3"></span>
@@ -81,39 +59,25 @@ const navLinks = [
     </div>
   </div>
 
-  <!-- Mobile menu drawer -->
-  <div
-    id="mobile-menu"
-    class="md:hidden hidden flex-col gap-1 pb-5 px-6 bg-[#0f172a] border-t border-border"
-  >
+  <!-- Mobile drawer -->
+  <div id="mobile-menu" class="md:hidden hidden flex-col gap-1 pb-5 px-6 bg-[#0f172a] border-t border-border">
     {navLinks.map((link) => (
-      <a
-        href={link.href}
-        class="font-body text-sm text-muted py-3 border-b border-border/40 hover:text-light transition-colors"
-      >
+      <a href={link.href} class="font-body text-sm text-muted py-3 border-b border-border/40 hover:text-light transition-colors">
         {link.label}
       </a>
     ))}
-    <a
-      href="/structural-burnout/briefing"
-      class="btn-teal mt-3 justify-center !text-sm"
-    >
-      Request Briefing
-    </a>
+    <a href="/structural-burnout/briefing" class="btn-teal mt-3 justify-center !text-sm">Request Briefing</a>
   </div>
 </header>
 
-<!-- Spacer so content doesn't hide under fixed nav -->
 <div class="h-16 md:h-18"></div>
 
 <script>
-  // Mobile toggle
   const toggle = document.getElementById('nav-toggle');
   const menu   = document.getElementById('mobile-menu');
   const bar1   = document.getElementById('bar1');
   const bar2   = document.getElementById('bar2');
   const bar3   = document.getElementById('bar3');
-
   let open = false;
   toggle?.addEventListener('click', () => {
     open = !open;
@@ -121,19 +85,13 @@ const navLinks = [
     menu?.classList.toggle('flex', open);
     toggle.setAttribute('aria-expanded', String(open));
     if (bar1 && bar2 && bar3) {
-      bar1.style.transform = open ? 'rotate(45deg) translate(5px, 5px)' : '';
+      bar1.style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
       bar2.style.opacity   = open ? '0' : '1';
-      bar3.style.transform = open ? 'rotate(-45deg) translate(5px, -5px)' : '';
+      bar3.style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
     }
   });
-
-  // Scroll shadow
   const nav = document.getElementById('site-nav');
   window.addEventListener('scroll', () => {
-    if (nav) {
-      nav.style.boxShadow = window.scrollY > 20
-        ? '0 4px 30px rgba(0,0,0,0.4)'
-        : 'none';
-    }
+    if (nav) nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.45)' : 'none';
   });
 </script>

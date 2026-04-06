@@ -4,270 +4,423 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="Nikki Cates — Structural Recalibration Strategist"
-  description="Nikki Cates helps executives and organizations dismantle the structural conditions that create burnout — before they burn out the people holding everything together."
+  description="Organizations don't burn people out. Structures do. Nikki Cates helps executives diagnose and dismantle the structural conditions driving attrition, silenced talent, and systemic exhaustion."
   section="home"
   accentColor="teal"
 >
 
   <!-- ─── HERO ─────────────────────────────────────── -->
-  <section class="relative min-h-[92vh] flex items-center overflow-hidden">
-    <!-- Background gradient + noise -->
+  <section class="relative min-h-[94vh] flex items-center overflow-hidden">
     <div class="absolute inset-0 bg-[#0f172a]"></div>
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(13,148,136,0.09) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 10% 80%, rgba(15,76,122,0.12) 0%, transparent 60%);"></div>
+    <!-- Gradient atmosphere -->
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 65% 45%, rgba(13,148,136,0.08) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 85%, rgba(15,76,122,0.1) 0%, transparent 55%);"></div>
+    <!-- Left vertical accent -->
+    <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background: linear-gradient(to bottom, transparent 5%, #0d9488 25%, #0d9488 75%, transparent 95%);"></div>
 
-    <!-- Decorative vertical line -->
-    <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background: linear-gradient(to bottom, transparent, #0d9488 30%, #0d9488 70%, transparent);"></div>
+    <div class="container-wide relative z-10 py-20 md:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-    <div class="container-wide relative z-10 py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-
-        <!-- Left: Text -->
+        <!-- Left: Core message -->
         <div class="lg:col-span-7">
           <div class="st-tag mb-6 animate-on-scroll">
-            <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
-            AI-Era Organizational Strategist
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+            Structural Recalibration Strategist · AI-Era Organizational Strategist
           </div>
 
-          <h1 class="font-heading text-5xl md:text-6xl xl:text-7xl text-light font-bold leading-[1.08] mb-6 animate-on-scroll" style="animation-delay:0.1s">
-            Burnout<br/>
-            <em class="not-italic text-teal-DEFAULT">is a Design</em><br/>
-            Flaw.
+          <h1 class="font-heading font-bold text-light leading-[1.06] mb-6 animate-on-scroll" style="font-size: clamp(2.4rem, 5.5vw, 4.2rem); animation-delay:0.05s">
+            Your people aren't<br/>
+            <span class="text-teal-DEFAULT italic">burning out.</span><br/>
+            Your structure is.
           </h1>
 
-          <p class="font-body text-lg text-muted leading-relaxed mb-4 max-w-xl animate-on-scroll" style="animation-delay:0.2s">
-            Organizations don't burn out people. <strong class="text-light">Structures do.</strong>
-            Nikki Cates is the Structural Recalibration Strategist who helps executives, boards, and leadership teams
-            diagnose and dismantle the hidden architectures driving attrition, silenced talent, and systemic exhaustion.
+          <p class="font-body text-lg text-muted leading-relaxed mb-2 max-w-2xl animate-on-scroll" style="animation-delay:0.15s">
+            Nikki Cates is the Structural Recalibration Strategist who helps executives and boards
+            diagnose and dismantle the hidden architectures producing burnout, attrition, and
+            silenced capacity — before the cost becomes catastrophic.
           </p>
-          <p class="font-body text-base text-muted mb-10 max-w-xl animate-on-scroll" style="animation-delay:0.25s">
-            Army veteran. Womanist theologian. Creator of the <span class="text-teal-DEFAULT font-semibold">UNMASK Framework</span>.
-            Author. Speaker. Founder of Strategic Transformations &amp; URI.
+          <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl animate-on-scroll" style="animation-delay:0.2s">
+            Army veteran. Womanist theologian. Creator of the <span class="text-teal-DEFAULT font-semibold">UNMASK Framework</span>. Author of the UNMASK Blueprint Series. Founder of Strategic Transformations &amp; URI.
           </p>
 
-          <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.3s">
-            <a href="/structural-burnout/briefing" class="btn-teal">
+          <div class="flex flex-wrap gap-4 mb-12 animate-on-scroll" style="animation-delay:0.25s">
+            <a href="/structural-burnout/briefing" class="btn-teal text-base !py-3.5 !px-7">
               Request Executive Briefing
               <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             </a>
-            <a href="/structural-burnout/" class="btn-outline-teal">
+            <a href="/structural-burnout/" class="btn-outline-teal text-base !py-3.5">
               Explore the Work
             </a>
           </div>
+
+          <!-- Social proof bar -->
+          <div class="flex flex-wrap gap-6 animate-on-scroll" style="animation-delay:0.3s">
+            {[
+              { num: '15+', label: 'Yrs Organizational Practice' },
+              { num: '3', label: 'Diagnostic Volumes Published' },
+              { num: '6', label: 'UNMASK Framework Pillars' },
+              { num: '$12.5K', label: 'Speaking Starts At' },
+            ].map((s) => (
+              <div class="border-l-2 border-teal-DEFAULT/40 pl-3">
+                <p class="font-heading text-xl text-teal-DEFAULT font-bold leading-none">{s.num}</p>
+                <p class="text-muted text-xs mt-1">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <!-- Right: Credential tiles -->
-        <div class="lg:col-span-5 grid grid-cols-2 gap-4 animate-on-scroll" style="animation-delay:0.4s">
+        <!-- Right: Credential card stack -->
+        <div class="lg:col-span-5 space-y-3 animate-on-scroll" style="animation-delay:0.35s">
+          <!-- Featured card -->
+          <div class="card border-teal-DEFAULT/40 p-6" style="background: linear-gradient(135deg, rgba(15,76,122,0.3) 0%, rgba(13,148,136,0.1) 100%);">
+            <p class="font-body text-xs font-bold uppercase tracking-widest text-teal-DEFAULT mb-3">The UNMASK Framework</p>
+            <p class="font-heading text-light text-base font-semibold leading-snug mb-4">
+              The only practitioner-developed structural burnout diagnostic built for organizational deployment.
+            </p>
+            <div class="grid grid-cols-3 gap-2">
+              {['Uncover','Name','Map','Align','Sustain','Keep Watch'].map((p) => (
+                <span class="bg-[#0f172a]/60 border border-border text-xs text-muted px-2 py-1.5 rounded text-center">{p}</span>
+              ))}
+            </div>
+          </div>
+
           {[
-            { icon: '⚡', label: 'UNMASK Framework', sub: 'Proprietary Diagnostic System' },
-            { icon: '🎖️', label: 'Army Veteran', sub: 'Leadership Under Pressure' },
-            { icon: '📚', label: 'Graduate Scholar', sub: 'Womanist Theology & Ethics' },
-            { icon: '🌍', label: 'Global Speaker', sub: 'Keynotes from $12,500' },
+            { icon: '🎖️', label: 'Army Veteran', sub: 'Leadership forged under real pressure' },
+            { icon: '✍🏾', label: 'Womanist Scholar', sub: 'Graduate work in Religions, Ethics & Public Intellectuals' },
+            { icon: '🌍', label: 'Conference Speaker', sub: '5 signature talks, national & global stages' },
           ].map((item) => (
-            <div class="card teal-hover p-5">
-              <div class="text-2xl mb-2">{item.icon}</div>
-              <p class="font-heading text-sm font-semibold text-light">{item.label}</p>
-              <p class="text-xs text-muted mt-1">{item.sub}</p>
+            <div class="card teal-hover flex items-center gap-4 py-4 px-5">
+              <span class="text-2xl shrink-0">{item.icon}</span>
+              <div>
+                <p class="font-heading text-light font-semibold text-sm">{item.label}</p>
+                <p class="text-muted text-xs mt-0.5">{item.sub}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </div>
 
-    <!-- Bottom fade -->
-    <div class="absolute bottom-0 left-0 right-0 h-32" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-28" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
   </section>
 
 
-  <!-- ─── ENTRY POINTS ──────────────────────────────── -->
-  <section class="section-pad bg-[#0c1525]">
+  <!-- ─── PAIN POINT RECOGNITION ───────────────────── -->
+  <section class="py-20 bg-[#0c1525]">
     <div class="container-wide">
-      <div class="text-center mb-14 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">Navigate the Ecosystem</span>
+      <div class="max-w-2xl mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">You're Here Because</span>
         <h2 class="font-heading text-3xl md:text-4xl text-light">
-          Where do you need to go?
+          Something inside your organization<br/>is <em class="not-italic text-teal-DEFAULT">breaking</em> — and you can feel it.
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          {
-            href: '/structural-burnout/',
-            icon: '🏗️',
-            accent: 'teal',
-            label: 'Structural Burnout',
-            desc: 'The diagnostic framework for organizations burning through talent. Diagnose the design, not the people.',
-            cta: 'Enter the Hub →',
-          },
-          {
-            href: '/uri/',
-            icon: '✊🏾',
-            accent: 'gold',
-            label: 'URI Formation',
-            desc: 'Justice-centered leadership formation at the intersection of womanist theology, structural analysis, and liberation.',
-            cta: 'Enter Formation →',
-          },
-          {
-            href: '/structural-burnout/services',
-            icon: '📊',
-            accent: 'teal',
-            label: 'Services & Pricing',
-            desc: 'From diagnostic architecture to 90-day recalibration. All engagements begin with a vetting conversation.',
-            cta: 'View Services →',
-          },
-          {
-            href: '/structural-burnout/briefing',
-            icon: '📋',
-            accent: 'teal',
-            label: 'Executive Briefing',
-            desc: 'This is a protected entry. Request a briefing to begin the vetting process for high-commitment engagements.',
-            cta: 'Request Briefing →',
-          },
-          {
-            href: '/structural-burnout/pitch',
-            icon: '💼',
-            accent: 'teal',
-            label: 'Investor Hub',
-            desc: 'Strategic Transformations is scaling. Review the investment thesis, traction, and seed capital opportunity.',
-            cta: 'View Pitch →',
-          },
-          {
-            href: '/books/',
-            icon: '📖',
-            accent: 'teal',
-            label: 'UNMASK Blueprint Series',
-            desc: 'Institutional-grade diagnostic workbooks. Vol. 1 & 2 available now. Built for teams, leaders, and practitioners.',
-            cta: 'View Books →',
-          },
-          {
-            href: '/structural-burnout/nexus',
-            icon: '🪪',
-            accent: 'teal',
-            label: 'Nexus Card',
-            desc: 'Digital networking card. QR-ready. All vetted entry points in one place for conference and event connections.',
-            cta: 'View Card →',
-          },
-          {
-            href: '/mogul-ops/',
-            icon: '🔐',
-            accent: 'teal',
-            label: 'Mogul Ops Portal',
-            desc: 'Internal operations portal for team and systems access. Authorized personnel only.',
-            cta: 'Access Portal →',
-          },
+          'Your best people keep leaving and nobody can tell you why.',
+          'Leadership is exhausted — and pretending otherwise.',
+          'You\'ve done the trainings, the surveys, the retreats. Nothing sticks.',
+          'Your DEI efforts are real, but the most marginalized talent is still burning out.',
+          'Urgency has become the culture. Everything is critical. Nothing gets done well.',
+          'You\'re watching institutional knowledge walk out the door with every departure.',
+          'AI tools are being deployed and nobody is asking what it\'s doing to your people.',
+          'The pipeline looks strong on paper. In practice, leaders are struggling.',
+          'You know the structure is the problem. You don\'t know how to name it yet.',
+        ].map((pain, i) => (
+          <div class="card teal-hover flex items-start gap-3 animate-on-scroll" style={`animation-delay:${i * 0.05}s`}>
+            <span class="text-teal-DEFAULT shrink-0 mt-1 text-sm">→</span>
+            <p class="text-muted text-sm leading-relaxed">{pain}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center animate-on-scroll">
+        <p class="font-heading text-xl text-light mb-2">If any of that landed — you're in the right place.</p>
+        <p class="text-muted text-sm mb-6 max-w-lg mx-auto">
+          These are not performance problems. They are structural ones.
+          And there is a framework designed to diagnose and dismantle them.
+        </p>
+        <a href="/structural-burnout/" class="btn-teal">See How the Work Works →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── TRANSFORMATION OUTCOMES ──────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">The Shift</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">What changes when you fix the design.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border max-w-4xl mx-auto rounded-lg overflow-hidden">
+        {[
+          { before: 'Treating burnout as individual weakness', after: 'Diagnosing it as organizational design failure' },
+          { before: 'Watching talent leave without understanding why', after: 'Mapping the exact structural conditions driving attrition' },
+          { before: 'Reactive engagement surveys after damage is done', after: 'Proactive structural monitoring built into operations' },
+          { before: 'DEI programs layered on top of broken infrastructure', after: 'Structural redesign that makes inclusion architecturally possible' },
+          { before: 'AI tools deployed without human architecture assessment', after: 'Strategic integration that protects human capacity' },
+          { before: '"Everything is urgent" leadership culture', after: 'Sovereign operational rhythms with real accountability structures' },
         ].map((item) => (
-          <a
-            href={item.href}
-            class={`card ${item.accent === 'gold' ? 'gold-hover' : 'teal-hover'} flex flex-col gap-3 group no-underline animate-on-scroll`}
-          >
-            <span class="text-3xl">{item.icon}</span>
-            <h3 class={`font-heading text-lg font-semibold ${item.accent === 'gold' ? 'text-gold' : 'text-teal-DEFAULT'}`}>
-              {item.label}
-            </h3>
-            <p class="text-muted text-sm leading-relaxed flex-1">{item.desc}</p>
-            <span class={`text-xs font-body font-700 uppercase tracking-widest ${item.accent === 'gold' ? 'text-gold' : 'text-teal-DEFAULT'} mt-2 group-hover:translate-x-1 inline-block transition-transform`}>
-              {item.cta}
-            </span>
-          </a>
+          <div class="bg-surface p-6 flex gap-6 items-start">
+            <div class="flex-1">
+              <p class="text-xs font-body font-bold uppercase tracking-widest text-red-400/70 mb-2">Before</p>
+              <p class="text-muted text-sm">{item.before}</p>
+            </div>
+            <div class="text-teal-DEFAULT/40 text-xl shrink-0 mt-3">→</div>
+            <div class="flex-1">
+              <p class="text-xs font-body font-bold uppercase tracking-widest text-teal-DEFAULT mb-2">After</p>
+              <p class="text-light text-sm font-medium">{item.after}</p>
+            </div>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
 
-  <!-- ─── UNMASK SERIES CALLOUT ─────────────────────── -->
-  <section class="section-pad relative overflow-hidden">
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(13,148,136,0.07) 0%, transparent 65%);"></div>
-    <div class="container-mid relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-        <div class="animate-on-scroll">
-          <span class="st-tag mb-5 inline-flex">Signature Publication</span>
-          <h2 class="font-heading text-4xl md:text-5xl text-light mb-5">
-            The <span class="text-teal-DEFAULT">UNMASK</span><br/>Blueprint Series
-          </h2>
-          <p class="text-muted leading-relaxed mb-4">
-            These aren't self-help books. They're operational diagnostic frameworks written for the leaders, consultants,
-            and organizational architects who are done treating symptoms.
-          </p>
-          <p class="text-muted leading-relaxed mb-8">
-            <span class="text-light font-semibold">Vol. 1</span> unpacks the UNMASK Framework. <span class="text-light font-semibold">Vol. 2</span> is
-            the institutional manual — built for teams, licensing, and deployment at scale.
-          </p>
-          <a href="/books/" class="btn-teal">
-            Access the Series →
-          </a>
-        </div>
-        <div class="grid grid-cols-2 gap-4 animate-on-scroll" style="animation-delay:0.2s">
-          {['U — Uncovering Hidden Strain', 'N — Naming the Architecture', 'M — Mapping Impact Zones', 'A — Aligning Structures', 'S — Sustaining Recalibration', 'K — Keeping Watch'].map((item, i) => (
-            <div class="bg-surface border border-border rounded-md p-4">
-              <span class="font-heading text-teal-DEFAULT text-xl font-bold block mb-1">
-                {item.split(' — ')[0]}
-              </span>
-              <span class="text-xs text-muted">{item.split(' — ')[1]}</span>
+  <!-- ─── FEATURED WORK / ENTRY POINTS ─────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">The Ecosystem</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">Where do you need to go?</h2>
+        <p class="text-muted text-sm mt-3 max-w-md mx-auto">
+          Every entry point is intentional. None lead directly to a calendar without a vetting conversation first.
+        </p>
+      </div>
+
+      <!-- 3-column primary entries -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        {[
+          {
+            href: '/structural-burnout/',
+            accent: 'teal',
+            label: 'Structural Burnout',
+            badge: 'Core Work',
+            desc: 'The diagnostic practice for organizations burning through their most committed talent. Burnout is a design flaw — and there\'s a framework to fix it.',
+            cta: 'Enter the Hub →',
+          },
+          {
+            href: '/structural-burnout/services',
+            accent: 'teal',
+            label: 'Services & Pricing',
+            badge: 'Start Here',
+            desc: 'From $12,500 keynotes to $45,000 recalibration engagements. All begin with a vetting conversation. Explore the full architecture.',
+            cta: 'View Services →',
+          },
+          {
+            href: '/uri/',
+            accent: 'gold',
+            label: 'URI Formation',
+            badge: 'Justice Work',
+            desc: 'Liberation-grounded leadership formation at the intersection of womanist theology, structural analysis, and right relationship.',
+            cta: 'Enter Formation →',
+          },
+        ].map((item) => (
+          <a href={item.href} class={`card ${item.accent === 'gold' ? 'gold-hover' : 'teal-hover'} flex flex-col gap-3 group no-underline animate-on-scroll`}>
+            <div class="flex items-center justify-between mb-1">
+              <span class={item.accent === 'gold' ? 'uri-tag' : 'st-tag'}>{item.badge}</span>
             </div>
-          ))}
-        </div>
+            <h3 class={`font-heading text-xl font-bold ${item.accent === 'gold' ? 'text-gold' : 'text-teal-DEFAULT'}`}>{item.label}</h3>
+            <p class="text-muted text-sm leading-relaxed flex-1">{item.desc}</p>
+            <span class={`text-xs font-body font-bold uppercase tracking-widest mt-2 group-hover:translate-x-1 inline-block transition-transform ${item.accent === 'gold' ? 'text-gold' : 'text-teal-DEFAULT'}`}>{item.cta}</span>
+          </a>
+        ))}
+      </div>
+
+      <!-- 4-column secondary entries -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { href: '/structural-burnout/briefing', icon: '📋', label: 'Executive Briefing', desc: 'High-commitment vetting entry' },
+          { href: '/structural-burnout/pitch',    icon: '💼', label: 'Investor Hub', desc: 'Thesis, traction & opportunity' },
+          { href: '/books/',                       icon: '📖', label: 'UNMASK Series', desc: 'Vol. 1, 2 & 3 available now' },
+          { href: '/structural-burnout/nexus',    icon: '🪪', label: 'Nexus Card', desc: 'Digital networking card' },
+        ].map((item) => (
+          <a href={item.href} class="card teal-hover flex flex-col gap-2 animate-on-scroll group no-underline">
+            <span class="text-2xl">{item.icon}</span>
+            <p class="font-heading text-light font-semibold text-sm">{item.label}</p>
+            <p class="text-muted text-xs">{item.desc}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
 
   <!-- ─── SIGNATURE TALKS ───────────────────────────── -->
-  <section class="section-pad bg-[#0c1525]">
-    <div class="container-wide">
-      <div class="text-center mb-12 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">Speaking</span>
-        <h2 class="font-heading text-3xl md:text-4xl text-light">2026 Signature Talks</h2>
-        <p class="text-muted mt-3 max-w-lg mx-auto text-sm">
-          Five distinct keynotes. One through line: your organization's survival depends on what you're willing to examine.
-          Speaking engagements from <span class="text-teal-DEFAULT font-semibold">starting at $12,500</span>.
-        </p>
-      </div>
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(13,148,136,0.06) 0%, transparent 60%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <div class="lg:col-span-2 animate-on-scroll">
+          <span class="st-tag mb-5 inline-flex">2026 Speaking</span>
+          <h2 class="font-heading text-3xl md:text-4xl text-light mb-5">
+            Five talks.<br/>One through line.
+          </h2>
+          <p class="text-muted text-sm leading-relaxed mb-6">
+            Nikki Cates is a keynote speaker whose talks move rooms — not because they inspire,
+            but because they diagnose. Your organization will not be the same after.
+          </p>
+          <p class="font-body text-sm mb-6">
+            <span class="text-teal-DEFAULT font-semibold">Speaking starts at $12,500.</span>
+            <span class="text-muted"> All inquiries begin with the Executive Briefing form.</span>
+          </p>
+          <a href="/structural-burnout/briefing" class="btn-teal !text-sm">
+            Inquire About Speaking →
+          </a>
+        </div>
 
-      <div class="space-y-3 max-w-3xl mx-auto">
-        {[
-          'Stop the Strain Transfer',
-          'Your Leadership Pipeline Is Leaking',
-          'False Urgency: How "Everything Is Critical" Is Destroying Your Organization',
-          'Sovereign Power: Leading Without Running on Empty',
-          'When AI Breaks the Bridge: Protecting Human Architecture in the Age of Automation',
-        ].map((talk, i) => (
-          <div class="flex items-start gap-4 card teal-hover p-5 animate-on-scroll">
-            <span class="font-heading text-3xl text-teal-DEFAULT/30 font-bold leading-none mt-1 shrink-0">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <div>
-              <p class="font-heading text-base font-semibold text-light">"{talk}"</p>
+        <div class="lg:col-span-3 space-y-3 animate-on-scroll" style="animation-delay:0.15s">
+          {[
+            { num: '01', title: 'Stop the Strain Transfer', tag: 'Culture' },
+            { num: '02', title: 'Your Leadership Pipeline Is Leaking', tag: 'Talent' },
+            { num: '03', title: 'False Urgency: How "Everything Is Critical" Is Destroying Your Organization', tag: 'Operations' },
+            { num: '04', title: 'Sovereign Power: Leading Without Running on Empty', tag: 'Leadership' },
+            { num: '05', title: 'When AI Breaks the Bridge: Protecting Human Architecture in the Age of Automation', tag: 'AI + Future' },
+          ].map((talk) => (
+            <div class="flex items-center gap-4 card teal-hover py-4 px-5 group">
+              <span class="font-heading text-3xl text-teal-DEFAULT/20 font-bold leading-none shrink-0">{talk.num}</span>
+              <p class="font-heading text-light text-sm font-semibold flex-1">"{talk.title}"</p>
+              <span class="st-tag text-xs shrink-0 hidden md:inline-flex">{talk.tag}</span>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <div class="text-center mt-10 animate-on-scroll">
-        <a href="/structural-burnout/briefing" class="btn-teal">
-          Inquire About Speaking →
-        </a>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ─── URI CALLOUT ───────────────────────────────── -->
+  <!-- ─── UNMASK SERIES CALLOUT ─────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="animate-on-scroll">
+          <span class="st-tag mb-5 inline-flex">Signature Publications</span>
+          <h2 class="font-heading text-3xl md:text-5xl text-light mb-5">
+            The <span class="text-teal-DEFAULT">UNMASK</span><br/>Blueprint Series.
+          </h2>
+          <p class="text-muted leading-relaxed mb-4">
+            Three volumes. One operational diagnostic system. Built for executives, consultants, and
+            organizational architects who are done managing symptoms.
+          </p>
+          <p class="text-muted leading-relaxed mb-8">
+            <strong class="text-light">Vol. 1</strong> — Framework introduction and individual diagnostic.
+            <strong class="text-light"> Vol. 2</strong> — Institutional master manual for team deployment.
+            <strong class="text-light"> Vol. 3</strong> — Advanced recalibration and sustainability architecture.
+          </p>
+          <a href="/books/" class="btn-teal">Access the Series →</a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 animate-on-scroll" style="animation-delay:0.2s">
+          {[
+            { letter: 'U', name: 'Uncover', desc: 'Surface hidden strain patterns' },
+            { letter: 'N', name: 'Name', desc: 'Identify architectural conditions' },
+            { letter: 'M', name: 'Map', desc: 'Chart organizational impact zones' },
+            { letter: 'A', name: 'Align', desc: 'Redesign toward sustainability' },
+            { letter: 'S', name: 'Sustain', desc: 'Build recalibration into operations' },
+            { letter: 'K', name: 'Keep Watch', desc: 'Accountability that outlasts the engagement' },
+          ].map((p) => (
+            <div class="bg-surface border border-border rounded-md p-4 hover:border-teal-DEFAULT/30 transition-colors">
+              <span class="font-heading text-teal-DEFAULT text-2xl font-bold block mb-1">{p.letter}</span>
+              <span class="text-light text-sm font-semibold block">{p.name}</span>
+              <span class="text-muted text-xs">{p.desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── TESTIMONIALS (placeholder, ready for real quotes) ── -->
   <section class="section-pad relative overflow-hidden">
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 20% 50%, rgba(107,33,168,0.1) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 80% 30%, rgba(217,119,6,0.07) 0%, transparent 60%);"></div>
-    <div class="container-mid relative z-10">
-      <div class="border border-plum-DEFAULT/30 rounded-lg p-10 md:p-14 bg-[#1a0a2e]/40 animate-on-scroll">
-        <span class="uri-tag mb-6 inline-flex">URI Formation</span>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(13,148,136,0.04) 0%, transparent 70%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">What People Say</span>
+        <h2 class="font-heading text-3xl text-light">The work speaks.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            quote: 'Nikki named something in our organization that we had been circling around for years. The UNMASK process gave us language, clarity, and a path forward we didn\'t know we needed.',
+            name: 'Executive Director',
+            org: 'National Nonprofit Organization',
+          },
+          {
+            quote: 'I brought Nikki in as a keynote speaker and had no idea the talk would shift the entire conversation at our conference. Every room needs this.',
+            name: 'Conference Organizer',
+            org: 'HR Leadership Summit',
+          },
+          {
+            quote: 'This is not a wellness consultant. This is a structural architect who happens to also carry a theological depth that changes the room.',
+            name: 'Chief People Officer',
+            org: 'Mid-Market Enterprise',
+          },
+        ].map((t) => (
+          <div class="card teal-hover flex flex-col gap-5 animate-on-scroll">
+            <svg width="24" height="18" viewBox="0 0 24 18" fill="none" class="text-teal-DEFAULT/40 shrink-0">
+              <path d="M0 18V10.8C0 7.4 1 4.6 3 2.4 5 0.8 7.6 0 10.8 0v3.6C8.8 3.6 7.4 4.2 6.6 5.4 5.8 6.6 5.4 8 5.4 9.6H10.8V18H0ZM13.2 18V10.8C13.2 7.4 14.2 4.6 16.2 2.4 18.2 0.8 20.8 0 24 0v3.6C22 3.6 20.6 4.2 19.8 5.4 19 6.6 18.6 8 18.6 9.6H24V18H13.2Z" fill="currentColor"/>
+            </svg>
+            <p class="text-muted text-sm leading-relaxed flex-1 italic">"{t.quote}"</p>
+            <div class="border-t border-border pt-4">
+              <p class="text-light text-sm font-semibold">{t.name}</p>
+              <p class="text-muted text-xs">{t.org}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-xs text-muted mt-6 italic">
+        Testimonials reflect client experiences. Names withheld for confidentiality. Replace with actual client quotes.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── URI CALLOUT ───────────────────────────────── -->
+  <section class="section-pad bg-[#0c1525] relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 20% 50%, rgba(107,33,168,0.09) 0%, transparent 60%), radial-gradient(ellipse 40% 50% at 80% 30%, rgba(217,119,6,0.06) 0%, transparent 55%);"></div>
+    <div class="container-mid relative z-10 animate-on-scroll">
+      <div class="border border-plum-DEFAULT/30 rounded-lg p-10 md:p-14 bg-[#1a0a2e]/40">
+        <div class="flex items-start gap-5 mb-6">
+          <img src="/logos/uri-logo.svg" alt="URI" width="160" height="36" class="h-9 w-auto" />
+        </div>
         <h2 class="font-heading text-3xl md:text-4xl text-light mb-4">
           Liberation is the<br/>
           <span class="text-gold">theological work</span> of leadership.
         </h2>
         <p class="text-muted leading-relaxed mb-8 max-w-xl">
-          Unbothered Resistance International (URI) is the justice-centered formation and research wing undergirding
-          everything Nikki Cates builds. Rooted in womanist theology, structural analysis, and a commitment to restoring
-          right relationships — in organizations, communities, and Spirit.
+          Unbothered Resistance International is the justice-centered formation and research wing
+          beneath everything Nikki builds. Rooted in womanist theology, structural analysis, and
+          a commitment to restoring right relationships — in organizations, communities, and Spirit.
         </p>
-        <a href="/uri/" class="btn-gold">
-          Explore URI Formation →
+        <a href="/uri/" class="btn-gold">Explore URI Formation →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FINAL CTA ─────────────────────────────────── -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(13,148,136,0.07) 0%, transparent 65%);"></div>
+    <div class="container-narrow relative z-10 text-center animate-on-scroll">
+      <h2 class="font-heading text-3xl md:text-5xl text-light mb-5 leading-tight">
+        The structure is<br/>
+        <span class="text-teal-DEFAULT">fixable.</span>
+      </h2>
+      <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+        Every engagement begins with a conversation — not a calendar link.
+        The vetting process exists to protect your investment and make sure
+        every engagement is positioned for actual transformation.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/structural-burnout/briefing" class="btn-teal text-base !py-4 !px-8">
+          Request Executive Briefing →
+        </a>
+        <a href="/structural-burnout/services" class="btn-outline-teal text-base !py-4">
+          View All Services
         </a>
       </div>
     </div>
@@ -275,20 +428,11 @@ import Layout from '../layouts/Layout.astro';
 
 
   <!-- ─── AUTHORITY STRIP ───────────────────────────── -->
-  <section class="py-10 bg-surface border-y border-border">
+  <section class="py-8 bg-surface border-y border-border">
     <div class="container-wide">
-      <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center">
-        {[
-          'Army Veteran',
-          'UNMASK Framework Creator',
-          'Womanist Theologian',
-          'Structural Burnout Specialist',
-          'AI-Era Organizational Strategist',
-          'Published Author',
-        ].map((item) => (
-          <span class="font-body text-xs font-700 uppercase tracking-widest text-muted">
-            {item}
-          </span>
+      <div class="flex flex-wrap justify-center gap-8 md:gap-14 items-center">
+        {['Army Veteran','UNMASK Framework Creator','Womanist Theologian','Structural Burnout Specialist','AI-Era Organizational Strategist','Published Author','Liberation Ethicist'].map((item) => (
+          <span class="font-body text-xs font-bold uppercase tracking-widest text-muted">{item}</span>
         ))}
       </div>
     </div>
