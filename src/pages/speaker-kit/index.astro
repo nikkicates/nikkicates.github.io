@@ -19,9 +19,10 @@ import Layout from '../../layouts/Layout.astro';
         style="font-family:'Urbanist',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.5rem 1.2rem;border-radius:4px;background:#2a7ca3;color:#fff;border:none;cursor:pointer;">
         Download PDF
       </button>
-      <a href="/structural-burnout/briefing"
+      <a href="https://calendar.app.google/1atA8vsgwQhP7bqX6"
+        target="_blank" rel="noopener"
         style="font-family:'Urbanist',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.5rem 1.2rem;border-radius:4px;background:transparent;color:#58bbc2;border:1px solid #58bbc2;text-decoration:none;">
-        Book Nikki
+        Schedule a Speaking Call
       </a>
     </div>
   </div>
@@ -311,6 +312,15 @@ import Layout from '../../layouts/Layout.astro';
           "Limited engagements are reserved each year for smaller organizations and community-based
           initiatives. Please inquire for availability."
         </div>
+        <div style="margin-top:1.25rem;" class="no-print">
+          <a
+            href="/uri/#vetting"
+            class="kit-cta-btn kit-cta-secondary"
+            style="display:inline-flex;font-size:.85rem;"
+          >
+            Submit URI Formation Inquiry →
+          </a>
+        </div>
       </div>
     </section>
 
@@ -327,15 +337,10 @@ import Layout from '../../layouts/Layout.astro';
             <table class="kit-price-table">
               <tbody>
                 {[
-                  { label: 'Keynote (30–90 min)', price: 'Starting at $7,500' },
-                  { label: 'Facilitated Workshop (Half/Full Day)', price: 'Starting at $8,500' },
-                  { label: 'Leadership & Culture Intensive (4–6 wk)', price: 'Starting at $12,500' },
-                  { label: 'AI Acceleration Burnout Audit (2–3 wk)', price: 'Starting at $10,000' },
-                  { label: 'Organizational Retainer', price: 'Starting at $5,000/mo' },
-                  { label: 'URI Liberation Keynote', price: '$12,500 – $25,000' },
-                  { label: 'URI Liberation & Healing Intensive', price: '$15,000 – $35,000' },
-                  { label: 'URI Formation Series (3–6 sessions)', price: '$22,000 – $45,000' },
-                  { label: 'URI Advisory Partnership', price: '$7,500 – $15,000/mo' },
+                  { label: 'Speaking & Keynotes', price: 'Starting at $7,500' },
+                  { label: 'Workshops & Intensives', price: 'Starting at $8,500' },
+                  { label: 'Consulting Engagements', price: 'Starting at $10,000' },
+                  { label: 'URI Formation Engagements', price: 'Starting at $12,500' },
                   { label: 'Custom Enterprise Scope', price: 'Contact for proposal' },
                 ].map((row) => (
                   <tr>
@@ -343,8 +348,22 @@ import Layout from '../../layouts/Layout.astro';
                     <td class="kit-price-val">{row.price}</td>
                   </tr>
                 ))}
+                <tr>
+                  <td colspan="2" style="padding:.75rem 0 0;font-size:.78rem;color:#4a5c72;font-style:italic;">
+                    Full engagement pricing and booking terms available upon request.
+                  </td>
+                </tr>
               </tbody>
             </table>
+            <div style="margin-top:1.25rem;">
+              <a
+                href="/structural-burnout/briefing"
+                class="kit-cta-btn kit-cta-secondary no-print"
+                style="display:inline-flex;font-size:.8rem;padding:.6rem 1.25rem;"
+              >
+                Request Full Pricing Sheet →
+              </a>
+            </div>
           </div>
 
           <!-- Logistics -->
@@ -389,11 +408,16 @@ import Layout from '../../layouts/Layout.astro';
           <span>linkedin.com/in/nikkicatesmiller</span>
         </div>
         <div class="kit-footer-ctas no-print">
-          <a href="/structural-burnout/briefing" class="kit-cta-btn kit-cta-primary">
-            Request Executive Briefing
-          </a>
-          <a href="https://calendar.app.google/1atA8vsgwQhP7bqX6" target="_blank" rel="noopener" class="kit-cta-btn kit-cta-secondary">
+          <a href="https://calendar.app.google/1atA8vsgwQhP7bqX6"
+             target="_blank" rel="noopener"
+             class="kit-cta-btn kit-cta-primary">
             Schedule a Speaking Call
+          </a>
+          <a href="/uri/#vetting" class="kit-cta-btn kit-cta-secondary">
+            URI Formation Inquiry
+          </a>
+          <a href="/structural-burnout/briefing" class="kit-cta-btn kit-cta-secondary">
+            Executive Briefing
           </a>
         </div>
         <p class="kit-footer-fine">
