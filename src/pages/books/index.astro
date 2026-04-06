@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout
   title="UNMASK Blueprint Series — Books & Manuals"
-  description="Three volumes. One operational diagnostic system. The UNMASK Blueprint Series by Nikki Cates — practitioner-developed diagnostic workbooks built for leaders ready to dismantle structural burnout at the root."
+  description="The UNMASK Blueprint Series by Nikki Cates. Practitioner-developed diagnostic workbooks for organizations and leaders ready to dismantle structural burnout at the root."
   section="st"
   accentColor="teal"
 >
@@ -15,7 +15,6 @@ import Layout from '../../layouts/Layout.astro';
     <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 70% 40%, rgba(13,148,136,0.09) 0%, transparent 65%);"></div>
     <div class="container-mid relative z-10">
-      <img src="/logos/st-logo.svg" alt="Strategic Transformations" width="220" height="44" class="h-9 w-auto mb-6 animate-on-scroll" />
       <span class="st-tag mb-5 inline-flex animate-on-scroll">Publications</span>
       <h1 class="font-heading text-4xl md:text-6xl text-light font-bold mb-5 animate-on-scroll">
         UNMASK Blueprint<br/>
@@ -28,178 +27,132 @@ import Layout from '../../layouts/Layout.astro';
         The UNMASK Blueprint Series is a practitioner-developed diagnostic framework in written form —
         built for leaders, consultants, HR professionals, and organizational architects who are
         done treating the symptoms of structural burnout and ready to examine the design.
-        Three volumes. One system. Deployed individually or at institutional scale.
       </p>
-      <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener" class="btn-teal animate-on-scroll" style="animation-delay:0.2s">
-        Access the Series →
-      </a>
     </div>
   </section>
 
 
-  <!-- ─── THE THREE VOLUMES ─────────────────────────── -->
+  <!-- ─── BOOKS ─────────────────────────────────────── -->
   <section class="section-pad">
     <div class="container-wide">
-      <div class="space-y-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
         <!-- Vol 1 -->
-        <div class="card teal-hover animate-on-scroll">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <!-- Cover placeholder -->
-            <div class="md:col-span-2 flex justify-center md:justify-start">
-              <div class="w-28 h-36 rounded-md flex flex-col items-center justify-center text-center border border-teal-DEFAULT/40 shrink-0"
-                   style="background: linear-gradient(145deg, #0f4c7a 0%, #0d9488 100%);">
-                <p class="font-heading text-white text-sm font-bold leading-tight px-2">UNMASK</p>
-                <p class="font-body text-white/60 text-xs mt-1">Vol. 1</p>
+        <div class="card teal-hover flex flex-col gap-5 animate-on-scroll">
+          <div class="flex items-start gap-5">
+            <!-- Book cover placeholder -->
+            <div class="w-28 h-36 rounded-md shrink-0 flex items-center justify-center text-center border border-teal-DEFAULT/40"
+                 style="background: linear-gradient(135deg, #0f4c7a 0%, #0d9488 100%);">
+              <div class="p-3">
+                <p class="font-heading text-white text-xs font-bold leading-tight">UNMASK</p>
+                <p class="font-body text-white/70 text-xs">Vol. 1</p>
               </div>
             </div>
-            <!-- Content -->
-            <div class="md:col-span-7 flex flex-col gap-4">
-              <div>
-                <span class="st-tag text-xs mb-2 inline-flex">Volume 1 · Foundation</span>
-                <h2 class="font-heading text-2xl text-light font-bold">UNMASK Blueprint</h2>
-                <p class="text-muted text-sm mt-1">by Nikki Cates</p>
-              </div>
-              <p class="text-muted text-sm leading-relaxed">
-                Volume 1 introduces the full UNMASK Framework — its conceptual foundations, six-pillar architecture,
-                and individual diagnostic application. This is the entry point for leaders and practitioners
-                beginning to see burnout through a structural lens rather than a personal one.
-              </p>
-              <div>
-                <p class="font-body text-xs font-bold uppercase tracking-widest text-muted mb-3">This volume is for:</p>
-                <ul class="space-y-1.5">
-                  {[
-                    'Leaders seeking foundational understanding of structural burnout diagnosis',
-                    'Consultants building a structural diagnostic practice from the ground up',
-                    'HR professionals looking for a framework that goes beyond engagement surveys',
-                    'Executive coaches and organizational development practitioners',
-                    'Anyone who suspects the structure — not the people — is the real problem',
-                  ].map((item) => (
-                    <li class="flex items-start gap-2 text-sm text-muted">
-                      <span class="text-teal-DEFAULT shrink-0">→</span>{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <!-- CTA column -->
-            <div class="md:col-span-3 flex flex-col gap-3 md:items-end justify-start">
-              <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener" class="btn-teal w-full md:w-auto justify-center !text-sm">
-                Get Vol. 1 →
-              </a>
-              <a href="/structural-burnout/briefing" class="btn-outline-teal w-full md:w-auto justify-center !text-sm">
-                Bulk / Institutional Inquiry
-              </a>
+            <div class="flex-1">
+              <span class="st-tag text-xs mb-2 inline-flex">Vol. 1</span>
+              <h2 class="font-heading text-xl text-light font-bold mb-2">
+                UNMASK Blueprint
+              </h2>
+              <p class="text-muted text-sm">by Nikki Cates</p>
             </div>
           </div>
-        </div>
 
+          <p class="text-muted text-sm leading-relaxed">
+            Volume 1 introduces the UNMASK Framework in its full conceptual and practical scope.
+            It is the entry point into structural burnout diagnosis — walking leaders through each
+            pillar of the framework with reflective exercises, diagnostic questions, and organizational
+            application guidance.
+          </p>
+
+          <div>
+            <p class="font-body text-xs font-700 uppercase tracking-widest text-muted mb-3">This volume is for:</p>
+            <ul class="space-y-2">
+              {[
+                'Leaders seeking to understand structural burnout at a foundational level',
+                'Consultants building a structural diagnostic practice',
+                'HR professionals looking for a framework beyond engagement surveys',
+                'Executive coaches and organizational development practitioners',
+              ].map((item) => (
+                <li class="flex items-start gap-2 text-sm text-muted">
+                  <span class="text-teal-DEFAULT shrink-0">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mt-auto">
+            <a
+              href="https://strategicunmasking.com/unmask-vol-1"
+              target="_blank"
+              rel="noopener"
+              class="btn-teal !text-sm"
+            >
+              Get Vol. 1 →
+            </a>
+            <a href="/structural-burnout/briefing" class="btn-outline-teal !text-sm">
+              Ask About Bulk / Institutional
+            </a>
+          </div>
+        </div>
 
         <!-- Vol 2 -->
-        <div class="card teal-hover animate-on-scroll" style="animation-delay:0.08s">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div class="md:col-span-2 flex justify-center md:justify-start">
-              <div class="w-28 h-36 rounded-md flex flex-col items-center justify-center text-center border border-teal-DEFAULT/40 shrink-0"
-                   style="background: linear-gradient(145deg, #0a2d4a 0%, #0f4c7a 50%, #0d9488 100%);">
-                <p class="font-heading text-white text-sm font-bold leading-tight px-2">UNMASK</p>
-                <p class="font-body text-white/60 text-xs mt-1">Vol. 2</p>
-                <p class="font-body text-teal-light text-xs mt-0.5">Institutional</p>
+        <div class="card teal-hover flex flex-col gap-5 animate-on-scroll" style="animation-delay:0.1s">
+          <div class="flex items-start gap-5">
+            <div class="w-28 h-36 rounded-md shrink-0 flex items-center justify-center text-center border border-teal-DEFAULT/40"
+                 style="background: linear-gradient(135deg, #0a3356 0%, #0f4c7a 50%, #0d9488 100%);">
+              <div class="p-3">
+                <p class="font-heading text-white text-xs font-bold leading-tight">UNMASK</p>
+                <p class="font-body text-white/70 text-xs">Vol. 2</p>
+                <p class="font-body text-teal-light text-xs mt-1">Institutional</p>
               </div>
             </div>
-            <div class="md:col-span-7 flex flex-col gap-4">
-              <div>
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="st-tag text-xs inline-flex">Volume 2 · Institutional Manual</span>
-                  <span class="bg-teal-DEFAULT/20 text-teal-DEFAULT text-xs font-bold px-2 py-0.5 rounded border border-teal-DEFAULT/30">Most Requested</span>
-                </div>
-                <h2 class="font-heading text-2xl text-light font-bold">UNMASK Blueprint Master Manual</h2>
-                <p class="text-muted text-sm mt-1">by Nikki Cates</p>
-              </div>
-              <p class="text-muted text-sm leading-relaxed">
-                Volume 2 is the institutional-grade deployment manual. Built for organizations, licensed practitioners,
-                and leadership teams implementing the UNMASK Framework at scale. It contains the full diagnostic engine,
-                facilitation protocols, scoring matrices, and recalibration planning infrastructure for team and organizational use.
-              </p>
-              <div>
-                <p class="font-body text-xs font-bold uppercase tracking-widest text-muted mb-3">Includes:</p>
-                <ul class="space-y-1.5">
-                  {[
-                    'Full 6-pillar diagnostic across LMI, RAA, and ITC indices',
-                    'Team facilitation protocols for group implementation sessions',
-                    'ROI framework for organizational investment justification',
-                    'Recalibration planning templates and 90-day accountability structures',
-                    'Practitioner licensing terms for authorized institutional deployment',
-                  ].map((item) => (
-                    <li class="flex items-start gap-2 text-sm text-muted">
-                      <span class="text-teal-DEFAULT shrink-0">→</span>{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div class="md:col-span-3 flex flex-col gap-3 md:items-end justify-start">
-              <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener" class="btn-teal w-full md:w-auto justify-center !text-sm">
-                Get Vol. 2 →
-              </a>
-              <a href="/structural-burnout/briefing" class="btn-outline-teal w-full md:w-auto justify-center !text-sm">
-                Institutional License Inquiry
-              </a>
+            <div class="flex-1">
+              <span class="st-tag text-xs mb-2 inline-flex">Vol. 2 · Institutional Manual</span>
+              <h2 class="font-heading text-xl text-light font-bold mb-2">
+                UNMASK Blueprint Master Manual
+              </h2>
+              <p class="text-muted text-sm">by Nikki Cates</p>
             </div>
           </div>
-        </div>
 
+          <p class="text-muted text-sm leading-relaxed">
+            Volume 2 is the institutional-grade deployment manual. Built for organizations, licensed
+            practitioners, and leadership teams implementing the UNMASK Framework at scale.
+            It includes the full diagnostic engine across all six pillars, scoring matrices,
+            team facilitation guides, and recalibration planning templates.
+          </p>
 
-        <!-- Vol 3 -->
-        <div class="card teal-hover animate-on-scroll" style="animation-delay:0.16s">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div class="md:col-span-2 flex justify-center md:justify-start">
-              <div class="w-28 h-36 rounded-md flex flex-col items-center justify-center text-center border border-teal-DEFAULT/40 shrink-0"
-                   style="background: linear-gradient(145deg, #0a2040 0%, #0a3a5c 40%, #1d6aa6 80%, #0d9488 100%);">
-                <p class="font-heading text-white text-sm font-bold leading-tight px-2">UNMASK</p>
-                <p class="font-body text-white/60 text-xs mt-1">Vol. 3</p>
-                <p class="font-body text-teal-light text-xs mt-0.5">Advanced</p>
-              </div>
-            </div>
-            <div class="md:col-span-7 flex flex-col gap-4">
-              <div>
-                <span class="st-tag text-xs mb-2 inline-flex">Volume 3 · Advanced Recalibration</span>
-                <h2 class="font-heading text-2xl text-light font-bold">UNMASK Blueprint: Advanced Recalibration</h2>
-                <p class="text-muted text-sm mt-1">by Nikki Cates</p>
-              </div>
-              <p class="text-muted text-sm leading-relaxed">
-                Volume 3 moves beyond diagnosis into the architecture of sustained organizational transformation.
-                Built for leaders and practitioners who have completed the foundational UNMASK work and are ready
-                to embed structural health into the long-term operating rhythm of their organization — not as a
-                project, but as a permanent shift in how the structure functions.
-              </p>
-              <div>
-                <p class="font-body text-xs font-bold uppercase tracking-widest text-muted mb-3">This volume covers:</p>
-                <ul class="space-y-1.5">
-                  {[
-                    'Advanced structural health monitoring frameworks',
-                    'Embedding recalibration into operational cadences and leadership rhythms',
-                    'Long-cycle accountability architecture that outlasts leadership transitions',
-                    'Cross-departmental alignment strategies for sustained structural health',
-                    'Practitioner-level tools for ongoing UNMASK deployment and cohort facilitation',
-                  ].map((item) => (
-                    <li class="flex items-start gap-2 text-sm text-muted">
-                      <span class="text-teal-DEFAULT shrink-0">→</span>{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p class="text-xs text-muted italic">
-                Note: Update this description to match the actual Vol. 3 content before launch.
-              </p>
-            </div>
-            <div class="md:col-span-3 flex flex-col gap-3 md:items-end justify-start">
-              <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener" class="btn-teal w-full md:w-auto justify-center !text-sm">
-                Get Vol. 3 →
-              </a>
-              <a href="/structural-burnout/briefing" class="btn-outline-teal w-full md:w-auto justify-center !text-sm">
-                Bulk / Institutional Inquiry
-              </a>
-            </div>
+          <div>
+            <p class="font-body text-xs font-700 uppercase tracking-widest text-muted mb-3">Includes:</p>
+            <ul class="space-y-2">
+              {[
+                'Full 6-pillar diagnostic across LMI, RAA, and ITC indices',
+                'Team facilitation protocols for group implementation',
+                'ROI framework for organizational investment justification',
+                'Recalibration planning templates',
+                'Licensing terms for practitioner and institutional use',
+              ].map((item) => (
+                <li class="flex items-start gap-2 text-sm text-muted">
+                  <span class="text-teal-DEFAULT shrink-0">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mt-auto">
+            <a
+              href="https://strategicunmasking.com/unmask-vol-2"
+              target="_blank"
+              rel="noopener"
+              class="btn-teal !text-sm"
+            >
+              Get Vol. 2 →
+            </a>
+            <a href="/structural-burnout/briefing" class="btn-outline-teal !text-sm">
+              Institutional License Inquiry
+            </a>
           </div>
         </div>
 
@@ -208,17 +161,28 @@ import Layout from '../../layouts/Layout.astro';
   </section>
 
 
-  <!-- ─── GET ALL THREE ─────────────────────────────── -->
-  <section class="py-10 bg-[#0c1525] border-y border-border">
-    <div class="container-mid text-center animate-on-scroll">
-      <p class="font-heading text-xl text-light mb-2">Get the complete series.</p>
-      <p class="text-muted text-sm mb-6 max-w-lg mx-auto">
-        All three volumes are available through the UNMASK checkout. Individual, team,
-        and institutional licensing options available.
-      </p>
-      <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener" class="btn-teal !text-base !py-3.5 !px-8">
-        Access the UNMASK Checkout →
-      </a>
+  <!-- ─── INTERACTIVE WEB APP ────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-mid">
+      <div class="card border-teal-DEFAULT/30 bg-teal-glow p-10 text-center animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Digital Tool</span>
+        <h2 class="font-heading text-2xl md:text-3xl text-light mb-4">
+          UNMASK Vol. 2 Interactive Web Application
+        </h2>
+        <p class="text-muted max-w-xl mx-auto mb-6 text-sm leading-relaxed">
+          The UNMASK Manual is also available as a fully interactive web application — featuring
+          a live diagnostic router, ROI Engine with adjustable sliders, and six-pillar visualization
+          dashboard. Built for teams and institutions implementing the framework digitally.
+        </p>
+        <a
+          href="https://nikkicates.github.io/unmask-manual/"
+          target="_blank"
+          rel="noopener"
+          class="btn-teal"
+        >
+          Access the Web Application →
+        </a>
+      </div>
     </div>
   </section>
 
@@ -228,47 +192,34 @@ import Layout from '../../layouts/Layout.astro';
     <div class="container-wide">
       <div class="text-center mb-12 animate-on-scroll">
         <span class="st-tag mb-4 inline-flex">Licensing</span>
-        <h2 class="font-heading text-3xl text-light">Deploy UNMASK in Your Organization</h2>
-        <p class="text-muted text-sm mt-3 max-w-md mx-auto">
-          The UNMASK Framework is licensable for individual practitioners and institutional deployment.
-          All licensing inquiries begin with the Executive Briefing process.
-        </p>
+        <h2 class="font-heading text-3xl text-light">Use UNMASK in Your Organization</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         {[
           {
             icon: '👤',
             name: 'Individual License',
-            desc: 'Personal use for leaders, coaches, and individual practitioners. Single-user access to all three volumes with usage rights for individual client engagements.',
+            desc: 'Personal use for leaders, coaches, and individual practitioners. Single-user access to both volumes.',
             cta: 'Purchase Individual',
-            href: 'https://unmask.nikkicates.com/manual-checkout',
-            external: true,
           },
           {
             icon: '👥',
             name: 'Team License',
-            desc: 'For organizational teams of up to 25 people. Includes facilitation guides, team-implementation protocols, and group diagnostic deployment support.',
+            desc: 'For organizational teams (up to 25 people). Includes facilitation guides and team-implementation protocols.',
             cta: 'Inquire About Team',
-            href: '/structural-burnout/briefing',
           },
           {
             icon: '🏢',
             name: 'Institutional License',
-            desc: 'Enterprise-wide or multi-team deployment. Practitioner certification pathway included. Custom scope developed after Executive Briefing. Minimum investment applies.',
+            desc: 'Enterprise-wide or multi-team deployment. Practitioner certification pathway included. Custom scope.',
             cta: 'Request Institutional Briefing',
-            href: '/structural-burnout/briefing',
           },
         ].map((lic) => (
           <div class="card teal-hover text-center flex flex-col gap-4 animate-on-scroll">
             <span class="text-3xl mx-auto">{lic.icon}</span>
             <p class="font-heading text-light font-semibold">{lic.name}</p>
-            <p class="text-muted text-sm flex-1 leading-relaxed">{lic.desc}</p>
-            <a
-              href={lic.href}
-              target={lic.external ? '_blank' : undefined}
-              rel={lic.external ? 'noopener' : undefined}
-              class="btn-outline-teal !text-sm justify-center"
-            >
+            <p class="text-muted text-sm flex-1">{lic.desc}</p>
+            <a href="/structural-burnout/briefing" class="btn-outline-teal !text-sm justify-center">
               {lic.cta}
             </a>
           </div>
