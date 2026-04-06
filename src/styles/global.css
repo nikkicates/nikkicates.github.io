@@ -1,10 +1,10 @@
-<<<<<<< HEAD
 @import "tailwindcss";
 
 :root {
   --st-navy: #064680;
   --st-teal: #58bbc2;
   --uri-plum: #31245a;
+  --uri-purple: #ac6dbf;
 }
 
 body {
@@ -12,9 +12,11 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: Georgia, 'Times New Roman', serif; /* close to Lora */
+  font-family: Georgia, 'Times New Roman', serif;
   font-weight: 700;
+  letter-spacing: -0.025em;
 }
-=======
-@import "tailwindcss";
->>>>>>> c9801eff206cd1ff88e6cf644b01ec511485e1f4
+
+.text-brand-navy { color: var(--st-navy); }
+.text-brand-teal { color: var(--st-teal); }
+.text-brand-plum { color: var(--uri-plum); }

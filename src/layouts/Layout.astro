@@ -1,53 +1,42 @@
 ---
 import '../styles/global.css';
-<<<<<<< HEAD
-import Nav from '../components/Nav.astro';
-=======
->>>>>>> c9801eff206cd1ff88e6cf644b01ec511485e1f4
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
-<<<<<<< HEAD
-    <head>
-=======
   <head>
->>>>>>> c9801eff206cd1ff88e6cf644b01ec511485e1f4
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nikki Cates | Strategic Transformations</title>
     <meta name="description" content="Structural Burnout Strategist & Leadership Architecture" />
-<<<<<<< HEAD
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <!-- If your favicon is .ico instead, use this line instead: -->
-    <!-- <link rel="icon" href="/favicon.ico" /> -->
   </head>
   <body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans antialiased">
-    <Nav />
-=======
-  </head>
-  <body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans antialiased">
-    <!-- Sticky Navigation -->
-    <nav class="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+    <!-- Sticky Navigation with Logos -->
+    <nav class="sticky top-0 z-50 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
       <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="/" class="text-2xl font-bold tracking-tighter">Nikki Cates</a>
-        
+        <!-- Logo Area -->
+        <a href="/" class="flex items-center gap-4">
+          <img src="/assets/st-logo.png" alt="Strategic Transformations" class="h-10 w-auto" onerror="this.style.display='none'">
+          <img src="/assets/uri-logo.png" alt="Unbothered Resistance International" class="h-8 w-auto" onerror="this.style.display='none'">
+          <span class="text-2xl font-bold tracking-tighter">Nikki Cates</span>
+        </a>
+
         <div class="hidden md:flex items-center gap-8 text-sm font-medium">
           <a href="/structural-burnout" class="hover:text-teal-400 transition">Structural Burnout</a>
-          <a href="/structural-burnout/nexus" class="hover:text-teal-400 transition">Nexus Card</a>
           <a href="/structural-burnout/services" class="hover:text-teal-400 transition">Services</a>
+          <a href="/structural-burnout/nexus" class="hover:text-teal-400 transition">Nexus</a>
         </div>
 
-        <a href="/structural-burnout/nexus" 
-           class="text-xs px-5 py-2.5 border border-zinc-700 hover:border-teal-400 rounded-full transition">
-          Open Networking Card
+        <a href="/structural-burnout/briefing" 
+           class="px-6 py-2.5 text-sm border border-teal-400 hover:bg-teal-400 hover:text-zinc-950 rounded-full transition">
+          Start Diagnostic
         </a>
       </div>
     </nav>
 
->>>>>>> c9801eff206cd1ff88e6cf644b01ec511485e1f4
     <slot />
   </body>
 </html>
