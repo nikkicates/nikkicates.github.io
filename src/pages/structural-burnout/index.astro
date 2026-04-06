@@ -106,23 +106,49 @@ import Layout from '../../layouts/Layout.astro';
           </a>
         </div>
 
-        <div class="space-y-3 animate-on-scroll" style="animation-delay:0.15s">
+        <div class="space-y-4 animate-on-scroll" style="animation-delay:0.15s">
+
+          <!-- The three diagnostic levels -->
           {[
-            { letter: 'U', title: 'Uncover', desc: 'Surface the hidden strain patterns invisible to those inside the structure.' },
-            { letter: 'N', title: 'Name', desc: 'Name the architectural conditions — not the people — creating systemic exhaustion.' },
-            { letter: 'M', title: 'Map', desc: 'Map impact zones across teams, leadership layers, and systems.' },
-            { letter: 'A', title: 'Align', desc: 'Align structural redesign with organizational mission and human sustainability.' },
-            { letter: 'S', title: 'Sustain', desc: 'Build recalibration into the ongoing operating rhythm of the organization.' },
-            { letter: 'K', title: 'Keep Watch', desc: 'Maintain vigilance through accountability structures that outlast the engagement.' },
+            {
+              level: 'Individual Level',
+              vol: 'Vol. 1',
+              tool: 'Leadership Masking Index (LMI)',
+              desc: 'Surfaces internalized performance pressures and identity fragmentation — the hidden cost of leading while masking.',
+              sub: 'From performative survival to liberated softness.',
+            },
+            {
+              level: 'Institutional Level',
+              vol: 'Vol. 2',
+              tool: 'RAA Index + AI Acceleration Burnout Index',
+              desc: 'Diagnoses Responsibility-Authority Asymmetry and the Three Leaks — structural energy drains embedded in organizational hierarchies.',
+              sub: 'Diagnosing systemic failures, not individual ones.',
+            },
+            {
+              level: 'Collective Level',
+              vol: 'Vol. 3',
+              tool: 'Canary Signal + Load Path Analysis',
+              desc: 'Maps early-warning collapse signals and identifies how systemic weight is being distributed across communities and teams.',
+              sub: 'Structural sovereignty for the collective.',
+            },
           ].map((item) => (
-            <div class="flex items-start gap-4 p-4 rounded-md border border-border hover:border-teal-DEFAULT/40 transition-colors bg-surface/50">
-              <span class="font-heading text-2xl font-bold text-teal-DEFAULT shrink-0 w-8">{item.letter}</span>
-              <div>
-                <p class="font-heading text-light font-semibold text-sm mb-1">{item.title}</p>
-                <p class="text-muted text-sm">{item.desc}</p>
+            <div class="p-5 rounded-md border border-border hover:border-teal-DEFAULT/40 transition-colors bg-surface/50">
+              <div class="flex items-center justify-between mb-2 gap-3">
+                <span class="font-body text-xs font-bold uppercase tracking-widest text-teal-DEFAULT">{item.level}</span>
+                <span class="text-xs text-muted border border-border rounded px-2 py-0.5 shrink-0">{item.vol}</span>
               </div>
+              <p class="font-heading text-light font-semibold text-sm mb-1">{item.tool}</p>
+              <p class="text-muted text-sm mb-2">{item.desc}</p>
+              <p class="text-teal-DEFAULT text-xs italic">{item.sub}</p>
             </div>
           ))}
+
+          <!-- SSS entry point -->
+          <div class="p-4 rounded-md border border-teal-DEFAULT/30 bg-teal-DEFAULT/5">
+            <p class="font-body text-xs font-bold uppercase tracking-widest text-teal-DEFAULT mb-1">Entry Diagnostic</p>
+            <p class="text-light text-sm font-semibold">Structural Strain Score (SSS)</p>
+            <p class="text-muted text-xs mt-1">A 9-question structural assessment that begins every UNMASK engagement — individual, institutional, or collective.</p>
+          </div>
         </div>
       </div>
     </div>
