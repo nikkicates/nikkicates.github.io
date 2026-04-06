@@ -21,69 +21,106 @@ import Layout from '../../layouts/Layout.astro';
         <span class="text-teal-DEFAULT">Market Has No</span><br/>
         Structural Answer.
       </h1>
-      <p class="text-muted text-lg max-w-2xl mb-3 animate-on-scroll" style="animation-delay:0.1s">
-        Until now.
-      </p>
+      <p class="text-muted text-xl mb-3 animate-on-scroll" style="animation-delay:0.1s">Until now.</p>
       <p class="text-muted text-base max-w-2xl mb-10 animate-on-scroll" style="animation-delay:0.15s">
         Strategic Transformations is a structural burnout consultancy with a proprietary diagnostic framework,
-        a growing product ecosystem, and a founder whose lived authority in this space cannot be replicated.
-        We are building toward scale — and seeking aligned capital to get there faster.
+        a growing multi-channel product ecosystem, a published author platform, and a founder whose
+        lived authority cannot be manufactured or replicated. We are building toward scale —
+        and seeking aligned capital partners to accelerate the work.
       </p>
       <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
         <a href="/structural-burnout/briefing" class="btn-teal">Request Investor Briefing →</a>
         <a href="/structural-burnout/services" class="btn-outline-teal">View Service Architecture</a>
       </div>
       <p class="text-xs text-muted mt-6 animate-on-scroll italic">
-        Note: Market figures cited herein are sourced from publicly available industry research.
-        Projections are forward-looking and based on strategic modeling, not guaranteed outcomes.
-        Full deck available upon request after vetting.
+        Market figures are sourced from publicly available industry research. Projections are
+        forward-looking strategic modeling, not guarantees. Full investor deck available upon request after briefing.
       </p>
     </div>
   </section>
 
 
-  <!-- ─── THE PROBLEM ───────────────────────────────── -->
-  <section class="section-pad bg-[#0c1525]">
+  <!-- ─── KEY METRICS STRIP ─────────────────────────── -->
+  <section class="bg-surface border-y border-border py-8">
     <div class="container-wide">
-      <div class="text-center mb-12 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">Market Opportunity</span>
-        <h2 class="font-heading text-3xl md:text-4xl text-light">The Market Misdiagnoses Everything</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         {[
-          {
-            label: 'The Wellness Industry',
-            problem: 'Treats burnout as a personal wellness problem — mindfulness apps, sabbaticals, resilience training.',
-            failure: 'None of it changes the structure producing the exhaustion.',
-          },
-          {
-            label: 'Traditional HR Consulting',
-            problem: 'Focuses on engagement scores, pulse surveys, and policy adjustments.',
-            failure: 'Measures the symptom. Never diagnoses the architecture.',
-          },
-          {
-            label: 'DEI/Culture Programs',
-            problem: 'Valuable but typically siloed — addresses belonging without addressing structural strain.',
-            failure: 'People feel seen but still burned out.',
-          },
-        ].map((item) => (
-          <div class="card border-red-500/20 bg-red-900/5 animate-on-scroll">
-            <p class="font-heading text-light font-semibold mb-3">{item.label}</p>
-            <p class="text-muted text-sm mb-3">{item.problem}</p>
-            <p class="text-red-400 text-xs border-t border-red-500/20 pt-3 mt-3">
-              ✗ {item.failure}
-            </p>
+          { num: '$88B+',  label: 'Global Burnout Economic Cost', source: 'Gallup / WHO estimates' },
+          { num: '77%',    label: 'Workers Reporting Burnout',    source: 'Gallup State of Global Workplace' },
+          { num: '2–3×',  label: 'Salary Cost to Replace Burned-Out Employee', source: 'SHRM / industry research' },
+          { num: '$1.1T', label: 'US Productivity Loss from Disengagement', source: 'Gallup 2024 estimate' },
+        ].map((m) => (
+          <div>
+            <p class="font-heading text-3xl text-teal-DEFAULT font-bold">{m.num}</p>
+            <p class="text-light text-xs font-semibold mt-2 leading-snug">{m.label}</p>
+            <p class="text-muted text-xs mt-1 italic">{m.source}</p>
           </div>
         ))}
       </div>
-      <div class="mt-8 text-center">
-        <div class="inline-block card border-teal-DEFAULT/40 bg-teal-glow p-6 animate-on-scroll">
-          <p class="font-heading text-teal-DEFAULT text-xl font-semibold mb-2">
+    </div>
+  </section>
+
+
+  <!-- ─── THE MARKET PROBLEM ───────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Market Problem</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          A multi-billion dollar problem.<br/>
+          <span class="text-teal-DEFAULT">Zero structural solutions.</span>
+        </h2>
+        <p class="text-muted text-sm mt-4 max-w-xl mx-auto">
+          The burnout market has generated massive investment — and virtually none of it
+          addresses the actual source of the problem.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+        {[
+          {
+            label: 'The Wellness Industry',
+            size: '$61B+ market',
+            problem: 'Treats burnout as an individual wellness failure. Mindfulness apps, EAPs, resilience trainings. All downstream.',
+            failure: 'None of it changes the structure producing the exhaustion. Market keeps growing because the interventions don\'t work.',
+          },
+          {
+            label: 'Traditional HR Consulting',
+            size: '$37B+ market',
+            problem: 'Engagement surveys, pulse checks, policy recommendations. Measures symptoms without structural diagnosis.',
+            failure: 'Output is a report. Not recalibration. Organizations pay for data they already have without a path to change.',
+          },
+          {
+            label: 'DEI & Culture Programs',
+            size: '$9.3B market',
+            problem: 'Valuable but typically siloed. Addresses belonging without diagnosing the structural strain marginalizing people.',
+            failure: 'People feel seen. Still burned out. The architecture of harm remains intact.',
+          },
+        ].map((item) => (
+          <div class="card border-red-500/15 animate-on-scroll">
+            <div class="flex items-start justify-between mb-3 gap-3">
+              <p class="font-heading text-light font-semibold">{item.label}</p>
+              <span class="text-xs text-muted border border-border rounded px-2 py-0.5 shrink-0">{item.size}</span>
+            </div>
+            <p class="text-muted text-sm mb-4 leading-relaxed">{item.problem}</p>
+            <div class="border-t border-red-500/15 pt-3">
+              <p class="text-red-400/80 text-xs flex items-start gap-1.5">
+                <span class="shrink-0">✗</span>{item.failure}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="max-w-2xl mx-auto text-center animate-on-scroll">
+        <div class="card border-teal-DEFAULT/40 bg-teal-glow p-8">
+          <p class="font-heading text-teal-DEFAULT text-xl font-semibold mb-3">
             Strategic Transformations fixes the design.
           </p>
-          <p class="text-muted text-sm max-w-lg">
+          <p class="text-muted text-sm leading-relaxed">
             The only practitioner-developed framework that treats burnout as what it is — a structural failure —
-            and provides a diagnostic and recalibration pathway to address it at the root.
+            and delivers a diagnostic and recalibration pathway that addresses it at the root. Not downstream.
+            Not symptomatic. Structural.
           </p>
         </div>
       </div>
@@ -91,69 +128,177 @@ import Layout from '../../layouts/Layout.astro';
   </section>
 
 
-  <!-- ─── THE SOLUTION ──────────────────────────────── -->
+  <!-- ─── THE SOLUTION & PRODUCT ECOSYSTEM ─────────── -->
   <section class="section-pad">
     <div class="container-wide">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">The Solution</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          A proprietary framework with<br/>multi-channel revenue architecture.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+        <!-- Left: Framework -->
         <div class="animate-on-scroll">
-          <span class="st-tag mb-5 inline-flex">The Solution</span>
-          <h2 class="font-heading text-3xl md:text-4xl text-light mb-6">
-            A Proprietary Framework<br/>With Multi-Channel Scale
-          </h2>
-          <p class="text-muted leading-relaxed mb-4">
-            The UNMASK Framework is not a product — it is a system. A diagnostic operating system for
-            organizational structure that can be deployed through services, licensed products, institutional
-            training, and AI-enhanced tools.
+          <h3 class="font-heading text-xl text-teal-DEFAULT font-semibold mb-4">The UNMASK Framework</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">
+            The UNMASK Framework is a diagnostic and recalibration methodology that identifies hidden strains —
+            the "masks" individuals, institutions, and communities wear under systemic pressure — and rebuilds
+            authentic leadership capacity. Developed through direct organizational consulting and grounded in
+            Womanist theology, it operates across three levels.
           </p>
-          <p class="text-muted leading-relaxed mb-6">
-            The founder's practitioner authority, lived credibility, and womanist-grounded intellectual
-            framework create a competitive moat that institutional wellness vendors and traditional HR
-            consultants cannot replicate.
-          </p>
-        </div>
-        <div class="space-y-4 animate-on-scroll" style="animation-delay:0.15s">
-          {[
-            { channel: 'High-Ticket Services', desc: 'Diagnostic Architecture, Recalibration, Retainer, AI Audit — starting at $22,000' },
-            { channel: 'Speaking & Keynotes', desc: '5 signature talks, conference circuit, starting at $12,500' },
-            { channel: 'UNMASK Blueprint Series', desc: 'Institutional license + individual sales, Vol. 1 & 2' },
-            { channel: 'Digital Tools', desc: 'UNMASK Vol. 2 Interactive Web App — scalable SaaS layer in development' },
-            { channel: 'URI Formation', desc: 'Justice-centered leadership formation — adjacent revenue stream with mission alignment' },
-            { channel: 'Enterprise Licensing', desc: 'UNMASK Framework licensable for organizational-wide deployment at scale' },
-          ].map((item) => (
-            <div class="flex items-start gap-4 p-4 bg-surface border border-border rounded-md hover:border-teal-DEFAULT/40 transition-colors">
-              <span class="text-teal-DEFAULT shrink-0 mt-0.5">→</span>
-              <div>
-                <p class="font-heading text-light font-semibold text-sm">{item.channel}</p>
-                <p class="text-muted text-xs mt-1">{item.desc}</p>
+
+          <div class="space-y-2 mb-5">
+            {[
+            { letter: 'U', name: 'Uncover', desc: 'Surface the hidden strains — the masks — that individuals, teams, and institutions have normalized into invisibility.' },
+            { letter: 'N', name: 'Navigate', desc: 'Chart the structural landscape and map the conditions driving exhaustion, attrition, and silenced capacity.' },
+            { letter: 'M', name: 'Manage', desc: 'Develop recalibration strategies and implement structural redesign with clear accountability structures.' },
+            { letter: 'A', name: 'Advocate', desc: 'Champion the structural and systemic changes required for human flourishing — individual, organizational, and collective.' },
+            { letter: 'S', name: 'Sustain', desc: 'Embed recalibration into the ongoing operational rhythm so transformation outlasts the engagement.' },
+            { letter: 'K', name: 'Kindle', desc: 'Ignite collective capacity — relighting the fire in leaders, teams, and communities ready to lead without running on empty.' },
+            ].map((p) => (
+              <div class="flex items-start gap-3 py-2.5 border-b border-border/60">
+                <span class="font-heading text-teal-DEFAULT text-base font-bold w-5 shrink-0">{p.letter}</span>
+                <span class="text-light text-sm font-semibold w-24 shrink-0">{p.name}</span>
+                <span class="text-muted text-xs leading-relaxed">{p.desc}</span>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <!-- Entry SSS -->
+          <div class="p-3 rounded-md border border-teal-DEFAULT/30 bg-teal-DEFAULT/5 mb-5">
+            <p class="text-teal-DEFAULT text-xs font-bold uppercase tracking-widest mb-0.5">Entry Diagnostic</p>
+            <p class="text-light text-xs font-semibold">Structural Strain Score (SSS)</p>
+            <p class="text-muted text-xs mt-0.5">9-question assessment that begins every engagement. Free tier of the UNMASK Recalibrate app.</p>
+          </div>
+
+          <div class="bg-surface border border-teal-DEFAULT/25 rounded-md p-4">
+            <p class="text-xs font-bold uppercase tracking-widest text-muted mb-2">Competitive Moat</p>
+            <p class="text-muted text-sm leading-relaxed">
+              Practitioner authority, Army veteran discipline, womanist theological grounding, and
+              graduate academic credibility create a combination no wellness vendor or HR consultancy
+              can replicate. The methodology is proprietary. The credibility is non-transferable.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Revenue channels -->
+        <div class="animate-on-scroll" style="animation-delay:0.1s">
+          <h3 class="font-heading text-xl text-teal-DEFAULT font-semibold mb-4">Revenue Architecture</h3>
+          <div class="space-y-3">
+            {[
+              {
+                channel: 'High-Ticket Consulting Services',
+                range: '$22,000 – $45,000+',
+                desc: 'UNMASK Diagnostic, Recalibration Engagement, AI Audit, Retainer. High-margin, high-touch.',
+                status: 'Active',
+              },
+              {
+                channel: 'Speaking & Keynotes',
+                range: '$12,500 – $15,000+',
+                desc: '5 signature talks. Conference circuit, corporate events, academic institutions. Recurring revenue pipeline.',
+                status: 'Active',
+              },
+              {
+                channel: 'UNMASK Blueprint Series',
+                range: 'Individual + Institutional Licensing',
+                desc: 'Three published volumes. Digital and physical. Institutional licensing at scale. Growing product revenue stream.',
+                status: 'Active',
+              },
+              {
+                channel: 'URI Formation',
+                range: '$5,000 – $15,000+',
+                desc: 'Justice-centered leadership formation. Faith-based, nonprofit, and academic markets. Mission-aligned revenue.',
+                status: 'Active',
+              },
+              {
+                channel: 'UNMASK Recalibrate App',
+                range: 'Subscription TBD',
+                desc: 'Freemium web/mobile app launching 2026. Free SSS tier drives adoption → Premium ($9–$29/mo) unlocks LMI, RAA Calculator, AI Burnout Index. Target: 25K free users Year 1, 3–5% paid conversion.',
+                status: 'In Development',
+              },
+              {
+                channel: 'Enterprise Framework Licensing',
+                range: 'Scope-Based',
+                desc: 'UNMASK licensed for organizational-wide deployment, practitioner certification programs, and white-label consulting infrastructure.',
+                status: 'Pipeline',
+              },
+            ].map((item) => (
+              <div class="flex items-start gap-4 p-4 bg-surface border border-border rounded-md hover:border-teal-DEFAULT/40 transition-colors">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 flex-wrap mb-1">
+                    <p class="font-heading text-light font-semibold text-sm">{item.channel}</p>
+                    <span class={`text-xs px-2 py-0.5 rounded border font-body font-bold uppercase tracking-wide ${
+                      item.status === 'Active' ? 'text-teal-DEFAULT border-teal-DEFAULT/40 bg-teal-DEFAULT/10' :
+                      item.status === 'In Development' ? 'text-gold border-gold/40 bg-gold/10' :
+                      'text-muted border-border'
+                    }`}>{item.status}</span>
+                  </div>
+                  <p class="text-teal-DEFAULT text-xs font-semibold mb-1">{item.range}</p>
+                  <p class="text-muted text-xs leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ─── FOUNDER AUTHORITY ─────────────────────────── -->
+  <!-- ─── FOUNDER PROFILE ───────────────────────────── -->
   <section class="section-pad bg-[#0c1525]">
-    <div class="container-mid">
+    <div class="container-wide">
       <div class="text-center mb-12 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">Founder Profile</span>
-        <h2 class="font-heading text-3xl text-light">Authority That Cannot Be Manufactured</h2>
+        <span class="st-tag mb-4 inline-flex">Founder</span>
+        <h2 class="font-heading text-3xl text-light">
+          Authority that cannot be manufactured.
+        </h2>
+        <p class="text-muted text-sm mt-3 max-w-lg mx-auto">
+          The founder is not a consultant who found a niche. She is a practitioner
+          who built a diagnostic system from the inside of the problem.
+        </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {[
-          { icon: '🎖️', label: 'Army Veteran', desc: 'Leadership under genuine pressure — not theoretical. Military discipline applied to organizational architecture.' },
-          { icon: '✍🏾', label: 'Practitioner-Scholar', desc: 'Graduate work in Religions, Ethics & Public Intellectuals. Womanist theology as intellectual foundation. Academic rigor meeting field experience.' },
-          { icon: '🏗️', label: 'Framework Creator', desc: 'UNMASK developed from direct organizational consulting, not academic theory. Tested in real structures with real stakes.' },
-          { icon: '🌍', label: 'Cross-Sector Experience', desc: 'Nonprofit, faith-based, corporate, and public sector organizations. The structural problems transcend industry.' },
-          { icon: '📖', label: 'Published Author', desc: 'UNMASK Blueprint Series positions ST as a thought leadership brand, not just a service provider.' },
-          { icon: '🌐', label: 'Liberation Grounded', desc: 'Womanist ethics and liberation philosophy are not decorative — they are the epistemological foundation of the diagnostic work.' },
+          {
+            icon: '🎖️',
+            label: 'Army Veteran',
+            desc: 'Military discipline, crisis leadership, and organizational systems thinking applied to a civilian burnout epidemic. Leadership under real pressure — not theoretical.',
+          },
+          {
+            icon: '✍🏾',
+            label: 'Practitioner-Scholar',
+            desc: 'Graduate work in Religions, Ethics & Public Intellectuals. Womanist theology as epistemological foundation — not decoration. Academic rigor meeting field-tested practice.',
+          },
+          {
+            icon: '🏗️',
+            label: 'Framework Creator',
+            desc: 'UNMASK developed through direct organizational consulting — not academic theory. The IP is proprietary. The methodology is tested across sectors.',
+          },
+          {
+            icon: '📖',
+            label: 'Published Author',
+            desc: 'Three-volume UNMASK Blueprint Series positions ST as thought leadership, not just services. The books create inbound pipeline at scale.',
+          },
+          {
+            icon: '🌐',
+            label: 'Liberation Grounded',
+            desc: 'Womanist ethics and liberation philosophy provide a justice-centered intellectual framework that differentiates ST in a market of performance-optimization consultants.',
+          },
+          {
+            icon: '🤝',
+            label: 'Cross-Sector Track Record',
+            desc: 'Nonprofit, faith-based, corporate, government, higher education. Structural burnout is not industry-specific. Neither is the solution.',
+          },
         ].map((item) => (
           <div class="card teal-hover animate-on-scroll">
             <span class="text-2xl block mb-3">{item.icon}</span>
             <p class="font-heading text-light font-semibold text-sm mb-2">{item.label}</p>
-            <p class="text-muted text-sm">{item.desc}</p>
+            <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -161,40 +306,165 @@ import Layout from '../../layouts/Layout.astro';
   </section>
 
 
-  <!-- ─── SEED CAPITAL ──────────────────────────────── -->
+
+
+  <!-- ─── UNMASK RECALIBRATE APP ───────────────────── -->
   <section class="section-pad relative overflow-hidden">
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(13,148,136,0.07) 0%, transparent 70%);"></div>
-    <div class="container-mid relative z-10">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(13,148,136,0.07) 0%, transparent 60%);"></div>
+    <div class="container-wide relative z-10">
       <div class="text-center mb-12 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">Seed Capital Opportunity</span>
-        <h2 class="font-heading text-3xl text-light">What Capital Unlocks</h2>
-        <p class="text-muted mt-3 max-w-lg mx-auto text-sm">
-          Strategic Transformations is generating revenue and building traction. Seed capital is not
-          about survival — it's about acceleration.
+        <span class="st-tag mb-4 inline-flex">Digital Product · In Development</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          UNMASK Recalibrate
+        </h2>
+        <p class="text-teal-DEFAULT font-body text-sm font-semibold mt-1 mb-3">Diagnostics for a Resilient Future</p>
+        <p class="text-muted text-sm max-w-xl mx-auto">
+          The digital companion to the trilogy — a freemium web and mobile app launching in 2026,
+          designed to make UNMASK's proprietary diagnostic tools accessible at scale while
+          funneling users to high-value consulting services.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start max-w-5xl mx-auto">
+
+        <!-- Left: App overview -->
+        <div class="animate-on-scroll">
+          <h3 class="font-heading text-lg text-light font-semibold mb-4">Three Target Audiences</h3>
+          <div class="space-y-3 mb-6">
+            {[
+              { audience: 'Individuals', desc: 'Personal recalibration — entry through the free Structural Strain Score (SSS).' },
+              { audience: 'Institutions', desc: 'Team and organizational health — RAA Calculator, AI Burnout Index, scenario planners.' },
+              { audience: 'Educators & Empowerers', desc: 'Justice-centered communities — collaborative modules, group diagnostics, offline resilience tools.' },
+            ].map((item) => (
+              <div class="flex items-start gap-3 p-4 bg-surface border border-border rounded-md hover:border-teal-DEFAULT/30 transition-colors">
+                <span class="text-teal-DEFAULT shrink-0 font-bold">→</span>
+                <div>
+                  <p class="text-light text-sm font-semibold">{item.audience}</p>
+                  <p class="text-muted text-xs mt-0.5">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <h3 class="font-heading text-lg text-light font-semibold mb-4">Revenue Model</h3>
+          <div class="space-y-2">
+            {[
+              { tier: 'Free Tier', detail: 'Structural Strain Score (SSS) — 9-question entry assessment. Drives top-of-funnel adoption.' },
+              { tier: 'Premium ($9–$29/mo)', detail: 'Full LMI, RAA Calculator, AI Acceleration Burnout Index, personalized Womanist-informed recommendations.' },
+              { tier: 'Institutional License', detail: '$50K–$300K annually for nonprofits, HBCUs, and mission-driven organizations.' },
+              { tier: 'Retainer Funnel', detail: 'High diagnostic scores trigger upsells to $7.5K–$15K consulting retainers.' },
+            ].map((item) => (
+              <div class="flex items-start gap-3 py-2.5 border-b border-border/60">
+                <span class="text-teal-DEFAULT text-xs font-bold w-32 shrink-0">{item.tier}</span>
+                <span class="text-muted text-xs">{item.detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: Key features + projections -->
+        <div class="animate-on-scroll" style="animation-delay:0.1s">
+          <h3 class="font-heading text-lg text-light font-semibold mb-4">Key Features</h3>
+          <div class="space-y-3 mb-6">
+            {[
+              { icon: '🧮', feature: 'Diagnostic Suite', desc: 'LMI, RAA Calculator, AI Acceleration Burnout Index, Burnout Scenario Simulator, Market Gap Visualizer, Economic Resilience Scorecard.' },
+              { icon: '⚡', feature: 'Ethical AI', desc: 'AI-generated playbooks that are bias-checked and Womanist-informed — countering "AI brain fry" without replicating it.' },
+              { icon: '📥', feature: 'Offline Resilience', desc: 'Downloadable PDF assessments and blueprints. Vital for justice work in low-connectivity and high-disruption environments.' },
+              { icon: '🤝', feature: 'Community Modules', desc: 'Segmented forums for educators in marginalized spaces. Collaborative diagnostics for collective recalibration.' },
+            ].map((item) => (
+              <div class="flex items-start gap-3 p-3 bg-surface border border-border rounded-md">
+                <span class="text-xl shrink-0">{item.icon}</span>
+                <div>
+                  <p class="text-light text-xs font-semibold">{item.feature}</p>
+                  <p class="text-muted text-xs mt-0.5">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Projections -->
+          <div class="bg-teal-DEFAULT/10 border border-teal-DEFAULT/30 rounded-md p-5">
+            <p class="font-body text-xs font-bold uppercase tracking-widest text-teal-DEFAULT mb-3">Year 1–2 Projections</p>
+            <div class="space-y-2">
+              {[
+                '25,000 free users targeted by Year 1',
+                '3–5% free-to-paid conversion rate',
+                '$1.4M–$3.4M annual potential (per offer modeling)',
+                '$6.65M potential Year 2 revenue (full market entry)',
+              ].map((item) => (
+                <div class="flex items-start gap-2 text-sm text-muted">
+                  <span class="text-teal-DEFAULT shrink-0">→</span>{item}
+                </div>
+              ))}
+            </div>
+            <p class="text-xs text-muted/60 italic mt-3">
+              Projections are forward-looking strategic modeling, not guarantees.
+              Based on $5.2B mental health app market (Statista 2023) projected to $17.5B by 2030.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TRACTION SIGNALS ──────────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Traction</span>
+        <h2 class="font-heading text-3xl text-light">What's already in motion.</h2>
+        <p class="text-muted text-sm mt-3 max-w-lg mx-auto">
+          Strategic Transformations is generating revenue and building the platform for scale.
+          Seed capital is not for survival — it is for acceleration.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
         {[
           {
-            area: 'Product Development',
-            items: ['UNMASK SaaS platform buildout', 'AI-enhanced diagnostic tools', 'Enterprise licensing infrastructure'],
+            area: 'Published Intellectual Property',
+            items: [
+              'UNMASK Blueprint Series — 3 volumes published',
+              'UNMASK Interactive Web Application live',
+              'Proprietary diagnostic framework fully documented',
+              'IP protection and licensing infrastructure in development',
+            ],
           },
           {
-            area: 'Market Expansion',
-            items: ['Speaking circuit acceleration', 'Conference partnership development', 'Corporate client pipeline scaling'],
+            area: 'Active Service Delivery',
+            items: [
+              'Consulting engagements across nonprofit, corporate, and faith-based sectors',
+              'Speaking and keynote pipeline active',
+              'Executive coaching and organizational advisory work',
+              'URI Formation engagements in execution',
+            ],
           },
           {
-            area: 'Operational Infrastructure',
-            items: ['CRM & systems optimization', 'Team expansion (ops, client success)', 'IP protection and legal infrastructure'],
+            area: 'Platform & Systems',
+            items: [
+              'GoHighLevel CRM with lead capture and pipeline automation',
+              'UNMASK digital checkout infrastructure live (unmask.nikkicates.com)',
+              'Consolidated digital ecosystem (nikkicates.github.io) in deployment',
+              'Newsletter infrastructure active via The Unbothered Collective',
+            ],
           },
-        ].map((bucket) => (
+          {
+            area: 'Network & Authority Building',
+            items: [
+              'BNI membership active — professional referral network engaged',
+              'Graduate academic work in progress — credentialing the methodology',
+              'Conference speaking circuit development',
+              'ATHENA NextGen leadership program pipeline (Orlando)',
+            ],
+          },
+        ].map((item) => (
           <div class="card teal-hover animate-on-scroll">
-            <p class="font-heading text-teal-DEFAULT font-semibold mb-4">{bucket.area}</p>
+            <p class="font-heading text-teal-DEFAULT font-semibold mb-4">{item.area}</p>
             <ul class="space-y-2">
-              {bucket.items.map((item) => (
+              {item.items.map((i) => (
                 <li class="flex items-start gap-2 text-sm text-muted">
-                  <span class="text-teal-DEFAULT shrink-0">→</span>
-                  {item}
+                  <span class="text-teal-DEFAULT shrink-0">→</span>{i}
                 </li>
               ))}
             </ul>
@@ -205,23 +475,104 @@ import Layout from '../../layouts/Layout.astro';
   </section>
 
 
-  <!-- ─── INVESTOR CTA ───────────────────────────────── -->
-  <section class="py-16 bg-[#0c1525]">
+  <!-- ─── SEED CAPITAL USE ──────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Seed Capital</span>
+        <h2 class="font-heading text-3xl text-light">What capital unlocks.</h2>
+        <p class="text-muted text-sm mt-3 max-w-lg mx-auto">
+          The foundation is built. The IP is documented. The market is proven.
+          Capital accelerates the three things that compound fastest: product, platform, and pipeline.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+        {[
+          {
+            area: 'Product Development',
+            icon: '🛠️',
+            items: [
+              'UNMASK SaaS platform — full buildout and institutional-grade deployment',
+              'AI-enhanced diagnostic tools integrated into the UNMASK engine',
+              'Enterprise licensing and practitioner certification infrastructure',
+              'Vol. 4 and advanced content development',
+            ],
+          },
+          {
+            area: 'Market Expansion',
+            icon: '📡',
+            items: [
+              'National speaking circuit acceleration — 10+ conferences annually',
+              'Corporate and enterprise client pipeline scaling',
+              'Academic and higher education partnerships',
+              'International expansion — starting with Caribbean and African diaspora markets',
+            ],
+          },
+          {
+            area: 'Operational Infrastructure',
+            icon: '⚙️',
+            items: [
+              'Team expansion: operations, client success, content',
+              'Full IP protection, trademark, and legal infrastructure',
+              'Marketing and thought leadership amplification',
+              'CRM and fulfillment systems optimization at scale',
+            ],
+          },
+        ].map((bucket) => (
+          <div class="card teal-hover animate-on-scroll">
+            <span class="text-2xl block mb-3">{bucket.icon}</span>
+            <p class="font-heading text-teal-DEFAULT font-semibold mb-4">{bucket.area}</p>
+            <ul class="space-y-2">
+              {bucket.items.map((item) => (
+                <li class="flex items-start gap-2 text-sm text-muted">
+                  <span class="text-teal-DEFAULT shrink-0">→</span>{item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <!-- The investor standard -->
+      <div class="max-w-2xl mx-auto card border-teal-DEFAULT/30 bg-teal-glow p-8 text-center animate-on-scroll">
+        <p class="font-heading text-teal-DEFAULT text-lg font-semibold mb-3">
+          What we are looking for in a capital partner.
+        </p>
+        <div class="space-y-2 text-left mb-6">
+          {[
+            'Alignment with the liberation-grounded vision — not just the financials',
+            'Understanding that justice-centered frameworks are the future of organizational health',
+            'Patient capital that supports a build designed for scale, not a quick exit',
+            'Connections and relationships in the enterprise, nonprofit, and academic markets',
+            'Respect for the founder\'s intellectual authority and methodological sovereignty',
+          ].map((item) => (
+            <div class="flex items-start gap-2 text-sm text-muted">
+              <span class="text-teal-DEFAULT shrink-0">✓</span>{item}
+            </div>
+          ))}
+        </div>
+        <p class="text-muted text-xs italic">
+          Strategic Transformations is not looking for investors who want to change the vision.
+          We are looking for investors who understand what it is — and want to build it with us.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CTA ───────────────────────────────────────── -->
+  <section class="py-16 relative overflow-hidden">
     <div class="container-narrow text-center animate-on-scroll">
       <h2 class="font-heading text-3xl text-light mb-4">
-        The right investor doesn't just bring capital.<br/>
-        <span class="text-teal-DEFAULT">They bring alignment.</span>
+        Ready to explore alignment?
       </h2>
-      <p class="text-muted mb-8 max-w-xl mx-auto">
-        Strategic Transformations is not looking for investors who want to change the vision.
-        We are looking for investors who understand that liberation-grounded frameworks are the future
-        of organizational health — and want to be part of building it.
+      <p class="text-muted mb-8 max-w-xl mx-auto text-sm">
+        All investor conversations begin with an Executive Briefing.
+        The full investor deck — including financial projections, revenue model detail,
+        and capitalization structure — is available by request only after vetting.
       </p>
-      <p class="text-muted text-sm mb-8">
-        Interested parties must complete an Executive Briefing before any further materials are shared.
-        The full investor deck is available by request only.
-      </p>
-      <a href="/structural-burnout/briefing" class="btn-teal text-base">
+      <a href="/structural-burnout/briefing" class="btn-teal text-base !py-4 !px-8">
         Request Investor Briefing →
       </a>
     </div>
