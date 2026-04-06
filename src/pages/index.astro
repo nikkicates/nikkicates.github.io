@@ -3,22 +3,32 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-  <div class="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col items-center justify-center px-6 text-center">
-    <h1 class="text-6xl md:text-7xl font-bold tracking-tighter mb-6">
-      Nikki Cates
-    </h1>
-    
-    <p class="text-2xl text-zinc-400 max-w-lg mb-12">
-      One home for Structural Burnout, Ops, Leadership & Tools
-    </p>
+  <div class="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col items-center justify-center px-6 py-24 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-7xl md:text-8xl font-bold tracking-tighter mb-8">
+        Nikki Cates
+      </h1>
+      
+      <p class="text-3xl text-zinc-400 mb-16 max-w-2xl mx-auto">
+        Structural Burnout Strategist<br>
+        Leadership Architecture • Operational Resilience
+      </p>
 
-    <div class="flex flex-col sm:flex-row gap-4">
-      <a href="/structural-burnout" class="px-10 py-5 bg-white text-black font-semibold rounded-2xl hover:bg-zinc-200 transition">
-        Structural Burnout
-      </a>
-      <a href="/ops" class="px-10 py-5 border border-zinc-700 text-white font-semibold rounded-2xl hover:bg-zinc-900 transition">
-        Ops Hub
-      </a>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="/structural-burnout" 
+           class="px-12 py-6 bg-white hover:bg-zinc-100 text-zinc-950 font-semibold rounded-3xl text-xl transition-all">
+          Enter Structural Burnout
+        </a>
+        
+        <a href="/structural-burnout/nexus" 
+           class="px-12 py-6 border border-zinc-700 hover:border-teal-400 font-semibold rounded-3xl text-xl transition-all">
+          Networking Card (Nexus)
+        </a>
+      </div>
+
+      <p class="text-xs text-zinc-500 mt-20">
+        Strategic Transformations • Unbothered Resistance International
+      </p>
     </div>
   </div>
 </Layout>

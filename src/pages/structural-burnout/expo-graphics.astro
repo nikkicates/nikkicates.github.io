@@ -3,107 +3,18 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout>
-  <div class="bg-zinc-950 text-zinc-100 min-h-screen overflow-hidden">
-    <div class="max-w-3xl mx-auto px-6 py-12">
-      <!-- Back -->
+  <div class="bg-zinc-950 text-zinc-100 min-h-screen py-20">
+    <div class="max-w-5xl mx-auto px-6">
       <a href="/structural-burnout" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 mb-12 text-sm">
         ← Back to Structural Burnout
       </a>
 
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2 text-center">UNMASK Diagnostic Models</h1>
-      <p class="text-zinc-400 text-center mb-16">Signature Visual Frameworks • Swipe or use buttons to navigate</p>
-
-      <!-- Slides Container -->
-      <div id="stage" class="relative h-[70vh] md:h-[80vh] rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900">
-
-        <!-- Slide 1: Strain Transfer Funnel -->
-        <div id="slide1" class="slide absolute inset-0 flex flex-col items-center justify-center px-6 active">
-          <div class="text-teal-400 text-xs font-bold uppercase tracking-widest mb-6">Diagnostic Model 01</div>
-          <h2 class="text-3xl md:text-4xl font-bold text-center leading-tight mb-10">The Strain Transfer Funnel</h2>
-          
-          <div class="max-w-xs w-full">
-            <!-- Simplified SVG representation (we can enhance later) -->
-            <div class="bg-zinc-800 rounded-2xl p-8 text-center border border-zinc-700">
-              <div class="text-6xl mb-6">↓</div>
-              <div class="h-2 bg-teal-400 rounded mb-2"></div>
-              <div class="h-2 bg-teal-500/70 rounded mb-2"></div>
-              <div class="h-2 bg-orange-400 rounded"></div>
-              <p class="text-xs text-zinc-400 mt-8">Load accumulates here when responsibility exceeds authority</p>
-            </div>
-          </div>
-
-          <p class="quote text-center text-zinc-400 max-w-md mt-12">
-            "Burnout isn't a cloud; it's a <strong class="text-white">load</strong> that is transferred downward until it hits the layer with the least authority."
-          </p>
-        </div>
-
-        <!-- Slide 2: Authority Gap -->
-        <div id="slide2" class="slide absolute inset-0 flex flex-col items-center justify-center px-6">
-          <div class="text-teal-400 text-xs font-bold uppercase tracking-widest mb-6">Diagnostic Model 02</div>
-          <h2 class="text-3xl md:text-4xl font-bold text-center leading-tight mb-10">The Authority Gap Index™</h2>
-          
-          <div class="max-w-xs w-full bg-zinc-800 rounded-3xl p-10 border border-zinc-700">
-            <div class="flex justify-between text-sm mb-8">
-              <div class="text-center">
-                <div class="text-4xl font-bold text-white">100%</div>
-                <div class="text-xs text-zinc-500">RESPONSIBILITY</div>
-              </div>
-              <div class="text-center">
-                <div class="text-4xl font-bold text-teal-400">30%</div>
-                <div class="text-xs text-zinc-500">AUTHORITY</div>
-              </div>
-            </div>
-            <div class="h-2 bg-zinc-700 rounded-full relative">
-              <div class="absolute left-0 top-0 h-2 bg-teal-400 rounded-full" style="width: 30%"></div>
-            </div>
-            <p class="text-xs text-center text-red-400 mt-6">This gap is where your payroll leaks</p>
-          </div>
-
-          <p class="quote text-center text-zinc-400 max-w-md mt-12">
-            "We pay leaders for 100% responsibility, but structurally restrict them to 30% authority."
-          </p>
-        </div>
-
-        <!-- Slide 3: AI Acceleration -->
-        <div id="slide3" class="slide absolute inset-0 flex flex-col items-center justify-center px-6">
-          <div class="text-teal-400 text-xs font-bold uppercase tracking-widest mb-6">Diagnostic Model 03</div>
-          <h2 class="text-3xl md:text-4xl font-bold text-center leading-tight mb-10">The AI Acceleration Risk</h2>
-          
-          <div class="max-w-xs w-full text-center">
-            <div class="text-6xl mb-8">⚠️</div>
-            <p class="text-lg text-zinc-300">AI multiplies whatever structure exists.</p>
-            <p class="text-sm text-red-400 mt-8">If your bridge is cracked, AI just puts 10× more traffic on it.</p>
-          </div>
-
-          <p class="quote text-center text-zinc-400 max-w-md mt-12">
-            "AI accelerates whatever structure exists. If your bridge is cracked, AI just puts <strong class="text-white">10× more traffic</strong> on it until it fails."
-          </p>
-        </div>
-      </div>
-
-      <!-- Bottom Navigation -->
-      <div class="flex justify-center gap-4 mt-12">
-        <button onclick="showSlide(1)" id="btn1" class="nav-btn active-btn">01</button>
-        <button onclick="showSlide(2)" id="btn2" class="nav-btn">02</button>
-        <button onclick="showSlide(3)" id="btn3" class="nav-btn">03</button>
+      <h1 class="text-5xl font-bold tracking-tighter mb-12 text-center">Diagnostic Visuals</h1>
+      
+      <div class="bg-zinc-900 rounded-3xl p-12 text-center">
+        <p class="text-zinc-400 text-lg">Authority Gap • Strain Transfer • AI Acceleration Risk</p>
+        <p class="text-sm text-zinc-500 mt-8">(Interactive expo graphics coming in fine-tune round)</p>
       </div>
     </div>
   </div>
 </Layout>
-
-<script>
-  let current = 1;
-  function showSlide(n) {
-    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active-btn'));
-    document.getElementById('slide' + n).classList.add('active');
-    document.getElementById('btn' + n).classList.add('active-btn');
-    current = n;
-  }
-
-  // Keyboard support
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' && current < 3) showSlide(current + 1);
-    if (e.key === 'ArrowLeft' && current > 1) showSlide(current - 1);
-  });
-</script>

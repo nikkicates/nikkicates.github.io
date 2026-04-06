@@ -5,61 +5,29 @@ import Layout from '../../layouts/Layout.astro';
 <Layout>
   <div class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col items-center justify-center px-6 py-12">
     <div class="max-w-md w-full text-center">
-      <!-- Profile -->
-      <div class="mb-10">
-        <div class="w-28 h-28 mx-auto rounded-2xl overflow-hidden border-4 border-teal-400/30 mb-6">
-          <img src="/assets/boss-vibez.png" alt="Nikki Cates" class="w-full h-full object-cover" 
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="hidden w-full h-full bg-zinc-800 items-center justify-center text-4xl font-bold text-teal-400">NC</div>
-        </div>
-        <h1 class="text-4xl font-bold tracking-tighter">Nikki Cates</h1>
-        <p class="text-teal-400 text-sm font-bold uppercase tracking-widest mt-1">Structural Recalibration Strategist</p>
-        <p class="text-zinc-400 mt-6 text-lg">"I repair the architecture that produces burnout."</p>
-      </div>
-
-      <!-- Quick Actions -->
-      <div class="space-y-4 w-full">
-        <a href="/structural-burnout/briefing" 
-           class="block w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 rounded-2xl py-6 transition text-left px-6">
-          <div class="text-teal-400 text-xs font-bold uppercase tracking-widest">Start Here</div>
-          <div class="text-lg font-semibold">Structural Strain Diagnostic</div>
-          <div class="text-xs text-zinc-500 mt-1">Free • 5 minutes</div>
+      <h1 class="text-5xl font-bold tracking-tighter mb-2">Nikki Cates</h1>
+      <p class="text-teal-400 text-sm font-bold uppercase tracking-widest">Structural Recalibration Strategist</p>
+      
+      <div class="mt-12 space-y-4">
+        <a href="/structural-burnout/briefing" class="block w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 rounded-3xl py-6 px-8 text-left transition">
+          <span class="block text-teal-400 text-xs font-bold uppercase">Start Here</span>
+          <span class="text-lg font-semibold">Structural Leadership Diagnostic</span>
         </a>
 
-        <a href="/structural-burnout/services" 
-           class="block w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 rounded-2xl py-6 transition text-left px-6">
-          <div class="text-teal-400 text-xs font-bold uppercase tracking-widest">Speaking & Formation</div>
-          <div class="text-lg font-semibold">Book an Engagement</div>
-          <div class="text-xs text-zinc-500 mt-1">Keynotes • Workshops • URI Formation</div>
+        <a href="/structural-burnout/services" class="block w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 rounded-3xl py-6 px-8 text-left transition">
+          <span class="block text-teal-400 text-xs font-bold uppercase">Speaking & Formation</span>
+          <span class="text-lg font-semibold">Book an Engagement</span>
         </a>
 
         <a href="https://calendar.google.com/appointments/schedules/AcZssZ0wzeoxprLGxanzVAEMZB_aBMMuQycSnCwYHy3gsd1R3wpmUCMIHmegk-UbZzU2nRZb_XiI_I3o" 
            target="_blank"
-           class="block w-full bg-teal-400 hover:bg-teal-300 text-zinc-950 rounded-2xl py-6 transition font-semibold">
+           class="block w-full bg-teal-400 hover:bg-teal-300 text-zinc-950 font-semibold rounded-3xl py-6">
           Schedule Executive Briefing
         </a>
-
-        <a href="/structural-burnout/pitch" 
-           class="block w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-purple-400 rounded-2xl py-6 transition text-left px-6">
-          <div class="text-purple-400 text-xs font-bold uppercase tracking-widest">For Investors</div>
-          <div class="text-lg font-semibold">Seed Capital Opportunity</div>
-          <div class="text-xs text-zinc-500 mt-1">$30k to build the UNMASK Engine</div>
-        </a>
       </div>
 
-      <!-- Books -->
-      <div class="mt-12 w-full">
-        <div class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">The UNMASK Series</div>
-        <a href="https://stan.store/nikkicates" target="_blank"
-           class="block bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 rounded-2xl py-5 px-6 text-left transition">
-          <span class="font-semibold">Shop All UNMASK Books & Tools →</span>
-        </a>
-      </div>
-
-      <!-- Footer -->
-      <div class="mt-16 text-center text-xs text-zinc-500">
-        Strategic Transformations © 2026<br>
-        Powered by Unbothered Resistance International
+      <div class="mt-16 text-xs text-zinc-500">
+        Strategic Transformations © 2026
       </div>
     </div>
   </div>

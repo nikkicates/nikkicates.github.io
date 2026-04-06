@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "tailwindcss";
 
 :root {
@@ -14,3 +15,6 @@ h1, h2, h3, h4 {
   font-family: Georgia, 'Times New Roman', serif; /* close to Lora */
   font-weight: 700;
 }
+=======
+@import "tailwindcss";
+>>>>>>> c9801eff206cd1ff88e6cf644b01ec511485e1f4

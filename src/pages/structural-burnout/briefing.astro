@@ -5,76 +5,38 @@ import Layout from '../../layouts/Layout.astro';
 <Layout>
   <div class="bg-zinc-950 text-zinc-100 min-h-screen">
     <div class="max-w-4xl mx-auto px-6 py-20">
-      <!-- Back link -->
-      <a href="/structural-burnout" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 mb-10 text-sm">
+      <a href="/structural-burnout" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 mb-12 text-sm">
         ← Back to Structural Burnout
       </a>
 
-      <!-- Hero -->
-      <div class="text-center mb-16">
-        <div class="inline-block px-5 py-2 rounded-full bg-zinc-900 border border-teal-400/30 text-teal-400 text-xs font-bold uppercase tracking-widest mb-8">
-          Executive Briefing
-        </div>
-        <h1 class="text-5xl md:text-6xl font-bold tracking-tighter leading-none mb-8">
-          Structural Leadership<br/><span class="text-teal-400">Diagnostic.</span>
-        </h1>
-        <p class="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-          A focused 60-minute session for executive teams, founders, and organizational leaders who need immediate clarity on the structural issues driving burnout, turnover, and AI strain.
-        </p>
-        <div class="mt-8 inline-flex items-center gap-3 bg-zinc-900 border border-teal-400/20 rounded-full px-6 py-3 text-sm">
-          <span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
-          60-Minute Session • High-Level Diagnostic • Immediate Clarity
-        </div>
-      </div>
+      <h1 class="text-5xl md:text-6xl font-bold tracking-tighter leading-none mb-10">
+        Structural Leadership<br>
+        <span class="text-teal-400">Diagnostic</span>
+      </h1>
 
-      <!-- Who / What / Get Cards -->
-      <div class="grid md:grid-cols-3 gap-6 mb-20">
-        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-400/50 transition">
-          <div class="text-teal-400 text-sm font-bold uppercase tracking-widest mb-6">Who It Is For</div>
-          <ul class="space-y-4 text-zinc-400">
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> Executive teams navigating complexity or AI strain</li>
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> Founders sensing friction without clear diagnosis</li>
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> Leaders experiencing high turnover or decision paralysis</li>
-          </ul>
-        </div>
+      <p class="text-xl text-zinc-400 max-w-2xl mb-16">
+        Identify exactly where your organization is leaking capacity and authority.
+      </p>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-400/50 transition">
-          <div class="text-teal-400 text-sm font-bold uppercase tracking-widest mb-6">What It Is</div>
-          <ul class="space-y-4 text-zinc-400">
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> A focused 60-minute session with Nikki Cates</li>
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> High-level structural diagnostic of your leadership architecture</li>
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> Clear visibility into authority gaps and load accumulation</li>
-          </ul>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
+          <h3 class="text-2xl font-semibold mb-6">The Authority Gap</h3>
+          <p class="text-zinc-400">Leaders held accountable for outcomes they lack authority to fix.</p>
         </div>
-
-        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-400/50 transition">
-          <div class="text-teal-400 text-sm font-bold uppercase tracking-widest mb-6">What You Leave With</div>
-          <ul class="space-y-4 text-zinc-400">
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> Identification of your key structural breakdown points</li>
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> Insight into authority gaps draining leadership capacity</li>
-            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> A clear next-step recommendation tailored to your organization</li>
-          </ul>
+        <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
+          <h3 class="text-2xl font-semibold mb-6">Strain Transfer</h3>
+          <p class="text-zinc-400">Invisible labor extraction from high-capacity individuals.</p>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
+          <h3 class="text-2xl font-semibold mb-6">AI Acceleration Risk</h3>
+          <p class="text-zinc-400">Cracked structures multiplied 10× by AI.</p>
         </div>
       </div>
 
-      <!-- Quote -->
-      <div class="text-center py-12 border-y border-zinc-800 mb-16">
-        <p class="text-2xl italic text-zinc-300 max-w-2xl mx-auto">
-          “You are not managing a performance problem.<br/>
-          You are managing a <span class="text-teal-400">structural one.</span>”
-        </p>
-      </div>
-
-      <!-- CTA -->
-      <div class="bg-zinc-900 border border-teal-400/20 rounded-3xl p-12 text-center">
-        <h3 class="text-3xl font-bold mb-6">Book Your Executive Briefing</h3>
-        <p class="text-zinc-400 max-w-md mx-auto mb-10">
-          60 minutes. Real visibility. A clear path forward. Complimentary for qualified organizations and executive teams.
-        </p>
-        <a href="https://calendar.google.com/appointments/schedules/AcZssZ0wzeoxprLGxanzVAEMZB_aBMMuQycSnCwYHy3gsd1R3wpmUCMIHmegk-UbZzU2nRZb_XiI_I3o" 
-           target="_blank"
-           class="inline-block px-12 py-6 bg-teal-400 hover:bg-teal-300 text-zinc-950 font-bold rounded-2xl text-lg transition">
-          Apply to Schedule
+      <div class="mt-20 text-center">
+        <a href="/structural-burnout/services" 
+           class="inline-block px-12 py-6 bg-teal-400 hover:bg-teal-300 text-zinc-950 font-semibold rounded-3xl">
+          View Full Solutions
         </a>
       </div>
     </div>
