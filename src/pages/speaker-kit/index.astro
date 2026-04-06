@@ -1,0 +1,730 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Speaker Media Kit — Nikki Cates"
+  description="Official speaker media kit for Nikki Cates — Structural Recalibration Strategist. Booking information, signature talks, testimonials, and engagement pricing."
+  section="st"
+  accentColor="teal"
+>
+
+  <!-- Print / Download button — hidden on print -->
+  <div class="no-print" style="background:#0d1825;border-bottom:1px solid #1e3050;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+    <p style="font-family:'Urbanist',sans-serif;font-size:.82rem;color:#8a9bb5;">
+      Speaker Media Kit · 2026 · Strategic Transformations
+    </p>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+      <button onclick="window.print()"
+        style="font-family:'Urbanist',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.5rem 1.2rem;border-radius:4px;background:#2a7ca3;color:#fff;border:none;cursor:pointer;">
+        Download PDF
+      </button>
+      <a href="/structural-burnout/briefing"
+        style="font-family:'Urbanist',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.5rem 1.2rem;border-radius:4px;background:transparent;color:#58bbc2;border:1px solid #58bbc2;text-decoration:none;">
+        Book Nikki
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ MEDIA KIT BODY ═══ -->
+  <div id="media-kit">
+
+    <!-- HERO SECTION -->
+    <section class="kit-hero">
+      <div class="kit-accent-bar"></div>
+      <div class="kit-wrap kit-hero-grid">
+
+        <!-- Left: Identity -->
+        <div class="kit-identity">
+          <div class="kit-brand-line">
+            <span class="kit-brand-st">Strategic Transformations</span>
+            <span class="kit-brand-div">|</span>
+            <span class="kit-brand-sub">UNMASK Engine · Structural Recalibration</span>
+          </div>
+
+          <h1 class="kit-name">Nikki Cates</h1>
+          <p class="kit-title">Structural Recalibration Strategist</p>
+          <p class="kit-tagline">"This is the problem we never had language for."</p>
+
+          <p class="kit-bio">
+            Nikki Cates diagnoses and repairs the organizational architectures that produce burnout,
+            leadership collapse, and decision paralysis. With over a decade in operational leadership,
+            she pioneered the UNMASK Leadership Architecture to fix the structural design flaws that
+            traditional HR surveys ignore.
+          </p>
+          <p class="kit-bio">
+            Her work sits at the intersection of talent sustainability and AI acceleration, bringing a
+            diagnostician's precision and a practitioner's credibility to every stage. She has delivered
+            the UNMASK framework across nonprofit, corporate, and mission-driven environments,
+            consistently producing the same recognition in leadership teams.
+          </p>
+
+          <!-- Credentials -->
+          <div class="kit-credentials">
+            {['Army Veteran', '10+ Years Operational Leadership', 'UNMASK Framework Creator', 'AI-Era Organizational Strategist', 'Womanist Theologian', 'Published Author'].map(c => (
+              <span class="kit-cred">{c}</span>
+            ))}
+          </div>
+
+          <!-- Star rating -->
+          <div class="kit-stars">
+            <span class="kit-stars-val">★★★★★</span>
+            <span class="kit-stars-label">5.0 · Google Reviews</span>
+          </div>
+        </div>
+
+        <!-- Right: Photo -->
+        <div class="kit-photo-wrap">
+          <img
+            src="/images/nikki-cates-speaker.png"
+            alt="Nikki Cates — Structural Recalibration Strategist"
+            class="kit-photo"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="kit-photo-caption">
+            <p>nikki@strategicunmasking.com</p>
+            <p>nikkicates.github.io</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section class="kit-section kit-testimonials-section">
+      <div class="kit-wrap">
+        <div class="kit-section-label">What Audiences Say</div>
+        <div class="kit-testimonials-grid">
+          <div class="kit-testimonial">
+            <p class="kit-testimonial-quote">
+              "Her message was raw, real, and unforgettable. With every word, she peeled back the
+              emotional layers we so often hide behind. Nikki reminded us that healing starts when
+              we get honest about the parts we cover up."
+            </p>
+            <div class="kit-testimonial-attr">
+              <span class="kit-testimonial-name">Emmanuel Simms</span>
+              <span class="kit-testimonial-org">Healing Cosplay Theory</span>
+            </div>
+          </div>
+          <div class="kit-testimonial">
+            <p class="kit-testimonial-quote">
+              "She captivated the audience from the moment she stepped on stage and delivered
+              powerful, practical insights. Her authenticity, energy, and ability to connect made a
+              lasting impact on every woman in the room. I would absolutely recommend her for any
+              speaking engagement."
+            </p>
+            <div class="kit-testimonial-attr">
+              <span class="kit-testimonial-name">Jeunyde Josuin</span>
+              <span class="kit-testimonial-org">Purple Butterflies Foundation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SIGNATURE TALKS -->
+    <section class="kit-section">
+      <div class="kit-wrap">
+        <div class="kit-section-label">Signature Talks</div>
+        <h2 class="kit-section-title">Five Talks. One Through Line.</h2>
+        <p class="kit-section-sub">
+          Every talk moves organizations from symptom management to structural diagnosis.
+          All talks available as 30–90 min keynotes, workshop formats, or panel presentations.
+        </p>
+
+        <div class="kit-talks-grid">
+          {[
+            {
+              track: 'Anchor Keynote',
+              color: '#064680',
+              title: 'Stop the Strain Transfer: Why Your Best Leaders Are Burning Out',
+              desc: 'Reframes burnout as a structural engineering failure, not a personal one. Moves organizations from wellness management to structural architecture.',
+              leaves: 'A diagnostic framework and a mandate for structural change at the source.',
+            },
+            {
+              track: 'Executive Summit',
+              color: '#2a7ca3',
+              title: 'Your Leadership Pipeline Is Leaking',
+              desc: 'Identifies the authority gap costing organizations 213% in replacement costs and shows exactly where the structural breaks are hiding.',
+              leaves: 'A shared leadership language and a clear intervention priority.',
+            },
+            {
+              track: 'Operations',
+              color: '#31245a',
+              title: 'False Urgency: How "Everything Is Critical" Is Destroying Your Organization',
+              desc: 'Dismantles the hidden architecture of overwork and decision chaos. Redesigns cadence so urgency is no longer a management style.',
+              leaves: 'A concrete framework for separating real urgency from structural noise.',
+            },
+            {
+              track: "Women's Leadership",
+              color: '#ac6dbf',
+              title: 'Sovereign Power: Leading Without Running on Empty',
+              desc: 'For leaders who have mastered the role and are quietly depleted by it. Aligns authentic capacity with institutional demand for durable performance.',
+              leaves: 'Tools to align authentic capacity with institutional demand without self-extraction.',
+            },
+            {
+              track: 'AI-Era Track',
+              color: '#58bbc2',
+              title: 'When AI Breaks the Bridge: Protecting Human Architecture in the Age of Automation',
+              desc: 'Why deploying AI onto misaligned human architecture accelerates collapse — and the decision-rights protocols that prevent it.',
+              leaves: 'A structural risk map for AI deployment and a prioritized intervention list.',
+            },
+          ].map((talk) => (
+            <div class="kit-talk">
+              <div class="kit-talk-track" style={`background:${talk.color};`}>{talk.track}</div>
+              <h3 class="kit-talk-title">"{talk.title}"</h3>
+              <p class="kit-talk-desc">{talk.desc}</p>
+              <div class="kit-talk-leaves">
+                <span class="kit-talk-leaves-label">Audience leaves with:</span>
+                <span class="kit-talk-leaves-text"> {talk.leaves}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- URI FORMATION TALKS -->
+    <section class="kit-section kit-uri-section">
+      <div class="kit-wrap">
+        <div class="kit-section-label" style="color:#ac6dbf;border-color:rgba(172,109,191,.35);">URI Formation · Faith, Justice & Community Audiences</div>
+        <h2 class="kit-section-title">Liberation & Leadership Formation</h2>
+        <p class="kit-section-sub">
+          These offerings draw from the UNMASK framework, adapted for faith-based, justice-centered, and
+          formation-focused communities. Nikki is a Liberation & Leadership Formation Strategist operating
+          at the intersection of Womanist theology, structural analysis, and identity work.
+        </p>
+
+        <div class="kit-talks-grid">
+          {[
+            {
+              tier: 'Tier 1 · Keynote',
+              title: 'Unmasking, Identity & Self-Stewardship in Systems That Demand Performance',
+              desc: 'Reframes burnout as structural and spiritual. Introduces the self-stewardship pathway for leaders in service-based and justice-centered roles.',
+              format: '60–90 min · In-person or virtual',
+            },
+            {
+              tier: 'Tier 2 · Intensive',
+              title: 'Liberation & Healing Intensive',
+              desc: 'Deep formation experience integrating identity work, boundary restoration, and the Super Employee Mask. Includes SU frameworks, Seasons 1 & 2.',
+              format: 'Half-day / Full-day / Multi-day',
+            },
+            {
+              tier: 'Tier 3 · Series',
+              title: 'Liberation & Leadership Formation Series',
+              desc: 'Sustained transformation across 3–6 sessions. Womanist theology integration, community processing, leadership application, and implementation.',
+              format: '3–6 sessions · Cohort format',
+            },
+            {
+              tier: 'Tier 4 · Advisory',
+              title: 'Liberation & Leadership Advisory Partnership',
+              desc: 'Institutional transformation through 3–6 month embedded partnership. Monthly advisory sessions, curriculum guidance, and community health check-ins.',
+              format: '3–6 month engagement',
+            },
+          ].map((t) => (
+            <div class="kit-talk kit-talk-uri">
+              <div class="kit-talk-track" style="background:#31245a;">{t.tier}</div>
+              <h3 class="kit-talk-title">"{t.title}"</h3>
+              <p class="kit-talk-desc">{t.desc}</p>
+              <div class="kit-talk-leaves">
+                <span class="kit-talk-leaves-label">Format:</span>
+                <span class="kit-talk-leaves-text"> {t.format}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="kit-uri-note">
+          "Limited engagements are reserved each year for smaller organizations and community-based
+          initiatives. Please inquire for availability."
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PRICING & LOGISTICS -->
+    <section class="kit-section kit-pricing-section">
+      <div class="kit-wrap">
+        <div class="kit-pricing-grid">
+
+          <!-- Pricing -->
+          <div>
+            <div class="kit-section-label">Engagement Pricing</div>
+            <h2 class="kit-section-title" style="font-size:1.5rem;">2026 Rate Card</h2>
+            <table class="kit-price-table">
+              <tbody>
+                {[
+                  { label: 'Keynote (30–90 min)', price: 'Starting at $7,500' },
+                  { label: 'Facilitated Workshop (Half/Full Day)', price: 'Starting at $8,500' },
+                  { label: 'Leadership & Culture Intensive (4–6 wk)', price: 'Starting at $12,500' },
+                  { label: 'AI Acceleration Burnout Audit (2–3 wk)', price: 'Starting at $10,000' },
+                  { label: 'Organizational Retainer', price: 'Starting at $5,000/mo' },
+                  { label: 'URI Liberation Keynote', price: '$12,500 – $25,000' },
+                  { label: 'URI Liberation & Healing Intensive', price: '$15,000 – $35,000' },
+                  { label: 'URI Formation Series (3–6 sessions)', price: '$22,000 – $45,000' },
+                  { label: 'URI Advisory Partnership', price: '$7,500 – $15,000/mo' },
+                  { label: 'Custom Enterprise Scope', price: 'Contact for proposal' },
+                ].map((row) => (
+                  <tr>
+                    <td class="kit-price-label">{row.label}</td>
+                    <td class="kit-price-val">{row.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Logistics -->
+          <div>
+            <div class="kit-section-label">Booking & Travel Requirements</div>
+            <h2 class="kit-section-title" style="font-size:1.5rem;">Logistics</h2>
+            <div class="kit-logistics">
+              {[
+                { label: 'Deposit', val: '50% of total fee at contract signing to secure the date.' },
+                { label: 'Balance', val: 'Remaining balance due 7 days prior to engagement.' },
+                { label: 'Air Travel', val: 'Comfort Plus or Business Class. No economy. Billed at cost.' },
+                { label: 'Hotel', val: '4-star or above. One night pre-event + one night post-event. Billed at cost.' },
+                { label: 'Ground Transport', val: 'Executive car service on all event days. Billed at cost.' },
+                { label: 'Meal Per Diem', val: '$100 per travel day. Itemized receipts provided.' },
+                { label: 'Virtual', val: '10% reduction on base fee. No travel costs apply.' },
+                { label: 'Cancellation', val: 'Deposit non-refundable within 30 days. Full fee retained within 14 days.' },
+                { label: 'Contract', val: 'Signed agreement required for all engagements.' },
+              ].map((item) => (
+                <div class="kit-logistic-row">
+                  <span class="kit-logistic-label">{item.label}</span>
+                  <span class="kit-logistic-val">{item.val}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONTACT & BOOKING CTA -->
+    <section class="kit-footer-section">
+      <div class="kit-wrap" style="text-align:center;">
+        <h2 class="kit-footer-name">Nikki Cates</h2>
+        <p class="kit-footer-title">Structural Recalibration Strategist · Liberation & Leadership Formation Guide</p>
+        <div class="kit-footer-links">
+          <span>nikki@strategicunmasking.com</span>
+          <span class="kit-footer-div">·</span>
+          <span>strategicunmasking.com</span>
+          <span class="kit-footer-div">·</span>
+          <span>linkedin.com/in/nikkicatesmiller</span>
+        </div>
+        <div class="kit-footer-ctas no-print">
+          <a href="/structural-burnout/briefing" class="kit-cta-btn kit-cta-primary">
+            Request Executive Briefing
+          </a>
+          <a href="https://calendar.app.google/1atA8vsgwQhP7bqX6" target="_blank" rel="noopener" class="kit-cta-btn kit-cta-secondary">
+            Schedule a Speaking Call
+          </a>
+        </div>
+        <p class="kit-footer-fine">
+          © 2026 Nikki Cates · Strategic Transformations · UNMASK Engine™ · Proprietary & Confidential
+        </p>
+      </div>
+    </section>
+
+  </div><!-- /media-kit -->
+
+</Layout>
+
+<style>
+/* ── KIT DESIGN SYSTEM ─────────────────────────────── */
+/* Brand colors from screenshot: #58bbc2 #2a7ca3 #31245a #064680 #ac6dbf */
+
+#media-kit {
+  background: #0a1220;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  color: #e8e4de;
+}
+
+.kit-wrap { max-width: 1100px; margin-inline: auto; padding-inline: 1.5rem; }
+
+/* ── HERO ──────────────────────────────────────────── */
+.kit-hero {
+  position: relative;
+  background: linear-gradient(135deg, #060e1a 0%, #0d1825 60%, #0f1d30 100%);
+  overflow: hidden;
+}
+.kit-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 70% 40%, rgba(42,124,163,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse 40% 50% at 20% 80%, rgba(49,36,90,0.15) 0%, transparent 55%);
+  pointer-events: none;
+}
+.kit-accent-bar {
+  height: 4px;
+  background: linear-gradient(to right, #064680, #2a7ca3, #58bbc2, #ac6dbf, #31245a);
+}
+.kit-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  align-items: end;
+  padding: 2.5rem 1.5rem 0;
+  position: relative;
+  z-index: 1;
+}
+.kit-brand-line {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.kit-brand-st {
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #58bbc2;
+}
+.kit-brand-div { color: #1e3050; }
+.kit-brand-sub {
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #4a5c72;
+}
+.kit-name {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #f0ece4;
+  line-height: 1;
+  margin-bottom: .4rem;
+  letter-spacing: -.02em;
+}
+.kit-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #58bbc2;
+  letter-spacing: .05em;
+  margin-bottom: 1.25rem;
+}
+.kit-tagline {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #e8c87a;
+  border-left: 3px solid #e8c87a;
+  padding-left: 1rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+.kit-bio {
+  font-size: .9rem;
+  color: #8a9bb5;
+  line-height: 1.75;
+  max-width: 580px;
+  margin-bottom: .75rem;
+}
+.kit-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1.25rem 0;
+}
+.kit-cred {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .3rem .75rem;
+  border-radius: 3px;
+  border: 1px solid rgba(42,124,163,.4);
+  color: #2a7ca3;
+  background: rgba(42,124,163,.08);
+}
+.kit-stars {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 2rem;
+}
+.kit-stars-val { color: #e8c87a; font-size: 1.1rem; letter-spacing: .05em; }
+.kit-stars-label { font-size: .75rem; color: #4a5c72; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+
+/* Photo */
+.kit-photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.kit-photo {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.kit-photo-caption {
+  width: 100%;
+  max-width: 320px;
+  background: rgba(6,70,128,.25);
+  border-top: 2px solid #064680;
+  padding: .6rem 1rem;
+  font-size: .7rem;
+  color: #58bbc2;
+  text-align: center;
+}
+.kit-photo-caption p { margin: .1rem 0; max-width: none; }
+
+/* ── SECTIONS ──────────────────────────────────────── */
+.kit-section { padding: 3rem 0; border-top: 1px solid #1a2d44; }
+.kit-section-label {
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #2a7ca3;
+  border-left: 3px solid #2a7ca3;
+  padding-left: .75rem;
+  margin-bottom: 1rem;
+}
+.kit-section-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 2rem;
+  color: #f0ece4;
+  margin-bottom: .75rem;
+}
+.kit-section-sub {
+  font-size: .88rem;
+  color: #6a7d97;
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* ── TESTIMONIALS ──────────────────────────────────── */
+.kit-testimonials-section { background: #060e1a; }
+.kit-testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.kit-testimonial {
+  background: #0d1825;
+  border: 1px solid #1e3050;
+  border-top: 3px solid #2a7ca3;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+.kit-testimonial-quote {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: .92rem;
+  line-height: 1.7;
+  color: #c8c0b4;
+  margin-bottom: 1rem;
+  max-width: none;
+}
+.kit-testimonial-attr { display: flex; flex-direction: column; gap: .15rem; }
+.kit-testimonial-name { font-weight: 700; font-size: .85rem; color: #f0ece4; }
+.kit-testimonial-org { font-size: .75rem; color: #58bbc2; }
+
+/* ── TALKS ─────────────────────────────────────────── */
+.kit-talks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.kit-talk {
+  background: #0d1825;
+  border: 1px solid #1a2d44;
+  border-radius: 6px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  transition: border-color .2s;
+}
+.kit-talk:hover { border-color: #2a7ca3; }
+.kit-talk-uri:hover { border-color: #ac6dbf; }
+.kit-talk-track {
+  display: inline-flex;
+  font-size: .63rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: .25rem .65rem;
+  border-radius: 3px;
+  width: fit-content;
+}
+.kit-talk-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: .98rem;
+  color: #f0ece4;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.kit-talk-desc {
+  font-size: .83rem;
+  color: #6a7d97;
+  line-height: 1.65;
+  max-width: none;
+  flex: 1;
+}
+.kit-talk-leaves {
+  font-size: .78rem;
+  border-top: 1px solid #1a2d44;
+  padding-top: .65rem;
+  line-height: 1.5;
+}
+.kit-talk-leaves-label { font-weight: 700; color: #58bbc2; }
+.kit-talk-leaves-text { color: #8a9bb5; }
+
+/* URI section */
+.kit-uri-section { background: #08111d; }
+.kit-uri-note {
+  margin-top: 1.5rem;
+  padding: .85rem 1.25rem;
+  background: rgba(49,36,90,.2);
+  border: 1px solid rgba(172,109,191,.25);
+  border-radius: 5px;
+  font-size: .82rem;
+  color: #ac6dbf;
+  font-style: italic;
+  max-width: none;
+}
+
+/* ── PRICING ───────────────────────────────────────── */
+.kit-pricing-section { background: #060e1a; }
+.kit-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.kit-price-table { width: 100%; border-collapse: collapse; }
+.kit-price-table tr { border-bottom: 1px solid #1a2d44; }
+.kit-price-table tr:last-child { border-bottom: none; }
+.kit-price-label {
+  padding: .65rem 0;
+  font-size: .82rem;
+  color: #8a9bb5;
+  width: 60%;
+}
+.kit-price-val {
+  padding: .65rem 0;
+  font-size: .82rem;
+  font-weight: 700;
+  color: #58bbc2;
+  text-align: right;
+}
+
+.kit-logistics { display: flex; flex-direction: column; gap: .5rem; }
+.kit-logistic-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: .75rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #1a2d44;
+  font-size: .82rem;
+}
+.kit-logistic-label { font-weight: 700; color: #2a7ca3; font-size: .75rem; letter-spacing: .05em; text-transform: uppercase; }
+.kit-logistic-val { color: #8a9bb5; line-height: 1.5; }
+
+/* ── FOOTER ────────────────────────────────────────── */
+.kit-footer-section {
+  background: linear-gradient(135deg, #06101e 0%, #0a1628 100%);
+  border-top: 4px solid;
+  border-image: linear-gradient(to right, #064680, #2a7ca3, #58bbc2, #ac6dbf) 1;
+  padding: 3rem 1.5rem;
+}
+.kit-footer-name {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 2rem;
+  color: #f0ece4;
+  margin-bottom: .35rem;
+}
+.kit-footer-title {
+  font-size: .85rem;
+  color: #58bbc2;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+.kit-footer-links {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: .8rem;
+  color: #4a5c72;
+  margin-bottom: 1.5rem;
+}
+.kit-footer-div { color: #1e3050; }
+.kit-footer-ctas {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.kit-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  font-size: .85rem;
+  letter-spacing: .04em;
+  padding: .75rem 1.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all .2s;
+}
+.kit-cta-primary { background: #2a7ca3; color: #fff; }
+.kit-cta-primary:hover { background: #58bbc2; }
+.kit-cta-secondary { background: transparent; color: #58bbc2; border: 1px solid #58bbc2; }
+.kit-cta-secondary:hover { background: rgba(88,187,194,.1); }
+.kit-footer-fine {
+  font-size: .68rem;
+  color: #2a3a50;
+  letter-spacing: .06em;
+  text-align: center;
+}
+
+/* ── MOBILE ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .kit-hero-grid { grid-template-columns: 1fr; }
+  .kit-photo-wrap { order: -1; }
+  .kit-photo { max-width: 220px; }
+  .kit-testimonials-grid { grid-template-columns: 1fr; }
+  .kit-pricing-grid { grid-template-columns: 1fr; }
+  .kit-talks-grid { grid-template-columns: 1fr; }
+  .kit-logistic-row { grid-template-columns: 100px 1fr; }
+}
+
+/* ── PRINT ─────────────────────────────────────────── */
+@media print {
+  .no-print { display: none !important; }
+  #app-nav, footer, .h-20 { display: none !important; }
+  #media-kit { background: #fff; color: #111; }
+  .kit-hero { background: #f8f9fc !important; }
+  .kit-hero::after { display: none; }
+  .kit-accent-bar { background: linear-gradient(to right, #064680, #2a7ca3, #58bbc2, #ac6dbf); }
+  .kit-name, .kit-section-title, .kit-footer-name { color: #0a1220; }
+  .kit-bio, .kit-talk-desc, .kit-logistic-val, .kit-price-label { color: #444; }
+  .kit-testimonials-section, .kit-uri-section, .kit-pricing-section { background: #f5f7fa !important; }
+  .kit-testimonial, .kit-talk { background: #fff; border-color: #dde3ed; }
+  .kit-footer-section { background: #f0f4fa !important; }
+  .kit-footer-fine { color: #888; }
+  .kit-footer-ctas { display: none !important; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: .5in; size: letter; }
+}
+</style>
