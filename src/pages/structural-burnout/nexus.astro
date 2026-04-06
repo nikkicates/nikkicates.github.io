@@ -32,15 +32,17 @@ const photoSrc = '/images/nikki-cates.png';
       <div class="text-center mb-8">
 
         <!-- Photo / placeholder -->
-        <div class="w-24 h-24 rounded-full mx-auto mb-5 overflow-hidden border-2 border-teal-DEFAULT/50 relative"
+        <div class="w-36 h-36 rounded-full mx-auto mb-5 overflow-hidden border-2 border-teal-DEFAULT/50 relative"
              style="background: linear-gradient(135deg, #0f4c7a, #0d9488);">
           {hasPhoto ? (
             <img
               src={photoSrc}
               alt="Nikki Cates"
-              width="96"
-              height="96"
-              class="w-full h-full object-cover object-top"
+              width="144"
+              height="144"
+              class="w-full h-full object-cover object-center"
+              loading="eager"
+              fetchpriority="high"
             />
           ) : (
             <div class="w-full h-full flex items-center justify-center">
@@ -68,7 +70,7 @@ const photoSrc = '/images/nikki-cates.png';
           Nikki Cates helps executives, boards, and organizations identify and dismantle the
           structural conditions producing burnout, attrition, and systemic exhaustion.
           She is the creator of the <span class="text-teal-DEFAULT font-semibold">UNMASK Framework</span>
-          and author of the three-volume UNMASK Blueprint Series, practitioner-developed diagnostic
+          and author of the three-volume UNMASK Blueprint Series — practitioner-developed diagnostic
           tools for organizational leaders who are done treating symptoms.
         </p>
       </div>
@@ -108,7 +110,7 @@ const photoSrc = '/images/nikki-cates.png';
           {
             label: 'LinkedIn',
             sub: 'Professional network & thought leadership',
-            href: 'https://www.linkedin.com/in/nikkicatesmiller',
+            href: 'https://www.linkedin.com/in/nikkicates',
             icon: '🔗',
             external: true,
           },
