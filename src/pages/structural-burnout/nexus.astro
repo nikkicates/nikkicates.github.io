@@ -22,12 +22,10 @@ const photoSrc = '/images/nikki-cates.png';
       <div class="h-[3px] w-full mb-6 rounded-full" style="background: linear-gradient(to right, transparent, #0d9488, #0f4c7a, transparent);"></div>
 
       <!-- DOWNLOAD CONTACT CARD — prominent at top -->
-      <button
-        onclick="downloadVCard()"
-        class="w-full flex items-center justify-center gap-3 mb-6 py-3.5 px-5 rounded-md border border-teal-DEFAULT/50 font-body font-bold text-sm text-teal-DEFAULT transition-all"
+      <a
+        href="/nikki-cates.vcf"
+        class="w-full flex items-center justify-center gap-3 mb-6 py-3.5 px-5 rounded-md border border-teal-DEFAULT/50 font-body font-bold text-sm text-teal-DEFAULT transition-all no-underline"
         style="background: rgba(13,148,136,0.12);"
-        onmouseover="this.style.background='rgba(13,148,136,0.22)'"
-        onmouseout="this.style.background='rgba(13,148,136,0.12)'"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -35,7 +33,7 @@ const photoSrc = '/images/nikki-cates.png';
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
         Save Contact to Phone
-      </button>
+      </a>
 
       <!-- Identity -->
       <div class="text-center mb-7">
@@ -154,10 +152,9 @@ const photoSrc = '/images/nikki-cates.png';
       </div>
 
       <!-- Second download nudge at bottom -->
-      <button
-        onclick="downloadVCard()"
-        class="w-full flex items-center justify-center gap-2 mb-5 py-2.5 px-4 rounded-md text-xs font-body font-bold uppercase tracking-widest text-muted border border-border hover:border-teal-DEFAULT/40 hover:text-teal-DEFAULT transition-all"
-        style="background: transparent;"
+      <a
+        href="/nikki-cates.vcf"
+        class="w-full flex items-center justify-center gap-2 mb-5 py-2.5 px-4 rounded-md text-xs font-body font-bold uppercase tracking-widest text-muted border border-border hover:border-teal-DEFAULT/40 hover:text-teal-DEFAULT transition-all no-underline"
       >
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -165,7 +162,7 @@ const photoSrc = '/images/nikki-cates.png';
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
         Save Contact Card (.vcf)
-      </button>
+      </a>
 
       <!-- Footer -->
       <div class="text-center">
@@ -184,33 +181,3 @@ const photoSrc = '/images/nikki-cates.png';
   </section>
 
 </Layout>
-
-<script>
-function downloadVCard() {
-  const vcard = [
-    'BEGIN:VCARD',
-    'VERSION:3.0',
-    'FN:Nikki Cates',
-    'N:Cates;Nikki;;;',
-    'TITLE:Structural Recalibration Strategist',
-    'ORG:Strategic Transformations',
-    'EMAIL;TYPE=WORK:nikki@strategicunmasking.com',
-    'URL;TYPE=WORK:https://nikkicates.github.io',
-    'URL;TYPE=LinkedIn:https://www.linkedin.com/in/nikkicatesmiller',
-    'NOTE:Founder of Strategic Transformations & URI. Creator of the UNMASK Framework. Army Veteran. Author of the UNMASK Blueprint Series. AI-Era Organizational Strategist.',
-    'END:VCARD'
-  ].join('\r\n');
-
-  const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-  const url  = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href     = url;
-  link.download = 'Nikki-Cates.vcf';
-
-  // iOS Safari requires the link to be in the DOM briefly
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-}
-</script>
