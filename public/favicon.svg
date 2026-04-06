@@ -1,4 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="12" fill="#0f172a"/>
-  <text x="50" y="68" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#0d9488" text-anchor="middle">N</text>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064680"/>
+      <stop offset="100%" stop-color="#31245a"/>
+    </linearGradient>
+    <linearGradient id="txt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58bbc2"/>
+      <stop offset="100%" stop-color="#ac6dbf"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="16" fill="url(#bg)"/>
+  <text
+    x="50" y="69"
+    font-family="Georgia, serif"
+    font-size="48"
+    font-weight="700"
+    fill="url(#txt)"
+    text-anchor="middle"
+    letter-spacing="-2"
+  >NC</text>
 </svg>
