@@ -5,13 +5,6 @@ interface Props {
 }
 const { section = 'home', accentColor = 'teal' } = Astro.props;
 
-const isST  = section === 'st';
-const isURI = section === 'uri';
-
-const accent = accentColor === 'gold'
-  ? { text: 'text-gold', border: 'border-gold', bg: 'hover:bg-gold/10' }
-  : { text: 'text-teal-DEFAULT', border: 'border-teal-DEFAULT', bg: 'hover:bg-teal-glow' };
-
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/structural-burnout/', label: 'Structural Burnout' },
@@ -19,33 +12,32 @@ const navLinks = [
   { href: '/uri/', label: 'URI Formation' },
   { href: '/books/', label: 'Books' },
 ];
+
+const moreLinks = [
+  { href: '/structural-burnout/pitch', label: 'Investor Hub' },
+  { href: '/structural-burnout/nexus', label: 'Nexus Card' },
+  { href: '/structural-burnout/briefing', label: 'Executive Briefing' },
+];
 ---
 
 <header
   id="site-nav"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  style="background: rgba(15,23,42,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(51,65,85,0.4);"
+  style="background: rgba(15,23,42,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(51,65,85,0.4);"
 >
   <div class="container-wide">
-    <div class="flex items-center justify-between h-16 md:h-18">
+    <div class="flex items-center justify-between h-20 md:h-22">
 
-      <!-- LOGO: swaps by section -->
-      <a href="/" class="flex items-center gap-3 group" aria-label="Return to homepage">
+      <!-- LOGO: SVG swap by section. Replace each img src with your actual logo file when ready. -->
+      <a href="/" class="flex items-center group" aria-label="Return to homepage">
         {section === 'home' && (
-          <span class="font-heading font-bold text-lg text-light tracking-tight">
-            Nikki <span class="text-teal-DEFAULT">Cates</span>
-          </span>
+          <img src="/logos/nc-logo.png" alt="Nikki Cates" width="200" height="44" class="h-14 w-auto" />
         )}
         {section === 'st' && (
-          <span class="font-heading font-bold text-lg text-light tracking-tight">
-            Strategic <span class="text-teal-DEFAULT">Transformations</span>
-          </span>
+          <img src="/logos/st-logo.png" alt="Strategic Transformations" width="220" height="44" class="h-14 w-auto" />
         )}
         {section === 'uri' && (
-          <span class="font-heading font-bold text-lg text-light tracking-tight">
-            <span class="text-gold">URI</span>
-            <span class="text-muted text-sm font-body font-normal ml-2">Formation</span>
-          </span>
+          <img src="/logos/uri-logo.png" alt="URI — Unbothered Resistance International" width="200" height="44" class="h-14 w-auto" />
         )}
       </a>
 
@@ -54,26 +46,33 @@ const navLinks = [
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="font-body text-sm font-500 text-muted px-3 py-2 rounded-sm transition-colors duration-150 hover:text-light"
+            class="font-body text-sm font-medium text-muted px-3 py-2 rounded-sm transition-colors duration-150 hover:text-light"
           >
             {link.label}
           </a>
         ))}
-        <a
-          href="/structural-burnout/briefing"
-          class={`ml-3 btn-teal !text-sm !py-2 !px-4 ${isST ? '' : ''}`}
-        >
+        <!-- More dropdown -->
+        <div class="relative group ml-1">
+          <button class="font-body text-sm font-medium text-muted px-3 py-2 rounded-sm transition-colors hover:text-light flex items-center gap-1">
+            More
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" class="transition-transform group-hover:rotate-180"><path d="M1 3l4 4 4-4"/></svg>
+          </button>
+          <div class="absolute right-0 top-full mt-1 w-44 bg-[#1e293b] border border-border rounded-md shadow-xl hidden group-hover:flex flex-col py-1 z-50">
+            {moreLinks.map((link) => (
+              <a href={link.href} class="font-body text-sm text-muted px-4 py-2.5 hover:text-light hover:bg-surface transition-colors">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <a href="/structural-burnout/briefing" class="ml-3 btn-teal !text-sm !py-2 !px-4">
           Request Briefing
         </a>
       </nav>
 
       <!-- Mobile hamburger -->
-      <button
-        id="nav-toggle"
-        class="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer"
-        aria-label="Open menu"
-        aria-expanded="false"
-      >
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer" aria-label="Open menu" aria-expanded="false">
         <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar1"></span>
         <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar2"></span>
         <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar3"></span>
@@ -81,39 +80,31 @@ const navLinks = [
     </div>
   </div>
 
-  <!-- Mobile menu drawer -->
-  <div
-    id="mobile-menu"
-    class="md:hidden hidden flex-col gap-1 pb-5 px-6 bg-[#0f172a] border-t border-border"
-  >
+  <!-- Mobile drawer -->
+  <div id="mobile-menu" class="md:hidden hidden flex-col gap-1 pb-5 px-6 bg-[#0f172a] border-t border-border">
     {navLinks.map((link) => (
-      <a
-        href={link.href}
-        class="font-body text-sm text-muted py-3 border-b border-border/40 hover:text-light transition-colors"
-      >
+      <a href={link.href} class="font-body text-sm text-muted py-3 border-b border-border/40 hover:text-light transition-colors">
         {link.label}
       </a>
     ))}
-    <a
-      href="/structural-burnout/briefing"
-      class="btn-teal mt-3 justify-center !text-sm"
-    >
-      Request Briefing
-    </a>
+    <p class="font-body text-xs font-bold uppercase tracking-widest text-muted/50 pt-3 pb-1">More</p>
+    {moreLinks.map((link) => (
+      <a href={link.href} class="font-body text-sm text-muted py-2.5 border-b border-border/40 hover:text-light transition-colors">
+        {link.label}
+      </a>
+    ))}
+    <a href="/structural-burnout/briefing" class="btn-teal mt-3 justify-center !text-sm">Request Briefing</a>
   </div>
 </header>
 
-<!-- Spacer so content doesn't hide under fixed nav -->
-<div class="h-16 md:h-18"></div>
+<div class="h-20 md:h-22"></div>
 
 <script>
-  // Mobile toggle
   const toggle = document.getElementById('nav-toggle');
   const menu   = document.getElementById('mobile-menu');
   const bar1   = document.getElementById('bar1');
   const bar2   = document.getElementById('bar2');
   const bar3   = document.getElementById('bar3');
-
   let open = false;
   toggle?.addEventListener('click', () => {
     open = !open;
@@ -121,19 +112,13 @@ const navLinks = [
     menu?.classList.toggle('flex', open);
     toggle.setAttribute('aria-expanded', String(open));
     if (bar1 && bar2 && bar3) {
-      bar1.style.transform = open ? 'rotate(45deg) translate(5px, 5px)' : '';
+      bar1.style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
       bar2.style.opacity   = open ? '0' : '1';
-      bar3.style.transform = open ? 'rotate(-45deg) translate(5px, -5px)' : '';
+      bar3.style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
     }
   });
-
-  // Scroll shadow
   const nav = document.getElementById('site-nav');
   window.addEventListener('scroll', () => {
-    if (nav) {
-      nav.style.boxShadow = window.scrollY > 20
-        ? '0 4px 30px rgba(0,0,0,0.4)'
-        : 'none';
-    }
+    if (nav) nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.45)' : 'none';
   });
 </script>
