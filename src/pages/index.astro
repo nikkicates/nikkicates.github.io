@@ -36,7 +36,7 @@ import Layout from '../layouts/Layout.astro';
           <p class="font-body text-lg text-muted leading-relaxed mb-2 max-w-2xl animate-on-scroll" style="animation-delay:0.15s">
             Nikki Cates is the Structural Recalibration Strategist who helps executives and boards
             diagnose and dismantle the hidden architectures producing burnout, attrition, and
-            silenced capacity, before the cost becomes catastrophic.
+            silenced capacity — before the cost becomes catastrophic.
           </p>
           <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl animate-on-scroll" style="animation-delay:0.2s">
             Army veteran. Womanist theologian. Creator of the <span class="text-teal-DEFAULT font-semibold">UNMASK Framework</span>. Author of the UNMASK Blueprint Series. Founder of Strategic Transformations &amp; URI.
@@ -79,6 +79,9 @@ import Layout from '../layouts/Layout.astro';
               alt="Nikki Cates — Structural Recalibration Strategist"
               class="w-full h-auto object-cover object-top"
               style="max-height: 420px; object-position: center top;"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
             <!-- Photo overlay tag -->
             <div class="absolute bottom-0 left-0 right-0 p-4"
@@ -124,13 +127,13 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          'Your best people keep leaving, and nobody can tell you why.',
-          'Leadership is exhausted, and pretending otherwise.',
+          'Your best people keep leaving and nobody can tell you why.',
+          'Leadership is exhausted — and pretending otherwise.',
           'You\'ve done the trainings, the surveys, the retreats. Nothing sticks.',
           'Your DEI efforts are real, but the most marginalized talent is still burning out.',
           'Urgency has become the culture. Everything is critical. Nothing gets done well.',
           'You\'re watching institutional knowledge walk out the door with every departure.',
-          'AI tools are being deployed, and nobody is asking what it\'s doing to your people.',
+          'AI tools are being deployed and nobody is asking what it\'s doing to your people.',
           'The pipeline looks strong on paper. In practice, leaders are struggling.',
           'You know the structure is the problem. You don\'t know how to name it yet.',
         ].map((pain, i) => (
@@ -142,7 +145,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="mt-12 text-center animate-on-scroll">
-        <p class="font-heading text-xl text-light mb-2">If any of that landed, you're in the right place.</p>
+        <p class="font-heading text-xl text-light mb-2">If any of that landed — you're in the right place.</p>
         <p class="text-muted text-sm mb-6 max-w-lg mx-auto">
           These are not performance problems. They are structural ones.
           And there is a framework designed to diagnose and dismantle them.
@@ -207,7 +210,7 @@ import Layout from '../layouts/Layout.astro';
             accent: 'teal',
             label: 'Structural Burnout',
             badge: 'Core Work',
-            desc: 'The diagnostic practice for organizations burning through their most committed talent. Burnout is a design flaw, and there\'s a framework to fix it.',
+            desc: 'The diagnostic practice for organizations burning through their most committed talent. Burnout is a design flaw — and there\'s a framework to fix it.',
             cta: 'Enter the Hub →',
           },
           {
@@ -268,7 +271,7 @@ import Layout from '../layouts/Layout.astro';
             Five talks.<br/>One through line.
           </h2>
           <p class="text-muted text-sm leading-relaxed mb-6">
-            Nikki Cates is a keynote speaker whose talks move rooms, not because they inspire,
+            Nikki Cates is a keynote speaker whose talks move rooms — not because they inspire,
             but because they diagnose. Your organization will not be the same after.
           </p>
           <p class="font-body text-sm mb-6">
@@ -401,7 +404,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="container-mid relative z-10 animate-on-scroll">
       <div class="border border-plum-DEFAULT/30 rounded-lg p-10 md:p-14 bg-[#1a0a2e]/40">
         <div class="flex items-start gap-5 mb-6">
-          <img src="/logos/uri-logo.png" alt="URI" width="160" height="36" class="h-14 w-auto" />
+          <img src="/logos/uri-logo.svg" alt="URI" width="160" height="36" class="h-9 w-auto" loading="lazy" />
         </div>
         <h2 class="font-heading text-3xl md:text-4xl text-light mb-4">
           Liberation is the<br/>
@@ -410,7 +413,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="text-muted leading-relaxed mb-8 max-w-xl">
           Unbothered Resistance International is the justice-centered formation and research wing
           beneath everything Nikki builds. Rooted in womanist theology, structural analysis, and
-          a commitment to restoring right relationships, in organizations, communities, and Spirit.
+          a commitment to restoring right relationships — in organizations, communities, and Spirit.
         </p>
         <a href="/uri/" class="btn-gold">Explore URI Formation →</a>
       </div>
@@ -427,7 +430,7 @@ import Layout from '../layouts/Layout.astro';
         <span class="text-teal-DEFAULT">fixable.</span>
       </h2>
       <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-        Every engagement begins with a conversation, not a calendar link.
+        Every engagement begins with a conversation — not a calendar link.
         The vetting process exists to protect your investment and make sure
         every engagement is positioned for actual transformation.
       </p>
