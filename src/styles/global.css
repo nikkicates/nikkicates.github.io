@@ -159,7 +159,7 @@ p { max-width: 68ch; }
 .form-input, .form-select, .form-textarea {
   background: #0f172a; color: #f8fafc;
   border: 1px solid #334155; border-radius: 4px;
-  padding: 0.8rem 1rem; font-family: 'Urbanist', sans-serif; font-size: 0.95rem;
+  padding: 0.8rem 1rem; font-family: 'Urbanist', sans-serif; font-size: 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
   width: 100%;
 }
@@ -169,7 +169,7 @@ p { max-width: 68ch; }
   box-shadow: 0 0 0 3px rgba(13,148,136,0.15);
 }
 .form-textarea { resize: vertical; min-height: 120px; }
-.form-select { appearance: none; cursor: pointer; }
+.form-select { appearance: none; -webkit-appearance: none; cursor: pointer; min-height: 48px; }
 
 /* URI form focus */
 .uri-form .form-input:focus,
