@@ -49,9 +49,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Preconnect to Google Fonts (fonts loaded via global.css) -->
+    <!-- Performance: DNS prefetch + preconnect for fonts -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Prevent layout shift: inline critical font hint -->
+    <meta name="theme-color" content="#0f172a" />
   </head>
 
   <body class="bg-[#0f172a] text-light antialiased">
