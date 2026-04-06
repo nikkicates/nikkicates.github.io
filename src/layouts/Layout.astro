@@ -1,15 +1,82 @@
 ---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  section?: 'home' | 'st' | 'uri';
+  accentColor?: 'teal' | 'gold';
+  image?: string;
+}
+
+const {
+  title,
+  description = 'Nikki Cates — Structural Recalibration Strategist, Author, Speaker, and Founder of Strategic Transformations and URI.',
+  section = 'home',
+  accentColor = 'teal',
+  image = '/og-default.jpg',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nikki Cates</title>
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- SEO -->
+    <title>{title} | Nikki Cates</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Nikki Cates" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} | Nikki Cates`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Nikki Cates`} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Preconnect to Google Fonts (fonts loaded via global.css) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body class="bg-black text-white min-h-screen">
-    <slot />
+
+  <body class="bg-[#0f172a] text-light antialiased">
+    <Nav section={section} accentColor={accentColor} />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer section={section} />
+
+    <!-- Scroll Animation Observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

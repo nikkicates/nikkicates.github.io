@@ -2,29 +2,229 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout>
-  <div class="bg-zinc-950 text-zinc-100 min-h-screen">
-    <div class="max-w-4xl mx-auto px-6 py-20">
-      <a href="/structural-burnout" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 mb-12 text-sm">
-        ← Back to Structural Burnout
-      </a>
+<Layout
+  title="Investor Hub — Strategic Transformations"
+  description="Strategic Transformations is scaling its structural burnout methodology into a multi-product, multi-channel enterprise. Review the investment thesis, traction, and opportunity."
+  section="st"
+  accentColor="teal"
+>
 
-      <h1 class="text-5xl md:text-6xl font-bold tracking-tighter mb-10">
-        UNMASK Executive Pitch
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-st-gradient"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(13,148,136,0.08) 0%, transparent 65%);"></div>
+    <div class="container-mid relative z-10">
+      <span class="st-tag mb-5 inline-flex animate-on-scroll">Investor Hub · Confidential Overview</span>
+      <h1 class="font-heading text-4xl md:text-6xl text-light font-bold mb-5 animate-on-scroll">
+        The $88B Burnout<br/>
+        <span class="text-teal-DEFAULT">Market Has No</span><br/>
+        Structural Answer.
       </h1>
-
-      <div class="bg-zinc-900 border border-purple-400/30 rounded-3xl p-12 mb-16">
-        <h2 class="text-4xl font-bold tracking-tighter mb-6">Seed Capital Opportunity</h2>
-        <p class="text-2xl text-zinc-400 mb-8">
-          We are seeking <span class="text-white font-semibold">$30,000</span> in seed capital for the UNMASK Engine.
-        </p>
+      <p class="text-muted text-lg max-w-2xl mb-3 animate-on-scroll" style="animation-delay:0.1s">
+        Until now.
+      </p>
+      <p class="text-muted text-base max-w-2xl mb-10 animate-on-scroll" style="animation-delay:0.15s">
+        Strategic Transformations is a structural burnout consultancy with a proprietary diagnostic framework,
+        a growing product ecosystem, and a founder whose lived authority in this space cannot be replicated.
+        We are building toward scale — and seeking aligned capital to get there faster.
+      </p>
+      <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+        <a href="/structural-burnout/briefing" class="btn-teal">Request Investor Briefing →</a>
+        <a href="/structural-burnout/services" class="btn-outline-teal">View Service Architecture</a>
       </div>
+      <p class="text-xs text-muted mt-6 animate-on-scroll italic">
+        Note: Market figures cited herein are sourced from publicly available industry research.
+        Projections are forward-looking and based on strategic modeling, not guaranteed outcomes.
+        Full deck available upon request after vetting.
+      </p>
+    </div>
+  </section>
 
-      <div class="text-center">
-        <a href="/structural-burnout/services" class="inline-block px-12 py-6 border border-teal-400 hover:bg-teal-400 hover:text-zinc-950 font-semibold rounded-3xl">
-          Explore Engagements
-        </a>
+
+  <!-- ─── THE PROBLEM ───────────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Market Opportunity</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">The Market Misdiagnoses Everything</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            label: 'The Wellness Industry',
+            problem: 'Treats burnout as a personal wellness problem — mindfulness apps, sabbaticals, resilience training.',
+            failure: 'None of it changes the structure producing the exhaustion.',
+          },
+          {
+            label: 'Traditional HR Consulting',
+            problem: 'Focuses on engagement scores, pulse surveys, and policy adjustments.',
+            failure: 'Measures the symptom. Never diagnoses the architecture.',
+          },
+          {
+            label: 'DEI/Culture Programs',
+            problem: 'Valuable but typically siloed — addresses belonging without addressing structural strain.',
+            failure: 'People feel seen but still burned out.',
+          },
+        ].map((item) => (
+          <div class="card border-red-500/20 bg-red-900/5 animate-on-scroll">
+            <p class="font-heading text-light font-semibold mb-3">{item.label}</p>
+            <p class="text-muted text-sm mb-3">{item.problem}</p>
+            <p class="text-red-400 text-xs border-t border-red-500/20 pt-3 mt-3">
+              ✗ {item.failure}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <div class="inline-block card border-teal-DEFAULT/40 bg-teal-glow p-6 animate-on-scroll">
+          <p class="font-heading text-teal-DEFAULT text-xl font-semibold mb-2">
+            Strategic Transformations fixes the design.
+          </p>
+          <p class="text-muted text-sm max-w-lg">
+            The only practitioner-developed framework that treats burnout as what it is — a structural failure —
+            and provides a diagnostic and recalibration pathway to address it at the root.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+
+
+  <!-- ─── THE SOLUTION ──────────────────────────────── -->
+  <section class="section-pad">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="animate-on-scroll">
+          <span class="st-tag mb-5 inline-flex">The Solution</span>
+          <h2 class="font-heading text-3xl md:text-4xl text-light mb-6">
+            A Proprietary Framework<br/>With Multi-Channel Scale
+          </h2>
+          <p class="text-muted leading-relaxed mb-4">
+            The UNMASK Framework is not a product — it is a system. A diagnostic operating system for
+            organizational structure that can be deployed through services, licensed products, institutional
+            training, and AI-enhanced tools.
+          </p>
+          <p class="text-muted leading-relaxed mb-6">
+            The founder's practitioner authority, lived credibility, and womanist-grounded intellectual
+            framework create a competitive moat that institutional wellness vendors and traditional HR
+            consultants cannot replicate.
+          </p>
+        </div>
+        <div class="space-y-4 animate-on-scroll" style="animation-delay:0.15s">
+          {[
+            { channel: 'High-Ticket Services', desc: 'Diagnostic Architecture, Recalibration, Retainer, AI Audit — starting at $22,000' },
+            { channel: 'Speaking & Keynotes', desc: '5 signature talks, conference circuit, starting at $12,500' },
+            { channel: 'UNMASK Blueprint Series', desc: 'Institutional license + individual sales, Vol. 1 & 2' },
+            { channel: 'Digital Tools', desc: 'UNMASK Vol. 2 Interactive Web App — scalable SaaS layer in development' },
+            { channel: 'URI Formation', desc: 'Justice-centered leadership formation — adjacent revenue stream with mission alignment' },
+            { channel: 'Enterprise Licensing', desc: 'UNMASK Framework licensable for organizational-wide deployment at scale' },
+          ].map((item) => (
+            <div class="flex items-start gap-4 p-4 bg-surface border border-border rounded-md hover:border-teal-DEFAULT/40 transition-colors">
+              <span class="text-teal-DEFAULT shrink-0 mt-0.5">→</span>
+              <div>
+                <p class="font-heading text-light font-semibold text-sm">{item.channel}</p>
+                <p class="text-muted text-xs mt-1">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FOUNDER AUTHORITY ─────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-mid">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Founder Profile</span>
+        <h2 class="font-heading text-3xl text-light">Authority That Cannot Be Manufactured</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {[
+          { icon: '🎖️', label: 'Army Veteran', desc: 'Leadership under genuine pressure — not theoretical. Military discipline applied to organizational architecture.' },
+          { icon: '✍🏾', label: 'Practitioner-Scholar', desc: 'Graduate work in Religions, Ethics & Public Intellectuals. Womanist theology as intellectual foundation. Academic rigor meeting field experience.' },
+          { icon: '🏗️', label: 'Framework Creator', desc: 'UNMASK developed from direct organizational consulting, not academic theory. Tested in real structures with real stakes.' },
+          { icon: '🌍', label: 'Cross-Sector Experience', desc: 'Nonprofit, faith-based, corporate, and public sector organizations. The structural problems transcend industry.' },
+          { icon: '📖', label: 'Published Author', desc: 'UNMASK Blueprint Series positions ST as a thought leadership brand, not just a service provider.' },
+          { icon: '🌐', label: 'Liberation Grounded', desc: 'Womanist ethics and liberation philosophy are not decorative — they are the epistemological foundation of the diagnostic work.' },
+        ].map((item) => (
+          <div class="card teal-hover animate-on-scroll">
+            <span class="text-2xl block mb-3">{item.icon}</span>
+            <p class="font-heading text-light font-semibold text-sm mb-2">{item.label}</p>
+            <p class="text-muted text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── SEED CAPITAL ──────────────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(13,148,136,0.07) 0%, transparent 70%);"></div>
+    <div class="container-mid relative z-10">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Seed Capital Opportunity</span>
+        <h2 class="font-heading text-3xl text-light">What Capital Unlocks</h2>
+        <p class="text-muted mt-3 max-w-lg mx-auto text-sm">
+          Strategic Transformations is generating revenue and building traction. Seed capital is not
+          about survival — it's about acceleration.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            area: 'Product Development',
+            items: ['UNMASK SaaS platform buildout', 'AI-enhanced diagnostic tools', 'Enterprise licensing infrastructure'],
+          },
+          {
+            area: 'Market Expansion',
+            items: ['Speaking circuit acceleration', 'Conference partnership development', 'Corporate client pipeline scaling'],
+          },
+          {
+            area: 'Operational Infrastructure',
+            items: ['CRM & systems optimization', 'Team expansion (ops, client success)', 'IP protection and legal infrastructure'],
+          },
+        ].map((bucket) => (
+          <div class="card teal-hover animate-on-scroll">
+            <p class="font-heading text-teal-DEFAULT font-semibold mb-4">{bucket.area}</p>
+            <ul class="space-y-2">
+              {bucket.items.map((item) => (
+                <li class="flex items-start gap-2 text-sm text-muted">
+                  <span class="text-teal-DEFAULT shrink-0">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── INVESTOR CTA ───────────────────────────────── -->
+  <section class="py-16 bg-[#0c1525]">
+    <div class="container-narrow text-center animate-on-scroll">
+      <h2 class="font-heading text-3xl text-light mb-4">
+        The right investor doesn't just bring capital.<br/>
+        <span class="text-teal-DEFAULT">They bring alignment.</span>
+      </h2>
+      <p class="text-muted mb-8 max-w-xl mx-auto">
+        Strategic Transformations is not looking for investors who want to change the vision.
+        We are looking for investors who understand that liberation-grounded frameworks are the future
+        of organizational health — and want to be part of building it.
+      </p>
+      <p class="text-muted text-sm mb-8">
+        Interested parties must complete an Executive Briefing before any further materials are shared.
+        The full investor deck is available by request only.
+      </p>
+      <a href="/structural-burnout/briefing" class="btn-teal text-base">
+        Request Investor Briefing →
+      </a>
+    </div>
+  </section>
+
 </Layout>

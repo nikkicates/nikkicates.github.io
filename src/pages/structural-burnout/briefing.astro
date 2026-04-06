@@ -2,43 +2,390 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout>
-  <div class="bg-zinc-950 text-zinc-100 min-h-screen">
-    <div class="max-w-4xl mx-auto px-6 py-20">
-      <a href="/structural-burnout" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 mb-12 text-sm">
-        ← Back to Structural Burnout
-      </a>
+<Layout
+  title="Executive Briefing — Strategic Transformations"
+  description="Request an Executive Briefing with Nikki Cates. This vetting process protects your investment and mine — ensuring every engagement is positioned for transformation, not performance."
+  section="st"
+  accentColor="teal"
+>
 
-      <h1 class="text-5xl md:text-6xl font-bold tracking-tighter leading-none mb-10">
-        Structural Leadership<br>
-        <span class="text-teal-400">Diagnostic</span>
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-st-gradient"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
+    <div class="container-mid relative z-10">
+      <span class="st-tag mb-5 inline-flex animate-on-scroll">Protected Entry Point</span>
+      <h1 class="font-heading text-4xl md:text-5xl text-light font-bold mb-5 animate-on-scroll">
+        Executive Briefing<br/>
+        <span class="text-teal-DEFAULT">Request</span>
       </h1>
-
-      <p class="text-xl text-zinc-400 max-w-2xl mb-16">
-        Identify exactly where your organization is leaking capacity and authority.
+      <p class="text-muted text-lg max-w-2xl mb-3 animate-on-scroll" style="animation-delay:0.1s">
+        This form is the front door — not the check-in. I review every submission personally.
+        If there's alignment, I'll reach out to schedule a discovery conversation.
       </p>
+      <p class="text-muted text-sm max-w-xl animate-on-scroll" style="animation-delay:0.15s">
+        <span class="text-teal-DEFAULT font-semibold">There are no direct calendar links here.</span>
+        That's not an obstacle — it's a feature. The vetting process ensures every engagement is
+        resourced for actual transformation.
+      </p>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-          <h3 class="text-2xl font-semibold mb-6">The Authority Gap</h3>
-          <p class="text-zinc-400">Leaders held accountable for outcomes they lack authority to fix.</p>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-          <h3 class="text-2xl font-semibold mb-6">Strain Transfer</h3>
-          <p class="text-zinc-400">Invisible labor extraction from high-capacity individuals.</p>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-          <h3 class="text-2xl font-semibold mb-6">AI Acceleration Risk</h3>
-          <p class="text-zinc-400">Cracked structures multiplied 10× by AI.</p>
-        </div>
-      </div>
-
-      <div class="mt-20 text-center">
-        <a href="/structural-burnout/services" 
-           class="inline-block px-12 py-6 bg-teal-400 hover:bg-teal-300 text-zinc-950 font-semibold rounded-3xl">
-          View Full Solutions
-        </a>
+  <!-- ─── WHAT TO EXPECT ────────────────────────────── -->
+  <section class="py-10 bg-surface border-y border-border">
+    <div class="container-wide">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { icon: '📋', label: 'Submit This Form', sub: 'Takes 8–12 minutes' },
+          { icon: '🔍', label: 'Personal Review', sub: 'Within 3–5 business days' },
+          { icon: '📞', label: 'Discovery Call', sub: 'If there\'s alignment' },
+          { icon: '📄', label: 'Signed Agreement', sub: 'Before any engagement begins' },
+        ].map((step) => (
+          <div>
+            <span class="text-2xl block mb-2">{step.icon}</span>
+            <p class="text-light text-sm font-semibold">{step.label}</p>
+            <p class="text-muted text-xs mt-1">{step.sub}</p>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
+  </section>
+
+
+  <!-- ─── THE FORM ──────────────────────────────────── -->
+  <section class="section-pad">
+    <div class="container-narrow">
+      <form
+        id="briefing-form"
+        class="space-y-10"
+        novalidate
+      >
+
+        <!-- Section 1: Authority & Identity -->
+        <fieldset class="card border-teal-DEFAULT/20">
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">
+            01 — Your Authority & Identity
+          </legend>
+          <p class="text-muted text-sm mb-6 px-2">Tell me who I'm speaking with.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="form-group">
+              <label class="form-label" for="full-name">Full Name *</label>
+              <input class="form-input" id="full-name" name="fullName" type="text" placeholder="Dr. Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="title">Title / Role *</label>
+              <input class="form-input" id="title" name="title" type="text" placeholder="Chief Human Resources Officer" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="org-name">Organization Name *</label>
+              <input class="form-input" id="org-name" name="orgName" type="text" placeholder="Acme Corporation" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="org-website">Organization Website</label>
+              <input class="form-input" id="org-website" name="orgWebsite" type="url" placeholder="https://example.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" id="email" name="email" type="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone (optional)</label>
+              <input class="form-input" id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" />
+            </div>
+          </div>
+        </fieldset>
+
+
+        <!-- Section 2: Organizational Context -->
+        <fieldset class="card border-teal-DEFAULT/20">
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">
+            02 — Organizational Context
+          </legend>
+          <p class="text-muted text-sm mb-6 px-2">Help me understand the structure I'd be stepping into.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="form-group">
+              <label class="form-label" for="industry">Industry / Sector *</label>
+              <select class="form-select" id="industry" name="industry" required>
+                <option value="">Select sector</option>
+                <option>Corporate / Private Sector</option>
+                <option>Nonprofit / NGO</option>
+                <option>Higher Education</option>
+                <option>Healthcare</option>
+                <option>Government / Public Sector</option>
+                <option>Faith-Based Organization</option>
+                <option>Technology</option>
+                <option>Financial Services</option>
+                <option>Consulting / Professional Services</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="org-size">Organization Size *</label>
+              <select class="form-select" id="org-size" name="orgSize" required>
+                <option value="">Select size</option>
+                <option>Under 50 employees</option>
+                <option>50–150 employees</option>
+                <option>150–500 employees</option>
+                <option>500–1,500 employees</option>
+                <option>1,500–5,000 employees</option>
+                <option>5,000+ employees</option>
+              </select>
+            </div>
+            <div class="form-group md:col-span-2">
+              <label class="form-label" for="current-state">What is happening inside your organization right now? *</label>
+              <textarea
+                class="form-textarea"
+                id="current-state"
+                name="currentState"
+                placeholder="Describe what you're observing — attrition patterns, leadership fatigue, morale issues, team dysfunction, or anything else prompting this inquiry. Be specific."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group md:col-span-2">
+              <label class="form-label" for="how-long">How long has this been a problem? *</label>
+              <select class="form-select" id="how-long" name="howLong" required>
+                <option value="">Select timeframe</option>
+                <option>Less than 6 months</option>
+                <option>6 months – 1 year</option>
+                <option>1–2 years</option>
+                <option>2–4 years</option>
+                <option>4+ years (this is systemic)</option>
+                <option>We\'re not sure — it\'s hard to see clearly from inside</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+
+        <!-- Section 3: Problem Awareness -->
+        <fieldset class="card border-teal-DEFAULT/20">
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">
+            03 — Problem Awareness
+          </legend>
+          <p class="text-muted text-sm mb-6 px-2">How clearly can you name what's happening?</p>
+          <div class="space-y-5">
+            <div class="form-group">
+              <label class="form-label" for="attempted">What have you already tried? *</label>
+              <textarea
+                class="form-textarea"
+                id="attempted"
+                name="attempted"
+                placeholder="Training programs, consultants, policy changes, new hires, retreats — what has your org already invested in trying to solve this? What worked? What didn't?"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="impact">What is this costing your organization? *</label>
+              <textarea
+                class="form-textarea"
+                id="impact"
+                name="impact"
+                placeholder="Think beyond financials: talent attrition, lost institutional knowledge, leadership capacity, team trust, mission delivery, reputation. Be honest."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="awareness-level">How would you describe leadership's awareness of the structural dimension of this problem? *</label>
+              <select class="form-select" id="awareness-level" name="awarenessLevel" required>
+                <option value="">Select awareness level</option>
+                <option>High — We know it\'s structural and are ready to name it</option>
+                <option>Growing — Some leaders see it, others are resistant</option>
+                <option>Low — Most leadership still treats it as an individual performance issue</option>
+                <option>Complicated — There\'s organizational politics blocking honest assessment</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+
+        <!-- Section 4: Investment Readiness -->
+        <fieldset class="card border-teal-DEFAULT/20">
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">
+            04 — Investment Readiness
+          </legend>
+          <p class="text-muted text-sm mb-6 px-2">Transformation is not cheap. Neither is the status quo.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="form-group">
+              <label class="form-label" for="budget-range">Budget Range for This Engagement *</label>
+              <select class="form-select" id="budget-range" name="budgetRange" required>
+                <option value="">Select range</option>
+                <option>Under $10,000 (speaking/keynote only)</option>
+                <option>$10,000 – $25,000</option>
+                <option>$25,000 – $50,000</option>
+                <option>$50,000 – $100,000</option>
+                <option>$100,000+ (enterprise scope)</option>
+                <option>Budget is in process / needs approval</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="engagement-type">Type of Engagement Sought *</label>
+              <select class="form-select" id="engagement-type" name="engagementType" required>
+                <option value="">Select type</option>
+                <option>Speaking / Keynote</option>
+                <option>Keynote + Workshop Bundle</option>
+                <option>UNMASK Diagnostic Architecture</option>
+                <option>UNMASK Recalibration (90-day)</option>
+                <option>Stabilization Retainer</option>
+                <option>AI Acceleration Burnout Audit</option>
+                <option>Custom Enterprise Scope</option>
+                <option>Exploring — Not Sure Yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="timeline">Desired Start Timeline *</label>
+              <select class="form-select" id="timeline" name="timeline" required>
+                <option value="">Select timeline</option>
+                <option>Immediately / Next 30 days</option>
+                <option>Next 60–90 days</option>
+                <option>Next 6 months</option>
+                <option>Planning for next fiscal year</option>
+                <option>Event date is fixed (specify below)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="decision-maker">Are you the budget decision-maker? *</label>
+              <select class="form-select" id="decision-maker" name="decisionMaker" required>
+                <option value="">Select</option>
+                <option>Yes — I have full authority to move forward</option>
+                <option>Shared — I lead the decision with a small group</option>
+                <option>No — I\'m the champion; budget requires approval from above</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+
+        <!-- Section 5: Commitment & Alignment -->
+        <fieldset class="card border-teal-DEFAULT/20">
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">
+            05 — Commitment & Alignment
+          </legend>
+          <p class="text-muted text-sm mb-6 px-2">The last — and most important — section.</p>
+          <div class="space-y-5">
+            <div class="form-group">
+              <label class="form-label" for="why-nikki">Why Nikki Cates — specifically? *</label>
+              <textarea
+                class="form-textarea"
+                id="why-nikki"
+                name="whyNikki"
+                placeholder="What specifically drew you to this work? A talk, a book, a referral? What resonated and why?"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="desired-outcome">What does success look like for your organization 6 months after this engagement? *</label>
+              <textarea
+                class="form-textarea"
+                id="desired-outcome"
+                name="desiredOutcome"
+                placeholder="Be specific. Not 'people will feel better' — but what will be measurably different in your structure, culture, or capacity?"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="leadership-readiness">Is leadership ready to be challenged — not just affirmed? *</label>
+              <select class="form-select" id="leadership-readiness" name="leadershipReadiness" required>
+                <option value="">Select honestly</option>
+                <option>Yes — we need truth more than comfort</option>
+                <option>Mostly — there will be some resistance but leadership is open</option>
+                <option>Uncertain — I can\'t fully speak for the whole team</option>
+                <option>Not sure yet — that\'s part of why I\'m reaching out</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="anything-else">Anything else I should know?</label>
+              <textarea
+                class="form-textarea"
+                id="anything-else"
+                name="anythingElse"
+                placeholder="Anything relevant that doesn't fit neatly into the questions above — context, constraints, urgency, concerns."
+              ></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+
+        <!-- Consent notice -->
+        <div class="bg-surface/50 border border-border rounded-md p-5 text-sm text-muted">
+          <p>
+            <span class="text-light font-semibold">Important:</span>
+            Submitting this form is not a commitment or a contract. It begins a conversation.
+            All information shared is held in confidence. Submission does not guarantee a response
+            if there is not a clear fit. Nikki Cates reviews every briefing personally.
+          </p>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button
+            type="submit"
+            id="submit-btn"
+            class="btn-teal text-base px-10 py-4 inline-flex items-center gap-2"
+          >
+            <span id="submit-label">Submit Executive Briefing Request</span>
+            <svg id="submit-spinner" class="hidden w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="30 60" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Status message -->
+        <div id="form-status" class="hidden text-center p-6 rounded-md border"></div>
+
+      </form>
+    </div>
+  </section>
+
 </Layout>
+
+<script>
+  const form = document.getElementById('briefing-form') as HTMLFormElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const label = document.getElementById('submit-label') as HTMLElement;
+  const spinner = document.getElementById('submit-spinner') as HTMLElement;
+  const status = document.getElementById('form-status') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Loading state
+    btn.disabled = true;
+    label.textContent = 'Submitting...';
+    spinner.classList.remove('hidden');
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      // Replace with your GHL inbound webhook URL
+      const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID/webhook-trigger/YOUR_TRIGGER_ID';
+
+      await fetch(GHL_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, formType: 'executive-briefing', source: 'nikkicates.github.io' }),
+        mode: 'no-cors', // GHL webhooks don't return CORS headers
+      });
+
+      // Show success (no-cors means we can't read response status)
+      form.classList.add('hidden');
+      status.classList.remove('hidden');
+      status.className = 'text-center p-6 rounded-md border border-teal-DEFAULT/40 bg-teal-glow';
+      status.innerHTML = `
+        <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">Briefing Request Received</p>
+        <p class="text-muted text-sm">I review every submission personally. If there\'s alignment,
+        you\'ll hear from me within 3–5 business days. Thank you for the thoughtfulness you brought to these questions.</p>
+      `;
+    } catch (err) {
+      btn.disabled = false;
+      label.textContent = 'Submit Executive Briefing Request';
+      spinner.classList.add('hidden');
+      status.classList.remove('hidden');
+      status.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
+      status.innerHTML = `<p class="text-red-400 text-sm">Something went wrong. Please email <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a> directly.</p>`;
+    }
+  });
+</script>

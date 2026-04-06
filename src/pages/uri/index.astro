@@ -1,0 +1,463 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="URI Formation — Unbothered Resistance International"
+  description="URI is the justice-centered formation and research wing at the intersection of womanist theology, structural analysis, and liberation leadership. Rooted. Resistant. Unapologetically formative."
+  section="uri"
+  accentColor="gold"
+>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 uri-gradient"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(107,33,168,0.2) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 70%, rgba(217,119,6,0.12) 0%, transparent 55%);"></div>
+    <!-- Left accent bar - gold for URI -->
+    <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gold"></div>
+
+    <div class="container-wide relative z-10 py-24">
+      <div class="max-w-3xl">
+        <span class="uri-tag mb-6 inline-flex animate-on-scroll">
+          Unbothered Resistance International
+        </span>
+        <h1 class="font-heading text-5xl md:text-7xl text-light font-bold leading-tight mb-6 animate-on-scroll">
+          Liberation &amp;<br/>
+          <span class="text-gold italic">Leadership</span><br/>
+          Formation.
+        </h1>
+        <p class="text-muted text-xl leading-relaxed mb-4 animate-on-scroll" style="animation-delay:0.1s">
+          This is not a motivational program. This is formation work.
+        </p>
+        <p class="text-muted text-base leading-relaxed max-w-2xl mb-10 animate-on-scroll" style="animation-delay:0.15s">
+          URI sits at the intersection of <span class="text-light font-semibold">womanist theology</span>,
+          <span class="text-light font-semibold">structural analysis</span>, and
+          <span class="text-light font-semibold">liberation ethics</span> — forging leaders
+          who understand that justice is not a program initiative. It is the theological work of
+          right relationship. With people. With structure. With Spirit.
+        </p>
+        <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+          <a href="#offerings" class="btn-gold">Explore Formation Tiers</a>
+          <a href="#vetting" class="btn-outline-gold">Request Speaking Engagement</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── WHAT URI IS ───────────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-mid">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="animate-on-scroll">
+          <span class="uri-tag mb-5 inline-flex">What URI Is</span>
+          <h2 class="font-heading text-3xl md:text-4xl text-light mb-5">
+            The values layer<br/>beneath everything.
+          </h2>
+          <p class="text-muted leading-relaxed mb-4">
+            URI is not a co-brand or a side project. It is the theological and ethical foundation
+            from which all of Nikki Cates's work flows. Where Strategic Transformations addresses
+            organizational structure, URI addresses the formation of the people who inhabit those structures.
+          </p>
+          <p class="text-muted leading-relaxed mb-4">
+            Rooted in womanist theology and liberation ethics, URI operates from the premise that
+            sustainable leadership is <em class="not-italic text-light">covenantal</em> — bound to
+            right relationship with community, self, and the God who wades through the waters with
+            the most marginalized.
+          </p>
+          <p class="text-muted leading-relaxed">
+            URI is for leaders willing to be formed, not just trained. To be examined, not just equipped.
+            To do the hard, holy work of asking: <em class="not-italic text-gold font-semibold">"Whose liberation is this work actually serving?"</em>
+          </p>
+        </div>
+        <div class="space-y-4 animate-on-scroll" style="animation-delay:0.15s">
+          {[
+            { icon: '⚓', label: 'Womanist Theology', desc: 'Black women\'s experience as a theological lens that centers survival, community, and the sacred work of resistance.' },
+            { icon: '🔍', label: 'Structural Analysis', desc: 'Power, systems, and hierarchy examined through a liberation framework — not corporate management theory.' },
+            { icon: '✊🏾', label: 'Liberation Ethics', desc: 'Justice as restoration of right relationship — the theological work at the center of every URI formation.' },
+            { icon: '🌿', label: 'Formation, Not Training', desc: 'We are not producing better performers. We are forming leaders with the spiritual and intellectual capacity to sustain liberation work.' },
+          ].map((item) => (
+            <div class="flex items-start gap-4 p-4 rounded-md border border-border hover:border-gold/40 transition-colors bg-surface/50">
+              <span class="text-xl shrink-0">{item.icon}</span>
+              <div>
+                <p class="font-heading text-light font-semibold text-sm mb-1">{item.label}</p>
+                <p class="text-muted text-sm">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── PROBLEM STATEMENT ─────────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(217,119,6,0.05) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="uri-tag mb-4 inline-flex">The Problem URI Addresses</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          The Church has a leadership crisis.<br/>
+          <span class="text-gold">Organizations have a formation problem.</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            label: 'Leaders Formed for Performance',
+            desc: 'Most leadership development optimizes for output — not for the wisdom, spiritual groundedness, or structural awareness that actually sustains people through hard seasons.',
+          },
+          {
+            label: 'Justice Work Without Roots',
+            desc: 'Diversity, equity, and inclusion work often operates without a theological or structural foundation — producing fatigue, burnout, and cynicism among the very people it claims to serve.',
+          },
+          {
+            label: 'Marginalized Voices Without Formation',
+            desc: 'Women, BIPOC leaders, and those from marginalized communities are often pushed to lead — without the formation, support, or structural transformation that would make their leadership sustainable.',
+          },
+        ].map((card) => (
+          <div class="card gold-hover animate-on-scroll">
+            <p class="font-heading text-gold font-semibold mb-3">{card.label}</p>
+            <p class="text-muted text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── WHO THIS IS FOR ───────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="uri-tag mb-4 inline-flex">Who This Is For</span>
+        <h2 class="font-heading text-3xl text-light">URI Formation is for leaders who are ready to go deep.</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        {[
+          'Faith-based leaders navigating systems that harm their congregations',
+          'Nonprofit executives carrying justice work in unjust structures',
+          'Women — especially Black women and women of color — leading in spaces not built for them',
+          'Organizational leaders who know something is wrong and need theological language for it',
+          'Seminary students and ministers preparing to lead with structural consciousness',
+          'Conference organizers building programming rooted in liberation rather than inspiration',
+          'Social justice practitioners seeking theological depth for sustained resistance',
+          'Academic institutions integrating womanist theology into leadership formation',
+          'Leaders who are simply exhausted and need formation — not more strategy',
+        ].map((item) => (
+          <div class="flex items-start gap-3 p-4 rounded-md border border-border hover:border-gold/40 transition-colors bg-surface/30 animate-on-scroll">
+            <span class="text-gold shrink-0 mt-0.5">✓</span>
+            <p class="text-muted text-sm">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 4-TIER OFFERINGS ──────────────────────────── -->
+  <section id="offerings" class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(107,33,168,0.07) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="uri-tag mb-4 inline-flex">Formation Tiers</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          Four ways to enter<br/>URI Formation.
+        </h2>
+        <p class="text-muted mt-3 max-w-lg mx-auto text-sm">
+          All URI engagements begin with a vetting conversation. Pricing is tiered by organizational
+          capacity — smaller organizations and faith communities are welcome to inquire.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        {[
+          {
+            tier: 'Tier I',
+            name: 'Liberation Keynote',
+            price: 'Starting at $5,000',
+            duration: '60–90 minutes',
+            desc: 'A prophetic, theologically grounded keynote for conferences, summits, and organizational gatherings. Rooted in womanist theology, delivered for the moment your community needs.',
+            forWho: 'Conferences, denominational gatherings, organizational all-hands, seminary events',
+            includes: ['Pre-event discovery conversation', 'Custom keynote developed for your context', 'Post-talk resource for participants'],
+          },
+          {
+            tier: 'Tier II',
+            name: 'Formation Workshop',
+            price: 'Starting at $8,500',
+            duration: 'Half-Day or Full-Day',
+            desc: 'Deep-dive formation work for leadership cohorts and organizational teams. Moves beyond inspiration into structural analysis, theological grounding, and collective discernment.',
+            forWho: 'Leadership teams, cohort programs, denominational trainings, seminary intensives',
+            includes: ['Pre-workshop intake with leadership', 'Customized facilitation plan', 'Formation guide for participants', 'Post-workshop integration resources'],
+          },
+          {
+            tier: 'Tier III',
+            name: 'Formation Cohort',
+            price: 'Starting at $15,000',
+            duration: '8–12 Weeks',
+            desc: 'A sustained formation experience for a cohort of 8–16 leaders. Weekly sessions move through theological foundations, structural analysis, and the practice of liberatory leadership.',
+            forWho: 'Faith communities, nonprofits, denominational leadership pipelines, justice organizations',
+            includes: ['8–12 weekly cohort sessions', 'Individual reflection + group discernment', 'Custom formation curriculum', 'Womanist theological framework as spine', '6-month follow-up integration session'],
+            featured: true,
+          },
+          {
+            tier: 'Tier IV',
+            name: 'Institutional Formation Partnership',
+            price: 'Scope-Based',
+            duration: 'Custom',
+            desc: 'For organizations, seminaries, or denominations seeking to embed liberation-grounded formation into their ongoing leadership development infrastructure.',
+            forWho: 'Seminaries, denominations, large nonprofits, universities, foundations',
+            includes: ['Organizational formation audit', 'Curriculum design and integration', 'Facilitator training', 'Ongoing advisory partnership', 'Custom scope developed after briefing'],
+          },
+        ].map((item) => (
+          <div class={`card gold-hover flex flex-col gap-4 relative animate-on-scroll ${item.featured ? 'border-gold/50 bg-gold-glow' : ''}`}>
+            {item.featured && (
+              <div class="absolute -top-3 left-5">
+                <span class="bg-gold text-[#0f172a] text-xs font-800 uppercase tracking-widest px-3 py-1 rounded-sm font-body">
+                  Most Requested
+                </span>
+              </div>
+            )}
+
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span class="uri-tag text-xs mb-2 inline-flex">{item.tier}</span>
+                <h3 class="font-heading text-xl text-light font-bold">{item.name}</h3>
+              </div>
+              <div class="text-right shrink-0">
+                <p class="font-body text-gold font-700 text-sm">{item.price}</p>
+                <p class="text-muted text-xs mt-1">{item.duration}</p>
+              </div>
+            </div>
+
+            <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
+
+            <div class="text-xs text-muted bg-surface/50 rounded-md px-3 py-2 border border-border">
+              <span class="text-gold font-semibold">Best for: </span>{item.forWho}
+            </div>
+
+            <ul class="space-y-2 flex-1">
+              {item.includes.map((inc) => (
+                <li class="flex items-start gap-2 text-sm text-muted">
+                  <span class="text-gold shrink-0 mt-0.5">→</span>
+                  {inc}
+                </li>
+              ))}
+            </ul>
+
+            <a href="#vetting" class="btn-gold mt-2 justify-center !text-sm">
+              Request Formation Briefing
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Special pricing note -->
+      <div class="mt-8 bg-surface/50 border border-gold/20 rounded-md p-5 max-w-2xl mx-auto text-center animate-on-scroll">
+        <p class="text-muted text-sm">
+          <span class="text-gold font-semibold">Note on pricing for smaller organizations:</span>
+          URI Formation is committed to accessibility for faith communities, grassroots organizations,
+          and nonprofits with limited budgets. If cost is a barrier, please say so in the vetting form.
+          Reduced-fee and sliding-scale options may be available on a case-by-case basis.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── VETTING FORM ──────────────────────────────── -->
+  <section id="vetting" class="section-pad bg-[#0c1525]">
+    <div class="container-narrow">
+      <div class="text-center mb-10 animate-on-scroll">
+        <span class="uri-tag mb-4 inline-flex">Speaking & Formation Request</span>
+        <h2 class="font-heading text-3xl text-light">Request a URI Formation Engagement</h2>
+        <p class="text-muted mt-3 text-sm max-w-lg mx-auto">
+          All URI engagements begin here. This is not a booking form — it is the beginning of a
+          discernment conversation about fit, alignment, and readiness for this work.
+        </p>
+      </div>
+
+      <form id="uri-form" class="uri-form space-y-8" novalidate>
+
+        <!-- Identity -->
+        <fieldset class="card border-gold/20">
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">01 — Your Identity & Context</legend>
+          <p class="text-muted text-sm mb-5 px-2">Tell me who you are and where you're coming from.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="form-group">
+              <label class="form-label" for="uri-name">Full Name *</label>
+              <input class="form-input" id="uri-name" name="fullName" type="text" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="uri-role">Your Role *</label>
+              <input class="form-input" id="uri-role" name="role" type="text" placeholder="Pastor, Executive Director, Professor..." required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="uri-org">Organization / Institution *</label>
+              <input class="form-input" id="uri-org" name="organization" type="text" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="uri-org-type">Organization Type *</label>
+              <select class="form-select" id="uri-org-type" name="orgType" required>
+                <option value="">Select type</option>
+                <option>Faith Community / Church / Denomination</option>
+                <option>Nonprofit Organization</option>
+                <option>Seminary / Theological School</option>
+                <option>University / Academic Institution</option>
+                <option>Social Justice Organization</option>
+                <option>Conference / Convening Body</option>
+                <option>Foundation / Philanthropic Organization</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="uri-email">Email *</label>
+              <input class="form-input" id="uri-email" name="email" type="email" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="uri-phone">Phone (optional)</label>
+              <input class="form-input" id="uri-phone" name="phone" type="tel" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Event / Engagement Context -->
+        <fieldset class="card border-gold/20">
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">02 — Engagement Context</legend>
+          <div class="space-y-5">
+            <div class="form-group">
+              <label class="form-label" for="uri-tier">Formation Tier Interested In *</label>
+              <select class="form-select" id="uri-tier" name="tier" required>
+                <option value="">Select tier</option>
+                <option>Tier I — Liberation Keynote</option>
+                <option>Tier II — Formation Workshop</option>
+                <option>Tier III — Formation Cohort</option>
+                <option>Tier IV — Institutional Partnership</option>
+                <option>Not sure — I need a conversation first</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="uri-event">Describe the Event or Engagement *</label>
+              <textarea
+                class="form-textarea"
+                id="uri-event"
+                name="eventDescription"
+                placeholder="What is this event? Who will be in the room? What is the theme or focus? What's the hoped-for outcome?"
+                required
+              ></textarea>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div class="form-group">
+                <label class="form-label" for="uri-date">Proposed Date(s)</label>
+                <input class="form-input" id="uri-date" name="proposedDate" type="text" placeholder="e.g. March 2026, TBD" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="uri-audience-size">Expected Audience / Cohort Size</label>
+                <select class="form-select" id="uri-audience-size" name="audienceSize">
+                  <option value="">Select</option>
+                  <option>Under 25</option>
+                  <option>25–75</option>
+                  <option>75–200</option>
+                  <option>200–500</option>
+                  <option>500+</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Alignment & Budget -->
+        <fieldset class="card border-gold/20">
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">03 — Alignment & Investment</legend>
+          <div class="space-y-5">
+            <div class="form-group">
+              <label class="form-label" for="uri-why">Why URI Formation — specifically? *</label>
+              <textarea
+                class="form-textarea"
+                id="uri-why"
+                name="whyURI"
+                placeholder="What drew you to Nikki Cates's work? What resonated? Be specific — this is a discernment question, not a courtesy question."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="uri-budget">Budget Range *</label>
+              <select class="form-select" id="uri-budget" name="budget" required>
+                <option value="">Select range</option>
+                <option>Under $3,000 (may need to discuss accessibility options)</option>
+                <option>$3,000 – $7,500</option>
+                <option>$7,500 – $15,000</option>
+                <option>$15,000 – $30,000</option>
+                <option>$30,000+ (institutional scope)</option>
+                <option>Budget in process — please inquire</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="uri-anything">Anything else? (Context, constraints, prayers)</label>
+              <textarea
+                class="form-textarea"
+                id="uri-anything"
+                name="anythingElse"
+                placeholder="Anything that doesn't fit above. Organizational history, community context, budget constraints, theological tradition — bring it."
+              ></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" id="uri-submit" class="btn-gold text-base px-10 py-4">
+            <span id="uri-submit-label">Submit Formation Request</span>
+          </button>
+        </div>
+
+        <div id="uri-status" class="hidden text-center p-6 rounded-md border"></div>
+
+      </form>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const form = document.getElementById('uri-form') as HTMLFormElement;
+  const btn = document.getElementById('uri-submit') as HTMLButtonElement;
+  const label = document.getElementById('uri-submit-label') as HTMLElement;
+  const status = document.getElementById('uri-status') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    btn.disabled = true;
+    label.textContent = 'Submitting...';
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID/webhook-trigger/YOUR_TRIGGER_ID';
+      await fetch(GHL_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, formType: 'uri-formation', source: 'nikkicates.github.io/uri' }),
+        mode: 'no-cors',
+      });
+
+      form.classList.add('hidden');
+      status.classList.remove('hidden');
+      status.className = 'text-center p-6 rounded-md border border-gold/40 bg-gold-glow';
+      status.innerHTML = `
+        <p class="font-heading text-xl text-gold font-semibold mb-2">Request Received</p>
+        <p class="text-muted text-sm">This work begins with a discernment conversation — not a transaction.
+        If there is alignment, you\'ll hear back within 3–5 business days. Thank you for bringing your whole self to this.</p>
+      `;
+    } catch {
+      btn.disabled = false;
+      label.textContent = 'Submit Formation Request';
+      status.classList.remove('hidden');
+      status.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
+      status.innerHTML = `<p class="text-red-400 text-sm">Something went wrong. Please email <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a> directly.</p>`;
+    }
+  });
+</script>

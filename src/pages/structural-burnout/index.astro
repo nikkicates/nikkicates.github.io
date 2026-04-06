@@ -2,46 +2,178 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout>
-  <div class="bg-zinc-950 text-zinc-100 min-h-screen">
-    <div class="pt-32 pb-24 px-6 text-center max-w-5xl mx-auto">
-      <div class="inline-block px-6 py-2 rounded-full bg-zinc-900 border border-teal-400/30 text-teal-400 text-sm font-bold tracking-widest mb-8">
-        LEADERSHIP ARCHITECTURE
+<Layout
+  title="Structural Burnout — Burnout Is a Design Flaw"
+  description="Strategic Transformations helps executives and organizations diagnose and dismantle the structural conditions that produce burnout, attrition, and systemic exhaustion."
+  section="st"
+  accentColor="teal"
+>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative min-h-[80vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-st-gradient"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(13,148,136,0.1) 0%, transparent 60%);"></div>
+    <!-- Left accent bar -->
+    <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
+
+    <div class="container-wide relative z-10 py-24">
+      <div class="max-w-3xl">
+        <span class="st-tag mb-6 inline-flex">Strategic Transformations</span>
+        <h1 class="font-heading text-5xl md:text-7xl text-light font-bold leading-tight mb-6 animate-on-scroll">
+          Burnout is a<br/>
+          <span class="text-teal-DEFAULT italic">Design Flaw.</span>
+        </h1>
+        <p class="text-muted text-xl leading-relaxed mb-4 animate-on-scroll" style="animation-delay:0.1s">
+          Your people aren't the problem. <strong class="text-light">Your structure is.</strong>
+        </p>
+        <p class="text-muted text-base leading-relaxed max-w-2xl mb-10 animate-on-scroll" style="animation-delay:0.15s">
+          Strategic Transformations is a structural burnout consultancy that helps organizations identify, name, and
+          dismantle the invisible architectures burning through their most committed talent — before the cost becomes
+          catastrophic.
+        </p>
+        <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+          <a href="/structural-burnout/services" class="btn-teal">View Services & Pricing</a>
+          <a href="/structural-burnout/briefing" class="btn-outline-teal">Request Executive Briefing</a>
+        </div>
       </div>
-      
-      <h1 class="text-6xl md:text-7xl font-bold tracking-tighter leading-none mb-10">
-        Burnout is a <span class="text-teal-400">Design Flaw.</span>
-      </h1>
-      
-      <p class="text-2xl text-zinc-400 max-w-3xl mx-auto">
-        Your organization is extracting invisible labor while denying leaders the authority to fix the systems causing it.
+    </div>
+  </section>
+
+
+  <!-- ─── PROBLEM STATEMENT ─────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-mid">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">The Real Problem</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          You've treated the symptoms long enough.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            stat: '77%',
+            label: 'of workers have experienced burnout',
+            detail: 'Gallup reports that nearly 4 in 5 employees experience burnout — yet most organizations still treat it as an individual problem.',
+          },
+          {
+            stat: '2–3×',
+            label: 'annual salary to replace a burned-out employee',
+            detail: 'Attrition driven by structural exhaustion costs organizations exponentially more than the investments required to fix the design.',
+          },
+          {
+            stat: '67%',
+            label: 'of leaders report decision fatigue affecting quality',
+            detail: 'When leaders run on empty, organizations make worse decisions — not because people are weak, but because the structure demands the impossible.',
+          },
+        ].map((item) => (
+          <div class="card teal-hover text-center animate-on-scroll">
+            <p class="font-heading text-5xl text-teal-DEFAULT font-bold mb-3">{item.stat}</p>
+            <p class="text-light font-semibold text-sm mb-3">{item.label}</p>
+            <p class="text-muted text-sm leading-relaxed">{item.detail}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-xs text-muted mt-6 italic">
+        Note: Statistics sourced from Gallup State of the Global Workplace and widely cited industry research. Verify with primary sources before formal citation.
       </p>
+    </div>
+  </section>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-16">
-        <a href="/structural-burnout/services" 
-           class="px-10 py-6 bg-teal-400 hover:bg-teal-300 text-zinc-950 font-semibold rounded-3xl text-lg transition">
-          Start the Structural Audit
-        </a>
-        <a href="/structural-burnout/briefing" 
-           class="px-10 py-6 border border-zinc-700 hover:border-teal-400 font-semibold rounded-3xl text-lg transition">
-          Executive Briefing
-        </a>
+
+  <!-- ─── THE UNMASK FRAMEWORK ──────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(13,148,136,0.06) 0%, transparent 70%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="animate-on-scroll">
+          <span class="st-tag mb-5 inline-flex">The UNMASK Framework</span>
+          <h2 class="font-heading text-3xl md:text-4xl text-light mb-6">
+            A practitioner-developed<br/>diagnostic system.
+          </h2>
+          <p class="text-muted leading-relaxed mb-4">
+            The UNMASK Framework was developed through years of direct organizational practice, strategic consulting,
+            and lived research at the intersection of leadership, structure, and human capacity.
+          </p>
+          <p class="text-muted leading-relaxed mb-8">
+            It is not a wellness program. It is not a training module. It is a structural diagnostic and recalibration
+            system — built to help organizations finally see what they've been normalized into ignoring.
+          </p>
+          <a href="/books/" class="btn-teal">
+            Get the UNMASK Blueprint →
+          </a>
+        </div>
+
+        <div class="space-y-3 animate-on-scroll" style="animation-delay:0.15s">
+          {[
+            { letter: 'U', title: 'Uncover', desc: 'Surface the hidden strain patterns invisible to those inside the structure.' },
+            { letter: 'N', title: 'Name', desc: 'Name the architectural conditions — not the people — creating systemic exhaustion.' },
+            { letter: 'M', title: 'Map', desc: 'Map impact zones across teams, leadership layers, and systems.' },
+            { letter: 'A', title: 'Align', desc: 'Align structural redesign with organizational mission and human sustainability.' },
+            { letter: 'S', title: 'Sustain', desc: 'Build recalibration into the ongoing operating rhythm of the organization.' },
+            { letter: 'K', title: 'Keep Watch', desc: 'Maintain vigilance through accountability structures that outlast the engagement.' },
+          ].map((item) => (
+            <div class="flex items-start gap-4 p-4 rounded-md border border-border hover:border-teal-DEFAULT/40 transition-colors bg-surface/50">
+              <span class="font-heading text-2xl font-bold text-teal-DEFAULT shrink-0 w-8">{item.letter}</span>
+              <div>
+                <p class="font-heading text-light font-semibold text-sm mb-1">{item.title}</p>
+                <p class="text-muted text-sm">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-6 pb-24">
-      <a href="/structural-burnout/services" class="bg-zinc-900 border border-zinc-800 hover:border-teal-400 p-8 rounded-3xl transition">
-        <h3 class="text-2xl font-semibold mb-4">Services & Engagements</h3>
-        <p class="text-zinc-400">Keynotes, workshops, URI Formation tracks, and full architectural redesign.</p>
-      </a>
-      <a href="/structural-burnout/pitch" class="bg-zinc-900 border border-zinc-800 hover:border-purple-400 p-8 rounded-3xl transition">
-        <h3 class="text-2xl font-semibold mb-4">Investor Pitch</h3>
-        <p class="text-zinc-400">$30k seed opportunity for the UNMASK Engine.</p>
-      </a>
-      <a href="/structural-burnout/nexus" class="bg-zinc-900 border border-zinc-800 hover:border-teal-400 p-8 rounded-3xl transition">
-        <h3 class="text-2xl font-semibold mb-4">Networking Card</h3>
-        <p class="text-zinc-400">Quick-access digital business card for events.</p>
-      </a>
+
+  <!-- ─── WHO THIS IS FOR ───────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Audience</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          This work is for organizations<br/>ready to look at the structure.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        {[
+          { icon: '🏛️', label: 'C-Suite Executives', desc: 'CEOs, CHROs, COOs navigating attrition crises and leadership fatigue.' },
+          { icon: '🏢', label: 'Mid-to-Large Organizations', desc: 'Enterprises with 150–5,000+ employees experiencing systemic strain.' },
+          { icon: '🎤', label: 'Conference Organizers', desc: 'Leadership, HR, DEI, and executive conferences seeking a disruptive keynote voice.' },
+          { icon: '🌐', label: 'Nonprofits & Faith-Based Orgs', desc: 'Mission-driven organizations burning through their most dedicated staff.' },
+          { icon: '🏫', label: 'Higher Education', desc: 'Universities and academic institutions confronting faculty and staff attrition.' },
+          { icon: '💰', label: 'Impact Investors', desc: 'Investors backing scalable solutions at the intersection of leadership and systems change.' },
+        ].map((item) => (
+          <div class="card teal-hover animate-on-scroll">
+            <span class="text-2xl block mb-3">{item.icon}</span>
+            <p class="font-heading text-light font-semibold text-sm mb-2">{item.label}</p>
+            <p class="text-muted text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
+  </section>
+
+
+  <!-- ─── CTA STRIP ─────────────────────────────────── -->
+  <section class="py-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-navy-dark/30"></div>
+    <div class="container-mid relative z-10 text-center animate-on-scroll">
+      <h2 class="font-heading text-3xl md:text-4xl text-light mb-4">
+        Ready to examine the structure?
+      </h2>
+      <p class="text-muted mb-8 max-w-lg mx-auto">
+        All high-commitment engagements begin with a vetting process. This protects your investment and mine.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/structural-burnout/briefing" class="btn-teal">Request Executive Briefing →</a>
+        <a href="/structural-burnout/services" class="btn-outline-teal">View All Services</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>

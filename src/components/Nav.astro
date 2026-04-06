@@ -1,32 +1,139 @@
 ---
+interface Props {
+  section?: 'home' | 'st' | 'uri';
+  accentColor?: 'teal' | 'gold';
+}
+const { section = 'home', accentColor = 'teal' } = Astro.props;
+
+const isST  = section === 'st';
+const isURI = section === 'uri';
+
+const accent = accentColor === 'gold'
+  ? { text: 'text-gold', border: 'border-gold', bg: 'hover:bg-gold/10' }
+  : { text: 'text-teal-DEFAULT', border: 'border-teal-DEFAULT', bg: 'hover:bg-teal-glow' };
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/structural-burnout/', label: 'Structural Burnout' },
+  { href: '/structural-burnout/services', label: 'Services' },
+  { href: '/uri/', label: 'URI Formation' },
+  { href: '/books/', label: 'Books' },
+];
 ---
 
-<nav class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
-  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/" class="text-2xl font-bold tracking-tighter hover:text-zinc-300 transition">
-      Nikki Cates
-    </a>
+<header
+  id="site-nav"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background: rgba(15,23,42,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(51,65,85,0.4);"
+>
+  <div class="container-wide">
+    <div class="flex items-center justify-between h-16 md:h-18">
 
-    <!-- Menu Links -->
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-      <a href="/structural-burnout" class="hover:text-white transition-colors">Structural Burnout</a>
-      <a href="/ops" class="hover:text-white transition-colors">Ops Hub</a>
-      <a href="/manuals" class="hover:text-white transition-colors">Manuals</a>
-      <a href="/speaker-pages" class="hover:text-white transition-colors">Speaker Pages</a>
+      <!-- LOGO: swaps by section -->
+      <a href="/" class="flex items-center gap-3 group" aria-label="Return to homepage">
+        {section === 'home' && (
+          <span class="font-heading font-bold text-lg text-light tracking-tight">
+            Nikki <span class="text-teal-DEFAULT">Cates</span>
+          </span>
+        )}
+        {section === 'st' && (
+          <span class="font-heading font-bold text-lg text-light tracking-tight">
+            Strategic <span class="text-teal-DEFAULT">Transformations</span>
+          </span>
+        )}
+        {section === 'uri' && (
+          <span class="font-heading font-bold text-lg text-light tracking-tight">
+            <span class="text-gold">URI</span>
+            <span class="text-muted text-sm font-body font-normal ml-2">Formation</span>
+          </span>
+        )}
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-1" aria-label="Primary navigation">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="font-body text-sm font-500 text-muted px-3 py-2 rounded-sm transition-colors duration-150 hover:text-light"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/structural-burnout/briefing"
+          class={`ml-3 btn-teal !text-sm !py-2 !px-4 ${isST ? '' : ''}`}
+        >
+          Request Briefing
+        </a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="nav-toggle"
+        class="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar1"></span>
+        <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar2"></span>
+        <span class="w-5 h-[2px] bg-light transition-all duration-200 block" id="bar3"></span>
+      </button>
     </div>
-
-    <!-- Theme Toggle (placeholder for now) -->
-    <button onclick="toggleDarkMode()" 
-            class="w-9 h-9 flex items-center justify-center rounded-xl border border-zinc-700 hover:bg-zinc-900 transition text-lg">
-      🌙
-    </button>
   </div>
-</nav>
+
+  <!-- Mobile menu drawer -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden flex-col gap-1 pb-5 px-6 bg-[#0f172a] border-t border-border"
+  >
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class="font-body text-sm text-muted py-3 border-b border-border/40 hover:text-light transition-colors"
+      >
+        {link.label}
+      </a>
+    ))}
+    <a
+      href="/structural-burnout/briefing"
+      class="btn-teal mt-3 justify-center !text-sm"
+    >
+      Request Briefing
+    </a>
+  </div>
+</header>
+
+<!-- Spacer so content doesn't hide under fixed nav -->
+<div class="h-16 md:h-18"></div>
 
 <script>
-  function toggleDarkMode() {
-    document.documentElement.classList.toggle('dark');
-    // You can improve this later with localStorage
-  }
+  // Mobile toggle
+  const toggle = document.getElementById('nav-toggle');
+  const menu   = document.getElementById('mobile-menu');
+  const bar1   = document.getElementById('bar1');
+  const bar2   = document.getElementById('bar2');
+  const bar3   = document.getElementById('bar3');
+
+  let open = false;
+  toggle?.addEventListener('click', () => {
+    open = !open;
+    menu?.classList.toggle('hidden', !open);
+    menu?.classList.toggle('flex', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    if (bar1 && bar2 && bar3) {
+      bar1.style.transform = open ? 'rotate(45deg) translate(5px, 5px)' : '';
+      bar2.style.opacity   = open ? '0' : '1';
+      bar3.style.transform = open ? 'rotate(-45deg) translate(5px, -5px)' : '';
+    }
+  });
+
+  // Scroll shadow
+  const nav = document.getElementById('site-nav');
+  window.addEventListener('scroll', () => {
+    if (nav) {
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 4px 30px rgba(0,0,0,0.4)'
+        : 'none';
+    }
+  });
 </script>

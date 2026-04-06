@@ -1,64 +1,254 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const tiers = [
+  {
+    tag: 'Keynote',
+    name: 'Signature Keynote',
+    price: 'Starting at $12,500',
+    duration: '60–90 min',
+    desc: 'A high-impact keynote designed to shift how leadership teams think about burnout, structure, and human sustainability. Fully customized to your event context and organizational moment.',
+    includes: [
+      'Pre-event discovery call',
+      'Custom talk arc aligned to conference theme',
+      'Post-keynote digital resource for attendees',
+      'Comfort Plus/Business Class travel + 4-star hotel required',
+    ],
+    cta: 'Inquire About Speaking',
+    href: '/structural-burnout/briefing',
+    accent: 'teal',
+  },
+  {
+    tag: 'Tier 01',
+    name: 'Keynote + Workshop Bundle',
+    price: 'Starting at $15,000',
+    duration: 'Keynote + Half-Day Workshop',
+    desc: 'Pairs the keynote with an immersive half-day workshop for leadership teams. Participants leave with a structural diagnostic framework they can apply immediately.',
+    includes: [
+      'Full keynote delivery',
+      'Half-day interactive workshop (up to 40 leaders)',
+      'Custom facilitation guide',
+      'Post-workshop integration notes',
+      'Comfort Plus/Business Class + 4-star hotel required',
+    ],
+    cta: 'Inquire About This Engagement',
+    href: '/structural-burnout/briefing',
+    accent: 'teal',
+  },
+  {
+    tag: 'Tier 02',
+    name: 'UNMASK Diagnostic Architecture',
+    price: 'Starting at $22,000',
+    duration: '4–6 Weeks',
+    desc: 'A deep organizational diagnostic using the UNMASK Framework. Surfaces the structural conditions producing burnout, attrition, and silenced capacity — across teams, systems, and leadership layers.',
+    includes: [
+      'Organizational intake and structural mapping',
+      'UNMASK pillar assessment across 3–5 key teams',
+      'Leadership interview protocol',
+      'Full Diagnostic Report with Findings & Recommendations',
+      'Executive Debrief session',
+      '90-day monitoring check-in',
+    ],
+    cta: 'Request Diagnostic Briefing',
+    href: '/structural-burnout/briefing',
+    accent: 'teal',
+    featured: true,
+  },
+  {
+    tag: 'Tier 03',
+    name: 'UNMASK Recalibration Engagement',
+    price: 'Starting at $45,000',
+    duration: '90 Days',
+    desc: 'The full recalibration experience. Moves from diagnosis through structural redesign and implementation support, with embedded accountability systems built to outlast the engagement.',
+    includes: [
+      'Full Diagnostic Architecture (Tier 02)',
+      'Structural redesign sessions with leadership team',
+      'Department-level recalibration workshops',
+      'Implementation roadmap with accountability checkpoints',
+      'Monthly cohort debriefs (3)',
+      'Custom UNMASK organizational playbook',
+      '6-month post-engagement check-in',
+    ],
+    cta: 'Request Recalibration Briefing',
+    href: '/structural-burnout/briefing',
+    accent: 'teal',
+  },
+  {
+    tag: 'Tier 04',
+    name: 'Stabilization Retainer',
+    price: 'Starting at $7,500 / month',
+    duration: 'Ongoing (3-month minimum)',
+    desc: 'For organizations that need ongoing strategic counsel and accountability as they implement structural changes. Monthly advisory access, monitoring, and course correction.',
+    includes: [
+      '2 strategic advisory sessions per month',
+      'Async communication channel access',
+      'Monthly structural health review',
+      'Course-correction support',
+      'Priority access for urgent escalations',
+    ],
+    cta: 'Apply for Retainer',
+    href: '/structural-burnout/briefing',
+    accent: 'navy',
+  },
+  {
+    tag: 'AI Audit',
+    name: 'AI Acceleration Burnout Audit',
+    price: 'Starting at $22,000',
+    duration: '4–6 Weeks',
+    desc: 'A specialized diagnostic for organizations deploying AI tools at scale. Identifies how automation is disrupting human systems, amplifying structural strain, or breaking the bridge between people and mission.',
+    includes: [
+      'AI deployment impact assessment',
+      'Human architecture vulnerability mapping',
+      'Leadership readiness review for AI-era shifts',
+      'Full Audit Report with Risk Matrix',
+      'Strategic mitigation recommendations',
+    ],
+    cta: 'Request AI Audit Briefing',
+    href: '/structural-burnout/briefing',
+    accent: 'teal',
+  },
+];
 ---
 
-<Layout>
-  <div class="bg-zinc-950 text-zinc-100 min-h-screen">
-    <div class="max-w-5xl mx-auto px-6 py-16">
-      <a href="/structural-burnout" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 mb-12 text-sm">
-        ← Back to Structural Burnout
-      </a>
+<Layout
+  title="Services & Pricing — Strategic Transformations"
+  description="From keynote speaking to 90-day organizational recalibration. All Strategic Transformations engagements begin with a vetting process to protect your investment and mine."
+  section="st"
+  accentColor="teal"
+>
 
-      <h1 class="text-5xl md:text-6xl font-bold tracking-tighter mb-4">
-        Solutions & Engagements
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-st-gradient"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
+    <div class="container-mid relative z-10 text-center">
+      <span class="st-tag mb-5 inline-flex animate-on-scroll">Services & Pricing</span>
+      <h1 class="font-heading text-4xl md:text-6xl text-light font-bold mb-5 animate-on-scroll">
+        Every engagement<br/>begins with a question.
       </h1>
-      <p class="text-xl text-zinc-400 mb-16">
-        From keynotes to full enterprise recalibration.
+      <p class="text-muted text-lg max-w-2xl mx-auto mb-8 animate-on-scroll" style="animation-delay:0.1s">
+        "Is your organization ready to examine the structure?"
+        All engagements begin with a vetting briefing — because transformation requires readiness,
+        not just investment.
       </p>
+      <a href="/structural-burnout/briefing" class="btn-teal animate-on-scroll" style="animation-delay:0.2s">
+        Request Executive Briefing →
+      </a>
+    </div>
+  </section>
 
-      <!-- Speaking -->
-      <div class="mb-20">
-        <h2 class="text-3xl font-semibold mb-8 text-teal-400">Speaking & Keynotes</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-            <h3 class="text-2xl font-semibold mb-4">"Stop the Strain Transfer"</h3>
-            <p class="text-zinc-400">How leadership architecture leaks capacity.</p>
-          </div>
-          <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-            <h3 class="text-2xl font-semibold mb-4">"The Authority Gap in the Age of AI"</h3>
-            <p class="text-zinc-400">Why AI multiplies cracked structures 10×.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- URI Formation -->
-      <div class="mb-20">
-        <h2 class="text-3xl font-semibold mb-8 text-purple-400">Unbothered Resistance International (URI) Formation</h2>
-        <div class="bg-zinc-900 border border-purple-400/30 p-10 rounded-3xl">
-          <p class="text-zinc-400">Multi-tier leadership formation grounded in faith, justice, and capacity protection.</p>
-        </div>
-      </div>
-
-      <!-- UNMASK Journey -->
-      <div class="mb-20">
-        <h2 class="text-3xl font-semibold mb-8">UNMASK Leadership Architecture Journey</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-            <h3 class="text-2xl font-semibold">Diagnostic & Foundation</h3>
-            <p class="text-teal-400 font-semibold mt-6">Starting at $X,XXX</p>
-          </div>
-          <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-            <h3 class="text-2xl font-semibold">Full Architectural Redesign</h3>
-            <p class="text-teal-400 font-semibold mt-6">Starting at $XX,XXX</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center py-16">
-        <a href="/structural-burnout/briefing" class="inline-block px-12 py-6 bg-teal-400 hover:bg-teal-300 text-zinc-950 font-semibold rounded-3xl">
-          Start the Diagnostic
-        </a>
+  <!-- ─── BOOKING TERMS STRIP ───────────────────────── -->
+  <section class="bg-surface border-y border-border py-6">
+    <div class="container-wide">
+      <div class="flex flex-wrap gap-x-8 gap-y-3 justify-center text-xs text-muted">
+        {[
+          '50% deposit at signing',
+          'Balance due 7 days prior',
+          'Comfort Plus / Business Class air',
+          '4-star+ hotel with pre/post night',
+          'Executive ground transport',
+          '$100/day meal per diem',
+          '10% reduction for virtual',
+          'Signed agreement required',
+        ].map((term) => (
+          <span class="flex items-center gap-1.5">
+            <span class="text-teal-DEFAULT">✓</span>
+            {term}
+          </span>
+        ))}
       </div>
     </div>
-  </div>
+  </section>
+
+
+  <!-- ─── TIERS ─────────────────────────────────────── -->
+  <section class="section-pad">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {tiers.map((tier) => (
+          <div class={`card teal-hover flex flex-col gap-4 relative animate-on-scroll ${tier.featured ? 'border-teal-DEFAULT/60 bg-teal-glow' : ''}`}>
+            {tier.featured && (
+              <div class="absolute -top-3 left-5">
+                <span class="bg-teal-DEFAULT text-[#0f172a] text-xs font-800 uppercase tracking-widest px-3 py-1 rounded-sm font-body">
+                  Most Requested
+                </span>
+              </div>
+            )}
+
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span class="st-tag text-xs mb-2 inline-flex">{tier.tag}</span>
+                <h2 class="font-heading text-xl text-light font-bold">{tier.name}</h2>
+              </div>
+              <div class="text-right shrink-0">
+                <p class="font-body text-teal-DEFAULT font-700 text-sm">{tier.price}</p>
+                <p class="text-muted text-xs mt-1">{tier.duration}</p>
+              </div>
+            </div>
+
+            <p class="text-muted text-sm leading-relaxed">{tier.desc}</p>
+
+            <ul class="space-y-2 flex-1">
+              {tier.includes.map((item) => (
+                <li class="flex items-start gap-2 text-sm text-muted">
+                  <span class="text-teal-DEFAULT shrink-0 mt-0.5">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <a href={tier.href} class="btn-teal mt-2 justify-center !text-sm">
+              {tier.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CUSTOM ENTERPRISE ─────────────────────────── -->
+  <section class="py-16 bg-[#0c1525]">
+    <div class="container-mid">
+      <div class="card teal-hover border-teal-DEFAULT/30 text-center p-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Enterprise</span>
+        <h2 class="font-heading text-2xl md:text-3xl text-light mb-4">Custom Enterprise Engagements</h2>
+        <p class="text-muted max-w-xl mx-auto mb-8">
+          For organizations requiring multi-department implementation, enterprise licensing of the UNMASK system,
+          or long-term embedded partnership, scope-based pricing is available.
+          All custom engagements require an Executive Briefing before scoping.
+        </p>
+        <a href="/structural-burnout/briefing" class="btn-teal">Begin the Briefing Process →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── SIGNATURE TALKS ───────────────────────────── -->
+  <section class="section-pad">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">2026 Signature Talks</span>
+        <h2 class="font-heading text-3xl text-light">The Five Talks That Move Rooms</h2>
+      </div>
+      <div class="space-y-3 max-w-3xl mx-auto">
+        {[
+          { num: '01', title: 'Stop the Strain Transfer', desc: 'How organizations unconsciously redistribute unresolved structural pain — and what to do instead.' },
+          { num: '02', title: 'Your Leadership Pipeline Is Leaking', desc: 'Why your pipeline programs keep producing burned-out leaders, and the structural fix your org won\'t like.' },
+          { num: '03', title: 'False Urgency: How "Everything Is Critical" Is Destroying Your Organization', desc: 'The urgent-everything culture is a structural symptom — not a leadership style.' },
+          { num: '04', title: 'Sovereign Power: Leading Without Running on Empty', desc: 'What it looks like when leaders reclaim structural sovereignty — and how to build it organizationally.' },
+          { num: '05', title: 'When AI Breaks the Bridge: Protecting Human Architecture in the Age of Automation', desc: 'The AI conversation no one is having: how automation is amplifying structural burnout, not solving it.' },
+        ].map((talk) => (
+          <div class="flex items-start gap-5 card teal-hover animate-on-scroll">
+            <span class="font-heading text-4xl text-teal-DEFAULT/25 font-bold leading-none mt-1 shrink-0">{talk.num}</span>
+            <div>
+              <p class="font-heading text-light font-semibold mb-1">"{talk.title}"</p>
+              <p class="text-muted text-sm">{talk.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
 </Layout>
