@@ -92,7 +92,6 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
-
     <!-- TESTIMONIALS -->
     <section class="kit-section kit-testimonials-section">
       <div class="kit-wrap">
@@ -124,7 +123,6 @@ import Layout from '../../layouts/Layout.astro';
         </div>
       </div>
     </section>
-
 
     <!-- SIGNATURE TALKS -->
     <section class="kit-section">
@@ -187,9 +185,6 @@ import Layout from '../../layouts/Layout.astro';
         </div>
       </div>
     </section>
-
-
-
 
     <!-- YOUTUBE / VIDEO REEL -->
     <section class="kit-section">
@@ -324,71 +319,72 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
-   <!-- PRICING & LOGISTICS -->
-<section class="kit-section kit-pricing-section">
-  <div class="kit-wrap">
-    <div class="kit-pricing-grid">
+    <!-- PRICING & LOGISTICS -->
+    <section class="kit-section kit-pricing-section">
+      <div class="kit-wrap">
+        <div class="kit-pricing-grid">
 
-      <!-- Pricing -->
-      <div>
-        <div class="kit-section-label">Engagement Pricing</div>
-        <h2 class="kit-section-title" style="font-size:1.5rem;">2026 Rate Card</h2>
-        <table class="kit-price-table">
-          <tbody>
-            {[
-              { label: 'Speaking & Keynotes', price: 'Starting at $12,500' },
-              { label: 'Workshops & Intensives', price: 'Starting at $15,000' },
-              { label: 'Consulting Engagements', price: 'Starting at $18,000' },
-              { label: 'URI Formation Engagements', price: 'Starting at $12,500' },
-              { label: 'Custom Enterprise Scope', price: 'Contact for proposal' },
-            ].map((row) => (
-              <tr>
-                <td class="kit-price-label">{row.label}</td>
-                <td class="kit-price-val">{row.price}</td>
-              </tr>
-            ))}
-            <tr>
-              <td colspan="2" style="padding:.75rem 0 0;font-size:.78rem;color:#4a5c72;font-style:italic;">
-                Full engagement pricing and booking terms available upon request.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <!-- Pricing -->
+          <div>
+            <div class="kit-section-label">Engagement Pricing</div>
+            <h2 class="kit-section-title" style="font-size:1.5rem;">2026 Rate Card</h2>
+            <table class="kit-price-table">
+              <tbody>
+                {[
+                  { label: 'Speaking & Keynotes', price: 'Starting at $12,500' },
+                  { label: 'Workshops & Intensives', price: 'Starting at $15,000' },
+                  { label: 'Consulting Engagements', price: 'Starting at $18,000' },
+                  { label: 'URI Formation Engagements', price: 'Starting at $12,500' },
+                  { label: 'Custom Enterprise Scope', price: 'Contact for proposal' },
+                ].map((row) => (
+                  <tr>
+                    <td class="kit-price-label">{row.label}</td>
+                    <td class="kit-price-val">{row.price}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <td colspan="2" style="padding:.75rem 0 0;font-size:.78rem;color:#4a5c72;font-style:italic;">
+                    Full engagement pricing and booking terms available upon request.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <!-- Logistics -->
-      <div>
-        <div class="kit-section-label">Booking & Travel Requirements</div>
-        <h2 class="kit-section-title" style="font-size:1.5rem;">Logistics</h2>
-        <div class="kit-logistics">
-          {[
-            { label: 'Deposit', val: '50% of total fee at contract signing to secure the date.' },
-            { label: 'Balance', val: 'Remaining balance due 7 days prior to engagement.' },
-            { label: 'Air Travel', val: 'Comfort Plus or Business Class. No economy. Billed at cost.' },
-            { label: 'Hotel', val: '4-star or above. One night pre-event + one night post-event. Billed at cost.' },
-            { label: 'Ground Transport', val: 'Executive car service on all event days. Billed at cost.' },
-            { label: 'Meal Per Diem', val: '$100 per travel day. Itemized receipts provided.' },
-            { label: 'Virtual', val: '10% reduction on base fee. No travel costs apply.' },
-            { label: 'Cancellation', val: 'Deposit non-refundable within 30 days. Full fee retained within 14 days.' },
-            { label: 'Contract', val: 'Signed agreement required for all engagements.' },
-          ].map((item) => (
-            <div class="kit-logistic-row">
-              <span class="kit-logistic-label">{item.label}</span>
-              <span class="kit-logistic-val">{item.val}</span>
+          <!-- Logistics -->
+          <div>
+            <div class="kit-section-label">Booking & Travel Requirements</div>
+            <h2 class="kit-section-title" style="font-size:1.5rem;">Logistics</h2>
+            <div class="kit-logistics">
+              {[
+                { label: 'Deposit', val: '50% of total fee at contract signing to secure the date.' },
+                { label: 'Balance', val: 'Remaining balance due 7 days prior to engagement.' },
+                { label: 'Air Travel', val: 'Comfort Plus or Business Class. No economy. Billed at cost.' },
+                { label: 'Hotel', val: '4-star or above. One night pre-event + one night post-event. Billed at cost.' },
+                { label: 'Ground Transport', val: 'Executive car service on all event days. Billed at cost.' },
+                { label: 'Meal Per Diem', val: '$100 per travel day. Itemized receipts provided.' },
+                { label: 'Virtual', val: '10% reduction on base fee. No travel costs apply.' },
+                { label: 'Cancellation', val: 'Deposit non-refundable within 30 days. Full fee retained within 14 days.' },
+                { label: 'Contract', val: 'Signed agreement required for all engagements.' },
+              ].map((item) => (
+                <div class="kit-logistic-row">
+                  <span class="kit-logistic-label">{item.label}</span>
+                  <span class="kit-logistic-val">{item.val}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- CONTACT & BOOKING CTA -->
     <section class="kit-footer-section">
-      <div class="kit-wrap" style="text-align:center;">
+      <div class="kit-wrap kit-footer-wrap">
         <h2 class="kit-footer-name">Nikki Cates</h2>
         <p class="kit-footer-title">Structural Recalibration Strategist · Liberation & Leadership Formation Guide</p>
+
         <div class="kit-footer-links">
           <span>nikki@strategicunmasking.com</span>
           <span class="kit-footer-div">·</span>
@@ -396,10 +392,14 @@ import Layout from '../../layouts/Layout.astro';
           <span class="kit-footer-div">·</span>
           <span>linkedin.com/in/nikkicatesmiller</span>
         </div>
+
         <div class="kit-footer-ctas no-print">
-          <a href="https://calendar.app.google/1atA8vsgwQhP7bqX6"
-             target="_blank" rel="noopener"
-             class="kit-cta-btn kit-cta-primary">
+          <a
+            href="https://calendar.app.google/1atA8vsgwQhP7bqX6"
+            target="_blank"
+            rel="noopener"
+            class="kit-cta-btn kit-cta-primary"
+          >
             Schedule a Speaking Call
           </a>
           <a href="/uri/#vetting" class="kit-cta-btn kit-cta-secondary">
@@ -409,6 +409,7 @@ import Layout from '../../layouts/Layout.astro';
             Executive Briefing
           </a>
         </div>
+
         <p class="kit-footer-fine">
           © 2026 Nikki Cates · Strategic Transformations · UNMASK Engine™ · Proprietary & Confidential
         </p>
@@ -429,7 +430,11 @@ import Layout from '../../layouts/Layout.astro';
   color: #e8e4de;
 }
 
-.kit-wrap { max-width: 1100px; margin-inline: auto; padding-inline: 1.5rem; }
+.kit-wrap {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
 
 /* ── HERO ──────────────────────────────────────────── */
 .kit-hero {
@@ -563,10 +568,16 @@ import Layout from '../../layouts/Layout.astro';
   color: #58bbc2;
   text-align: center;
 }
-.kit-photo-caption p { margin: .1rem 0; max-width: none; }
+.kit-photo-caption p {
+  margin: .1rem 0;
+  max-width: none;
+}
 
 /* ── SECTIONS ──────────────────────────────────────── */
-.kit-section { padding: 3rem 0; border-top: 1px solid #1a2d44; }
+.kit-section {
+  padding: 3rem 0;
+  border-top: 1px solid #1a2d44;
+}
 .kit-section-label {
   font-size: .68rem;
   font-weight: 800;
@@ -614,7 +625,11 @@ import Layout from '../../layouts/Layout.astro';
   margin-bottom: 1rem;
   max-width: none;
 }
-.kit-testimonial-attr { display: flex; flex-direction: column; gap: .15rem; }
+.kit-testimonial-attr {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+}
 .kit-testimonial-name { font-weight: 700; font-size: .85rem; color: #f0ece4; }
 .kit-testimonial-org { font-size: .75rem; color: #58bbc2; }
 
@@ -690,8 +705,12 @@ import Layout from '../../layouts/Layout.astro';
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
+  align-items: start;
 }
-.kit-price-table { width: 100%; border-collapse: collapse; }
+.kit-price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
 .kit-price-table tr { border-bottom: 1px solid #1a2d44; }
 .kit-price-table tr:last-child { border-bottom: none; }
 .kit-price-label {
@@ -708,7 +727,11 @@ import Layout from '../../layouts/Layout.astro';
   text-align: right;
 }
 
-.kit-logistics { display: flex; flex-direction: column; gap: .5rem; }
+.kit-logistics {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
 .kit-logistic-row {
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -717,8 +740,17 @@ import Layout from '../../layouts/Layout.astro';
   border-bottom: 1px solid #1a2d44;
   font-size: .82rem;
 }
-.kit-logistic-label { font-weight: 700; color: #2a7ca3; font-size: .75rem; letter-spacing: .05em; text-transform: uppercase; }
-.kit-logistic-val { color: #8a9bb5; line-height: 1.5; }
+.kit-logistic-label {
+  font-weight: 700;
+  color: #2a7ca3;
+  font-size: .75rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.kit-logistic-val {
+  color: #8a9bb5;
+  line-height: 1.5;
+}
 
 /* ── FOOTER ────────────────────────────────────────── */
 .kit-footer-section {
@@ -727,17 +759,36 @@ import Layout from '../../layouts/Layout.astro';
   border-image: linear-gradient(to right, #064680, #2a7ca3, #58bbc2, #ac6dbf) 1;
   padding: 3rem 1.5rem;
 }
+.kit-footer-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.kit-footer-wrap > * {
+  text-align: center;
+}
 .kit-footer-name {
   font-family: 'Lora', Georgia, serif;
   font-size: 2rem;
   color: #f0ece4;
   margin-bottom: .35rem;
+  width: 100%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 .kit-footer-title {
   font-size: .85rem;
   color: #58bbc2;
   margin-bottom: 1rem;
   font-style: italic;
+  width: 100%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 .kit-footer-links {
   display: flex;
@@ -745,6 +796,7 @@ import Layout from '../../layouts/Layout.astro';
   gap: .75rem;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
   font-size: .8rem;
   color: #4a5c72;
   margin-bottom: 1.5rem;
@@ -755,11 +807,13 @@ import Layout from '../../layouts/Layout.astro';
   gap: .75rem;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
   margin-bottom: 1.5rem;
 }
 .kit-cta-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   font-family: 'Urbanist', sans-serif;
   font-weight: 700;
   font-size: .85rem;
@@ -768,16 +822,27 @@ import Layout from '../../layouts/Layout.astro';
   border-radius: 4px;
   text-decoration: none;
   transition: all .2s;
+  text-align: center;
 }
-.kit-cta-primary { background: #2a7ca3; color: #fff; }
+.kit-cta-primary {
+  background: #2a7ca3;
+  color: #fff;
+}
 .kit-cta-primary:hover { background: #58bbc2; }
-.kit-cta-secondary { background: transparent; color: #58bbc2; border: 1px solid #58bbc2; }
+.kit-cta-secondary {
+  background: transparent;
+  color: #58bbc2;
+  border: 1px solid #58bbc2;
+}
 .kit-cta-secondary:hover { background: rgba(88,187,194,.1); }
 .kit-footer-fine {
   font-size: .68rem;
   color: #2a3a50;
   letter-spacing: .06em;
   text-align: center;
+  width: 100%;
+  max-width: none;
+  margin: .5rem auto 0;
 }
 
 /* ── VIDEO GRID MOBILE ─────────────────────────────── */
@@ -786,12 +851,14 @@ import Layout from '../../layouts/Layout.astro';
     grid-template-columns: 1fr !important;
   }
 }
-/* ── PRINT YOUTUBE ──────────────────────────────────── */
+
+/* ── PRINT YOUTUBE ─────────────────────────────────── */
 @media print {
   iframe { display: none !important; }
   .print-only { display: block !important; }
   .no-print { display: none !important; }
 }
+
 /* ── MOBILE ────────────────────────────────────────── */
 @media (max-width: 768px) {
   .kit-hero-grid { grid-template-columns: 1fr; }
@@ -801,6 +868,13 @@ import Layout from '../../layouts/Layout.astro';
   .kit-pricing-grid { grid-template-columns: 1fr; }
   .kit-talks-grid { grid-template-columns: 1fr; }
   .kit-logistic-row { grid-template-columns: 100px 1fr; }
+  .kit-footer-links {
+    flex-direction: column;
+    gap: .35rem;
+  }
+  .kit-footer-div {
+    display: none;
+  }
 }
 
 /* ── PRINT ─────────────────────────────────────────── */
@@ -822,4 +896,3 @@ import Layout from '../../layouts/Layout.astro';
   @page { margin: .5in; size: letter; }
 }
 </style>
-
