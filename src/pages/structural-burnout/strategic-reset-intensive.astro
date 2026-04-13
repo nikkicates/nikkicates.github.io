@@ -517,15 +517,17 @@ import Layout from '../../layouts/Layout.astro';
 
     const data = {
       ...rawData,
-      currentChallenges: challengeValues,
-      formType: 'strategic-reset-intensive',
-      source: 'nikkicates.github.io',
+  currentChallenges: challengeValues,
+  formType: 'fractional-strategic-reset-intensive',
+  businessLane: 'fractional',
+  offerPath: 'strategic-reset-intensive',
+  source: 'nikkicates.github.io/structural-burnout/strategic-reset-intensive',
     };
 
     try {
       // Replace with your actual GHL inbound webhook URL
       const GHL_WEBHOOK =
-        'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/45d555d1-61ba-4631-9727-23de3875cc0f;
+        'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/45d555d1-61ba-4631-9727-23de3875cc0f';
 
       await fetch(GHL_WEBHOOK, {
         method: 'POST',
