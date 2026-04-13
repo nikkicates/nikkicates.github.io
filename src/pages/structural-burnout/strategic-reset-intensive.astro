@@ -558,6 +558,7 @@ import Layout from '../../layouts/Layout.astro';
     const authorityMismatch = safeLower(data.authorityMismatch);
     const desiredValue = safeLower(data.desiredValue);
 
+    // Hard no boundaries
     if (investmentReadiness === 'not-at-this-time') {
       hardNoReasons.push('Not prepared to invest at this time');
     }
@@ -570,6 +571,7 @@ import Layout from '../../layouts/Layout.astro';
       hardNoReasons.push('Seeking immediate crisis-level support');
     }
 
+    // Scoring
     if (investmentReadiness === 'yes-ready-now') {
       score += 30;
       reasons.push('Ready to invest now');
@@ -586,7 +588,7 @@ import Layout from '../../layouts/Layout.astro';
       reasons.push('Maybe open to group format');
     }
 
-    if (vipInterest === 'group intensive + vip details') {
+    if (vipInterest === 'group intensive + VIP details'.toLowerCase() || vipInterest === 'group intensive + vip details') {
       score += 10;
       reasons.push('Interested in VIP details');
     } else if (vipInterest === 'group intensive only') {
@@ -618,6 +620,7 @@ import Layout from '../../layouts/Layout.astro';
 
     const challengeHits = challenges.filter((c) => highFitChallenges.includes(c)).length;
     score += Math.min(challengeHits * 4, 20);
+
     if (challengeHits > 0) {
       reasons.push(`Challenge alignment: ${challengeHits} fit signals`);
     }
@@ -677,6 +680,14 @@ import Layout from '../../layouts/Layout.astro';
     };
   }
 
+  function showStatus(html, className) {
+    form.classList.add('hidden');
+    status.classList.remove('hidden');
+    status.className = className;
+    status.innerHTML = html;
+    status.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -692,45 +703,47 @@ import Layout from '../../layouts/Layout.astro';
     const formData = new FormData(form);
 
     const data = {
-      fullName: formData.get('fullName') || '',
-      email: formData.get('email') || '',
-      currentSeason: formData.get('currentSeason') || '',
-      currentChallenges: formData.getAll('currentChallenges'),
-      heaviestRightNow: formData.get('heaviestRightNow') || '',
-      authorityMismatch: formData.get('authorityMismatch') || '',
-      aiRole: formData.get('aiRole') || '',
-      desiredValue: formData.get('desiredValue') || '',
-      vipInterest: formData.get('vipInterest') || '',
-      investmentReadiness: formData.get('investmentReadiness') || '',
-      groupReadiness: formData.get('groupReadiness') || '',
-      crisisSupport: formData.get('crisisSupport') || '',
-      anythingElse: formData.get('anythingElse') || '',
+      fullName: (formData.get('fullName') || '').toString(),
+      email: (formData.get('email') || '').toString(),
+      currentSeason: (formData.get('currentSeason') || '').toString(),
+      currentChallenges: formData.getAll('currentChallenges').map(String),
+      heaviestRightNow: (formData.get('heaviestRightNow') || '').toString(),
+      authorityMismatch: (formData.get('authorityMismatch') || '').toString(),
+      aiRole: (formData.get('aiRole') || '').toString(),
+      desiredValue: (formData.get('desiredValue') || '').toString(),
+      vipInterest: (formData.get('vipInterest') || '').toString(),
+      investmentReadiness: (formData.get('investmentReadiness') || '').toString(),
+      groupReadiness: (formData.get('groupReadiness') || '').toString(),
+      crisisSupport: (formData.get('crisisSupport') || '').toString(),
+      anythingElse: (formData.get('anythingElse') || '').toString(),
     };
 
     const review = scoreLead(data);
 
+    // Not approved path: do not send to cohort webhook
     if (!review.approved) {
-      form.classList.add('hidden');
-      status.classList.remove('hidden');
-      status.className = 'text-center p-6 rounded-md border border-border bg-surface/60';
-      status.innerHTML = `
-        <p class="font-heading text-xl text-light font-semibold mb-3">This may not be the right container right now.</p>
-        <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
-          Based on your responses, the Strategic Reset Intensive may not be the best next step for this season.
-          That does not diminish what you are carrying. It simply means a different entry point may serve you better right now.
-        </p>
-        <p class="text-muted text-sm max-w-2xl mx-auto mb-6">
-          A strong place to begin is the UNMASK Blueprint and the Unbothered Collective newsletter.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="https://nikkicates.github.io/book" class="btn-teal">Buy the Books</a>
-          <a href="https://api.leadconnectorhq.com/widget/form/n1afrRyJLvJOME1jHLGo" class="btn-outline-teal">Join the Newsletter</a>
-        </div>
-      `;
+      showStatus(
+        `
+          <p class="font-heading text-xl text-light font-semibold mb-3">This may not be the right container right now.</p>
+          <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
+            Based on your responses, the Strategic Reset Intensive may not be the best next step for this season.
+            That does not diminish what you are carrying. It simply means a different entry point may serve you better right now.
+          </p>
+          <p class="text-muted text-sm max-w-2xl mx-auto mb-6">
+            A strong place to begin is the UNMASK Blueprint and the Unbothered Collective newsletter.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://nikkicates.github.io/book" class="btn-teal">Buy the Books</a>
+            <a href="https://api.leadconnectorhq.com/widget/form/n1afrRyJLvJOME1jHLGo" class="btn-outline-teal">Join the Newsletter</a>
+          </div>
+        `,
+        'text-center p-6 rounded-md border border-border bg-surface/60'
+      );
       return;
     }
 
-    const payload = {
+    // Approved path: flatten for GHL and send as form-encoded
+    const payload = new URLSearchParams({
       name: data.fullName,
       email: data.email,
       currentSeason: data.currentSeason,
@@ -744,44 +757,50 @@ import Layout from '../../layouts/Layout.astro';
       groupReadiness: data.groupReadiness,
       crisisSupport: data.crisisSupport,
       anythingElse: data.anythingElse,
-      qualificationScore: review.score,
+      qualificationScore: String(review.score),
       qualificationDecision: review.decision,
       qualificationReasons: review.reasons.join(' | '),
       hardNoReasons: review.hardNoReasons.join(' | '),
       formType: 'strategic-reset-intensive',
       source: 'nikkicates.github.io',
       tags: 'strategic-reset-intensive, qualified-cohort-inquiry'
-    };
+    });
 
     try {
-      const GHL_WEBHOOK =
-        'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/a7d18c81-570c-4e47-844a-94797c3e3b17';
+      await fetch(
+        'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/a7d18c81-570c-4e47-844a-94797c3e3b17',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          },
+          body: payload.toString(),
+          mode: 'no-cors',
+        }
+      );
 
-      await fetch(GHL_WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        mode: 'no-cors',
-      });
-
-      form.classList.add('hidden');
-      status.classList.remove('hidden');
-      status.className = 'text-center p-6 rounded-md border border-teal-DEFAULT/40 bg-teal-glow';
-      status.innerHTML = `
-        <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">You’ve been added to the cohort interest list.</p>
-        <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
-          Thank you for your inquiry. Based on your responses, this looks like a strong fit for the Strategic Reset Intensive.
-          You’ll be contacted with next-step details for the upcoming cohort and VIP information if requested.
-        </p>
-        <p class="text-muted text-sm max-w-2xl mx-auto">
-          In the meantime, take a breath. The fact that something feels unsustainable does not mean you are failing.
-          It may mean you have been carrying what was never meant to rest on you alone.
-        </p>
-      `;
+      showStatus(
+        `
+          <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">You’ve been added to the cohort interest list.</p>
+          <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
+            Thank you for your inquiry. Based on your responses, this looks like a strong fit for the Strategic Reset Intensive.
+            You’ll be contacted with next-step details for the upcoming cohort and VIP information if requested.
+          </p>
+          <p class="text-muted text-sm max-w-2xl mx-auto mb-6">
+            In the meantime, take a breath. The fact that something feels unsustainable does not mean you are failing.
+            It may mean you have been carrying what was never meant to rest on you alone.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://nikkicates.github.io/book" class="btn-outline-teal">Explore the Books</a>
+          </div>
+        `,
+        'text-center p-6 rounded-md border border-teal-DEFAULT/40 bg-teal-glow'
+      );
     } catch (err) {
       btn.disabled = false;
       label.textContent = 'Ask About the Next Cohort';
       spinner.classList.add('hidden');
+
       status.classList.remove('hidden');
       status.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
       status.innerHTML = `
@@ -791,6 +810,7 @@ import Layout from '../../layouts/Layout.astro';
           directly.
         </p>
       `;
+      status.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 </script>
