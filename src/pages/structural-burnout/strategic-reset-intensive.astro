@@ -89,10 +89,14 @@ import Layout from '../../layouts/Layout.astro';
           'AI may be increasing the speed, noise, and oversight demands without reducing the burden on your body, judgment, or capacity.',
         ].map((item) => (
           <div class="card teal-hover animate-on-scroll">
-            <div
-              class="mb-4 h-10 w-10 border border-teal-DEFAULT/40 bg-teal-DEFAULT/5"
-              style="clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);"
-            ></div>
+            <div class="mb-5">
+              <div
+                class="h-10 w-10 border border-teal-DEFAULT/50 bg-teal-DEFAULT/8 flex items-center justify-center"
+                style="clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);"
+              >
+                <div class="h-2.5 w-2.5 rounded-full bg-teal-DEFAULT"></div>
+              </div>
+            </div>
             <p class="text-light leading-relaxed">{item}</p>
           </div>
         ))}
@@ -385,7 +389,7 @@ import Layout from '../../layouts/Layout.astro';
           <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">
             03 — AI + Offer Fit
           </legend>
-          <p class="text-muted text-sm mb-6 px-2">Help me understand how AI and timing are showing up for you.</p>
+          <p class="text-muted text-sm mb-6 px-2">Help me understand how AI and readiness are showing up for you.</p>
 
           <div class="grid grid-cols-1 gap-5">
             <div class="form-group">
@@ -427,6 +431,41 @@ import Layout from '../../layouts/Layout.astro';
             </div>
 
             <div class="form-group">
+              <label class="form-label" for="investment-readiness">
+                Are you prepared to invest in this kind of support if it feels aligned? *
+              </label>
+              <select class="form-select" id="investment-readiness" name="investmentReadiness" required>
+                <option value="">Select one</option>
+                <option>yes-ready-now</option>
+                <option>possibly-need-more-info</option>
+                <option>not-at-this-time</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="group-readiness">
+                Are you open to this being a small-group experience? *
+              </label>
+              <select class="form-select" id="group-readiness" name="groupReadiness" required>
+                <option value="">Select one</option>
+                <option>yes</option>
+                <option>maybe</option>
+                <option>no-private-only</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="crisis-support">
+                Are you currently seeking immediate crisis-level support? *
+              </label>
+              <select class="form-select" id="crisis-support" name="crisisSupport" required>
+                <option value="">Select one</option>
+                <option>no</option>
+                <option>yes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
               <label class="form-label" for="anything-else">Anything else you want me to know before reviewing your inquiry?</label>
               <textarea
                 class="form-textarea"
@@ -442,7 +481,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="bg-surface/50 border border-border rounded-md p-5 text-sm text-muted">
           <p>
             <span class="text-light font-semibold">Important:</span>
-            Submitting this form begins a conversation. This is a curated cohort, so each inquiry is reviewed for fit before next-step details are shared. Submission does not guarantee enrollment.
+            Submitting this form begins a conversation. This is a curated cohort, and not every inquiry will be advanced. If this container is not the right fit right now, you’ll be directed to a better next step.
           </p>
         </div>
 
@@ -485,18 +524,158 @@ import Layout from '../../layouts/Layout.astro';
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="#inquiry-form" class="btn-teal">Ask About the Next Cohort</a>
-        <a href="/books/" class="btn-outline-teal">Explore the UNMASK Blueprint</a>
+        <a href="https://nikkicates.github.io/book" class="btn-outline-teal">Explore the Books</a>
       </div>
     </div>
   </section>
 </Layout>
 
 <script>
-  const form = document.getElementById('reset-form') as HTMLFormElement;
-  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
-  const label = document.getElementById('submit-label') as HTMLElement;
-  const spinner = document.getElementById('submit-spinner') as HTMLElement;
-  const status = document.getElementById('form-status') as HTMLElement;
+  const form = document.getElementById('reset-form');
+  const btn = document.getElementById('submit-btn');
+  const label = document.getElementById('submit-label');
+  const spinner = document.getElementById('submit-spinner');
+  const status = document.getElementById('form-status');
+
+  function safeLower(value) {
+    return (value || '').toString().trim().toLowerCase();
+  }
+
+  function scoreLead(data) {
+    let score = 0;
+    const reasons = [];
+    const hardNoReasons = [];
+
+    const currentSeason = safeLower(data.currentSeason);
+    const aiRole = safeLower(data.aiRole);
+    const vipInterest = safeLower(data.vipInterest);
+    const investmentReadiness = safeLower(data.investmentReadiness);
+    const groupReadiness = safeLower(data.groupReadiness);
+    const crisisSupport = safeLower(data.crisisSupport);
+    const challenges = (data.currentChallenges || []).map((x) => safeLower(x));
+
+    const heaviest = safeLower(data.heaviestRightNow);
+    const authorityMismatch = safeLower(data.authorityMismatch);
+    const desiredValue = safeLower(data.desiredValue);
+
+    if (investmentReadiness === 'not-at-this-time') {
+      hardNoReasons.push('Not prepared to invest at this time');
+    }
+
+    if (groupReadiness === 'no-private-only') {
+      hardNoReasons.push('Not open to group format');
+    }
+
+    if (crisisSupport === 'yes') {
+      hardNoReasons.push('Seeking immediate crisis-level support');
+    }
+
+    if (investmentReadiness === 'yes-ready-now') {
+      score += 30;
+      reasons.push('Ready to invest now');
+    } else if (investmentReadiness === 'possibly-need-more-info') {
+      score += 15;
+      reasons.push('Possibly ready, needs more information');
+    }
+
+    if (groupReadiness === 'yes') {
+      score += 20;
+      reasons.push('Open to group format');
+    } else if (groupReadiness === 'maybe') {
+      score += 8;
+      reasons.push('Maybe open to group format');
+    }
+
+    if (vipInterest === 'group intensive + vip details') {
+      score += 10;
+      reasons.push('Interested in VIP details');
+    } else if (vipInterest === 'group intensive only') {
+      score += 6;
+      reasons.push('Interested in group format');
+    }
+
+    if (
+      currentSeason.includes('employed') ||
+      currentSeason.includes('founder') ||
+      currentSeason.includes('transition') ||
+      currentSeason.includes('re-entering')
+    ) {
+      score += 5;
+      reasons.push('Relevant current season');
+    }
+
+    const highFitChallenges = [
+      'burnout',
+      'over-responsibility',
+      'hidden labor',
+      'leadership strain',
+      'career transition',
+      'founder transition / reinvention',
+      'ai overwhelm or confusion',
+      'lack of authority or support',
+      'difficulty knowing what to do next',
+    ];
+
+    const challengeHits = challenges.filter((c) => highFitChallenges.includes(c)).length;
+    score += Math.min(challengeHits * 4, 20);
+    if (challengeHits > 0) {
+      reasons.push(`Challenge alignment: ${challengeHits} fit signals`);
+    }
+
+    if (
+      authorityMismatch.includes('authority') ||
+      authorityMismatch.includes('support') ||
+      authorityMismatch.includes('decision') ||
+      authorityMismatch.includes('responsib')
+    ) {
+      score += 12;
+      reasons.push('Names authority-responsibility strain');
+    }
+
+    if (
+      heaviest.includes('burnout') ||
+      heaviest.includes('exhaust') ||
+      heaviest.includes('overwhelm') ||
+      heaviest.includes('unsustain') ||
+      heaviest.includes('heavy') ||
+      heaviest.includes('hidden labor')
+    ) {
+      score += 8;
+      reasons.push('Names real strain clearly');
+    }
+
+    if (
+      desiredValue.includes('clarity') ||
+      desiredValue.includes('boundary') ||
+      desiredValue.includes('plan') ||
+      desiredValue.includes('direction') ||
+      desiredValue.includes('reset') ||
+      desiredValue.includes('next step')
+    ) {
+      score += 10;
+      reasons.push('Wants aligned outcomes');
+    }
+
+    if (
+      aiRole === 'pressure to do more faster' ||
+      aiRole === 'cleanup burden' ||
+      aiRole === 'mixed / all of the above' ||
+      aiRole === 'confusion / uncertainty'
+    ) {
+      score += 5;
+      reasons.push('AI-era strain present');
+    }
+
+    const approved = hardNoReasons.length === 0 && score >= 55;
+
+    return {
+      approved,
+      score,
+      reasons,
+      hardNoReasons,
+      decision: approved ? 'approved-for-cohort-followup' : 'not-approved-redirect',
+    };
+  }
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -507,32 +686,81 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     btn.disabled = true;
-    label.textContent = 'Submitting...';
+    label.textContent = 'Reviewing...';
     spinner.classList.remove('hidden');
 
     const formData = new FormData(form);
-    const rawData = Object.fromEntries(formData.entries());
-
-    const challengeValues = formData.getAll('currentChallenges');
 
     const data = {
-      ...rawData,
-  currentChallenges: challengeValues,
-  formType: 'fractional-strategic-reset-intensive',
-  businessLane: 'fractional',
-  offerPath: 'strategic-reset-intensive',
-  source: 'nikkicates.github.io/structural-burnout/strategic-reset-intensive',
+      fullName: formData.get('fullName') || '',
+      email: formData.get('email') || '',
+      currentSeason: formData.get('currentSeason') || '',
+      currentChallenges: formData.getAll('currentChallenges'),
+      heaviestRightNow: formData.get('heaviestRightNow') || '',
+      authorityMismatch: formData.get('authorityMismatch') || '',
+      aiRole: formData.get('aiRole') || '',
+      desiredValue: formData.get('desiredValue') || '',
+      vipInterest: formData.get('vipInterest') || '',
+      investmentReadiness: formData.get('investmentReadiness') || '',
+      groupReadiness: formData.get('groupReadiness') || '',
+      crisisSupport: formData.get('crisisSupport') || '',
+      anythingElse: formData.get('anythingElse') || '',
+    };
+
+    const review = scoreLead(data);
+
+    if (!review.approved) {
+      form.classList.add('hidden');
+      status.classList.remove('hidden');
+      status.className = 'text-center p-6 rounded-md border border-border bg-surface/60';
+      status.innerHTML = `
+        <p class="font-heading text-xl text-light font-semibold mb-3">This may not be the right container right now.</p>
+        <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
+          Based on your responses, the Strategic Reset Intensive may not be the best next step for this season.
+          That does not diminish what you are carrying. It simply means a different entry point may serve you better right now.
+        </p>
+        <p class="text-muted text-sm max-w-2xl mx-auto mb-6">
+          A strong place to begin is the UNMASK Blueprint and the Unbothered Collective newsletter.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://nikkicates.github.io/book" class="btn-teal">Buy the Books</a>
+          <a href="https://api.leadconnectorhq.com/widget/form/n1afrRyJLvJOME1jHLGo" class="btn-outline-teal">Join the Newsletter</a>
+        </div>
+      `;
+      return;
+    }
+
+    const payload = {
+      name: data.fullName,
+      email: data.email,
+      currentSeason: data.currentSeason,
+      currentChallenges: data.currentChallenges.join(', '),
+      heaviestRightNow: data.heaviestRightNow,
+      authorityMismatch: data.authorityMismatch,
+      aiRole: data.aiRole,
+      desiredValue: data.desiredValue,
+      vipInterest: data.vipInterest,
+      investmentReadiness: data.investmentReadiness,
+      groupReadiness: data.groupReadiness,
+      crisisSupport: data.crisisSupport,
+      anythingElse: data.anythingElse,
+      qualificationScore: review.score,
+      qualificationDecision: review.decision,
+      qualificationReasons: review.reasons.join(' | '),
+      hardNoReasons: review.hardNoReasons.join(' | '),
+      formType: 'strategic-reset-intensive',
+      source: 'nikkicates.github.io',
+      tags: 'strategic-reset-intensive, qualified-cohort-inquiry'
     };
 
     try {
-      // Replace with your actual GHL inbound webhook URL
       const GHL_WEBHOOK =
         'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/a7d18c81-570c-4e47-844a-94797c3e3b17';
 
       await fetch(GHL_WEBHOOK, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
         mode: 'no-cors',
       });
 
@@ -540,13 +768,12 @@ import Layout from '../../layouts/Layout.astro';
       status.classList.remove('hidden');
       status.className = 'text-center p-6 rounded-md border border-teal-DEFAULT/40 bg-teal-glow';
       status.innerHTML = `
-        <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">Your inquiry has been received.</p>
-        <p class="text-muted text-sm max-w-2xl mx-auto">
-          Thank you for reaching out about the Strategic Reset Intensive.
-          This is a curated small-group experience, so each inquiry is reviewed for fit before the next cohort is finalized.
-          If it looks aligned, you’ll receive next-step details for the upcoming group along with information about the optional VIP add-on if you requested it.
+        <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">You’ve been added to the cohort interest list.</p>
+        <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
+          Thank you for your inquiry. Based on your responses, this looks like a strong fit for the Strategic Reset Intensive.
+          You’ll be contacted with next-step details for the upcoming cohort and VIP information if requested.
         </p>
-        <p class="text-muted text-sm max-w-2xl mx-auto mt-4">
+        <p class="text-muted text-sm max-w-2xl mx-auto">
           In the meantime, take a breath. The fact that something feels unsustainable does not mean you are failing.
           It may mean you have been carrying what was never meant to rest on you alone.
         </p>
