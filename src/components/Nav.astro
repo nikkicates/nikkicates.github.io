@@ -120,3 +120,56 @@ const connectLinks = [
 <script>
 /* ... your existing script ... */
 </script>
+<!-- Desktop nav -->
+<nav class="hidden md:flex items-center gap-1" aria-label="Primary navigation">
+  <a href="/" class="nav-btn">Home</a>
+  
+  <!-- ST Work dropdown -->
+  <div class="nav-dropdown-wrap">
+    <button class="nav-btn nav-dropdown-trigger" aria-expanded="false" data-dropdown="st-work">
+      ST Work
+      <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+        <path d="M2 4l4 4 4-4"/>
+      </svg>
+    </button>
+    <div class="nav-dropdown" id="dropdown-st-work" role="menu">
+      {stLinks.map(l => (
+        <a href={l.href} class="nav-dropdown-item">{l.label}</a>
+      ))}
+    </div>
+  </div>
+
+  <a href="/uri/" class="nav-btn">URI Formation</a>
+  
+  <!-- FIXED Advisory Lane link -->
+  <a href="/structural-burnout/strategic-rest-intensive" class="nav-btn">Advisory Lane</a>
+
+  <a href="/books/" class="nav-btn">Books</a>
+  <a href="/speaker-kit/" class="nav-btn">Speaker Kit</a>
+
+  <!-- Connect dropdown -->
+  <div class="nav-dropdown-wrap">
+    <button class="nav-btn nav-dropdown-trigger" aria-expanded="false" data-dropdown="connect">
+      Connect
+      <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+        <path d="M2 4l4 4 4-4"/>
+      </svg>
+    </button>
+    <div class="nav-dropdown" id="dropdown-connect" role="menu">
+      {connectLinks.map(l => (
+        <a
+          href={l.href}
+          class="nav-dropdown-item"
+          target={l.external ? '_blank' : undefined}
+          rel={l.external ? 'noopener' : undefined}
+        >
+          {l.label}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <a href="/structural-burnout/briefing" class="ml-2 btn-teal !text-sm !py-2 !px-4">
+    Request Briefing
+  </a>
+</nav>
