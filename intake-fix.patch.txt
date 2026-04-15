@@ -1,0 +1,390 @@
+diff --git a/src/components/Nav.astro b/src/components/Nav.astro
+index 77aa781..481805f 100644
+--- a/src/components/Nav.astro
++++ b/src/components/Nav.astro
+@@ -58,7 +58,7 @@ const connectLinks = [
+         </div>
+ 
+         <a href="/uri/" class="nav-btn">URI Formation</a>
+-<a href="/structural-burnout/strategic-rest-intensive">Advisory Lane</a>
++        <a href="/structural-burnout/strategic-reset-intensive" class="nav-btn">Advisory Lane</a>
+         <a href="/books/" class="nav-btn">Books</a>
+         <a href="/speaker-kit/" class="nav-btn">Speaker Kit</a>
+ 
+@@ -104,6 +104,7 @@ const connectLinks = [
+     {stLinks.map(l => (
+       <a href={l.href} class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">{l.label}</a>
+     ))}
++    <a href="/structural-burnout/strategic-reset-intensive" class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">Advisory Lane</a>
+     <a href="/uri/" class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">URI Formation</a>
+     <a href="/books/" class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">Books</a>
+     <a href="/speaker-kit/" class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">Speaker Kit</a>
+diff --git a/src/lib/intake.ts b/src/lib/intake.ts
+new file mode 100644
+index 0000000..6ab0dd8
+--- /dev/null
++++ b/src/lib/intake.ts
+@@ -0,0 +1,50 @@
++export type IntakePayload = {
++  form_type: string;
++  lane: 'strategic_transformations' | 'fractional_lane' | 'uri' | 'internal';
++  offer_type: string;
++  vetted: string;
++  first_name: string;
++  last_name: string;
++  email: string;
++  phone: string;
++  company: string;
++  title: string;
++  audience_type: string;
++  investment_readiness: string;
++  timeline: string;
++  primary_need: string;
++  summary_notes: string;
++  source_url: string;
++  submitted_at: string;
++  [key: string]: string | string[];
++};
++
++const PUBLIC_N8N_WEBHOOK_URL = (import.meta.env.PUBLIC_N8N_WEBHOOK_URL || '').trim();
++
++export function splitFullName(fullName: string): { firstName: string; lastName: string } {
++  const cleanName = String(fullName || '').trim().replace(/\s+/g, ' ');
++  if (!cleanName) return { firstName: '', lastName: '' };
++
++  const parts = cleanName.split(' ');
++  const firstName = parts.shift() || '';
++  const lastName = parts.join(' ');
++
++  return { firstName, lastName };
++}
++
++export async function sendIntake(payload: IntakePayload) {
++  if (!PUBLIC_N8N_WEBHOOK_URL) {
++    throw new Error('Missing PUBLIC_N8N_WEBHOOK_URL');
++  }
++
++  const response = await fetch(PUBLIC_N8N_WEBHOOK_URL, {
++    method: 'POST',
++    headers: { 'Content-Type': 'application/json' },
++    body: JSON.stringify(payload),
++    mode: 'cors',
++  });
++
++  if (!response.ok) {
++    throw new Error(`Webhook rejected payload with status ${response.status}`);
++  }
++}
+diff --git a/src/pages/structural-burnout/briefing.astro b/src/pages/structural-burnout/briefing.astro
+index fb247ec..e4b125d 100644
+--- a/src/pages/structural-burnout/briefing.astro
++++ b/src/pages/structural-burnout/briefing.astro
+@@ -454,12 +454,24 @@ import Layout from '../../layouts/Layout.astro';
+ </Layout>
+ 
+ <script>
++  import { sendIntake, splitFullName } from '../../lib/intake';
++
+   const form = document.getElementById('briefing-form') as HTMLFormElement;
+   const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+   const label = document.getElementById('submit-label') as HTMLElement;
+   const spinner = document.getElementById('submit-spinner') as HTMLElement;
+   const status = document.getElementById('form-status') as HTMLElement;
+ 
++  function getBriefingVettingDecision(data: Record<string, string>) {
++    const hardNo = data.investment_readiness.includes('Under $10,000')
++      || data.investment_readiness.includes('Budget is in process');
++    const leadershipReady = data.summary_notes.toLowerCase().includes('yes — we need truth more than comfort')
++      || data.summary_notes.toLowerCase().includes('mostly — there will be some resistance but leadership is open');
++
++    if (hardNo || !leadershipReady) return 'not_vetted';
++    return 'vetted';
++  }
++
+   form?.addEventListener('submit', async (e) => {
+     e.preventDefault();
+     if (!form.checkValidity()) {
+@@ -472,28 +484,68 @@ import Layout from '../../layouts/Layout.astro';
+     label.textContent = 'Submitting...';
+     spinner.classList.remove('hidden');
+ 
+-    const data = Object.fromEntries(new FormData(form));
++    const fd = new FormData(form);
++    const rawFullName = String(fd.get('fullName') || '');
++    const { firstName, lastName } = splitFullName(rawFullName);
++    const investmentReadiness = String(fd.get('budgetRange') || '');
++    const leadershipReadiness = String(fd.get('leadershipReadiness') || '');
++    const primaryNeed = String(fd.get('currentState') || '');
++    const vetted = getBriefingVettingDecision({
++      investment_readiness: investmentReadiness,
++      summary_notes: leadershipReadiness,
++    });
++
++    const payload = {
++      form_type: 'executive_briefing',
++      lane: 'strategic_transformations',
++      offer_type: String(fd.get('engagementType') || 'executive-briefing'),
++      vetted,
++      first_name: firstName,
++      last_name: lastName,
++      email: String(fd.get('email') || ''),
++      phone: String(fd.get('phone') || ''),
++      company: String(fd.get('orgName') || ''),
++      title: String(fd.get('title') || ''),
++      audience_type: String(fd.get('industry') || ''),
++      investment_readiness: investmentReadiness,
++      timeline: String(fd.get('timeline') || ''),
++      primary_need: primaryNeed,
++      summary_notes: [
++        `org_size=${String(fd.get('orgSize') || '')}`,
++        `how_long=${String(fd.get('howLong') || '')}`,
++        `attempted=${String(fd.get('attempted') || '')}`,
++        `impact=${String(fd.get('impact') || '')}`,
++        `awareness_level=${String(fd.get('awarenessLevel') || '')}`,
++        `leadership_readiness=${leadershipReadiness}`,
++        `decision_maker=${String(fd.get('decisionMaker') || '')}`,
++        `desired_outcome=${String(fd.get('desiredOutcome') || '')}`,
++        `why_nikki=${String(fd.get('whyNikki') || '')}`,
++        `anything_else=${String(fd.get('anythingElse') || '')}`,
++      ].join('\n'),
++      source_url: window.location.href,
++      submitted_at: new Date().toISOString(),
++      org_website: String(fd.get('orgWebsite') || ''),
++      decision_maker: String(fd.get('decisionMaker') || ''),
++    };
+ 
+     try {
+-      // Replace with your GHL inbound webhook URL
+-      const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID/webhook-trigger/YOUR_TRIGGER_ID';
+-
+-      await fetch(GHL_WEBHOOK, {
+-        method: 'POST',
+-        headers: { 'Content-Type': 'application/json' },
+-        body: JSON.stringify({ ...data, formType: 'executive-briefing', source: 'nikkicates.github.io' }),
+-        mode: 'no-cors', // GHL webhooks don't return CORS headers
+-      });
++      await sendIntake(payload);
+ 
+-      // Show success (no-cors means we can't read response status)
+       form.classList.add('hidden');
+       status.classList.remove('hidden');
+       status.className = 'text-center p-6 rounded-md border border-teal-DEFAULT/40 bg-teal-glow';
+-      status.innerHTML = `
+-        <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">Briefing Request Received</p>
+-        <p class="text-muted text-sm">I review every submission personally. If there\'s alignment,
+-        you\'ll hear from me within 3–5 business days. Thank you for the thoughtfulness you brought to these questions.</p>
+-      `;
++      if (vetted === 'vetted') {
++        status.innerHTML = `
++          <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">Briefing Request Received</p>
++          <p class="text-muted text-sm mb-4">You appear to be vetted for the next step. You can schedule your briefing call now.</p>
++          <a href="https://calendar.app.google/nsXrGnYJdU1wjUG37" target="_blank" rel="noopener" class="btn-teal !text-sm !py-2">Schedule Briefing Call →</a>
++        `;
++      } else {
++        status.innerHTML = `
++          <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">Briefing Request Received</p>
++          <p class="text-muted text-sm">Your submission was received for review. If there is alignment, you will hear from us with the right next step.</p>
++        `;
++      }
+     } catch (err) {
+       btn.disabled = false;
+       label.textContent = 'Submit Executive Briefing Request';
+diff --git a/src/pages/structural-burnout/strategic-reset-intensive.astro b/src/pages/structural-burnout/strategic-reset-intensive.astro
+index fa7d3cd..25b2794 100644
+--- a/src/pages/structural-burnout/strategic-reset-intensive.astro
++++ b/src/pages/structural-burnout/strategic-reset-intensive.astro
+@@ -736,6 +736,8 @@ import Layout from '../../layouts/Layout.astro';
+ </Layout>
+ 
+ <script>
++  import { sendIntake, splitFullName } from '../../lib/intake';
++
+   // ── TIER SELECTION UI ──────────────────────────────────────────────────────
+   const tierRadios = document.querySelectorAll('.tier-radio') as NodeListOf<HTMLInputElement>;
+   const tierOptions = document.querySelectorAll('.tier-option') as NodeListOf<HTMLElement>;
+@@ -997,11 +999,72 @@ import Layout from '../../layouts/Layout.astro';
+       anythingElse: fd.get('anythingElse')?.toString() || '',
+     };
+ 
++    const tierLabels: Record<string, string> = {
++      '0': 'strategic-reset-intensive',
++      '1': 'premium-intensive',
++      '3': 'fractional-strategic-advisory',
++    };
++
+     let review: ScoreResult;
+     if (selectedTier === '0') review = scoreTier0(data);
+     else if (selectedTier === '1') review = scoreTier1(data);
+     else review = scoreTier3(data);
+ 
++    const { firstName, lastName } = splitFullName(String(data.fullName || ''));
++    const payload = {
++      form_type: `fractional_lane_${tierLabels[selectedTier] || 'inquiry'}`.replaceAll('-', '_'),
++      lane: 'fractional_lane',
++      offer_type: tierLabels[selectedTier] || 'inquiry',
++      vetted: review.approved ? 'vetted' : 'not_vetted',
++      first_name: firstName,
++      last_name: lastName,
++      email: String(data.email || ''),
++      phone: '',
++      company: String(data.orgName || ''),
++      title: String(data.currentSeason || ''),
++      audience_type: String(data.orgSector || ''),
++      investment_readiness: String(data.investmentReadiness || ''),
++      timeline: String(data.cohortPreference || ''),
++      primary_need: String(data.heaviestRightNow || ''),
++      summary_notes: [
++        `selected_tier=${selectedTier}`,
++        `current_challenges=${(data.currentChallenges as string[]).join(', ')}`,
++        `authority_mismatch=${String(data.authorityMismatch || '')}`,
++        `ai_role=${String(data.aiRole || '')}`,
++        `desired_value=${String(data.desiredValue || '')}`,
++        `group_readiness=${String(data.groupReadiness || '')}`,
++        `vip_interest=${String(data.vipInterest || '')}`,
++        `org_headcount=${String(data.orgHeadcount || '')}`,
++        `org_challenge=${String(data.orgChallenge || '')}`,
++        `referral_source=${String(data.referralSource || '')}`,
++        `crisis_support=${String(data.crisisSupport || '')}`,
++        `anything_else=${String(data.anythingElse || '')}`,
++        `qualification_score=${String(review.score)}`,
++        `qualification_decision=${review.decision}`,
++        `qualification_reasons=${review.reasons.join(' | ')}`,
++        `hard_no_reasons=${review.hardNoReasons.join(' | ')}`,
++      ].join('\n'),
++      source_url: window.location.href,
++      submitted_at: new Date().toISOString(),
++    };
++
++    try {
++      await sendIntake(payload);
++    } catch {
++      if (btn && labelEl && spinner) {
++        btn.disabled = false;
++        labelEl.textContent = 'Submit Inquiry';
++        spinner.classList.add('hidden');
++      }
++      if (statusEl) {
++        statusEl.classList.remove('hidden');
++        statusEl.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
++        statusEl.innerHTML = `<p class="text-red-400 text-sm">Submission failed before routing. Please email <a href="mailto:info@nikkicates.com" class="underline">info@nikkicates.com</a> directly.</p>`;
++        statusEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
++      }
++      return;
++    }
++
+     // ── NOT APPROVED ──
+     if (!review.approved) {
+       const hasNoOrgContext = review.hardNoReasons.some((r) => r.toLowerCase().includes('no organizational'));
+@@ -1036,54 +1099,7 @@ import Layout from '../../layouts/Layout.astro';
+       return;
+     }
+ 
+-    // ── APPROVED — send to GHL ──
+-    const tierLabels: Record<string, string> = {
+-      '0': 'strategic-reset-intensive',
+-      '1': 'premium-intensive',
+-      '3': 'fractional-strategic-advisory',
+-    };
+-
+-    const payload = new URLSearchParams({
+-      name: String(data.fullName),
+-      email: String(data.email),
+-      orgName: String(data.orgName),
+-      currentSeason: String(data.currentSeason),
+-      currentChallenges: (data.currentChallenges as string[]).join(', '),
+-      heaviestRightNow: String(data.heaviestRightNow),
+-      authorityMismatch: String(data.authorityMismatch),
+-      aiRole: String(data.aiRole),
+-      desiredValue: String(data.desiredValue),
+-      groupReadiness: String(data.groupReadiness),
+-      vipInterest: String(data.vipInterest),
+-      cohortPreference: String(data.cohortPreference),
+-      orgSector: String(data.orgSector),
+-      orgHeadcount: String(data.orgHeadcount),
+-      orgChallenge: String(data.orgChallenge),
+-      referralSource: String(data.referralSource),
+-      investmentReadiness: String(data.investmentReadiness),
+-      crisisSupport: String(data.crisisSupport),
+-      anythingElse: String(data.anythingElse),
+-      selectedTier,
+-      qualificationScore: String(review.score),
+-      qualificationDecision: review.decision,
+-      qualificationReasons: review.reasons.join(' | '),
+-      hardNoReasons: review.hardNoReasons.join(' | '),
+-      formType: `fractional-lane-${tierLabels[selectedTier] || 'inquiry'}`,
+-      source: 'nikkicates.github.io',
+-      tags: `fractional-lane, tier-${selectedTier}-inquiry, ${tierLabels[selectedTier] || 'inquiry'}, qualified-inquiry`,
+-    });
+-
+     try {
+-      await fetch(
+-        'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/a7d18c81-570c-4e47-844a-94797c3e3b17',
+-        {
+-          method: 'POST',
+-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+-          body: payload.toString(),
+-          mode: 'no-cors',
+-        }
+-      );
+-
+       const successMessages: Record<string, { heading: string; body: string }> = {
+         '0': {
+           heading: "You've been added to the cohort interest list.",
+diff --git a/src/pages/uri/index.astro b/src/pages/uri/index.astro
+index 8b8b4e0..ddac297 100644
+--- a/src/pages/uri/index.astro
++++ b/src/pages/uri/index.astro
+@@ -436,6 +436,8 @@ import Layout from '../../layouts/Layout.astro';
+ </Layout>
+ 
+ <script>
++  import { sendIntake, splitFullName } from '../../lib/intake';
++
+   const form = document.getElementById('uri-form') as HTMLFormElement;
+   const btn = document.getElementById('uri-submit') as HTMLButtonElement;
+   const label = document.getElementById('uri-submit-label') as HTMLElement;
+@@ -448,16 +450,36 @@ import Layout from '../../layouts/Layout.astro';
+     btn.disabled = true;
+     label.textContent = 'Submitting...';
+ 
+-    const data = Object.fromEntries(new FormData(form));
++    const fd = new FormData(form);
++    const fullName = String(fd.get('fullName') || '');
++    const { firstName, lastName } = splitFullName(fullName);
++
++    const payload = {
++      form_type: 'uri_inquiry',
++      lane: 'uri',
++      offer_type: String(fd.get('tier') || 'uri-formation'),
++      vetted: 'pending_review',
++      first_name: firstName,
++      last_name: lastName,
++      email: String(fd.get('email') || ''),
++      phone: String(fd.get('phone') || ''),
++      company: String(fd.get('organization') || ''),
++      title: String(fd.get('role') || ''),
++      audience_type: String(fd.get('orgType') || ''),
++      investment_readiness: String(fd.get('budget') || ''),
++      timeline: String(fd.get('proposedDate') || ''),
++      primary_need: String(fd.get('eventDescription') || ''),
++      summary_notes: [
++        `audience_size=${String(fd.get('audienceSize') || '')}`,
++        `why_uri=${String(fd.get('whyURI') || '')}`,
++        `anything_else=${String(fd.get('anythingElse') || '')}`,
++      ].join('\n'),
++      source_url: window.location.href,
++      submitted_at: new Date().toISOString(),
++    };
+ 
+     try {
+-      const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID/webhook-trigger/YOUR_TRIGGER_ID';
+-      await fetch(GHL_WEBHOOK, {
+-        method: 'POST',
+-        headers: { 'Content-Type': 'application/json' },
+-        body: JSON.stringify({ ...data, formType: 'uri-formation', source: 'nikkicates.github.io/uri' }),
+-        mode: 'no-cors',
+-      });
++      await sendIntake(payload);
+ 
+       form.classList.add('hidden');
+       status.classList.remove('hidden');
