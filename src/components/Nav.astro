@@ -13,7 +13,6 @@ const stLinks = [
 
 const connectLinks = [
   { href: '/structural-burnout/nexus', label: 'Nexus Card' },
-  { href: 'https://calendar.app.google/1atA8vsgwQhP7bqX6', label: 'Schedule a Call', external: true },
   { href: '/structural-burnout/briefing', label: 'Executive Briefing' },
 ];
 ---
@@ -22,11 +21,12 @@ const connectLinks = [
   style="background: rgba(15,23,42,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(51,65,85,0.4);">
   <div class="container-wide">
     <div class="flex items-center justify-between h-20 md:h-22">
+
       <!-- LOGO -->
       <a href="/" class="flex items-center shrink-0" aria-label="Return to homepage">
-        {section === 'home' && <img src="/logos/nc-logo.png" alt="Nikki Cates" width="200" height="44" class="h-24 w-auto" loading="eager" fetchpriority="high" />}
-        {section === 'st' && <img src="/logos/st-logo.png" alt="Strategic Transformations" width="220" height="44" class="h-24 w-auto" loading="eager" fetchpriority="high" />}
-        {section === 'uri' && <img src="/logos/uri-logo.png" alt="URI" width="200" height="44" class="h-24 w-auto" loading="eager" fetchpriority="high" />}
+        {section === 'home' && <img src="/logos/nc-logo.png" alt="Nikki Cates" width="200" height="44" class="h-16 w-auto" loading="eager" fetchpriority="high" />}
+        {section === 'st' && <img src="/logos/st-logo.png" alt="Strategic Transformations" width="220" height="44" class="h-16 w-auto" loading="eager" fetchpriority="high" />}
+        {section === 'uri' && <img src="/logos/uri-logo.png" alt="URI" width="200" height="44" class="h-16 w-auto" loading="eager" fetchpriority="high" />}
       </a>
 
       <!-- Desktop nav -->
@@ -36,40 +36,39 @@ const connectLinks = [
         <div class="nav-dropdown-wrap">
           <button class="nav-btn nav-dropdown-trigger" aria-expanded="false" data-dropdown="st-work">
             ST Work
-            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+            <svg class="nav-arrow" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M2 4l4 4 4-4"/>
             </svg>
           </button>
           <div class="nav-dropdown" id="dropdown-st-work" role="menu">
-            {stLinks.map(l => <a href={l.href} class="nav-dropdown-item">{l.label}</a>)}
+            {stLinks.map(l => <a href={l.href} class="nav-dropdown-item" role="menuitem">{l.label}</a>)}
           </div>
         </div>
 
         <a href="/uri/" class="nav-btn">URI Formation</a>
-        <a href="/fractional-lane" class="nav-btn">Fractional Advisory</a>
-
+        <a href="/structural-burnout/fractional-lane" class="nav-btn">Fractional Advisory</a>
         <a href="/books/" class="nav-btn">Books</a>
         <a href="/speaker-kit/" class="nav-btn">Speaker Kit</a>
 
         <div class="nav-dropdown-wrap">
           <button class="nav-btn nav-dropdown-trigger" aria-expanded="false" data-dropdown="connect">
             Connect
-            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+            <svg class="nav-arrow" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M2 4l4 4 4-4"/>
             </svg>
           </button>
           <div class="nav-dropdown" id="dropdown-connect" role="menu">
             {connectLinks.map(l => (
-              <a href={l.href} class="nav-dropdown-item"
+              <a href={l.href} class="nav-dropdown-item" role="menuitem"
                  target={l.external ? '_blank' : undefined}
-                 rel={l.external ? 'noopener' : undefined}>
+                 rel={l.external ? 'noopener noreferrer' : undefined}>
                 {l.label}
               </a>
             ))}
           </div>
         </div>
 
-        <a href="/structural-burnout/briefing" class="ml-2 btn-teal !text-sm !py-2 !px-4">
+        <a href="/structural-burnout/briefing" class="nav-cta">
           Request Briefing
         </a>
       </nav>
@@ -84,34 +83,158 @@ const connectLinks = [
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden flex-col pb-5 px-6 bg-[#0f172a] border-t border-border">
-    <p class="text-muted text-xs font-bold uppercase tracking-widest pt-4 pb-2">ST Work</p>
-    {stLinks.map(l => <a href={l.href} class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">{l.label}</a>)}
+  <div id="mobile-menu" class="md:hidden hidden flex-col pb-5 px-6 bg-[#0f172a] border-t border-slate-700">
+    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest pt-4 pb-2">ST Work</p>
+    {stLinks.map(l => (
+      <a href={l.href} class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">{l.label}</a>
+    ))}
 
-    <a href="/uri/" class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">URI Formation</a>
-    <a href="/fractional-lane" class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">Fractional Advisory</a>
+    <a href="/uri/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">URI Formation</a>
+    <a href="/structural-burnout/fractional-lane" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Fractional Advisory</a>
+    <a href="/books/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Books</a>
+    <a href="/speaker-kit/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Speaker Kit</a>
 
-    <a href="/books/" class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">Books</a>
-    <a href="/speaker-kit/" class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors">Speaker Kit</a>
-
-    <p class="text-muted text-xs font-bold uppercase tracking-widest pt-4 pb-2">Connect</p>
+    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest pt-4 pb-2">Connect</p>
     {connectLinks.map(l => (
-      <a href={l.href} class="font-body text-sm text-muted py-2.5 border-b border-border/30 hover:text-light transition-colors"
-         target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}>
+      <a href={l.href} class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block"
+         target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener noreferrer' : undefined}>
         {l.label}
       </a>
     ))}
 
-    <a href="/structural-burnout/briefing" class="btn-teal mt-4 justify-center !text-sm">Request Briefing</a>
+    <a href="/structural-burnout/briefing" class="nav-cta mt-4 justify-center block text-center">Request Briefing</a>
   </div>
 </header>
 
+<!-- Spacer so page content does not hide under fixed nav -->
 <div class="h-20 md:h-22"></div>
 
 <style>
-/* ... your existing nav styles ... */
+  /* ── Nav button base ── */
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    border-radius: 6px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+    text-decoration: none;
+    font-family: inherit;
+  }
+  .nav-btn:hover {
+    color: #ffffff;
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* ── Arrow icon ── */
+  .nav-arrow {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  .nav-dropdown-trigger[aria-expanded="true"] .nav-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* ── Dropdown wrapper (positioning context) ── */
+  .nav-dropdown-wrap {
+    position: relative;
+  }
+
+  /* ── Dropdown panel — hidden by default ── */
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 180px;
+    background: #0f172a;
+    border: 1px solid rgba(51,65,85,0.6);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    z-index: 100;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  .nav-dropdown.open {
+    display: flex;
+  }
+
+  /* ── Dropdown items ── */
+  .nav-dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-item:hover {
+    background: rgba(20,184,166,0.12);
+    color: #ffffff;
+  }
+
+  /* ── CTA button ── */
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #14b8a6;
+    color: #ffffff;
+    border-radius: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover {
+    background: #0d9488;
+  }
 </style>
 
 <script>
-/* ... your existing script ... */
+  // Toggle dropdowns on button click
+  document.querySelectorAll('.nav-dropdown-trigger').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = (btn as HTMLElement).dataset.dropdown;
+      const panel = document.getElementById(`dropdown-${id}`);
+      const isOpen = panel?.classList.contains('open');
+
+      // Close all first
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      document.querySelectorAll('.nav-dropdown-trigger').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+      // Open this one if it was not already open
+      if (!isOpen && panel) {
+        panel.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  });
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isHidden = mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden', !isHidden);
+    mobileMenu?.classList.toggle('flex', isHidden);
+    toggle.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+  });
 </script>
