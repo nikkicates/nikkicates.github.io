@@ -33,9 +33,7 @@ import Layout from '../../layouts/Layout.astro';
             URI-rooted leadership architecture
           </span>
         </div>
-       <h1 class="font-heading text-4xl md:text-6xl text-light font-bold leading-tight mb-6 animate-on-scroll">
-  Fractional Advisory Studio
-</h1>
+        <h1 class="font-heading text-4xl md:text-6xl text-light font-bold leading-tight mb-6 animate-on-scroll">
           The Fractional Strategic Advisory Studio
         </h1>
         <p
@@ -735,6 +733,8 @@ import Layout from '../../layouts/Layout.astro';
 </Layout>
 
 <script>
+  const N8N_WEBHOOK_URL = (import.meta.env.PUBLIC_N8N_FRACTIONAL_LANE_WEBHOOK_URL || '').trim();
+
   // ── TIER SELECTION UI ──────────────────────────────────────────────────────
   const tierRadios = document.querySelectorAll('.tier-radio') as NodeListOf<HTMLInputElement>;
   const tierOptions = document.querySelectorAll('.tier-option') as NodeListOf<HTMLElement>;
@@ -940,6 +940,27 @@ import Layout from '../../layouts/Layout.astro';
   const labelEl = document.getElementById('submit-label');
   const spinner = document.getElementById('submit-spinner');
   const statusEl = document.getElementById('form-status');
+  
+  function normalize(v: unknown): string {
+    return String(v || '').trim();
+  }
+
+  function splitFullName(fullName: string): { firstName: string; lastName: string } {
+    const clean = normalize(fullName).replace(/\s+/g, ' ');
+    if (!clean) return { firstName: '', lastName: '' };
+    const parts = clean.split(' ');
+    const firstName = parts.shift() || '';
+    const lastName = parts.join(' ');
+    return { firstName, lastName };
+  }
+
+  function resetSubmitState() {
+    if (btn && labelEl && spinner) {
+      btn.disabled = false;
+      labelEl.textContent = 'Submit Inquiry';
+      spinner.classList.add('hidden');
+    }
+  }
 
   function showStatus(html: string, className: string) {
     if (!form || !statusEl) return;
@@ -1001,87 +1022,127 @@ import Layout from '../../layouts/Layout.astro';
     else if (selectedTier === '1') review = scoreTier1(data);
     else review = scoreTier3(data);
 
-    // ── NOT APPROVED ──
-    if (!review.approved) {
-      const hasNoOrgContext = review.hardNoReasons.some((r) => r.toLowerCase().includes('no organizational'));
-      if ((selectedTier === '1' || selectedTier === '3') && hasNoOrgContext) {
-        showStatus(
-          `<p class="font-heading text-xl text-light font-semibold mb-3">Tier ${selectedTier} may not be the right fit right now.</p>
-          <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
-            Tier 1 and Tier 3 engagements are designed for organizational and leadership contexts with defined teams or structures. If you are navigating individual burnout or transition, the Strategic Reset Intensive (Tier 0) may be a stronger starting place.
-          </p>
-          <div class="flex flex-wrap justify-center gap-4 mt-6">
-            <a href="?tier=0#inquiry-form" class="btn-teal">Apply for Tier 0 Instead</a>
-            <a href="https://nikkicates.github.io/book" class="btn-outline-teal">Explore the Books</a>
-          </div>`,
-          'text-center p-6 rounded-md border border-border bg-surface/60'
-        );
-      } else {
-        showStatus(
-          `<p class="font-heading text-xl text-light font-semibold mb-3">This may not be the right container right now.</p>
-          <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
-            Based on your responses, this engagement may not be the best next step for this season. That does not diminish what you are carrying — it means a different entry point may serve you better.
-          </p>
-          <p class="text-muted text-sm max-w-2xl mx-auto mb-6">
-            A strong place to begin is the UNMASK Blueprint and the Unbothered Collective newsletter.
-          </p>
-          <div class="flex flex-wrap justify-center gap-4 mt-6">
-            <a href="https://nikkicates.github.io/book" class="btn-teal">Explore the Books</a>
-            <a href="https://api.leadconnectorhq.com/widget/form/n1afrRyJLvJOME1jHLGo" class="btn-outline-teal">Join the Newsletter</a>
-          </div>`,
-          'text-center p-6 rounded-md border border-border bg-surface/60'
-        );
-      }
-      return;
-    }
-
-    // ── APPROVED — send to GHL ──
     const tierLabels: Record<string, string> = {
       '0': 'strategic-reset-intensive',
       '1': 'premium-intensive',
       '3': 'fractional-strategic-advisory',
     };
 
-    const payload = new URLSearchParams({
-      name: String(data.fullName),
-      email: String(data.email),
-      orgName: String(data.orgName),
-      currentSeason: String(data.currentSeason),
-      currentChallenges: (data.currentChallenges as string[]).join(', '),
-      heaviestRightNow: String(data.heaviestRightNow),
-      authorityMismatch: String(data.authorityMismatch),
-      aiRole: String(data.aiRole),
-      desiredValue: String(data.desiredValue),
-      groupReadiness: String(data.groupReadiness),
-      vipInterest: String(data.vipInterest),
-      cohortPreference: String(data.cohortPreference),
-      orgSector: String(data.orgSector),
-      orgHeadcount: String(data.orgHeadcount),
-      orgChallenge: String(data.orgChallenge),
-      referralSource: String(data.referralSource),
-      investmentReadiness: String(data.investmentReadiness),
-      crisisSupport: String(data.crisisSupport),
-      anythingElse: String(data.anythingElse),
-      selectedTier,
-      qualificationScore: String(review.score),
-      qualificationDecision: review.decision,
-      qualificationReasons: review.reasons.join(' | '),
-      hardNoReasons: review.hardNoReasons.join(' | '),
-      formType: `fractional-lane-${tierLabels[selectedTier] || 'inquiry'}`,
-      source: 'nikkicates.github.io',
-      tags: `fractional-lane, tier-${selectedTier}-inquiry, ${tierLabels[selectedTier] || 'inquiry'}, qualified-inquiry`,
-    });
+    const selectedOffer = tierLabels[selectedTier] || 'strategic-reset-intensive';
+    const { firstName, lastName } = splitFullName(normalize(data.fullName));
+    const vetted = review.approved ? 'vetted' : 'not_vetted';
+
+    if (!N8N_WEBHOOK_URL) {
+      resetSubmitState();
+      if (statusEl) {
+        statusEl.classList.remove('hidden');
+        statusEl.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
+        statusEl.innerHTML = `<p class="text-red-400 text-sm">Submission is unavailable: missing <code>PUBLIC_N8N_FRACTIONAL_LANE_WEBHOOK_URL</code>. Please email <a href="mailto:info@nikkicates.com" class="underline">info@nikkicates.com</a> directly.</p>`;
+        statusEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+
+    const summaryNotes = [
+      'tier_context:',
+      `- selected_tier: ${selectedTier}`,
+      `- offer_type: ${selectedOffer}`,
+      `- current_season: ${normalize(data.currentSeason)}`,
+      `- referral_source: ${normalize(data.referralSource)}`,
+      '',
+      'needs_and_context:',
+      `- current_challenges: ${(data.currentChallenges as string[]).join(', ')}`,
+      `- heaviest_right_now: ${normalize(data.heaviestRightNow)}`,
+      `- authority_mismatch: ${normalize(data.authorityMismatch)}`,
+      `- org_sector: ${normalize(data.orgSector)}`,
+      `- org_headcount: ${normalize(data.orgHeadcount)}`,
+      `- org_challenge: ${normalize(data.orgChallenge)}`,
+      '',
+      'readiness_and_fit:',
+      `- ai_role: ${normalize(data.aiRole)}`,
+      `- desired_value: ${normalize(data.desiredValue)}`,
+      `- investment_readiness: ${normalize(data.investmentReadiness)}`,
+      `- group_readiness: ${normalize(data.groupReadiness)}`,
+      `- vip_interest: ${normalize(data.vipInterest)}`,
+      `- cohort_preference: ${normalize(data.cohortPreference)}`,
+      `- crisis_support: ${normalize(data.crisisSupport)}`,
+      `- anything_else: ${normalize(data.anythingElse)}`,
+      '',
+      'vetting_outcome:',
+      `- vetted: ${vetted}`,
+      `- qualification_score: ${review.score}`,
+      `- qualification_decision: ${review.decision}`,
+      `- qualification_reasons: ${review.reasons.join(' | ')}`,
+      `- hard_no_reasons: ${review.hardNoReasons.join(' | ')}`,
+    ].join('\n');
+
+    const payload = {
+      form_type: `fractional_lane_${selectedOffer}`.replaceAll('-', '_'),
+      lane: 'fractional_lane',
+      offer_type: selectedOffer,
+      vetted,
+      first_name: firstName,
+      last_name: lastName,
+      email: normalize(data.email),
+      phone: '',
+      company: normalize(data.orgName),
+      title: normalize(data.currentSeason),
+      audience_type: normalize(data.orgSector),
+      investment_readiness: normalize(data.investmentReadiness),
+      timeline: normalize(data.cohortPreference),
+      primary_need: normalize(data.heaviestRightNow),
+      summary_notes: summaryNotes,
+      source_url: window.location.href,
+      submitted_at: new Date().toISOString(),
+      decision_maker: '',
+      org_website: '',
+    };
 
     try {
-      await fetch(
-        'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/a7d18c81-570c-4e47-844a-94797c3e3b17',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body: payload.toString(),
-          mode: 'no-cors',
+      const response = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        mode: 'cors',
+      });
+
+      if (!response.ok) {
+        throw new Error(`Webhook rejected payload with status ${response.status}`);
+      }
+
+      // ── NOT APPROVED UI PATH ──
+      if (!review.approved) {
+        const hasNoOrgContext = review.hardNoReasons.some((r) => r.toLowerCase().includes('no organizational'));
+        if ((selectedTier === '1' || selectedTier === '3') && hasNoOrgContext) {
+          showStatus(
+            `<p class="font-heading text-xl text-light font-semibold mb-3">Tier ${selectedTier} may not be the right fit right now.</p>
+            <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
+              Tier 1 and Tier 3 engagements are designed for organizational and leadership contexts with defined teams or structures. If you are navigating individual burnout or transition, the Strategic Reset Intensive (Tier 0) may be a stronger starting place.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-6">
+              <a href="?tier=0#inquiry-form" class="btn-teal">Apply for Tier 0 Instead</a>
+              <a href="https://nikkicates.github.io/book" class="btn-outline-teal">Explore the Books</a>
+            </div>`,
+            'text-center p-6 rounded-md border border-border bg-surface/60'
+          );
+        } else {
+          showStatus(
+            `<p class="font-heading text-xl text-light font-semibold mb-3">This may not be the right container right now.</p>
+            <p class="text-muted text-sm max-w-2xl mx-auto mb-4">
+              Based on your responses, this engagement may not be the best next step for this season. That does not diminish what you are carrying — it means a different entry point may serve you better.
+            </p>
+            <p class="text-muted text-sm max-w-2xl mx-auto mb-6">
+              A strong place to begin is the UNMASK Blueprint and the Unbothered Collective newsletter.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-6">
+              <a href="https://nikkicates.github.io/book" class="btn-teal">Explore the Books</a>
+              <a href="https://api.leadconnectorhq.com/widget/form/n1afrRyJLvJOME1jHLGo" class="btn-outline-teal">Join the Newsletter</a>
+            </div>`,
+            'text-center p-6 rounded-md border border-border bg-surface/60'
+          );
         }
-      );
+        return;
+      }
 
       const successMessages: Record<string, { heading: string; body: string }> = {
         '0': {
@@ -1112,9 +1173,9 @@ import Layout from '../../layouts/Layout.astro';
       );
     } catch {
       if (btn && labelEl && spinner) {
-        btn.disabled = false;
-        labelEl.textContent = 'Submit Inquiry';
-        spinner.classList.add('hidden');
+          btn.disabled = false;
+          labelEl.textContent = 'Submit Inquiry';
+          spinner.classList.add('hidden');
       }
       if (statusEl) {
         statusEl.classList.remove('hidden');
