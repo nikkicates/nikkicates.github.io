@@ -454,11 +454,73 @@ import Layout from '../../layouts/Layout.astro';
 </Layout>
 
 <script>
+  const N8N_WEBHOOK_URL = (import.meta.env.PUBLIC_N8N_EXECUTIVE_BRIEFING_WEBHOOK_URL || '').trim();
   const form = document.getElementById('briefing-form') as HTMLFormElement;
   const btn = document.getElementById('submit-btn') as HTMLButtonElement;
   const label = document.getElementById('submit-label') as HTMLElement;
   const spinner = document.getElementById('submit-spinner') as HTMLElement;
   const status = document.getElementById('form-status') as HTMLElement;
+
+  function splitFullName(fullName: string) {
+    const clean = String(fullName || '').trim().replace(/\s+/g, ' ');
+    if (!clean) return { first_name: '', last_name: '' };
+    const parts = clean.split(' ');
+    const first_name = parts.shift() || '';
+    const last_name = parts.join(' ');
+    return { first_name, last_name };
+  }
+
+  function normalize(value: FormDataEntryValue | null) {
+    return String(value || '').trim();
+  }
+
+  function buildSummaryNotes(fd: FormData) {
+    return [
+      'organizational_context:',
+      `- industry: ${normalize(fd.get('industry'))}`,
+      `- org_size: ${normalize(fd.get('orgSize'))}`,
+      `- how_long: ${normalize(fd.get('howLong'))}`,
+      '',
+      'diagnostic_inputs:',
+      `- current_state: ${normalize(fd.get('currentState'))}`,
+      `- attempted: ${normalize(fd.get('attempted'))}`,
+      `- impact: ${normalize(fd.get('impact'))}`,
+      `- awareness_level: ${normalize(fd.get('awarenessLevel'))}`,
+      '',
+      'alignment_inputs:',
+      `- why_nikki: ${normalize(fd.get('whyNikki'))}`,
+      `- desired_outcome: ${normalize(fd.get('desiredOutcome'))}`,
+      `- leadership_readiness: ${normalize(fd.get('leadershipReadiness'))}`,
+      `- anything_else: ${normalize(fd.get('anythingElse'))}`,
+    ].join('\n');
+  }
+
+  function getVettingResult(fd: FormData) {
+    const investment = normalize(fd.get('budgetRange')).toLowerCase();
+    const decisionMaker = normalize(fd.get('decisionMaker')).toLowerCase();
+    const leadershipReadiness = normalize(fd.get('leadershipReadiness')).toLowerCase();
+
+    const budgetReady = !investment.includes('under $10,000')
+      && !investment.includes('budget is in process');
+    const hasDecisionPath = !decisionMaker.startsWith('no');
+    const leadershipOpen = leadershipReadiness.startsWith('yes')
+      || leadershipReadiness.startsWith('mostly');
+
+    return budgetReady && hasDecisionPath && leadershipOpen ? 'vetted' : 'not_vetted';
+  }
+
+  function showStatusMessage(html: string, className: string) {
+    status.classList.remove('hidden');
+    status.className = className;
+    status.innerHTML = html;
+    status.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function resetSubmitState() {
+    btn.disabled = false;
+    label.textContent = 'Submit Executive Briefing Request';
+    spinner.classList.add('hidden');
+  }
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -472,35 +534,76 @@ import Layout from '../../layouts/Layout.astro';
     label.textContent = 'Submitting...';
     spinner.classList.remove('hidden');
 
-    const data = Object.fromEntries(new FormData(form));
+    const fd = new FormData(form);
+    const { first_name, last_name } = splitFullName(normalize(fd.get('fullName')));
+    const vetted = getVettingResult(fd);
+
+    if (!N8N_WEBHOOK_URL) {
+      resetSubmitState();
+      showStatusMessage(
+        `<p class="text-red-300 text-sm">Submission is temporarily unavailable: missing <code>PUBLIC_N8N_EXECUTIVE_BRIEFING_WEBHOOK_URL</code>. Please contact <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a>.</p>`,
+        'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10'
+      );
+      return;
+    }
+
+    const payload = {
+      form_type: 'executive_briefing',
+      lane: 'strategic_transformations',
+      offer_type: normalize(fd.get('engagementType')) || 'executive_briefing',
+      vetted,
+      first_name,
+      last_name,
+      email: normalize(fd.get('email')),
+      phone: normalize(fd.get('phone')),
+      company: normalize(fd.get('orgName')),
+      title: normalize(fd.get('title')),
+      audience_type: normalize(fd.get('industry')),
+      investment_readiness: normalize(fd.get('budgetRange')),
+      timeline: normalize(fd.get('timeline')),
+      primary_need: normalize(fd.get('currentState')),
+      summary_notes: buildSummaryNotes(fd),
+      source_url: window.location.href,
+      submitted_at: new Date().toISOString(),
+      decision_maker: normalize(fd.get('decisionMaker')),
+      org_website: normalize(fd.get('orgWebsite')),
+    };
 
     try {
-      // Replace with your GHL inbound webhook URL
-      const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID/webhook-trigger/YOUR_TRIGGER_ID';
-
-      await fetch(GHL_WEBHOOK, {
+      const response = await fetch(N8N_WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, formType: 'executive-briefing', source: 'nikkicates.github.io' }),
-        mode: 'no-cors', // GHL webhooks don't return CORS headers
+        body: JSON.stringify(payload),
+        mode: 'cors',
       });
 
-      // Show success (no-cors means we can't read response status)
+      if (!response.ok) {
+        throw new Error(`Webhook rejected request with status ${response.status}`);
+      }
+
       form.classList.add('hidden');
-      status.classList.remove('hidden');
-      status.className = 'text-center p-6 rounded-md border border-teal-DEFAULT/40 bg-teal-glow';
-      status.innerHTML = `
-        <p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">Briefing Request Received</p>
-        <p class="text-muted text-sm">I review every submission personally. If there\'s alignment,
-        you\'ll hear from me within 3–5 business days. Thank you for the thoughtfulness you brought to these questions.</p>
-      `;
-    } catch (err) {
-      btn.disabled = false;
-      label.textContent = 'Submit Executive Briefing Request';
-      spinner.classList.add('hidden');
-      status.classList.remove('hidden');
-      status.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
-      status.innerHTML = `<p class="text-red-400 text-sm">Something went wrong. Please email <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a> directly.</p>`;
+      if (vetted === 'vetted') {
+        showStatusMessage(
+          `<p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">Briefing Request Received</p>
+          <p class="text-muted text-sm mb-4">Your submission meets the initial fit criteria. Your next step is to schedule your briefing call.</p>
+          <a href="https://calendar.app.google/nsXrGnYJdU1wjUG37" target="_blank" rel="noopener" class="btn-teal !text-sm !py-2">Schedule Briefing Call -></a>`,
+          'text-center p-6 rounded-md border border-teal-DEFAULT/40 bg-teal-glow'
+        );
+        return;
+      }
+
+      showStatusMessage(
+        `<p class="font-heading text-xl text-teal-DEFAULT font-semibold mb-2">Briefing Request Received</p>
+        <p class="text-muted text-sm mb-4">Thank you for the detail you shared. This submission will be reviewed, and if there is alignment you will receive the appropriate next step directly.</p>
+        <a href="https://nikkicates.github.io/book" class="btn-outline-teal !text-sm !py-2">Explore the Books</a>`,
+        'text-center p-6 rounded-md border border-border bg-surface/60'
+      );
+    } catch {
+      resetSubmitState();
+      showStatusMessage(
+        `<p class="text-red-400 text-sm">Submission failed before routing. Please email <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a> directly.</p>`,
+        'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10'
+      );
     }
   });
 </script>
