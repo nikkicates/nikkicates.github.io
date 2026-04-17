@@ -441,23 +441,61 @@ import Layout from '../../layouts/Layout.astro';
   const label = document.getElementById('uri-submit-label') as HTMLElement;
   const status = document.getElementById('uri-status') as HTMLElement;
 
+  const N8N_WEBHOOK_URL = (import.meta.env.PUBLIC_N8N_URI_FORMATION_WEBHOOK_URL || '').trim();
+
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
+    // Guard: if webhook URL is missing, fail gracefully
+    if (!N8N_WEBHOOK_URL) {
+      status.classList.remove('hidden');
+      status.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
+      status.innerHTML = `<p class="text-red-400 text-sm">Something went wrong. Please email <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a> directly.</p>`;
+      return;
+    }
+
     btn.disabled = true;
     label.textContent = 'Submitting...';
 
-    const data = Object.fromEntries(new FormData(form));
+    const raw = Object.fromEntries(new FormData(form));
+
+    // Vetting logic — vetted = budget ready + org present + meaningful intent
+    const budget = (raw.investment_readiness as string || '').toLowerCase();
+    const org = (raw.company as string || '').trim();
+    const intent = (raw.primary_need as string || raw.summary_notes as string || '').trim();
+    const notReady = budget.includes('under $10') || budget.includes('exploring') || budget === '';
+    const isVetted = !notReady && org.length > 0 && intent.length >= 20;
+
+    const payload = {
+      form_type: 'uri-formation',
+      lane: 'uri',
+      vetted: isVetted ? 'vetted' : 'not-vetted',
+      offer_type:           raw.offer_type           || '',
+      first_name:           raw.first_name           || '',
+      last_name:            raw.last_name            || '',
+      email:                raw.email                || '',
+      phone:                raw.phone                || '',
+      company:              raw.company              || '',
+      title:                raw.title                || '',
+      org_type:             raw.org_type             || '',
+      audience_size:        raw.audience_size        || '',
+      proposed_date:        raw.proposed_date        || '',
+      investment_readiness: raw.investment_readiness || '',
+      primary_need:         raw.primary_need         || '',
+      summary_notes:        raw.summary_notes        || '',
+      submitted_at:         new Date().toISOString(),
+      source_url:           window.location.href,
+    };
 
     try {
-      const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID/webhook-trigger/YOUR_TRIGGER_ID';
-      await fetch(GHL_WEBHOOK, {
+      const res = await fetch(N8N_WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, formType: 'uri-formation', source: 'nikkicates.github.io/uri' }),
-        mode: 'no-cors',
+        body: JSON.stringify(payload),
       });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       form.classList.add('hidden');
       status.classList.remove('hidden');
