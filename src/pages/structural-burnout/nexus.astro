@@ -92,18 +92,25 @@ const photoSrc = '/images/nikki-cates.png';
 
         {[
           {
-            label: 'Request a Structural Diagnostic Briefing',
+            label: '2026 Leadership Architecture Whitepaper',
+            sub: 'Download the UNMASK Diagnostic Suite whitepaper',
+            href: 'https://drive.google.com/file/d/18mGg0ML4pnviaw3KZ90M00rgfNxr3LvM/view?usp=sharing',
+            icon: 'file-text',
+            primary: true,
+            external: true,
+          },
+          {
+            label: 'Calculate Structural Strain Score',
+            sub: 'Take the baseline diagnostic now',
+            href: 'https://form.typeform.com/to/eo5W8Zio',
+            icon: 'activity',
+            external: true,
+          },
+          {
+            label: 'Request Executive Briefing',
             sub: 'For leadership architecture risk and recalibration decisions',
             href: '/briefing',
             icon: '📋',
-            primary: true,
-          },
-          {
-            label: 'Get Your Structural Strain Score (SSS)',
-            sub: 'Take the baseline diagnostic now',
-            href: 'https://form.typeform.com/to/eo5W8Zio',
-            icon: '🧭',
-            external: true,
           },
           {
             label: 'Fractional Advisory & Recalibration',
@@ -122,7 +129,23 @@ const photoSrc = '/images/nikki-cates.png';
                 : 'bg-surface/40 border-border hover:border-teal-DEFAULT/30'
               }`}
           >
-            <span class="text-xl shrink-0">{link.icon}</span>
+            <span class="text-xl shrink-0">
+              {link.icon === 'file-text' ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <line x1="10" y1="9" x2="8" y2="9" />
+                </svg>
+              ) : link.icon === 'activity' ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              ) : (
+                link.icon
+              )}
+            </span>
             <div class="flex-1 min-w-0">
               <p class={`font-body font-semibold text-sm ${link.primary ? 'text-teal-DEFAULT' : 'text-light'}`}>
                 {link.label}
