@@ -60,11 +60,14 @@ const photoSrc = '/images/nikki-cates.png';
 
         <h1 class="font-heading text-2xl text-light font-bold mb-1">Nikki Cates</h1>
         <p class="font-body text-teal-DEFAULT text-xs font-bold uppercase tracking-widest mb-2">
-          Structural Recalibration Strategist
+          Fractional Structural Advisor | Leadership Architecture
         </p>
         <p class="text-muted text-xs leading-relaxed max-w-xs mx-auto">
           Founder, Strategic Transformations &amp; URI ·
           Army Veteran · Author · AI-Era Organizational Strategist
+        </p>
+        <p class="text-light text-sm font-semibold leading-relaxed max-w-xs mx-auto mt-4">
+          Burnout is the smoke alarm. Your Leadership Architecture is the fire.
         </p>
       </div>
 
@@ -84,53 +87,29 @@ const photoSrc = '/images/nikki-cates.png';
       <!-- Entry links -->
       <div class="space-y-2.5 mb-7">
         <p class="font-body text-xs font-bold uppercase tracking-widest text-muted text-center mb-3">
-          Connect With Nikki
+          Leadership Architecture Pathways
         </p>
 
         {[
           {
-            label: 'Request an Executive Briefing',
-            sub: 'Speaking, consulting & high-commitment inquiries',
-            href: '/structural-burnout/briefing',
+            label: 'Request a Structural Diagnostic Briefing',
+            sub: 'For leadership architecture risk and recalibration decisions',
+            href: '/briefing',
             icon: '📋',
             primary: true,
           },
           {
-            label: 'Services & Pricing',
-            sub: 'Full engagement architecture from $12,500',
-            href: '/structural-burnout/services',
-            icon: '📊',
-          },
-          {
-            label: 'UNMASK Blueprint Series',
-            sub: 'Vols. 1, 2 & 3 — books & institutional licenses',
-            href: '/books/',
-            icon: '📖',
-          },
-          {
-            label: 'URI Formation',
-            sub: 'Justice-centered leadership formation',
-            href: '/uri/',
-            icon: '✊🏾',
-          },
-          {
-            label: 'Call or Text',
-            sub: '1-407-693-4449',
-            href: 'tel:+14076934449',
-            icon: '📞',
-          },
-          {
-            label: 'LinkedIn',
-            sub: 'linkedin.com/in/nikkicatesmiller',
-            href: 'https://www.linkedin.com/in/nikkicatesmiller',
-            icon: '🔗',
+            label: 'Get Your Structural Strain Score (SSS)',
+            sub: 'Take the baseline diagnostic now',
+            href: 'https://form.typeform.com/to/eo5W8Zio',
+            icon: '🧭',
             external: true,
           },
           {
-            label: 'Email Directly',
-            sub: 'nikki@strategicunmasking.com',
-            href: 'mailto:nikki@strategicunmasking.com',
-            icon: '✉️',
+            label: 'Fractional Advisory & Recalibration',
+            sub: 'Embedded partnership and 90-day structural work',
+            href: '/fractional-lane',
+            icon: '🏗️',
           },
         ].map((link) => (
           <a
@@ -153,6 +132,88 @@ const photoSrc = '/images/nikki-cates.png';
             <svg class="w-4 h-4 text-muted/50 shrink-0 group-hover:text-teal-DEFAULT group-hover:translate-x-0.5 transition-all" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
             </svg>
+          </a>
+        ))}
+      </div>
+
+      <!-- Strategic discovery -->
+      <div class="bg-surface/60 border border-border rounded-md p-4 mb-5">
+        <p class="font-body text-xs font-bold uppercase tracking-widest text-teal-DEFAULT mb-3">
+          Strategic Discovery
+        </p>
+        <ul class="space-y-2 text-sm text-muted">
+          <li>Where are your highest-capacity people carrying the most pressure right now?</li>
+          <li>Do they have the authority to match their responsibility?</li>
+          <li>What is the cost in execution drag and talent loss?</li>
+        </ul>
+      </div>
+
+      <!-- Secondary links -->
+      <div class="space-y-2.5 mb-7">
+        <p class="font-body text-[10px] font-bold uppercase tracking-widest text-muted/80 text-center mb-2">
+          Additional Links
+        </p>
+        {[
+          {
+            label: 'URI Formation',
+            sub: 'Leadership formation resources',
+            href: '/uri/',
+            icon: '✊🏾',
+          },
+          {
+            label: 'UNMASK Books',
+            sub: 'Volumes, bundles, and institutional options',
+            href: '/books/',
+            icon: '📖',
+          },
+          {
+            label: 'LinkedIn',
+            sub: 'linkedin.com/in/nikkicatesmiller',
+            href: 'https://www.linkedin.com/in/nikkicatesmiller',
+            icon: '🔗',
+            external: true,
+          },
+        ].map((link) => (
+          <a
+            href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener' : undefined}
+            class="flex items-center gap-4 p-3 rounded-md border border-border/70 bg-surface/20 hover:border-teal-DEFAULT/30 transition-all no-underline group"
+          >
+            <span class="text-lg shrink-0 opacity-80">{link.icon}</span>
+            <div class="flex-1 min-w-0">
+              <p class="font-body font-semibold text-sm text-light/90">{link.label}</p>
+              <p class="text-muted text-xs truncate">{link.sub}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Contact links -->
+      <div class="space-y-2.5 mb-7">
+        {[
+          {
+            label: 'Call or Text',
+            sub: '1-407-693-4449',
+            href: 'tel:+14076934449',
+            icon: '📞',
+          },
+          {
+            label: 'Email Directly',
+            sub: 'nikki@strategicunmasking.com',
+            href: 'mailto:nikki@strategicunmasking.com',
+            icon: '✉️',
+          },
+        ].map((link) => (
+          <a
+            href={link.href}
+            class="flex items-center gap-4 p-3.5 rounded-md border border-border bg-surface/40 hover:border-teal-DEFAULT/30 transition-all no-underline group"
+          >
+            <span class="text-xl shrink-0">{link.icon}</span>
+            <div class="flex-1 min-w-0">
+              <p class="font-body font-semibold text-sm text-light">{link.label}</p>
+              <p class="text-muted text-xs truncate">{link.sub}</p>
+            </div>
           </a>
         ))}
       </div>
