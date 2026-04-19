@@ -6,6 +6,7 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  keywords?: string;
   section?: 'home' | 'st' | 'uri';
   accentColor?: 'teal' | 'gold';
   image?: string;
@@ -14,6 +15,7 @@ interface Props {
 const {
   title,
   description = 'Nikki Cates — Structural Recalibration Strategist, Author, Speaker, and Founder of Strategic Transformations and URI.',
+  keywords,
   section = 'home',
   accentColor = 'teal',
   image = '/og-default.jpg',
@@ -32,6 +34,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- SEO -->
     <title>{title} | Nikki Cates</title>
     <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
     <meta name="author" content="Nikki Cates" />
 
     <!-- Open Graph -->
