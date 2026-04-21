@@ -59,19 +59,6 @@ import Layout from '../../layouts/Layout.astro';
             the UNMASK framework across nonprofit, corporate, and mission-driven environments,
             consistently producing the same recognition in leadership teams.
           </p>
-
-          <!-- Credentials -->
-          <div class="kit-credentials">
-            {['Army Veteran', '10+ Years Operational Leadership', 'UNMASK Framework Creator', 'AI-Era Organizational Strategist', 'Womanist Theologian', 'Published Author'].map(c => (
-              <span class="kit-cred">{c}</span>
-            ))}
-          </div>
-
-          <!-- Star rating -->
-          <div class="kit-stars">
-            <span class="kit-stars-val">★★★★★</span>
-            <span class="kit-stars-label">5.0 · Google Reviews</span>
-          </div>
         </div>
 
         <!-- Right: Photo -->
@@ -86,6 +73,19 @@ import Layout from '../../layouts/Layout.astro';
           <div class="kit-photo-caption">
             <p>nikki@strategicunmasking.com</p>
             <p>nikkicates.github.io</p>
+          </div>
+
+          <!-- Credentials -->
+          <div class="kit-credentials">
+            {['Army Veteran', '10+ Years Operational Leadership', 'UNMASK Framework Creator', 'AI-Era Organizational Strategist', 'Womanist Theologian', 'Published Author'].map(c => (
+              <span class="kit-cred">{c}</span>
+            ))}
+          </div>
+
+          <!-- Star rating -->
+          <div class="kit-stars">
+            <span class="kit-stars-val">★★★★★</span>
+            <span class="kit-stars-label">5.0 · Google Reviews</span>
           </div>
         </div>
 
@@ -521,7 +521,7 @@ import Layout from '../../layouts/Layout.astro';
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;
-  margin: 1.25rem 0;
+  margin: 1.25rem 0 0 0;
 }
 .kit-cred {
   font-size: .68rem;
@@ -549,6 +549,7 @@ import Layout from '../../layouts/Layout.astro';
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
+  gap: 1.25rem;
 }
 .kit-photo {
   width: 100%;
@@ -563,7 +564,7 @@ import Layout from '../../layouts/Layout.astro';
 }
 .kit-photo-caption {
   width: 100%;
-  max-width: 560px;
+  max-width: 600px;
   background: rgba(6,70,128,.25);
   border-top: 2px solid #064680;
   padding: .6rem 1rem;
@@ -861,10 +862,12 @@ import Layout from '../../layouts/Layout.astro';
   .kit-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
   .kit-photo-wrap {
     align-items: center;
-    margin-bottom: 1.5rem;
   }
   .kit-photo { max-width: 100%; width: 100%; }
   .kit-photo-caption { max-width: 100%; width: 100%; }
+  .kit-credentials {
+    justify-content: center;
+  }
   .kit-testimonials-grid { grid-template-columns: 1fr; }
   .kit-pricing-grid { grid-template-columns: 1fr; }
   .kit-talks-grid { grid-template-columns: 1fr; }
