@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" fill="none">
+  <!-- Mark: interlocking structural blocks -->
+  <rect x="0" y="8" width="10" height="28" rx="2" fill="#0d9488"/>
+  <rect x="13" y="0" width="10" height="44" rx="2" fill="#0f4c7a"/>
+  <rect x="26" y="14" width="10" height="22" rx="2" fill="#0d9488" opacity="0.7"/>
+  <!-- Text -->
+  <text x="44" y="17" font-family="Lora, Georgia, serif" font-size="13" font-weight="700" fill="#f8fafc" letter-spacing="-0.3">Strategic</text>
+  <text x="44" y="33" font-family="Lora, Georgia, serif" font-size="13" font-weight="400" fill="#0d9488" letter-spacing="-0.3">Transformations</text>
+</svg>
