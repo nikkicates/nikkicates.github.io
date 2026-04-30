@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 <Layout
   title="Strategic Transformations | Nikki Cates"
   description="CEO-led Strategic Transformations helps high-burnout organizations in AI transformation build the middle layer AI can't replace—through proprietary diagnostics, strategic advisory, and licensed frameworks."
-  section="home"
+  section="st"
   accentColor="teal"
 >
 
@@ -24,7 +24,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="lg:col-span-7">
           <div class="st-tag mb-6 animate-on-scroll">
             <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-            Strategic Transformations · CEO &amp; Founder
+            Strategic Transformations · AI-Era Organizational Strategy
           </div>
 
           <h1 class="font-heading font-bold text-light leading-[1.06] mb-6 animate-on-scroll" style="font-size: clamp(2.4rem, 5.5vw, 4.2rem); animation-delay:0.05s">
@@ -33,13 +33,13 @@ import Layout from '../layouts/Layout.astro';
           </h1>
 
           <p class="font-body text-lg text-light leading-relaxed mb-4 max-w-2xl animate-on-scroll" style="animation-delay:0.15s">
-            I am Nikki Cates, CEO and Founder of Strategic Transformations.
+            Strategic Transformations helps leaders protect the people and systems their next chapter depends on.
           </p>
           <p class="font-body text-lg text-muted leading-relaxed mb-4 max-w-2xl animate-on-scroll" style="animation-delay:0.18s">
-            We work with high-burnout organizations navigating AI transformation, helping you build the middle management layer that AI can't replace, and that your best people actually want to work for.
+            We specialize in helping individuals and organizations retain their best people and navigate AI adoption with less friction.
           </p>
           <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl animate-on-scroll" style="animation-delay:0.2s">
-            We do this through proprietary diagnostics, strategic advisory, and licensed frameworks.
+            Through proprietary diagnostics, strategic advisory, and licensed frameworks, we surface hidden structural strain before it becomes attrition, failed adoption, or leadership collapse.
           </p>
 
           <div class="flex flex-wrap gap-4 mb-12 animate-on-scroll" style="animation-delay:0.25s">
@@ -57,8 +57,8 @@ import Layout from '../layouts/Layout.astro';
             {[
               { num: '15+', label: 'Yrs Organizational Practice' },
               { num: '3', label: 'Diagnostic Volumes Published' },
-              { num: '5', label: 'Signature Keynote Talks' },
-              { num: '$12.5K', label: 'Speaking Starts At' },
+              { num: '3', label: 'Core Work Pillars' },
+              { num: 'AI', label: 'Adoption Readiness Focus' },
             ].map((s) => (
               <div class="border-l-2 border-teal-DEFAULT/40 pl-3">
                 <p class="font-heading text-xl text-teal-DEFAULT font-bold leading-none">{s.num}</p>
@@ -119,23 +119,23 @@ import Layout from '../layouts/Layout.astro';
   <section class="py-20 bg-[#0c1525]">
     <div class="container-wide">
       <div class="max-w-2xl mb-12 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">You're Here Because</span>
+        <span class="st-tag mb-4 inline-flex">What It Feels Like Inside</span>
         <h2 class="font-heading text-3xl md:text-4xl text-light">
-          Something inside your organization<br/>is <em class="not-italic text-teal-DEFAULT">breaking</em> and you can feel it.
+          Mid-sized organizations are being asked to adopt AI while their people systems are already strained.
         </h2>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          'Your best people keep leaving, and nobody can tell you why.',
-          'Leadership is exhausted, and pretending otherwise.',
-          'You\'ve done the trainings, the surveys, the retreats. Nothing sticks.',
-          'Your DEI efforts are real, but the most marginalized talent is still burning out.',
-          'Urgency has become the culture. Everything is critical. Nothing gets done well.',
-          'You\'re watching institutional knowledge walk out the door with every departure.',
-          'AI tools are being deployed, and nobody is asking what it\'s doing to your people.',
-          'The pipeline looks strong on paper. In practice, leaders are struggling.',
-          'You know the structure is the problem. You don\'t know how to name it yet.',
+          'Your best people are tired, talented, and quietly calculating their exit.',
+          'AI adoption is moving faster than your decision rights, workflows, and leadership capacity.',
+          'Middle managers are absorbing pressure from every direction without real authority to redesign the load.',
+          'Executives know the strategy, but the structure underneath it keeps creating friction.',
+          'Change fatigue has made every new initiative feel like another demand instead of a path forward.',
+          'Engagement surveys name the symptoms, but not the hidden architecture producing them.',
+          'Institutional knowledge is sitting with the same over-relied-upon people you cannot afford to lose.',
+          'Teams are using AI tools unevenly, anxiously, or in ways that expose deeper role confusion.',
+          'You can feel the strain before you can prove it. That is the diagnostic gap.',
         ].map((pain, i) => (
           <div class="card teal-hover flex items-start gap-3 animate-on-scroll" style={`animation-delay:${i * 0.05}s`}>
             <span class="text-teal-DEFAULT shrink-0 mt-1 text-sm">→</span>
@@ -145,10 +145,9 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="mt-12 text-center animate-on-scroll">
-        <p class="font-heading text-xl text-light mb-2">If any of that landed, you're in the right place.</p>
+        <p class="font-heading text-xl text-light mb-2">If any of that landed, the issue is not resistance to change.</p>
         <p class="text-muted text-sm mb-6 max-w-lg mx-auto">
-          These are not performance problems. They are structural ones.
-          And there is a framework designed to diagnose and dismantle them.
+          It is structural strain. Before you deploy more technology, you need to know whether your human architecture can carry it.
         </p>
         <a href="/structural-burnout/" class="btn-teal">See How the Work Works →</a>
       </div>
@@ -167,12 +166,12 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border max-w-4xl mx-auto rounded-lg overflow-hidden">
         {[
-          { before: 'Treating burnout as individual weakness', after: 'Diagnosing it as organizational design failure' },
-          { before: 'Watching talent leave without understanding why', after: 'Mapping the exact structural conditions driving attrition' },
-          { before: 'Reactive engagement surveys after damage is done', after: 'Proactive structural monitoring built into operations' },
-          { before: 'DEI programs layered on top of broken infrastructure', after: 'Structural redesign that makes inclusion architecturally possible' },
-          { before: 'AI tools deployed without human architecture assessment', after: 'Strategic integration that protects human capacity' },
-          { before: '"Everything is urgent" leadership culture', after: 'Sovereign operational rhythms with real accountability structures' },
+          { before: 'AI adoption treated as a tool rollout', after: 'AI adoption guided by structural readiness and human capacity' },
+          { before: 'Best people carrying invisible overload', after: 'Load paths mapped before attrition becomes the signal' },
+          { before: 'Leaders reacting to burnout after damage is done', after: 'Executives diagnosing the conditions producing burnout' },
+          { before: 'Middle managers absorbing change without authority', after: 'Decision rights, responsibilities, and escalation paths clarified' },
+          { before: 'Engagement data naming symptoms without action', after: 'Diagnostic findings translated into strategic advisory priorities' },
+          { before: 'Initiatives competing for the same exhausted people', after: 'Transformation paced around the structure that must carry it' },
         ].map((item) => (
           <div class="bg-surface p-6 flex gap-6 items-start">
             <div class="flex-1">
@@ -191,110 +190,109 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 
-  <!-- ─── FEATURED WORK / ENTRY POINTS ─────────────── -->
+  <!-- ─── WHO WE SERVE / HOW WE WORK ──────────────── -->
   <section class="section-pad bg-[#0c1525]">
     <div class="container-wide">
       <div class="text-center mb-12 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">The Ecosystem</span>
-        <h2 class="font-heading text-3xl md:text-4xl text-light">Where do you need to go?</h2>
+        <span class="st-tag mb-4 inline-flex">Who We Serve</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">Built for leaders carrying both retention pressure and AI transformation.</h2>
         <p class="text-muted text-sm mt-3 max-w-md mx-auto">
-          Every entry point is intentional. None lead directly to a calendar without a vetting conversation first.
+          Strategic Transformations partners with mid-sized organizations that need sharper diagnosis before another initiative lands on already strained people.
         </p>
       </div>
 
-      <!-- 3-column primary entries -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
         {[
           {
-            href: '/structural-burnout/',
-            accent: 'teal',
-            label: 'Structural Burnout',
-            badge: 'Core Work',
-            desc: 'The diagnostic practice for organizations burning through their most committed talent. Burnout is a design flaw, and there\'s a framework to fix it.',
-            cta: 'Enter the Hub →',
+            label: 'Mid-Sized Organizations',
+            badge: 'Ideal Fit',
+            desc: 'Teams large enough for complexity, but close enough to feel every resignation, failed handoff, and AI implementation misstep.',
           },
           {
-            href: '/structural-burnout/services',
-            accent: 'teal',
-            label: 'Services & Pricing',
-            badge: 'Start Here',
-            desc: 'From $12,500 keynotes to $45,000 recalibration engagements. All begin with a vetting conversation. Explore the full architecture.',
-            cta: 'View Services →',
+            label: 'CHROs, COOs, and People Leaders',
+            badge: 'Primary Buyers',
+            desc: 'Executives accountable for talent sustainability, operational cadence, leadership capacity, and transformation readiness.',
           },
           {
-            href: '/uri/',
-            accent: 'gold',
-            label: 'URI Formation',
-            badge: 'Justice Work',
-            desc: 'Liberation-grounded leadership formation at the intersection of womanist theology, structural analysis, and right relationship.',
-            cta: 'Enter Formation →',
+            label: 'Executive Teams',
+            badge: 'Decision Makers',
+            desc: 'Leadership groups that know AI adoption, retention, and burnout cannot be solved by isolated tools, perks, or trainings.',
           },
         ].map((item) => (
-          <a href={item.href} class={`card ${item.accent === 'gold' ? 'gold-hover' : 'teal-hover'} flex flex-col gap-3 group no-underline animate-on-scroll`}>
+          <div class="card teal-hover flex flex-col gap-3 animate-on-scroll">
             <div class="flex items-center justify-between mb-1">
-              <span class={item.accent === 'gold' ? 'uri-tag' : 'st-tag'}>{item.badge}</span>
+              <span class="st-tag">{item.badge}</span>
             </div>
-            <h3 class={`font-heading text-xl font-bold ${item.accent === 'gold' ? 'text-gold' : 'text-teal-DEFAULT'}`}>{item.label}</h3>
+            <h3 class="font-heading text-xl font-bold text-teal-DEFAULT">{item.label}</h3>
             <p class="text-muted text-sm leading-relaxed flex-1">{item.desc}</p>
-            <span class={`text-xs font-body font-bold uppercase tracking-widest mt-2 group-hover:translate-x-1 inline-block transition-transform ${item.accent === 'gold' ? 'text-gold' : 'text-teal-DEFAULT'}`}>{item.cta}</span>
-          </a>
+          </div>
         ))}
       </div>
 
-      <!-- 4-column secondary entries -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="text-center mt-16 mb-10 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">How We Work</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">Three pillars. One diagnostic operating system.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         {[
-          { href: '/structural-burnout/briefing', icon: '📋', label: 'Executive Briefing', desc: 'High-commitment vetting entry' },
-          { href: '/structural-burnout/pitch',    icon: '💼', label: 'Investor Hub', desc: 'Thesis, traction & opportunity' },
-          { href: '/books/',                       icon: '📖', label: 'UNMASK Series', desc: 'Vol. 1, 2 & 3 available now' },
-          { href: '/structural-burnout/nexus',    icon: '🪪', label: 'Nexus Card', desc: 'Digital networking card' },
+          {
+            label: 'Proprietary Diagnostics',
+            desc: 'We identify the hidden structural strain affecting retention, leadership load, decision clarity, and AI readiness.',
+          },
+          {
+            label: 'Strategic Advisory',
+            desc: 'We help executives translate diagnostic findings into operational priorities, communication rhythms, and implementation choices.',
+          },
+          {
+            label: 'Licensed Frameworks',
+            desc: 'We equip internal leaders, consultants, and facilitators with repeatable frameworks that outlast the engagement.',
+          },
         ].map((item) => (
-          <a href={item.href} class="card teal-hover flex flex-col gap-2 animate-on-scroll group no-underline">
-            <span class="text-2xl">{item.icon}</span>
-            <p class="font-heading text-light font-semibold text-sm">{item.label}</p>
-            <p class="text-muted text-xs">{item.desc}</p>
-          </a>
+          <div class="card teal-hover flex flex-col gap-3 animate-on-scroll">
+            <p class="font-heading text-teal-DEFAULT text-xl font-bold">{item.label}</p>
+            <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
 
-  <!-- ─── SIGNATURE TALKS ───────────────────────────── -->
+  <!-- ─── BOOTCAMP ─────────────────────────────────── -->
   <section class="section-pad relative overflow-hidden">
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(13,148,136,0.06) 0%, transparent 60%);"></div>
     <div class="container-wide relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
         <div class="lg:col-span-2 animate-on-scroll">
-          <span class="st-tag mb-5 inline-flex">2026 Speaking</span>
+          <span class="st-tag mb-5 inline-flex">Nikki's Events</span>
           <h2 class="font-heading text-3xl md:text-4xl text-light mb-5">
-            Five talks.<br/>One through line.
+            Before You Deploy AI,<br/>Diagnose Your Structure.
           </h2>
           <p class="text-muted text-sm leading-relaxed mb-6">
-            Nikki Cates is a keynote speaker whose talks move rooms, not because they inspire,
-            but because they diagnose. Your organization will not be the same after.
+            A bootcamp for individual leaders and organizational attendees who need to understand
+            the human architecture AI will land on before implementation begins.
           </p>
           <p class="font-body text-sm mb-6">
-            <span class="text-teal-DEFAULT font-semibold">Speaking starts at $12,500.</span>
-            <span class="text-muted"> All inquiries begin with the Executive Briefing form.</span>
+            <span class="text-teal-DEFAULT font-semibold">Designed for readiness.</span>
+            <span class="text-muted"> Participants learn to spot structural strain, role confusion, decision-rights gaps, and adoption friction before they become expensive.</span>
           </p>
           <a href="/structural-burnout/briefing" class="btn-teal !text-sm">
-            Inquire About Speaking →
+            Join the Waitlist →
           </a>
         </div>
 
         <div class="lg:col-span-3 space-y-3 animate-on-scroll" style="animation-delay:0.15s">
           {[
-            { num: '01', title: 'Stop the Strain Transfer', tag: 'Culture' },
-            { num: '02', title: 'Your Leadership Pipeline Is Leaking', tag: 'Talent' },
-            { num: '03', title: 'False Urgency: How "Everything Is Critical" Is Destroying Your Organization', tag: 'Operations' },
-            { num: '04', title: 'Sovereign Power: Leading Without Running on Empty', tag: 'Leadership' },
-            { num: '05', title: 'When AI Breaks the Bridge: Protecting Human Architecture in the Age of Automation', tag: 'AI + Future' },
-          ].map((talk) => (
+            { num: '01', title: 'Diagnose where AI will amplify existing strain', tag: 'Readiness' },
+            { num: '02', title: 'Map the people, process, and authority gaps hidden beneath adoption plans', tag: 'Structure' },
+            { num: '03', title: 'Identify which leaders and teams are carrying unsustainable load', tag: 'Retention' },
+            { num: '04', title: 'Build better questions before technology decisions become culture problems', tag: 'Implementation' },
+          ].map((item) => (
             <div class="flex items-center gap-4 card teal-hover py-4 px-5 group">
-              <span class="font-heading text-3xl text-teal-DEFAULT/20 font-bold leading-none shrink-0">{talk.num}</span>
-              <p class="font-heading text-light text-sm font-semibold flex-1">"{talk.title}"</p>
-              <span class="st-tag text-xs shrink-0 hidden md:inline-flex">{talk.tag}</span>
+              <span class="font-heading text-3xl text-teal-DEFAULT/20 font-bold leading-none shrink-0">{item.num}</span>
+              <p class="font-heading text-light text-sm font-semibold flex-1">{item.title}</p>
+              <span class="st-tag text-xs shrink-0 hidden md:inline-flex">{item.tag}</span>
             </div>
           ))}
         </div>
@@ -303,35 +301,32 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 
-  <!-- ─── UNMASK SERIES CALLOUT ─────────────────────── -->
+  <!-- ─── ORGANIZATIONAL WORKSHOP ──────────────────── -->
   <section class="section-pad bg-[#0c1525]">
     <div class="container-wide">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <div class="animate-on-scroll">
-          <span class="st-tag mb-5 inline-flex">Signature Publications</span>
+          <span class="st-tag mb-5 inline-flex">Workshop for Organizations</span>
           <h2 class="font-heading text-3xl md:text-5xl text-light mb-5">
-            The <span class="text-teal-DEFAULT">UNMASK</span><br/>Blueprint Series.
+            Before You Deploy AI,<br/><span class="text-teal-DEFAULT">Diagnose Your Structure.</span>
           </h2>
           <p class="text-muted leading-relaxed mb-4">
-            Three volumes. One operational diagnostic system. Built for executives, consultants, and
-            organizational architects who are done managing symptoms.
+            Bring Nikki into your organization for an executive-facing workshop that helps leaders
+            identify the structural strain AI adoption could amplify.
           </p>
           <p class="text-muted leading-relaxed mb-8">
-            <strong class="text-light">Vol. 1: Deconstruction of the Grind</strong> — Individual diagnostic: reclaiming sovereign softness from performative survival.
-            <strong class="text-light"> Vol. 2: Redesigning Systems</strong> — Institutional imperative: diagnosing authority gaps and AI-accelerated overload.
-            <strong class="text-light"> Vol. 3: The Soul of the System</strong> — Collective liberation: structural sovereignty for the leader done being the load path.
+            The same value proposition, applied inside your context: helping your best people stay,
+            helping leaders make cleaner decisions, and helping AI adoption move with less friction.
           </p>
-          <a href="/books/" class="btn-teal">Access the Series →</a>
+          <a href="/structural-burnout/briefing" class="btn-teal">Request Executive Briefing →</a>
         </div>
 
         <div class="space-y-3 animate-on-scroll" style="animation-delay:0.2s">
           {[
-            { letter: 'U', name: 'Uncover', desc: 'Surface the hidden strains — the masks — that individuals, teams, and institutions have normalized into invisibility.' },
-            { letter: 'N', name: 'Navigate', desc: 'Chart the structural landscape and map the conditions driving exhaustion, attrition, and silenced capacity.' },
-            { letter: 'M', name: 'Manage', desc: 'Develop recalibration strategies and implement structural redesign with clear accountability structures.' },
-            { letter: 'A', name: 'Advocate', desc: 'Champion the structural and systemic changes required for human flourishing — at the individual, organizational, and collective level.' },
-            { letter: 'S', name: 'Sustain', desc: 'Embed recalibration into the ongoing operational rhythm so transformation outlasts the engagement.' },
-            { letter: 'K', name: 'Kindle', desc: 'Ignite collective capacity — relighting the fire in leaders, teams, and communities ready to lead without running on empty.' },
+            { letter: '1', name: 'Pre-Implementation Diagnosis', desc: 'Surface the organizational conditions that could turn AI adoption into more overload, confusion, or attrition.' },
+            { letter: '2', name: 'Leadership Load Mapping', desc: 'Identify where pressure is concentrating and which roles are being asked to absorb unsupported change.' },
+            { letter: '3', name: 'Decision-Rights Clarity', desc: 'Name the ownership, approval, and accountability gaps that create adoption friction.' },
+            { letter: '4', name: 'Retention-Focused Readiness', desc: 'Translate the findings into questions, priorities, and next steps leaders can use before deployment.' },
           ].map((p) => (
             <div class="flex items-start gap-4 p-4 rounded-md border border-border hover:border-teal-DEFAULT/30 transition-colors bg-surface/50">
               <span class="font-heading text-teal-DEFAULT text-2xl font-bold w-7 shrink-0">{p.letter}</span>
@@ -343,9 +338,60 @@ import Layout from '../layouts/Layout.astro';
           ))}
           <!-- Entry diagnostic -->
           <div class="p-4 rounded-md border border-teal-DEFAULT/30 bg-teal-DEFAULT/5">
-            <p class="font-body text-xs font-bold uppercase tracking-widest text-teal-DEFAULT mb-1">Entry Diagnostic</p>
-            <p class="text-light text-sm font-semibold">Structural Strain Score (SSS)</p>
-            <p class="text-muted text-xs mt-1">The 9-question structural assessment that begins every UNMASK engagement.</p>
+            <p class="font-body text-xs font-bold uppercase tracking-widest text-teal-DEFAULT mb-1">Org-Facing Application</p>
+            <p class="text-light text-sm font-semibold">How to Uncover the Hidden Structural Strain in Preparation for the AI Implementation Era</p>
+            <p class="text-muted text-xs mt-1">Available as a workshop, briefing, or executive team session.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── MEET NIKKI ────────────────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 20% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5 animate-on-scroll">
+          <div class="relative rounded-lg overflow-hidden border border-teal-DEFAULT/25 bg-surface">
+            <img
+              src="/images/nikki-cates.png"
+              alt="Nikki Cates, CEO and Founder of Strategic Transformations"
+              class="w-full h-auto object-cover object-top"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 animate-on-scroll" style="animation-delay:0.15s">
+          <span class="st-tag mb-5 inline-flex">Meet Nikki</span>
+          <h2 class="font-heading text-3xl md:text-5xl text-light mb-5">
+            Nikki Cates,<br/><span class="text-teal-DEFAULT">CEO &amp; Founder</span>
+          </h2>
+          <p class="text-muted leading-relaxed mb-4">
+            Nikki Cates is the founder of Strategic Transformations and the creator of the UNMASK
+            diagnostic architecture. Her work helps organizations name the structural conditions
+            producing burnout, attrition, leadership overload, and adoption friction.
+          </p>
+          <p class="text-muted leading-relaxed mb-8">
+            She brings a rare blend of operational practice, womanist scholarship, veteran leadership,
+            published frameworks, and executive advisory experience to organizations navigating the
+            AI implementation era.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              'Army Veteran',
+              'Womanist Scholar',
+              'Published Author',
+              'AI-Era Strategist',
+            ].map((credential) => (
+              <div class="card teal-hover py-3 px-4">
+                <p class="font-heading text-light font-semibold text-xs">{credential}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -426,20 +472,16 @@ import Layout from '../layouts/Layout.astro';
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(13,148,136,0.07) 0%, transparent 65%);"></div>
     <div class="container-narrow relative z-10 text-center animate-on-scroll">
       <h2 class="font-heading text-3xl md:text-5xl text-light mb-5 leading-tight">
-        The structure is<br/>
-        <span class="text-teal-DEFAULT">fixable.</span>
+        Before the next AI decision,<br/>
+        <span class="text-teal-DEFAULT">diagnose the structure.</span>
       </h2>
       <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-        Every engagement begins with a conversation, not a calendar link.
-        The vetting process exists to protect your investment and make sure
-        every engagement is positioned for actual transformation.
+        Every engagement begins with an Executive Briefing so we can understand the pressure,
+        the people systems, and the transformation outcome your organization actually needs.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="/structural-burnout/briefing" class="btn-teal text-base !py-4 !px-8">
           Request Executive Briefing →
-        </a>
-        <a href="/structural-burnout/services" class="btn-outline-teal text-base !py-4">
-          View All Services
         </a>
       </div>
     </div>
