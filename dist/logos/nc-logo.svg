@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" fill="none">
+  <!-- Vertical accent bar -->
+  <rect x="0" y="4" width="3" height="36" rx="1.5" fill="#0d9488"/>
+  <!-- Name -->
+  <text x="12" y="18" font-family="Lora, Georgia, serif" font-size="14" font-weight="700" fill="#f8fafc" letter-spacing="-0.3">NIKKI CATES</text>
+  <!-- Tagline -->
+  <text x="12" y="34" font-family="'Urbanist', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#0d9488" letter-spacing="0.14em">STRUCTURAL RECALIBRATION</text>
+</svg>

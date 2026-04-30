@@ -5,7 +5,7 @@ const tiers = [
   {
     tag: 'Keynote',
     name: 'Signature Keynote',
-    price: 'Starting at $12,500',
+    price: 'Proposal-based',
     duration: '60–90 min',
     desc: 'A high-impact keynote designed to shift how leadership teams think about burnout, structure, and human sustainability. Fully customized to your event context and organizational moment.',
     includes: [
@@ -14,14 +14,13 @@ const tiers = [
       'Post-keynote digital resource for attendees',
       'Travel & hospitality requirements apply (see below)',
     ],
-    cta: 'Inquire About Speaking',
-    href: '#speaking',
-    isCalendar: true,
+    cta: 'Request Executive Briefing',
+    href: '/structural-burnout/briefing',
   },
   {
     tag: 'Tier 01',
     name: 'Keynote + Workshop Bundle',
-    price: 'Starting at $15,000',
+    price: 'Proposal-based',
     duration: 'Keynote + Half-Day Workshop',
     desc: 'Pairs the keynote with an immersive half-day workshop for leadership teams. Participants leave with a structural diagnostic framework they can apply immediately.',
     includes: [
@@ -31,14 +30,13 @@ const tiers = [
       'Post-workshop integration notes',
       'Travel & hospitality requirements apply',
     ],
-    cta: 'Inquire About This Engagement',
-    href: '#speaking',
-    isCalendar: true,
+    cta: 'Request Executive Briefing',
+    href: '/structural-burnout/briefing',
   },
   {
     tag: 'Tier 02',
     name: 'UNMASK Diagnostic Architecture',
-    price: 'Starting at $22,000',
+    price: 'Proposal-based',
     duration: '4–6 Weeks',
     desc: 'A deep organizational diagnostic using the UNMASK Framework. Surfaces the structural conditions producing burnout, attrition, and silenced capacity, across teams, systems, and leadership layers.',
     includes: [
@@ -56,7 +54,7 @@ const tiers = [
   {
     tag: 'Tier 03',
     name: 'UNMASK Recalibration Engagement',
-    price: 'Starting at $45,000',
+    price: 'Contact for Scope',
     duration: '90 Days',
     desc: 'The full recalibration experience. Moves from diagnosis through structural redesign and implementation support, with embedded accountability systems built to outlast the engagement.',
     includes: [
@@ -74,7 +72,7 @@ const tiers = [
   {
     tag: 'Tier 04',
     name: 'Stabilization Retainer',
-    price: 'Starting at $7,500 / month',
+    price: 'Contact for Scope',
     duration: 'Ongoing (3-month minimum)',
     desc: 'For organizations that need ongoing strategic counsel and accountability as they implement structural changes. Monthly advisory access, monitoring, and course correction.',
     includes: [
@@ -90,7 +88,7 @@ const tiers = [
   {
     tag: 'AI Audit',
     name: 'AI Acceleration Burnout Audit',
-    price: 'Starting at $22,000',
+    price: 'Proposal-based',
     duration: '4–6 Weeks',
     desc: 'A specialized diagnostic for organizations deploying AI tools at scale. Identifies how automation is disrupting human systems, amplifying structural strain, or breaking the bridge between people and mission.',
     includes: [
@@ -107,7 +105,7 @@ const tiers = [
 ---
 
 <Layout
-  title="Services & Pricing — Strategic Transformations"
+  title="Services — Strategic Transformations"
   description="From keynote speaking to 90-day organizational recalibration. All Strategic Transformations engagements begin with a vetting process to protect your investment and mine."
   section="st"
   accentColor="teal"
@@ -165,15 +163,9 @@ const tiers = [
                 </li>
               ))}
             </ul>
-            {tier.isCalendar ? (
-              <a href="#speaking" class="btn-teal mt-2 justify-center !text-sm scroll-to-speaking">
-                {tier.cta}
-              </a>
-            ) : (
-              <a href={tier.href} class="btn-teal mt-2 justify-center !text-sm">
-                {tier.cta}
-              </a>
-            )}
+            <a href={tier.href} class="btn-teal mt-2 justify-center !text-sm">
+              {tier.cta}
+            </a>
           </div>
         ))}
       </div>
@@ -230,19 +222,16 @@ const tiers = [
           Ready to bring one of these talks to your event?
         </h3>
         <p class="text-muted text-sm mb-6 max-w-sm mx-auto">
-          Speaking inquiries go directly to a scheduling call — no briefing form required.
-          Let's find out if this is a fit.
+          Speaking inquiries begin with an Executive Briefing so the scope, audience, and outcomes can be aligned before booking.
         </p>
         <a
-          href="https://calendar.app.google/1atA8vsgwQhP7bqX6"
-          target="_blank"
-          rel="noopener"
+          href="/structural-burnout/briefing"
           class="btn-teal !text-base"
         >
-          Schedule a Speaking Call →
+          Request Executive Briefing →
         </a>
         <p class="text-muted text-xs mt-4">
-          Speaking starts at $12,500 · All other engagements require Executive Briefing
+          Speaking and workshop pricing available after Executive Briefing
         </p>
       </div>
     </div>
