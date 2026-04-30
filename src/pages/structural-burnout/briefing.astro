@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout
   title="Executive Briefing — Strategic Transformations"
-  description="Request an Executive Briefing with Nikki Cates. This vetting process protects your investment and mine — ensuring every engagement is positioned for transformation, not performance."
+  description="Request an Executive Briefing with Nikki Cates. This vetting process ensures every engagement is positioned for transformation, not performance."
   section="st"
   accentColor="teal"
 >
@@ -72,7 +72,7 @@ import Layout from '../../layouts/Layout.astro';
               'Leaders who need leadership to be comfortable before it can be honest',
               'Organizations unwilling to examine the structure — only the people in it',
               'Those seeking a quick workshop fix for a multi-year systemic problem',
-              'Engagements where the budget decision-maker is not part of the conversation',
+              'Engagements where the scope decision-maker is not part of the conversation',
             ].map((item) => (
               <div class="flex items-start gap-3 p-4 bg-surface border border-red-500/15 rounded-md">
                 <span class="text-red-400/70 shrink-0 mt-0.5">✗</span>
@@ -313,23 +313,22 @@ import Layout from '../../layouts/Layout.astro';
         </fieldset>
 
 
-        <!-- Section 4: Investment Readiness -->
+        <!-- Section 4: Readiness -->
         <fieldset class="card border-teal-DEFAULT/20">
           <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">
-            04 — Investment Readiness
+            04 — Executive Briefing Readiness
           </legend>
-          <p class="text-muted text-sm mb-6 px-2">Transformation is not cheap. Neither is the status quo.</p>
+          <p class="text-muted text-sm mb-6 px-2">Every engagement is scoped after an Executive Briefing. Use this section to name where your organization is in the decision process.</p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div class="form-group">
-              <label class="form-label" for="budget-range">Budget Range for This Engagement *</label>
+              <label class="form-label" for="budget-range">Scope Readiness for This Engagement *</label>
               <select class="form-select" id="budget-range" name="budgetRange" required>
-                <option value="">Select range</option>
-                <option>Under $10,000 (speaking/keynote only)</option>
-                <option>$10,000 – $25,000</option>
-                <option>$25,000 – $50,000</option>
-                <option>$50,000 – $100,000</option>
-                <option>$100,000+ (enterprise scope)</option>
+                <option value="">Select readiness level</option>
+                <option>Executive sponsor confirmed</option>
+                <option>Budget owner identified</option>
                 <option>Budget is in process / needs approval</option>
+                <option>Exploring scope before internal approval</option>
+                <option>Not sure yet — need briefing guidance</option>
               </select>
             </div>
             <div class="form-group">
@@ -358,12 +357,12 @@ import Layout from '../../layouts/Layout.astro';
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label" for="decision-maker">Are you the budget decision-maker? *</label>
+              <label class="form-label" for="decision-maker">Are you the scope decision-maker? *</label>
               <select class="form-select" id="decision-maker" name="decisionMaker" required>
                 <option value="">Select</option>
                 <option>Yes — I have full authority to move forward</option>
                 <option>Shared — I lead the decision with a small group</option>
-                <option>No — I\'m the champion; budget requires approval from above</option>
+                <option>No — I\'m the champion; scope requires approval from above</option>
               </select>
             </div>
           </div>
@@ -496,17 +495,17 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   function getVettingResult(fd: FormData) {
-    const investment = normalize(fd.get('budgetRange')).toLowerCase();
+    const scopeReadiness = normalize(fd.get('budgetRange')).toLowerCase();
     const decisionMaker = normalize(fd.get('decisionMaker')).toLowerCase();
     const leadershipReadiness = normalize(fd.get('leadershipReadiness')).toLowerCase();
 
-    const budgetReady = !investment.includes('under $10,000')
-      && !investment.includes('budget is in process');
+    const scopeReady = scopeReadiness.includes('executive sponsor')
+      || scopeReadiness.includes('budget owner');
     const hasDecisionPath = !decisionMaker.startsWith('no');
     const leadershipOpen = leadershipReadiness.startsWith('yes')
       || leadershipReadiness.startsWith('mostly');
 
-    return budgetReady && hasDecisionPath && leadershipOpen ? 'vetted' : 'not_vetted';
+    return scopeReady && hasDecisionPath && leadershipOpen ? 'vetted' : 'not_vetted';
   }
 
   function showStatusMessage(html: string, className: string) {

@@ -166,8 +166,8 @@ import Layout from '../../layouts/Layout.astro';
           Four ways to enter<br/>URI Formation.
         </h2>
         <p class="text-muted mt-3 max-w-lg mx-auto text-sm">
-          All URI engagements begin with a vetting conversation. Pricing is tiered by organizational
-          capacity — smaller organizations and faith communities are welcome to inquire.
+          All URI engagements begin with a vetting conversation. Scope is shaped by organizational
+          capacity, readiness, and the formation container required.
         </p>
       </div>
 
@@ -176,7 +176,7 @@ import Layout from '../../layouts/Layout.astro';
           {
             tier: 'Tier I',
             name: 'Liberation Keynote',
-            price: 'Starting at $12,500',
+            price: 'Proposal-based',
             duration: '60–90 minutes',
             desc: 'A prophetic, theologically grounded keynote for conferences, summits, and organizational gatherings. Rooted in womanist theology, delivered for the moment your community needs.',
             forWho: 'Conferences, denominational gatherings, organizational all-hands, seminary events',
@@ -185,7 +185,7 @@ import Layout from '../../layouts/Layout.astro';
           {
             tier: 'Tier II',
             name: 'Formation Workshop',
-            price: 'Starting at $15,000',
+            price: 'Proposal-based',
             duration: 'Half-Day or Full-Day',
             desc: 'Deep-dive formation work for leadership cohorts and organizational teams. Moves beyond inspiration into structural analysis, theological grounding, and collective discernment.',
             forWho: 'Leadership teams, cohort programs, denominational trainings, seminary intensives',
@@ -194,7 +194,7 @@ import Layout from '../../layouts/Layout.astro';
           {
             tier: 'Tier III',
             name: 'Formation Cohort',
-            price: 'Starting at $22,000',
+            price: 'Proposal-based',
             duration: '8–12 Weeks',
             desc: 'A sustained formation experience for a cohort of 8–16 leaders. Weekly sessions move through theological foundations, structural analysis, and the practice of liberatory leadership.',
             forWho: 'Faith communities, nonprofits, denominational leadership pipelines, justice organizations',
@@ -204,7 +204,7 @@ import Layout from '../../layouts/Layout.astro';
           {
             tier: 'Tier IV',
             name: 'Institutional Formation Partnership',
-            price: 'Starting at $7,500/mo',
+            price: 'Contact for Scope',
             duration: 'Custom',
             desc: 'For organizations, seminaries, or denominations seeking to embed liberation-grounded formation into their ongoing leadership development infrastructure.',
             forWho: 'Seminaries, denominations, large nonprofits, universities, foundations',
@@ -253,13 +253,13 @@ import Layout from '../../layouts/Layout.astro';
         ))}
       </div>
 
-      <!-- Special pricing note -->
+      <!-- Access note -->
       <div class="mt-8 bg-surface/50 border border-gold/20 rounded-md p-5 max-w-2xl mx-auto text-center animate-on-scroll">
         <p class="text-muted text-sm">
-          <span class="text-gold font-semibold">Note on pricing for smaller organizations:</span>
+          <span class="text-gold font-semibold">Note on scope for smaller organizations:</span>
           URI Formation is committed to accessibility for faith communities, grassroots organizations,
-          and nonprofits with limited budgets. If cost is a barrier, please say so in the vetting form.
-          Reduced-fee and sliding-scale options may be available on a case-by-case basis.
+          and nonprofits with limited capacity. Use the vetting form to name your context so the right
+          briefing conversation can happen before any proposal is created.
         </p>
       </div>
     </div>
@@ -382,9 +382,9 @@ import Layout from '../../layouts/Layout.astro';
           </div>
         </fieldset>
 
-        <!-- Alignment & Budget -->
+        <!-- Alignment & Readiness -->
         <fieldset class="card border-gold/20">
-          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">03 — Alignment & Investment</legend>
+          <legend class="font-heading text-light text-xl font-semibold mb-1 px-2">03 — Alignment & Readiness</legend>
           <div class="space-y-5">
             <div class="form-group">
               <label class="form-label" for="uri-why">Why URI Formation — specifically? *</label>
@@ -397,15 +397,14 @@ import Layout from '../../layouts/Layout.astro';
               ></textarea>
             </div>
             <div class="form-group">
-              <label class="form-label" for="uri-budget">Budget Range *</label>
+              <label class="form-label" for="uri-budget">Scope Readiness *</label>
               <select class="form-select" id="uri-budget" name="budget" required>
-                <option value="">Select range</option>
-                <option>Under $3,000 (may need to discuss accessibility options)</option>
-                <option>$3,000 – $7,500</option>
-                <option>$7,500 – $15,000</option>
-                <option>$15,000 – $30,000</option>
-                <option>$30,000+ (institutional scope)</option>
+                <option value="">Select readiness level</option>
+                <option>Executive or senior sponsor confirmed</option>
+                <option>Budget owner identified</option>
                 <option>Budget in process — please inquire</option>
+                <option>Exploring scope before internal approval</option>
+                <option>Community-based scope requiring discernment</option>
               </select>
             </div>
             <div class="form-group">
