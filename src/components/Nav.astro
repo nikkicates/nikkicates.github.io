@@ -20,13 +20,13 @@ const connectLinks = [
 <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
   style="background: rgba(15,23,42,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(51,65,85,0.4);">
   <div class="container-wide">
-    <div class="flex items-center justify-between h-20 md:h-22">
+    <div class="flex items-center justify-between h-24 md:h-24">
 
       <!-- LOGO -->
       <a href="/" class="flex items-center shrink-0" aria-label="Return to homepage">
-        {section === 'home' && <img src="/logos/nc-logo.png" alt="Nikki Cates" width="200" height="44" class="h-16 w-auto" loading="eager" fetchpriority="high" />}
-        {section === 'st' && <img src="/logos/st-logo.png" alt="Strategic Transformations" width="220" height="44" class="h-16 w-auto" loading="eager" fetchpriority="high" />}
-        {section === 'uri' && <img src="/logos/uri-logo.png" alt="URI" width="200" height="44" class="h-16 w-auto" loading="eager" fetchpriority="high" />}
+        {section === 'home' && <img src="/logos/nc-logo.png" alt="Nikki Cates" width="250" height="55" class="h-20 w-auto" loading="eager" fetchpriority="high" />}
+        {section === 'st' && <img src="/logos/st-logo.png" alt="Strategic Transformations" width="275" height="55" class="h-20 w-auto" loading="eager" fetchpriority="high" />}
+        {section === 'uri' && <img src="/logos/uri-logo.png" alt="URI" width="250" height="55" class="h-20 w-auto" loading="eager" fetchpriority="high" />}
       </a>
 
       <!-- Desktop nav -->
@@ -107,7 +107,7 @@ const connectLinks = [
 </header>
 
 <!-- Spacer so page content does not hide under fixed nav -->
-<div class="h-20 md:h-22"></div>
+<div class="h-24 md:h-24"></div>
 
 <style>
   /* ── Nav button base ── */
@@ -147,7 +147,7 @@ const connectLinks = [
     position: relative;
   }
 
-  /* ── Dropdown panel — hidden by default ── */
+  /* ── Dropdown panel - hidden by default ── */
   .nav-dropdown {
     display: none;
     position: absolute;
