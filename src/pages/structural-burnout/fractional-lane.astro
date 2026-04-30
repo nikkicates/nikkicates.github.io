@@ -86,7 +86,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
           <p class="text-muted text-sm leading-relaxed mb-4 flex-1">
             Embedded, inside-the-room leadership support for ongoing decision-making, authority alignment, and execution continuity.
           </p>
-          <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Scoped after Executive Briefing</span></p>
+          <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Request Executive Briefing</span></p>
         </div>
         <div class="card teal-hover animate-on-scroll flex flex-col" style="animation-delay:0.1s">
           <p class="text-teal-DEFAULT text-xs uppercase tracking-[0.22em] mb-3">Lane 2</p>
@@ -94,7 +94,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
           <p class="text-muted text-sm leading-relaxed mb-4 flex-1">
             A 90-day high-intensity project that redesigns authority, accountability, and structural flow across leadership systems.
           </p>
-          <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Proposal-based</span> / 90 days</p>
+          <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Scoped in Executive Briefing</span></p>
         </div>
         <div class="card teal-hover animate-on-scroll flex flex-col" style="animation-delay:0.2s">
           <p class="text-teal-DEFAULT text-xs uppercase tracking-[0.22em] mb-3">Lane 3</p>
@@ -102,7 +102,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
           <p class="text-muted text-sm leading-relaxed mb-4 flex-1">
             Post-recalibration maintenance lane that keeps new leadership architecture stable through guardrails and strategic oversight.
           </p>
-          <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Contact for scope</span></p>
+          <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Request Executive Briefing</span></p>
         </div>
       </div>
       <div class="card border-teal-DEFAULT/30 bg-teal-DEFAULT/5 max-w-4xl mx-auto animate-on-scroll">
@@ -169,7 +169,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
             A private, deep-dive intensive for women who need more than a group reset — personalized strategic architecture, decision clarity, and execution support.
           </p>
           <div class="border-t border-border pt-4 mb-5 space-y-1">
-            <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Proposal-based</span> · Base intensive</p>
+            <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Request fit review</span> · Base intensive</p>
             <p class="text-muted text-sm">Follow-up and team workshop options scoped after briefing</p>
             <p class="text-muted text-xs mt-2">Two slots per month maximum</p>
           </div>
@@ -182,7 +182,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
             Ongoing embedded advisory for organizations navigating structural change, leadership transitions, and AI-era complexity — from the inside.
           </p>
           <div class="border-t border-border pt-4 mb-5 space-y-1">
-            <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Contact for scope</span> · Monthly retainer</p>
+            <p class="text-light text-sm"><span class="text-teal-DEFAULT font-semibold">Request Executive Briefing</span> · Monthly retainer</p>
             <p class="text-muted text-sm">Segmented by org stage and sector</p>
             <p class="text-muted text-xs mt-2">One client at a time</p>
           </div>
@@ -374,14 +374,14 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
         </div>
         <div class="space-y-4 animate-on-scroll" style="animation-delay:0.12s">
           {[
-            { title: 'Premium Intensive', pricing: 'Proposal-based', desc: 'The core engagement. A private, intensive session with customized pre-work, deep diagnostic, and a personalized execution architecture.' },
-            { title: 'Follow-Up Session', pricing: 'Scoped after briefing', desc: 'A private follow-up session for participants who need strategic check-in, course correction, or continued accountability after the intensive.' },
-            { title: 'Team Workshop', pricing: 'Scoped after briefing', desc: 'An organizational extension workshop to bring strategic clarity and shared language to your leadership team or direct reports.' },
+            { title: 'Premium Intensive', entry: 'Request fit review', desc: 'The core engagement. A private, intensive session with customized pre-work, deep diagnostic, and a personalized execution architecture.' },
+            { title: 'Follow-Up Session', entry: 'Scoped in review', desc: 'A private follow-up session for participants who need strategic check-in, course correction, or continued accountability after the intensive.' },
+            { title: 'Team Workshop', entry: 'Scoped in review', desc: 'An organizational extension workshop to bring strategic clarity and shared language to your leadership team or direct reports.' },
           ].map((item) => (
             <div class="p-5 rounded-md border border-border hover:border-teal-DEFAULT/40 transition-colors bg-surface/50">
               <div class="flex items-start justify-between gap-4 mb-2">
                 <p class="font-heading text-light font-semibold text-lg">{item.title}</p>
-                <p class="text-teal-DEFAULT font-bold text-sm flex-shrink-0">{item.pricing}</p>
+                <p class="text-teal-DEFAULT font-bold text-sm flex-shrink-0">{item.entry}</p>
               </div>
               <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
             </div>
@@ -438,17 +438,17 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
             {[
               {
                 segment: 'Early Stage / Nonprofit',
-                price: 'Scoped',
+                entry: 'Request Briefing',
                 desc: 'For mission-driven organizations, early-stage companies, and nonprofits navigating structural transition with limited executive bandwidth.',
               },
               {
                 segment: 'Growth / Mid-Size',
-                price: 'Scoped',
+                entry: 'Request Briefing',
                 desc: 'For growing organizations that have outpaced their structural foundation and need embedded advisory to stabilize, reorient, and build with more integrity.',
               },
               {
                 segment: 'Corporate / Enterprise',
-                price: 'Scoped',
+                entry: 'Request Briefing',
                 desc: 'For larger organizations navigating complex structural change, leadership misalignment, or AI-era disruption at scale.',
               },
             ].map((item) => (
@@ -456,7 +456,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
                 <div class="flex items-start justify-between gap-4 mb-2">
                   <p class="font-heading text-light font-semibold">{item.segment}</p>
                   <p class="text-teal-DEFAULT font-bold text-lg flex-shrink-0">
-                    {item.price}<span class="text-muted text-xs font-normal"> after briefing</span>
+                    {item.entry}
                   </p>
                 </div>
                 <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
@@ -508,7 +508,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/inquiry-pag
           <p class="text-muted text-sm mb-6 px-2">Select one. Your choice personalizes the questions that follow.</p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
-              { value: '1', label: 'Tier 1 · Premium Intensive', desc: 'Private intensive · Proposal-based · By invitation' },
+              { value: '1', label: 'Tier 1 · Premium Intensive', desc: 'Private intensive · Request fit review · By invitation' },
               { value: '3', label: 'Tier 3 · Fractional Advisory', desc: 'Embedded advisory · Scoped after briefing · By invitation' },
             ].map((tier) => (
               <label
