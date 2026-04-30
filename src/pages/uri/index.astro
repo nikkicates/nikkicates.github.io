@@ -490,6 +490,14 @@ import Layout from '../../layouts/Layout.astro';
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
+    // Guard: if webhook URL is missing, fail gracefully
+    if (!N8N_WEBHOOK_URL) {
+      status.classList.remove('hidden');
+      status.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
+      status.innerHTML = `<p class="text-red-400 text-sm">Something went wrong. Please email <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a> directly.</p>`;
+      return;
+    }
+
     btn.disabled = true;
     label.textContent = 'Submitting...';
 

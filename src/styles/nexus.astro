@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── PHOTO SETUP INSTRUCTIONS ────────────────────────────────────────────────
+// To add your photo to this card:
+// 1. Drop your headshot into:  public/images/nikki-cates.jpg
+//    (or .png — just update the src below to match)
+// 2. Recommended dimensions: 400×400px minimum, square crop works best
+// 3. Change the variable below from false to true when the photo is added
+const hasPhoto = true;
+const photoSrc = '/images/nikki-cates.png';
+// ─────────────────────────────────────────────────────────────────────────────
+---
+
+<Layout
+  title="Nexus Card — Nikki Cates"
+  description="Digital networking card for Nikki Cates — Structural Recalibration Strategist, Author, Army Veteran, and Founder of Strategic Transformations."
+  section="st"
+  accentColor="teal"
+>
+
+  <section class="min-h-screen flex items-center justify-center py-16 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[#0f172a]"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(13,148,136,0.1) 0%, transparent 60%);"></div>
+
+    <div class="relative z-10 w-full max-w-md">
+
+      <!-- Top gradient bar -->
+      <div class="h-[3px] w-full mb-8 rounded-full" style="background: linear-gradient(to right, transparent, #0d9488, #0f4c7a, transparent);"></div>
+
+      <!-- Identity -->
+      <div class="text-center mb-8">
+
+        <!-- Photo / placeholder -->
+        <div class="w-36 h-36 rounded-full mx-auto mb-5 overflow-hidden border-2 border-teal-DEFAULT/50 relative"
+             style="background: linear-gradient(135deg, #0f4c7a, #0d9488);">
+          {hasPhoto ? (
+            <img
+              src={photoSrc}
+              alt="Nikki Cates"
+              width="144"
+              height="144"
+              class="w-full h-full object-cover object-center"
+              loading="eager"
+              fetchpriority="high"
+            />
+          ) : (
+            <div class="w-full h-full flex items-center justify-center">
+              <span class="font-heading text-white text-2xl font-bold select-none">NC</span>
+            </div>
+          )}
+        </div>
+
+        <h1 class="font-heading text-2xl text-light font-bold mb-1">Nikki Cates</h1>
+        <p class="font-body text-teal-DEFAULT text-xs font-bold uppercase tracking-widest mb-2">
+          Structural Recalibration Strategist
+        </p>
+        <p class="text-muted text-xs leading-relaxed max-w-xs mx-auto">
+          Founder, Strategic Transformations &amp; URI ·
+          Army Veteran · Author · AI-Era Organizational Strategist
+        </p>
+      </div>
+
+      <!-- Divider -->
+      <div class="h-px bg-border mb-6"></div>
+
+      <!-- About (third-person) -->
+      <div class="bg-surface/60 border border-border rounded-md p-5 mb-6">
+        <p class="text-muted text-sm leading-relaxed">
+          Nikki Cates helps executives, boards, and organizations identify and dismantle the
+          structural conditions producing burnout, attrition, and systemic exhaustion.
+          She is the creator of the <span class="text-teal-DEFAULT font-semibold">UNMASK Framework</span>
+          and author of the three-volume UNMASK Blueprint Series — practitioner-developed diagnostic
+          tools for organizational leaders who are done treating symptoms.
+        </p>
+      </div>
+
+      <!-- Entry links -->
+      <div class="space-y-3 mb-8">
+        <p class="font-body text-xs font-bold uppercase tracking-widest text-muted text-center mb-4">
+          Connect With Nikki
+        </p>
+
+        {[
+          {
+            label: 'Request an Executive Briefing',
+            sub: 'Speaking, consulting & high-commitment inquiries',
+            href: '/structural-burnout/briefing',
+            icon: '📋',
+            primary: true,
+          },
+          {
+            label: 'Services & Pricing',
+            sub: 'Full engagement architecture from $12,500',
+            href: '/structural-burnout/services',
+            icon: '📊',
+          },
+          {
+            label: 'UNMASK Blueprint Series',
+            sub: 'Vols. 1, 2 & 3 — books & institutional licenses',
+            href: '/books/',
+            icon: '📖',
+          },
+          {
+            label: 'URI Formation',
+            sub: 'Justice-centered leadership formation',
+            href: '/uri/',
+            icon: '✊🏾',
+          },
+          {
+            label: 'LinkedIn',
+            sub: 'Professional network & thought leadership',
+            href: 'https://www.linkedin.com/in/nikkicates',
+            icon: '🔗',
+            external: true,
+          },
+          {
+            label: 'Email Directly',
+            sub: 'nikki@strategicunmasking.com',
+            href: 'mailto:nikki@strategicunmasking.com',
+            icon: '✉️',
+          },
+        ].map((link) => (
+          <a
+            href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener' : undefined}
+            class={`flex items-center gap-4 p-4 rounded-md border transition-all no-underline group
+              ${link.primary
+                ? 'bg-teal-DEFAULT/10 border-teal-DEFAULT/50 hover:bg-teal-DEFAULT/20'
+                : 'bg-surface/40 border-border hover:border-teal-DEFAULT/30'
+              }`}
+          >
+            <span class="text-xl shrink-0">{link.icon}</span>
+            <div class="flex-1 min-w-0">
+              <p class={`font-body font-semibold text-sm ${link.primary ? 'text-teal-DEFAULT' : 'text-light'}`}>
+                {link.label}
+              </p>
+              <p class="text-muted text-xs truncate">{link.sub}</p>
+            </div>
+            <svg class="w-4 h-4 text-muted/50 shrink-0 group-hover:text-teal-DEFAULT group-hover:translate-x-0.5 transition-all" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+
+      <!-- Footer tagline -->
+      <div class="text-center">
+        <p class="text-muted text-xs italic mb-2">
+          "Burnout is a design flaw. We fix the design."
+        </p>
+        <p class="text-muted/50 text-xs">
+          © {new Date().getFullYear()} Nikki Cates · Strategic Transformations
+        </p>
+      </div>
+
+      <!-- Bottom gradient bar -->
+      <div class="h-[3px] w-full mt-8 rounded-full" style="background: linear-gradient(to right, transparent, #0f4c7a, #0d9488, transparent);"></div>
+
+    </div>
+  </section>
+
+</Layout>
