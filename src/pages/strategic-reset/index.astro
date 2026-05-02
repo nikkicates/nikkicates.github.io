@@ -1,0 +1,245 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const sriApplyUrl = 'https://unmask.nikkicates.com/reset-inquiry';
+---
+
+<Layout
+  title="Strategic Reset Intensive | Strategic Transformations"
+  description="A curated cohort experience for professional women navigating career transitions, economic uncertainty, and AI adoption. Walk away with a personal strategy, AI confidence, and a clear next step."
+  section="st"
+  accentColor="teal"
+>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative min-h-[88vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-[#0f172a]"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 65% 45%, rgba(13,148,136,0.09) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 85%, rgba(15,76,122,0.1) 0%, transparent 55%);"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background: linear-gradient(to bottom, transparent 5%, #0d9488 25%, #0d9488 75%, transparent 95%);"></div>
+
+    <div class="container-wide relative z-10 py-20 md:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+        <!-- Left: Core message -->
+        <div class="lg:col-span-7">
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="st-tag inline-flex">Strategic Transformations</span>
+            <span class="text-[10px] uppercase tracking-[0.24em] text-muted border border-border rounded-full px-3 py-1">
+              B2P · Professional Women in Transition
+            </span>
+          </div>
+
+          <h1 class="font-heading font-bold text-light leading-[1.06] mb-6 animate-on-scroll" style="font-size: clamp(2.4rem, 5.5vw, 4.2rem);">
+            Strategic<br/>
+            <span class="text-teal-DEFAULT">Reset Intensive</span>
+          </h1>
+
+          <p class="font-body text-xl text-light leading-relaxed mb-4 max-w-2xl animate-on-scroll" style="animation-delay:0.08s">
+            You are not behind. You are in between.
+          </p>
+          <p class="font-body text-lg text-muted leading-relaxed mb-4 max-w-2xl animate-on-scroll" style="animation-delay:0.12s">
+            Career transitions in an unstable economy feel disorienting because they are. The rules have changed. AI is reshaping entire industries. And the old roadmap no longer applies.
+          </p>
+          <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl animate-on-scroll" style="animation-delay:0.16s">
+            The Strategic Reset Intensive is a curated small-group cohort for professional women who are ready to stop reacting and start building. You will leave with a personal and professional strategy, real AI tools you actually know how to use, and the clarity to move forward with intention.
+          </p>
+
+          <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+            <a href={sriApplyUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-7">
+              Apply for the Next Cohort
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="#what-you-get" class="btn-outline-teal text-base !py-3.5">
+              See What Is Included
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Quick facts card -->
+        <div class="lg:col-span-5 animate-on-scroll" style="animation-delay:0.25s">
+          <div class="card border-teal-DEFAULT/30 p-8">
+            <p class="font-heading text-light text-lg font-semibold mb-6">The SRI at a Glance</p>
+            <div class="space-y-4">
+              {[
+                { label: 'Format', value: 'Small group cohort (virtual)' },
+                { label: 'Who It Is For', value: 'Professional women in career transition' },
+                { label: 'Focus Areas', value: 'Personal strategy, AI tools, economic positioning' },
+                { label: 'Cohort Size', value: 'Limited seats per cohort' },
+                { label: 'Outcome', value: 'A personal and professional strategy you can execute immediately' },
+              ].map((item) => (
+                <div class="flex gap-4 border-b border-border pb-4 last:border-0 last:pb-0">
+                  <p class="text-teal-DEFAULT text-xs uppercase tracking-widest font-bold shrink-0 w-28 pt-0.5">{item.label}</p>
+                  <p class="text-muted text-sm leading-relaxed">{item.value}</p>
+                </div>
+              ))}
+            </div>
+            <div class="mt-6 pt-6 border-t border-border">
+              <p class="text-muted text-xs italic">Pricing and cohort dates are shared during the application process. Seats are limited and filled on a rolling basis.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-28" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
+  </section>
+
+
+  <!-- ─── WHO THIS IS FOR ───────────────────────────── -->
+  <section class="py-20 bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="max-w-2xl mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Sound Familiar?</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          This is what it feels like to need a reset.
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          'You are between roles, industries, or identities and the path forward is not clear.',
+          'You know AI is changing everything but you do not know where to start or what it means for your specific situation.',
+          'You have a strong resume and a real track record, but the market feels like it has shifted under your feet.',
+          'You are exhausted from pivoting reactively and ready to build something intentional.',
+          'You want a strategy, not just motivation. A plan, not just a pep talk.',
+          'You are doing this mostly alone and you are ready to be in a room with women who actually get it.',
+        ].map((pain, i) => (
+          <div class="card teal-hover flex items-start gap-3 animate-on-scroll" style={`animation-delay:${i * 0.05}s`}>
+            <span class="text-teal-DEFAULT shrink-0 mt-1 text-sm">→</span>
+            <p class="text-muted text-sm leading-relaxed">{pain}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── WHAT YOU GET ──────────────────────────────── -->
+  <section id="what-you-get" class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">What You Get</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          Not a workshop. A strategic reset.
+        </h2>
+        <p class="text-muted text-sm mt-3 max-w-lg mx-auto">
+          Every element of the SRI is designed to move you from overwhelmed to oriented.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            icon: '🔄',
+            title: 'Personal Strategy Session',
+            desc: 'You will build a clear, written strategy for your next chapter. Not a vision board. A real plan with priorities, timelines, and decision criteria.',
+          },
+          {
+            icon: '🤖',
+            title: 'AI Tools for Your Life',
+            desc: 'Learn which AI tools are actually useful for your situation and how to use them for career positioning, productivity, and personal workflow. No jargon. No overwhelm.',
+          },
+          {
+            icon: '📍',
+            title: 'Economic Positioning',
+            desc: 'Understand how to read the current market, identify where your skills are most valuable, and position yourself to build in an economy that keeps shifting.',
+          },
+          {
+            icon: '🗺️',
+            title: 'Work Strategy Blueprint',
+            desc: 'A structured framework for evaluating opportunities, negotiating your worth, and designing work that actually fits your life and your goals.',
+          },
+          {
+            icon: '👥',
+            title: 'Small Group Cohort',
+            desc: 'A curated, intimate group of professional women in similar transitions. Real conversation, shared tools, and the kind of community that does not let you stay stuck.',
+          },
+          {
+            icon: '✅',
+            title: 'Immediate Next Steps',
+            desc: 'You will leave every session with a specific action, not just insight. The SRI is built for execution, not just reflection.',
+          },
+        ].map((item) => (
+          <div class="card teal-hover animate-on-scroll">
+            <span class="text-3xl mb-4 block">{item.icon}</span>
+            <p class="font-heading text-light font-semibold text-lg mb-3">{item.title}</p>
+            <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── THE TRANSFORMATION ────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">The Shift</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">What changes when you reset with intention.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border max-w-4xl mx-auto rounded-lg overflow-hidden">
+        {[
+          { before: 'Reacting to every job posting with anxiety', after: 'Applying strategically to roles that align with your blueprint' },
+          { before: 'Avoiding AI because it feels overwhelming', after: 'Using AI tools confidently to work smarter and position better' },
+          { before: 'Feeling behind in a shifting economy', after: 'Understanding exactly where your skills are most valuable right now' },
+          { before: 'Navigating transition alone and exhausted', after: 'Moving forward inside a community of women who are building alongside you' },
+          { before: 'Unclear on what you actually want next', after: 'A written strategy with priorities, timelines, and a clear next step' },
+          { before: 'Waiting for the right moment to start', after: 'In motion, with a plan, and accountability to keep going' },
+        ].map((item) => (
+          <div class="bg-surface p-6 flex gap-6 items-start">
+            <div class="flex-1">
+              <p class="text-xs font-body font-bold uppercase tracking-widest text-red-400/70 mb-2">Before</p>
+              <p class="text-muted text-sm">{item.before}</p>
+            </div>
+            <div class="text-teal-DEFAULT/40 text-xl shrink-0 mt-3">→</div>
+            <div class="flex-1">
+              <p class="text-xs font-body font-bold uppercase tracking-widest text-teal-DEFAULT mb-2">After</p>
+              <p class="text-light text-sm font-medium">{item.after}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── ABOUT NIKKI ───────────────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
+    <div class="container-mid relative z-10 animate-on-scroll">
+      <div class="border border-teal-DEFAULT/20 rounded-lg p-10 md:p-14 bg-surface">
+        <p class="text-teal-DEFAULT text-xs uppercase tracking-[0.22em] mb-4">Your Facilitator</p>
+        <h2 class="font-heading text-2xl md:text-3xl text-light mb-4">Nikki Cates</h2>
+        <p class="text-muted text-sm uppercase tracking-widest mb-6">CEO &amp; Founder, Strategic Transformations · Army Veteran · Womanist Scholar · Published Author</p>
+        <p class="text-muted leading-relaxed mb-4">
+          Nikki Cates is a Structural Recalibration Strategist who has spent over 15 years helping individuals and organizations navigate high-stakes transitions. She is the creator of the UNMASK Framework, a proprietary diagnostic methodology used by leaders, organizations, and professionals to surface hidden structural strain and build a path forward.
+        </p>
+        <p class="text-muted leading-relaxed">
+          The Strategic Reset Intensive was built because Nikki kept seeing the same thing: brilliant, capable professional women navigating major transitions without the structural tools to do it strategically. The SRI is the answer to that gap.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FINAL CTA ─────────────────────────────────── -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(13,148,136,0.07) 0%, transparent 65%);"></div>
+    <div class="container-narrow relative z-10 text-center animate-on-scroll">
+      <h2 class="font-heading text-3xl md:text-5xl text-light mb-5 leading-tight">
+        Ready to stop reacting<br/>
+        <span class="text-teal-DEFAULT">and start building?</span>
+      </h2>
+      <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+        Seats in each cohort are limited. Apply now to be considered for the next available cohort and take the first step toward your strategic reset.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={sriApplyUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8">
+          Apply for the Next Cohort &rarr;
+        </a>
+      </div>
+      <p class="text-muted text-xs mt-6">Not sure if this is right for you? Take the <a href="#" class="text-teal-DEFAULT hover:underline">AI Readiness Quiz</a> first.</p>
+    </div>
+  </section>
+
+</Layout>

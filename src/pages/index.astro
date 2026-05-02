@@ -43,11 +43,11 @@ import Layout from '../layouts/Layout.astro';
           </p>
 
           <div class="flex flex-wrap gap-4 mb-12 animate-on-scroll" style="animation-delay:0.25s">
-            <a href="/structural-burnout/briefing" class="btn-teal text-base !py-3.5 !px-7">
-              Request Executive Briefing
+            <a href="https://calendar.app.google/YaQcyx167QvkeGaD9" target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-7">
+              Book an Executive Briefing
               <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             </a>
-            <a href="/structural-burnout/" class="btn-outline-teal text-base !py-3.5">
+            <a href="/strategic-reset/" class="btn-outline-teal text-base !py-3.5">
               Explore the Work
             </a>
           </div>
@@ -444,6 +444,51 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 
+  <!-- ─── SRI CALLOUT ────────────────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(13,148,136,0.08) 0%, transparent 60%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="animate-on-scroll">
+          <span class="st-tag mb-5 inline-flex">Strategic Reset Intensive</span>
+          <h2 class="font-heading text-3xl md:text-4xl text-light mb-5">
+            Navigating a career transition<br/>
+            <span class="text-teal-DEFAULT">in an unstable economy?</span>
+          </h2>
+          <p class="text-muted leading-relaxed mb-4">
+            The Strategic Reset Intensive is a curated experience for professional women navigating career transitions, economic uncertainty, and the pressure to figure out AI before everyone else does.
+          </p>
+          <p class="text-muted leading-relaxed mb-8">
+            You will leave with a personal and professional strategy, a clear plan for using AI and automation for your own needs, and the tools to move forward with confidence instead of anxiety.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/strategic-reset/" class="btn-teal">Learn About the SRI &rarr;</a>
+            <a href="https://unmask.nikkicates.com/reset-inquiry" target="_blank" rel="noopener noreferrer" class="btn-outline-teal">Apply Now</a>
+          </div>
+        </div>
+        <div class="animate-on-scroll" style="animation-delay:0.1s">
+          <div class="grid grid-cols-1 gap-4">
+            {[
+              { icon: '🔄', title: 'Personal Strategy', desc: 'Walk away with a clear, actionable plan built around your specific transition and goals.' },
+              { icon: '🤖', title: 'AI Confidence', desc: 'Learn how to use AI and automation tools for your own career and personal needs, without the overwhelm.' },
+              { icon: '📍', title: 'Economic Clarity', desc: 'Understand how to position yourself and your skills in a shifting economy so you are not just surviving, you are building.' },
+              { icon: '👥', title: 'Small Group Cohort', desc: 'A curated, intimate group of professional women in similar transitions. Real conversation. Real tools. Real next steps.' },
+            ].map((item) => (
+              <div class="card teal-hover flex items-start gap-4 animate-on-scroll">
+                <span class="text-2xl shrink-0">{item.icon}</span>
+                <div>
+                  <p class="text-light font-semibold text-sm mb-1">{item.title}</p>
+                  <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ─── URI CALLOUT ───────────────────────────────── -->
   <section class="section-pad bg-[#0c1525] relative overflow-hidden">
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 20% 50%, rgba(107,33,168,0.09) 0%, transparent 60%), radial-gradient(ellipse 40% 50% at 80% 30%, rgba(217,119,6,0.06) 0%, transparent 55%);"></div>
@@ -480,8 +525,11 @@ import Layout from '../layouts/Layout.astro';
         the people systems, and the transformation outcome your organization actually needs.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/structural-burnout/briefing" class="btn-teal text-base !py-4 !px-8">
-          Request Executive Briefing →
+        <a href="https://calendar.app.google/YaQcyx167QvkeGaD9" target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8">
+          Book an Executive Briefing &rarr;
+        </a>
+        <a href="/strategic-reset/" class="btn-outline-teal text-base !py-4 !px-8">
+          Explore the Strategic Reset Intensive
         </a>
       </div>
     </div>

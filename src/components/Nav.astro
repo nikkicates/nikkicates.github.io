@@ -5,15 +5,9 @@ interface Props {
 }
 const { section = 'home', accentColor = 'teal' } = Astro.props;
 
-const stLinks = [
-  { href: '/structural-burnout/', label: 'Structural Burnout' },
-  { href: '/structural-burnout/services', label: 'Services' },
-  { href: '/structural-burnout/pitch', label: 'Investor Hub' },
-];
-
 const connectLinks = [
   { href: '/structural-burnout/nexus', label: 'Nexus Card' },
-  { href: '/structural-burnout/briefing', label: 'Executive Briefing' },
+  { href: 'https://calendar.app.google/YaQcyx167QvkeGaD9', label: 'Book an Executive Briefing', external: true },
 ];
 ---
 
@@ -32,23 +26,11 @@ const connectLinks = [
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-1" aria-label="Primary navigation">
         <a href="/" class="nav-btn">Home</a>
-
-        <div class="nav-dropdown-wrap">
-          <button class="nav-btn nav-dropdown-trigger" aria-expanded="false" data-dropdown="st-work">
-            ST Work
-            <svg class="nav-arrow" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M2 4l4 4 4-4"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown" id="dropdown-st-work" role="menu">
-            {stLinks.map(l => <a href={l.href} class="nav-dropdown-item" role="menuitem">{l.label}</a>)}
-          </div>
-        </div>
-
-        <a href="/uri/" class="nav-btn">URI Formation</a>
-        <a href="/structural-burnout/fractional-lane" class="nav-btn">Fractional Advisory</a>
+        <a href="/bootcamp/" class="nav-btn">The Bootcamp</a>
+        <a href="/strategic-reset/" class="nav-btn">Strategic Reset Intensive</a>
         <a href="/books/" class="nav-btn">Books</a>
         <a href="/speaker-kit/" class="nav-btn">Speaker Kit</a>
+        <a href="/structural-burnout/pitch" class="nav-btn">Investor Hub</a>
 
         <div class="nav-dropdown-wrap">
           <button class="nav-btn nav-dropdown-trigger" aria-expanded="false" data-dropdown="connect">
@@ -68,8 +50,8 @@ const connectLinks = [
           </div>
         </div>
 
-        <a href="/structural-burnout/briefing" class="nav-cta">
-          Request Briefing
+        <a href="https://calendar.app.google/YaQcyx167QvkeGaD9" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          Book an Executive Briefing
         </a>
       </nav>
 
@@ -84,15 +66,12 @@ const connectLinks = [
 
   <!-- Mobile menu -->
   <div id="mobile-menu" class="md:hidden hidden flex-col pb-5 px-6 bg-[#0f172a] border-t border-slate-700">
-    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest pt-4 pb-2">ST Work</p>
-    {stLinks.map(l => (
-      <a href={l.href} class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">{l.label}</a>
-    ))}
-
-    <a href="/uri/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">URI Formation</a>
-    <a href="/structural-burnout/fractional-lane" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Fractional Advisory</a>
+    <a href="/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Home</a>
+    <a href="/bootcamp/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">The Bootcamp</a>
+    <a href="/strategic-reset/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Strategic Reset Intensive</a>
     <a href="/books/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Books</a>
     <a href="/speaker-kit/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Speaker Kit</a>
+    <a href="/structural-burnout/pitch" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Investor Hub</a>
 
     <p class="text-slate-400 text-xs font-bold uppercase tracking-widest pt-4 pb-2">Connect</p>
     {connectLinks.map(l => (
@@ -102,7 +81,7 @@ const connectLinks = [
       </a>
     ))}
 
-    <a href="/structural-burnout/briefing" class="nav-cta mt-4 justify-center block text-center">Request Briefing</a>
+    <a href="https://calendar.app.google/YaQcyx167QvkeGaD9" target="_blank" rel="noopener noreferrer" class="nav-cta mt-4 justify-center block text-center">Book an Executive Briefing</a>
   </div>
 </header>
 
@@ -153,7 +132,7 @@ const connectLinks = [
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
-    min-width: 180px;
+    min-width: 220px;
     background: #0f172a;
     border: 1px solid rgba(51,65,85,0.6);
     border-radius: 8px;

@@ -1,0 +1,263 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const calendarUrl = 'https://calendar.app.google/YaQcyx167QvkeGaD9';
+---
+
+<Layout
+  title="The Frictionless Manager Bootcamp | Strategic Transformations"
+  description="A strategic bootcamp for organizations helping middle managers lead through AI adoption without structural breakdown. Diagnose the friction before it costs you your best people."
+  section="st"
+  accentColor="teal"
+>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative min-h-[88vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-[#0f172a]"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 65% 45%, rgba(13,148,136,0.09) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 85%, rgba(15,76,122,0.1) 0%, transparent 55%);"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background: linear-gradient(to bottom, transparent 5%, #0d9488 25%, #0d9488 75%, transparent 95%);"></div>
+
+    <div class="container-wide relative z-10 py-20 md:py-28">
+      <div class="max-w-4xl">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="st-tag inline-flex">Strategic Transformations</span>
+          <span class="text-[10px] uppercase tracking-[0.24em] text-muted border border-border rounded-full px-3 py-1">
+            B2O · Organizations &amp; Leadership Teams
+          </span>
+        </div>
+        <h1 class="font-heading font-bold text-light leading-[1.06] mb-6 animate-on-scroll" style="font-size: clamp(2.4rem, 5.5vw, 4.2rem);">
+          The Frictionless<br/>
+          <span class="text-teal-DEFAULT">Manager Bootcamp</span>
+        </h1>
+        <p class="font-body text-xl text-light leading-relaxed mb-4 max-w-3xl animate-on-scroll" style="animation-delay:0.08s">
+          Your managers are not failing. Your structure is.
+        </p>
+        <p class="font-body text-lg text-muted leading-relaxed mb-4 max-w-3xl animate-on-scroll" style="animation-delay:0.12s">
+          AI adoption is not a technology problem. It is a people architecture problem. When you deploy AI into a structure that is already strained, you do not reduce friction. You accelerate it.
+        </p>
+        <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-3xl animate-on-scroll" style="animation-delay:0.16s">
+          The Frictionless Manager Bootcamp equips your middle managers with the diagnostic tools, decision frameworks, and structural clarity they need to lead through AI adoption without burning out, checking out, or taking your best people with them.
+        </p>
+        <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+          <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-7">
+            Book an Executive Briefing
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </a>
+          <a href="#who-this-is-for" class="btn-outline-teal text-base !py-3.5">
+            Is This Right for Your Organization?
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-28" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
+  </section>
+
+
+  <!-- ─── THE REAL PROBLEM ──────────────────────────── -->
+  <section class="py-20 bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="max-w-2xl mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">The Real Problem</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          AI is not the friction. The structure underneath it is.
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          'Middle managers are being asked to implement AI tools they were not trained to evaluate.',
+          'Decision rights are unclear, so every AI-related choice becomes a political negotiation.',
+          'Your best managers are absorbing the anxiety of their teams while leadership expects results.',
+          'Role confusion is accelerating. AI is not clarifying who does what. It is exposing what was never clear.',
+          'Change fatigue is real. Every new tool feels like another demand on people who are already at capacity.',
+          'Organizations are measuring AI adoption by tool usage, not by whether it actually reduced the load.',
+        ].map((pain, i) => (
+          <div class="card teal-hover flex items-start gap-3 animate-on-scroll" style={`animation-delay:${i * 0.05}s`}>
+            <span class="text-teal-DEFAULT shrink-0 mt-1 text-sm">→</span>
+            <p class="text-muted text-sm leading-relaxed">{pain}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── WHAT THE BOOTCAMP DOES ───────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">What the Bootcamp Delivers</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          From friction to frictionless. Here is how.
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            num: '01',
+            title: 'Structural Strain Diagnosis',
+            desc: 'Before any training begins, we run a structural diagnostic using the UNMASK Framework to identify where friction is actually coming from. No assumptions. No guesswork.',
+          },
+          {
+            num: '02',
+            title: 'AI Decision Rights Clarity',
+            desc: 'Managers leave with a clear map of who decides what when AI is involved. Role confusion is the number one driver of AI adoption failure. We fix the architecture.',
+          },
+          {
+            num: '03',
+            title: 'Load Path Mapping',
+            desc: 'We identify which managers are carrying invisible overload and redesign how work, accountability, and authority flow through the middle layer of your organization.',
+          },
+          {
+            num: '04',
+            title: 'Human Sustainability Framework',
+            desc: 'AI adoption that does not account for human capacity will fail. Managers learn to pace transformation around the structure that must carry it, not just the timeline that demands it.',
+          },
+          {
+            num: '05',
+            title: 'Retention Risk Reduction',
+            desc: 'The managers most likely to leave are the ones absorbing the most friction. This bootcamp directly addresses the structural conditions driving your highest-risk attrition.',
+          },
+          {
+            num: '06',
+            title: 'Implementation Roadmap',
+            desc: 'Every organization leaves with a 90-day structural action plan, not a binder of best practices. Specific. Prioritized. Built for your context.',
+          },
+        ].map((item) => (
+          <div class="card teal-hover animate-on-scroll">
+            <p class="font-heading text-teal-DEFAULT text-3xl font-bold mb-3">{item.num}</p>
+            <p class="font-heading text-light font-semibold text-lg mb-3">{item.title}</p>
+            <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── WHO THIS IS FOR ───────────────────────────── -->
+  <section id="who-this-is-for" class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+        <div class="animate-on-scroll">
+          <span class="st-tag mb-5 inline-flex">Who This Is For</span>
+          <h2 class="font-heading text-2xl md:text-3xl text-light mb-6">
+            This bootcamp is built for organizations that are honest about what is happening.
+          </h2>
+          <div class="space-y-3">
+            {[
+              'Mid-sized organizations (50 to 500 employees) in active AI adoption or planning phases',
+              'CHROs and COOs who know their middle managers are strained but cannot yet prove it structurally',
+              'Leadership teams where AI tools have been deployed but adoption is uneven, anxious, or stalled',
+              'Organizations experiencing unexpected attrition among high-performing managers',
+              'Executive teams preparing for a major transformation initiative and want to protect the people layer first',
+              'HR leaders who are tired of engagement surveys that name the symptoms but never fix the design',
+            ].map((item) => (
+              <div class="flex items-start gap-3 p-4 bg-surface border border-border rounded-md hover:border-teal-DEFAULT/40 transition-colors">
+                <span class="text-teal-DEFAULT shrink-0 mt-0.5">&#10003;</span>
+                <p class="text-muted text-sm">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="animate-on-scroll" style="animation-delay:0.1s">
+          <span class="st-tag mb-5 inline-flex" style="color: #f87171; border-color: rgba(248,113,113,0.3);">Who This Is Not For</span>
+          <h2 class="font-heading text-2xl md:text-3xl text-light mb-6">
+            This engagement is not right for every organization.
+          </h2>
+          <div class="space-y-3 mb-8">
+            {[
+              'Organizations looking for a one-day training that checks a compliance box',
+              'Leadership teams unwilling to examine the structure, only the people in it',
+              'Organizations where the decision-maker is not part of the conversation',
+              'Teams seeking a motivational speaker who will affirm rather than diagnose',
+              'Those expecting a quick fix for a multi-year systemic problem',
+            ].map((item) => (
+              <div class="flex items-start gap-3 p-4 bg-surface border border-red-500/15 rounded-md">
+                <span class="text-red-400/70 shrink-0 mt-0.5">&#10007;</span>
+                <p class="text-muted text-sm">{item}</p>
+              </div>
+            ))}
+          </div>
+          <div class="bg-teal-glow border border-teal-DEFAULT/30 rounded-md p-5">
+            <p class="font-heading text-teal-DEFAULT font-semibold text-sm mb-2">A note on fit:</p>
+            <p class="text-muted text-sm leading-relaxed">
+              Not every organization is ready for this work, and that is not a judgment. Every engagement begins with an Executive Briefing so we can assess fit, scope, and readiness together before any proposal is created.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FORMATS ───────────────────────────────────── -->
+  <section class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Delivery Formats</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">
+          Built for how your organization actually works.
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            tag: 'Format 01',
+            name: 'Half-Day Intensive',
+            duration: '4 Hours',
+            desc: 'A focused, high-impact session for leadership teams that need structural clarity fast. Includes pre-work diagnostic and a 30-day action plan.',
+            best: 'Best for: Organizations in early AI planning stages',
+          },
+          {
+            tag: 'Format 02',
+            name: 'Full Bootcamp Experience',
+            duration: '2 Days',
+            desc: 'The complete bootcamp. Structural diagnostic, decision rights mapping, load path analysis, and a full 90-day implementation roadmap. Built for teams in active adoption.',
+            best: 'Best for: Organizations mid-adoption experiencing friction or attrition',
+            featured: true,
+          },
+          {
+            tag: 'Format 03',
+            name: 'Embedded Advisory Add-On',
+            duration: '90 Days',
+            desc: 'The bootcamp plus embedded strategic support as your team implements. Monthly check-ins, course corrections, and accountability built in.',
+            best: 'Best for: Organizations that want implementation support, not just a plan',
+          },
+        ].map((item) => (
+          <div class={`card flex flex-col animate-on-scroll ${item.featured ? 'border-teal-DEFAULT/50 bg-teal-DEFAULT/5' : 'teal-hover'}`}>
+            {item.featured && <span class="st-tag mb-3 inline-flex self-start">Most Requested</span>}
+            <p class="text-teal-DEFAULT text-xs uppercase tracking-[0.22em] mb-2">{item.tag}</p>
+            <p class="font-heading text-light text-2xl mb-1">{item.name}</p>
+            <p class="text-muted text-xs uppercase tracking-widest mb-4">{item.duration}</p>
+            <p class="text-muted text-sm leading-relaxed mb-4 flex-1">{item.desc}</p>
+            <p class="text-teal-DEFAULT text-xs font-semibold">{item.best}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-muted text-sm mt-8">
+        All formats are proposal-based and scoped during the Executive Briefing. Pricing is available upon request.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── FINAL CTA ─────────────────────────────────── -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(13,148,136,0.07) 0%, transparent 65%);"></div>
+    <div class="container-narrow relative z-10 text-center animate-on-scroll">
+      <h2 class="font-heading text-3xl md:text-5xl text-light mb-5 leading-tight">
+        Ready to reduce the friction<br/>
+        <span class="text-teal-DEFAULT">before it costs you your best people?</span>
+      </h2>
+      <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+        Every engagement begins with an Executive Briefing. Book a time to talk through what is happening in your organization and whether the Frictionless Manager Bootcamp is the right fit.
+      </p>
+      <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8">
+        Book an Executive Briefing &rarr;
+      </a>
+    </div>
+  </section>
+
+</Layout>
