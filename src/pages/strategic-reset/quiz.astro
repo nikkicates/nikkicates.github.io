@@ -1,0 +1,453 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const sriApplyUrl = 'https://unmask.nikkicates.com/reset-inquiry';
+
+// ─── GHL WEBHOOK PLACEHOLDER ──────────────────────────────────────────────────
+// Replace the value below with your GHL webhook URL once the account transfer
+// is complete. The quiz will POST { name, email, score, profile } to this URL.
+// Example: 'https://hooks.gohighlevel.com/hooks/catch/XXXXXXXX/YYYYYYYY/'
+const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
+// ──────────────────────────────────────────────────────────────────────────────
+---
+
+<Layout
+  title="AI Readiness Quiz | Strategic Reset Intensive | Strategic Transformations"
+  description="Find out exactly where you stand in navigating AI and your next career move. Take the free 5-question quiz and get your personalized Strategic Reset profile."
+  section="st"
+  accentColor="teal"
+>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-[#0f172a]"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 65% 45%, rgba(13,148,136,0.08) 0%, transparent 65%);"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background: linear-gradient(to bottom, transparent 5%, #0d9488 25%, #0d9488 75%, transparent 95%);"></div>
+    <div class="container-wide relative z-10 py-20 md:py-24 text-center">
+      <span class="st-tag mb-5 inline-flex">Strategic Reset Intensive</span>
+      <h1 class="font-heading font-bold text-light leading-tight mb-5 animate-on-scroll" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+        How Ready Are You to Navigate<br/>
+        <span class="text-teal-DEFAULT">AI and Your Next Career Move?</span>
+      </h1>
+      <p class="font-body text-lg text-muted max-w-xl mx-auto mb-4 animate-on-scroll">
+        5 questions. Less than 2 minutes. Your personalized Strategic Reset profile is waiting.
+      </p>
+      <p class="text-muted text-sm max-w-md mx-auto">
+        No fluff. No generic advice. Just an honest look at where you are so we can meet you there.
+      </p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-20" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
+  </section>
+
+
+  <!-- ─── QUIZ CONTAINER ───────────────────────────── -->
+  <section class="section-pad bg-[#0f172a]">
+    <div class="container-wide max-w-2xl mx-auto">
+
+      <!-- PROGRESS BAR -->
+      <div id="quiz-progress-wrap" class="mb-10">
+        <div class="flex justify-between text-xs text-muted mb-2">
+          <span id="progress-label">Question 1 of 5</span>
+          <span id="progress-pct">0%</span>
+        </div>
+        <div class="w-full bg-surface rounded-full h-1.5">
+          <div id="progress-bar" class="h-1.5 rounded-full transition-all duration-500" style="width: 0%; background: #0d9488;"></div>
+        </div>
+      </div>
+
+      <!-- QUESTIONS WRAPPER -->
+      <div id="quiz-questions">
+
+        <!-- Q1 -->
+        <div class="quiz-step" data-step="1">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 1 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            When you think about how AI is changing your industry, what is your primary feeling?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="q1" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">Overwhelmed. I am already at capacity and this feels like another demand.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="q1" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">Curious but stuck. I know I need to learn it, but I do not know where to start.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="q1" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">Strategic. I am already using it, but I need to figure out how to leverage it for my next career move.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-end">
+            <button class="btn-teal quiz-next" data-next="2" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-step hidden" data-step="2">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 2 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            How would you describe your current career transition status?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="q2" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">I am reacting. The market shifted, my role changed, or I was laid off, and I am scrambling.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="q2" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">I am exploring. I know I cannot stay where I am, but I do not have a clear exit strategy yet.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="q2" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">I am building. I know what I want next, but I need to position myself in a shifting economy to get it.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="1">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="3" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-step hidden" data-step="3">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 3 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            If you had to describe your current personal and professional strategy in one sentence, it would be:
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="q3" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">"I am just trying to survive the week."</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="q3" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">"I have a lot of ideas, but no structured plan to execute them."</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="q3" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">"I have a plan, but I need to stress-test it against the new economic realities."</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="2">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="4" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-step hidden" data-step="4">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 4 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            How are you currently using AI tools in your personal workflow?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="q4" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">I am not. I do not trust it or I do not have time to figure it out.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="q4" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">I use it occasionally for basic tasks, but I do not have a real system.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="q4" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">I use it regularly, but I want to move from basic productivity to strategic leverage.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="3">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="5" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-step hidden" data-step="5">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 5 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            What is the number one thing you need right now to move forward with confidence?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="q5" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">Space to breathe and a community that actually understands what I am carrying.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="q5" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">A clear, step-by-step roadmap for my next chapter so I can stop guessing.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="q5" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">Advanced tools and economic positioning strategies to make my next move my best move.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="4">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="capture" disabled>See My Results &rarr;</button>
+          </div>
+        </div>
+
+        <!-- EMAIL CAPTURE -->
+        <div class="quiz-step hidden" data-step="capture">
+          <div id="quiz-progress-wrap-capture" class="mb-10">
+            <div class="flex justify-between text-xs text-muted mb-2">
+              <span>Almost there!</span>
+              <span>100%</span>
+            </div>
+            <div class="w-full bg-surface rounded-full h-1.5">
+              <div class="h-1.5 rounded-full" style="width: 100%; background: #0d9488;"></div>
+            </div>
+          </div>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-4 leading-snug">
+            Your results are ready.
+          </h2>
+          <p class="text-muted text-base mb-8">
+            Enter your name and email to reveal your personalized Strategic Reset profile and your recommended next step.
+          </p>
+          <form id="quiz-capture-form" class="space-y-5" novalidate>
+            <div>
+              <label for="quiz-name" class="block text-muted text-sm mb-2">First Name</label>
+              <input
+                type="text"
+                id="quiz-name"
+                name="name"
+                required
+                placeholder="Your first name"
+                class="w-full bg-surface border border-border rounded-md px-4 py-3 text-light placeholder-muted focus:outline-none focus:border-teal-DEFAULT transition-colors"
+              />
+            </div>
+            <div>
+              <label for="quiz-email" class="block text-muted text-sm mb-2">Email Address</label>
+              <input
+                type="email"
+                id="quiz-email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                class="w-full bg-surface border border-border rounded-md px-4 py-3 text-light placeholder-muted focus:outline-none focus:border-teal-DEFAULT transition-colors"
+              />
+            </div>
+            <p class="text-muted text-xs">No spam. Ever. Your information is used only to deliver your results and relevant updates from Strategic Transformations.</p>
+            <button type="submit" class="btn-teal w-full text-center justify-center">
+              Reveal My Profile &rarr;
+            </button>
+          </form>
+        </div>
+
+      </div><!-- end quiz-questions -->
+
+
+      <!-- ─── RESULTS ──────────────────────────────── -->
+      <div id="quiz-results" class="hidden">
+
+        <!-- Result A: Overwhelmed Operator (5-7) -->
+        <div class="quiz-result hidden" data-profile="overwhelmed">
+          <div class="text-center mb-10">
+            <span class="st-tag mb-4 inline-flex">Your Strategic Reset Profile</span>
+            <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
+              You are <span class="text-teal-DEFAULT">The Overwhelmed Operator.</span>
+            </h2>
+            <p class="text-muted text-base max-w-xl mx-auto leading-relaxed">
+              You are carrying an invisible load, and the pressure to "figure out AI" on top of a career transition is exhausting. You are not behind. You are just at capacity. The Strategic Reset Intensive is designed exactly for this moment. It is a space to stop reacting, catch your breath, and build a personal strategy that actually fits your life.
+            </p>
+          </div>
+          <div class="card border-teal-DEFAULT/30 p-8 mb-8 text-center">
+            <p class="text-teal-DEFAULT text-sm uppercase tracking-widest mb-3 font-bold">What This Means For You</p>
+            <p class="text-muted text-sm leading-relaxed max-w-lg mx-auto">
+              Before you can build a strategy, you need space to think clearly. The SRI gives you that space, a structured reset, and a personal AI toolkit you can actually use without adding to your overwhelm.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href={sriApplyUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8 inline-flex">
+              Apply for the Strategic Reset Intensive &rarr;
+            </a>
+            <p class="text-muted text-xs mt-4">Limited seats available. Applications are reviewed personally by Nikki Cates.</p>
+          </div>
+        </div>
+
+        <!-- Result B: Curious Contributor (8-11) -->
+        <div class="quiz-result hidden" data-profile="curious">
+          <div class="text-center mb-10">
+            <span class="st-tag mb-4 inline-flex">Your Strategic Reset Profile</span>
+            <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
+              You are <span class="text-teal-DEFAULT">The Curious Contributor.</span>
+            </h2>
+            <p class="text-muted text-base max-w-xl mx-auto leading-relaxed">
+              You see the shift. You know the rules of the economy are changing and you know you need to pivot, but you are stuck on the "how." You have the ambition, but you lack the blueprint. The Strategic Reset Intensive will give you the exact framework you need to move from curiosity to execution, including how to use AI tools for your own career leverage.
+            </p>
+          </div>
+          <div class="card border-teal-DEFAULT/30 p-8 mb-8 text-center">
+            <p class="text-teal-DEFAULT text-sm uppercase tracking-widest mb-3 font-bold">What This Means For You</p>
+            <p class="text-muted text-sm leading-relaxed max-w-lg mx-auto">
+              You do not need more information. You need a structured plan and a room full of women who are building alongside you. The SRI is that room.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href={sriApplyUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8 inline-flex">
+              Apply for the Strategic Reset Intensive &rarr;
+            </a>
+            <p class="text-muted text-xs mt-4">Limited seats available. Applications are reviewed personally by Nikki Cates.</p>
+          </div>
+        </div>
+
+        <!-- Result C: Strategic Architect (12-15) -->
+        <div class="quiz-result hidden" data-profile="architect">
+          <div class="text-center mb-10">
+            <span class="st-tag mb-4 inline-flex">Your Strategic Reset Profile</span>
+            <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
+              You are <span class="text-teal-DEFAULT">The Strategic Architect.</span>
+            </h2>
+            <p class="text-muted text-base max-w-xl mx-auto leading-relaxed">
+              You are already ahead of the curve. You are moving strategically and using the tools available to you. But in an unstable economy, a good plan needs to be stress-tested. The Strategic Reset Intensive is the room you need to refine your economic positioning, upgrade your AI workflows, and build alongside other high-performing women who are playing at your level.
+            </p>
+          </div>
+          <div class="card border-teal-DEFAULT/30 p-8 mb-8 text-center">
+            <p class="text-teal-DEFAULT text-sm uppercase tracking-widest mb-3 font-bold">What This Means For You</p>
+            <p class="text-muted text-sm leading-relaxed max-w-lg mx-auto">
+              You do not need a starting point. You need a proving ground. The SRI gives you the strategic friction and peer-level accountability to take your plan from good to unshakeable.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href={sriApplyUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8 inline-flex">
+              Apply for the Strategic Reset Intensive &rarr;
+            </a>
+            <p class="text-muted text-xs mt-4">Limited seats available. Applications are reviewed personally by Nikki Cates.</p>
+          </div>
+        </div>
+
+      </div><!-- end quiz-results -->
+
+    </div>
+  </section>
+
+
+  <!-- ─── STYLES ───────────────────────────────────── -->
+  <style>
+    .quiz-option {
+      display: block;
+      cursor: pointer;
+    }
+    .quiz-option-inner {
+      display: block;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--color-border, #1e293b);
+      border-radius: 0.5rem;
+      color: var(--color-muted, #94a3b8);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+      background: var(--color-surface, #0f172a);
+    }
+    .quiz-option:hover .quiz-option-inner {
+      border-color: #0d9488;
+      color: #e2e8f0;
+    }
+    .quiz-option.selected .quiz-option-inner {
+      border-color: #0d9488;
+      background: rgba(13,148,136,0.08);
+      color: #e2e8f0;
+    }
+    .hidden { display: none; }
+  </style>
+
+
+  <!-- ─── QUIZ LOGIC ───────────────────────────────── -->
+  <script define:vars={{ GHL_WEBHOOK_URL }}>
+    const answers = {};
+
+    function updateProgress(step) {
+      const steps = ['1','2','3','4','5'];
+      const idx = steps.indexOf(String(step));
+      const pct = idx < 0 ? 100 : Math.round((idx / 5) * 100);
+      const bar = document.getElementById('progress-bar');
+      const label = document.getElementById('progress-label');
+      const pctEl = document.getElementById('progress-pct');
+      if (bar) bar.style.width = pct + '%';
+      if (label) label.textContent = idx >= 0 ? `Question ${idx + 1} of 5` : 'Almost there!';
+      if (pctEl) pctEl.textContent = pct + '%';
+    }
+
+    function showStep(step) {
+      document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+      const target = document.querySelector(`.quiz-step[data-step="${step}"]`);
+      if (target) {
+        target.classList.remove('hidden');
+        updateProgress(step);
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+      }
+    }
+
+    // Option selection
+    document.querySelectorAll('.quiz-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const step = option.closest('.quiz-step').dataset.step;
+        const val = option.dataset.value;
+        answers[`q${step}`] = parseInt(val);
+
+        // Deselect siblings
+        option.closest('.space-y-4').querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+        option.classList.add('selected');
+
+        // Enable next button
+        const nextBtn = option.closest('.quiz-step').querySelector('.quiz-next');
+        if (nextBtn) nextBtn.removeAttribute('disabled');
+      });
+    });
+
+    // Next buttons
+    document.querySelectorAll('.quiz-next').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const next = btn.dataset.next;
+        showStep(next);
+      });
+    });
+
+    // Back buttons
+    document.querySelectorAll('.quiz-back').forEach(btn => {
+      btn.addEventListener('click', () => {
+        showStep(btn.dataset.back);
+      });
+    });
+
+    // Email capture form submission
+    document.getElementById('quiz-capture-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('quiz-name').value.trim();
+      const email = document.getElementById('quiz-email').value.trim();
+      if (!name || !email) return;
+
+      const score = Object.values(answers).reduce((a, b) => a + b, 0);
+      let profile = 'overwhelmed';
+      if (score >= 12) profile = 'architect';
+      else if (score >= 8) profile = 'curious';
+
+      // ─── GHL WEBHOOK SUBMISSION ──────────────────────────────────────────────
+      // Replace GHL_WEBHOOK_URL with your actual GHL webhook once transfer is done.
+      if (GHL_WEBHOOK_URL && GHL_WEBHOOK_URL !== 'REPLACE_WITH_GHL_WEBHOOK_URL') {
+        try {
+          await fetch(GHL_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, score, profile, source: 'AI Readiness Quiz' }),
+          });
+        } catch (err) {
+          console.warn('Webhook submission failed:', err);
+        }
+      }
+      // ─────────────────────────────────────────────────────────────────────────
+
+      // Show results
+      document.getElementById('quiz-questions').classList.add('hidden');
+      document.getElementById('quiz-progress-wrap').classList.add('hidden');
+      const resultsEl = document.getElementById('quiz-results');
+      resultsEl.classList.remove('hidden');
+      document.querySelectorAll('.quiz-result').forEach(r => r.classList.add('hidden'));
+      const resultEl = document.querySelector(`.quiz-result[data-profile="${profile}"]`);
+      if (resultEl) {
+        resultEl.classList.remove('hidden');
+        window.scrollTo({ top: resultsEl.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      }
+    });
+  </script>
+
+</Layout>
