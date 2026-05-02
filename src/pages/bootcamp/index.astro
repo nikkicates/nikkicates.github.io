@@ -1,12 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const calendarUrl = 'https://calendar.app.google/YaQcyx167QvkeGaD9';
+const calendarUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
 ---
 
 <Layout
   title="The Frictionless Manager Bootcamp | Strategic Transformations"
-  description="A strategic bootcamp for organizations helping middle managers lead through AI adoption without structural breakdown. Diagnose the friction before it costs you your best people."
+  description="A full-day strategic bootcamp for organizations helping middle managers lead through AI adoption without structural breakdown. Diagnose the friction before it costs you your best people."
   section="st"
   accentColor="teal"
 >
@@ -18,39 +18,80 @@ const calendarUrl = 'https://calendar.app.google/YaQcyx167QvkeGaD9';
     <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background: linear-gradient(to bottom, transparent 5%, #0d9488 25%, #0d9488 75%, transparent 95%);"></div>
 
     <div class="container-wide relative z-10 py-20 md:py-28">
-      <div class="max-w-4xl">
-        <div class="flex flex-wrap items-center gap-3 mb-6">
-          <span class="st-tag inline-flex">Strategic Transformations</span>
-          <span class="text-[10px] uppercase tracking-[0.24em] text-muted border border-border rounded-full px-3 py-1">
-            B2O · Organizations &amp; Leadership Teams
-          </span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+        <!-- Left: Core message -->
+        <div class="lg:col-span-7">
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="st-tag inline-flex">Strategic Transformations</span>
+            <span class="text-[10px] uppercase tracking-[0.24em] text-muted border border-border rounded-full px-3 py-1">
+              B2O · Organizations &amp; Leadership Teams
+            </span>
+          </div>
+          <h1 class="font-heading font-bold text-light leading-[1.06] mb-6 animate-on-scroll" style="font-size: clamp(2.4rem, 5.5vw, 4.2rem);">
+            The Frictionless<br/>
+            <span class="text-teal-DEFAULT">Manager Bootcamp</span>
+          </h1>
+          <p class="font-body text-xl text-light leading-relaxed mb-4 max-w-2xl animate-on-scroll" style="animation-delay:0.08s">
+            Your managers are not failing. Your structure is.
+          </p>
+          <p class="font-body text-lg text-muted leading-relaxed mb-4 max-w-2xl animate-on-scroll" style="animation-delay:0.12s">
+            AI adoption is not a technology problem. It is a people architecture problem. When you deploy AI into a structure that is already strained, you do not reduce friction. You accelerate it.
+          </p>
+          <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl animate-on-scroll" style="animation-delay:0.16s">
+            The Frictionless Manager Bootcamp is a single, intensive full-day experience that equips your middle managers with the diagnostic tools, decision frameworks, and structural clarity they need to lead through AI adoption without burning out, checking out, or taking your best people with them.
+          </p>
+          <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+            <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-7">
+              Book an Executive Briefing
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="#who-this-is-for" class="btn-outline-teal text-base !py-3.5">
+              Is This Right for Your Organization?
+            </a>
+          </div>
         </div>
-        <h1 class="font-heading font-bold text-light leading-[1.06] mb-6 animate-on-scroll" style="font-size: clamp(2.4rem, 5.5vw, 4.2rem);">
-          The Frictionless<br/>
-          <span class="text-teal-DEFAULT">Manager Bootcamp</span>
-        </h1>
-        <p class="font-body text-xl text-light leading-relaxed mb-4 max-w-3xl animate-on-scroll" style="animation-delay:0.08s">
-          Your managers are not failing. Your structure is.
-        </p>
-        <p class="font-body text-lg text-muted leading-relaxed mb-4 max-w-3xl animate-on-scroll" style="animation-delay:0.12s">
-          AI adoption is not a technology problem. It is a people architecture problem. When you deploy AI into a structure that is already strained, you do not reduce friction. You accelerate it.
-        </p>
-        <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-3xl animate-on-scroll" style="animation-delay:0.16s">
-          The Frictionless Manager Bootcamp equips your middle managers with the diagnostic tools, decision frameworks, and structural clarity they need to lead through AI adoption without burning out, checking out, or taking your best people with them.
-        </p>
-        <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
-          <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-7">
-            Book an Executive Briefing
-            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-          </a>
-          <a href="#who-this-is-for" class="btn-outline-teal text-base !py-3.5">
-            Is This Right for Your Organization?
-          </a>
+
+        <!-- Right: Event format card -->
+        <div class="lg:col-span-5 animate-on-scroll" style="animation-delay:0.25s">
+          <div class="card border-teal-DEFAULT/30 p-8">
+            <p class="font-heading text-light text-lg font-semibold mb-6">The Bootcamp at a Glance</p>
+            <div class="space-y-4">
+              {[
+                { label: 'Format', value: 'One full day, in-person or virtual' },
+                { label: 'IRL Location', value: 'Orlando, FL (additional cities coming soon)' },
+                { label: 'Schedule', value: 'Alternating in-person and virtual cohorts' },
+                { label: 'Who Attends', value: 'Middle managers and their leadership teams' },
+                { label: 'Group Size', value: 'Limited to ensure depth of engagement' },
+                { label: 'Outcome', value: 'Structural clarity and a 90-day action plan' },
+              ].map((item) => (
+                <div class="flex gap-4 border-b border-border pb-4 last:border-0 last:pb-0">
+                  <p class="text-teal-DEFAULT text-xs uppercase tracking-widest font-bold shrink-0 w-28 pt-0.5">{item.label}</p>
+                  <p class="text-muted text-sm leading-relaxed">{item.value}</p>
+                </div>
+              ))}
+            </div>
+            <div class="mt-6 pt-6 border-t border-border">
+              <p class="text-muted text-xs italic">Pricing is proposal-based and scoped during the Executive Briefing. All engagements begin with a qualifying conversation.</p>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
     <div class="absolute bottom-0 left-0 right-0 h-28" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
   </section>
+
+
+  <!-- ─── PHOTO BREAK 1 ─────────────────────────────── -->
+  <div class="w-full h-64 md:h-80 overflow-hidden">
+    <img
+      src="/images/bootcamp/bootcamp-team-1.jpg"
+      alt="Diverse professional team collaborating in a modern workplace"
+      class="w-full h-full object-cover object-center opacity-80"
+      loading="lazy"
+    />
+  </div>
 
 
   <!-- ─── THE REAL PROBLEM ──────────────────────────── -->
@@ -88,15 +129,18 @@ const calendarUrl = 'https://calendar.app.google/YaQcyx167QvkeGaD9';
       <div class="text-center mb-14 animate-on-scroll">
         <span class="st-tag mb-4 inline-flex">What the Bootcamp Delivers</span>
         <h2 class="font-heading text-3xl md:text-4xl text-light">
-          From friction to frictionless. Here is how.
+          From friction to frictionless. In one day.
         </h2>
+        <p class="text-muted text-sm mt-3 max-w-lg mx-auto">
+          The full-day experience is structured to move your team from diagnosis to direction before they leave the room.
+        </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {[
           {
             num: '01',
             title: 'Structural Strain Diagnosis',
-            desc: 'Before any training begins, we run a structural diagnostic using the UNMASK Framework to identify where friction is actually coming from. No assumptions. No guesswork.',
+            desc: 'Using the UNMASK Framework, we identify where friction is actually coming from in your organization. No assumptions. No guesswork. Real structural data.',
           },
           {
             num: '02',
@@ -111,7 +155,7 @@ const calendarUrl = 'https://calendar.app.google/YaQcyx167QvkeGaD9';
           {
             num: '04',
             title: 'Human Sustainability Framework',
-            desc: 'AI adoption that does not account for human capacity will fail. Managers learn to pace transformation around the structure that must carry it, not just the timeline that demands it.',
+            desc: 'AI adoption that does not account for human capacity will fail. Managers learn to pace transformation around the structure that must carry it.',
           },
           {
             num: '05',
@@ -120,8 +164,8 @@ const calendarUrl = 'https://calendar.app.google/YaQcyx167QvkeGaD9';
           },
           {
             num: '06',
-            title: 'Implementation Roadmap',
-            desc: 'Every organization leaves with a 90-day structural action plan, not a binder of best practices. Specific. Prioritized. Built for your context.',
+            title: '90-Day Action Plan',
+            desc: 'Every organization leaves with a specific, prioritized 90-day structural action plan built for their context. Not a binder of best practices. A real roadmap.',
           },
         ].map((item) => (
           <div class="card teal-hover animate-on-scroll">
@@ -133,6 +177,17 @@ const calendarUrl = 'https://calendar.app.google/YaQcyx167QvkeGaD9';
       </div>
     </div>
   </section>
+
+
+  <!-- ─── PHOTO BREAK 2 ─────────────────────────────── -->
+  <div class="w-full h-64 md:h-80 overflow-hidden">
+    <img
+      src="/images/bootcamp/bootcamp-presenter.jpg"
+      alt="Professional woman presenting to a leadership team in a modern conference room"
+      class="w-full h-full object-cover object-center opacity-80"
+      loading="lazy"
+    />
+  </div>
 
 
   <!-- ─── WHO THIS IS FOR ───────────────────────────── -->
@@ -191,53 +246,59 @@ const calendarUrl = 'https://calendar.app.google/YaQcyx167QvkeGaD9';
   </section>
 
 
-  <!-- ─── FORMATS ───────────────────────────────────── -->
+  <!-- ─── PHOTO BREAK 3 ─────────────────────────────── -->
+  <div class="w-full h-64 md:h-80 overflow-hidden">
+    <img
+      src="/images/bootcamp/bootcamp-workshop.jpg"
+      alt="Diverse team engaged in a collaborative leadership workshop"
+      class="w-full h-full object-cover object-center opacity-80"
+      loading="lazy"
+    />
+  </div>
+
+
+  <!-- ─── DELIVERY FORMAT ───────────────────────────── -->
   <section class="section-pad relative overflow-hidden">
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13,148,136,0.05) 0%, transparent 65%);"></div>
-    <div class="container-wide relative z-10">
+    <div class="container-mid relative z-10">
       <div class="text-center mb-14 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">Delivery Formats</span>
+        <span class="st-tag mb-4 inline-flex">Delivery Format</span>
         <h2 class="font-heading text-3xl md:text-4xl text-light">
-          Built for how your organization actually works.
+          One day. Two ways to experience it.
         </h2>
+        <p class="text-muted text-sm mt-3 max-w-lg mx-auto">
+          The Frictionless Manager Bootcamp alternates between in-person and virtual cohorts so your team can participate in the format that works best for them.
+        </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
         {[
           {
-            tag: 'Format 01',
-            name: 'Half-Day Intensive',
-            duration: '4 Hours',
-            desc: 'A focused, high-impact session for leadership teams that need structural clarity fast. Includes pre-work diagnostic and a 30-day action plan.',
-            best: 'Best for: Organizations in early AI planning stages',
+            tag: 'In-Person',
+            name: 'Orlando, FL',
+            icon: '📍',
+            desc: 'The full-day bootcamp hosted live in Orlando, Florida. Designed for high-impact, in-room engagement with your leadership team. Additional cities will be added as cohorts grow.',
+            note: 'Additional IRL locations coming soon.',
           },
           {
-            tag: 'Format 02',
-            name: 'Full Bootcamp Experience',
-            duration: '2 Days',
-            desc: 'The complete bootcamp. Structural diagnostic, decision rights mapping, load path analysis, and a full 90-day implementation roadmap. Built for teams in active adoption.',
-            best: 'Best for: Organizations mid-adoption experiencing friction or attrition',
+            tag: 'Virtual',
+            name: 'Live Online Cohort',
+            icon: '💻',
+            desc: 'The same full-day experience delivered virtually. Structured for real engagement, not passive viewing. Includes all diagnostic tools, frameworks, and the 90-day action plan.',
+            note: 'Alternates with in-person cohorts throughout the year.',
             featured: true,
-          },
-          {
-            tag: 'Format 03',
-            name: 'Embedded Advisory Add-On',
-            duration: '90 Days',
-            desc: 'The bootcamp plus embedded strategic support as your team implements. Monthly check-ins, course corrections, and accountability built in.',
-            best: 'Best for: Organizations that want implementation support, not just a plan',
           },
         ].map((item) => (
           <div class={`card flex flex-col animate-on-scroll ${item.featured ? 'border-teal-DEFAULT/50 bg-teal-DEFAULT/5' : 'teal-hover'}`}>
-            {item.featured && <span class="st-tag mb-3 inline-flex self-start">Most Requested</span>}
+            <span class="text-3xl mb-4 block">{item.icon}</span>
             <p class="text-teal-DEFAULT text-xs uppercase tracking-[0.22em] mb-2">{item.tag}</p>
-            <p class="font-heading text-light text-2xl mb-1">{item.name}</p>
-            <p class="text-muted text-xs uppercase tracking-widest mb-4">{item.duration}</p>
+            <p class="font-heading text-light text-2xl mb-4">{item.name}</p>
             <p class="text-muted text-sm leading-relaxed mb-4 flex-1">{item.desc}</p>
-            <p class="text-teal-DEFAULT text-xs font-semibold">{item.best}</p>
+            <p class="text-teal-DEFAULT/70 text-xs italic">{item.note}</p>
           </div>
         ))}
       </div>
-      <p class="text-center text-muted text-sm mt-8">
-        All formats are proposal-based and scoped during the Executive Briefing. Pricing is available upon request.
+      <p class="text-center text-muted text-sm mt-8 max-w-xl mx-auto">
+        All engagements are proposal-based and scoped during the Executive Briefing. Pricing and available cohort dates are shared at that time.
       </p>
     </div>
   </section>
