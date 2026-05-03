@@ -17,8 +17,8 @@ import Layout from '../../layouts/Layout.astro';
     <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
 
     <div class="container-wide relative z-10 py-24">
-      <div class="max-w-3xl">
-        <span class="st-tag mb-6 inline-flex">Strategic Transformations</span>
+      <div class="max-w-3xl text-center lg:text-left">
+        <span class="st-tag mb-6 inline-flex mx-auto lg:mx-0">Strategic Transformations</span>
         <h1 class="font-heading text-5xl md:text-7xl text-light font-bold leading-tight mb-6 animate-on-scroll">
           Burnout is a<br/>
           <span class="text-teal-DEFAULT italic">Design Flaw.</span>
@@ -26,12 +26,12 @@ import Layout from '../../layouts/Layout.astro';
         <p class="text-muted text-xl leading-relaxed mb-4 animate-on-scroll" style="animation-delay:0.1s">
           Your people aren't the problem. <strong class="text-light">Your structure is.</strong>
         </p>
-        <p class="text-muted text-base leading-relaxed max-w-2xl mb-10 animate-on-scroll" style="animation-delay:0.15s">
+        <p class="text-muted text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10 animate-on-scroll" style="animation-delay:0.15s">
           Strategic Transformations is a structural burnout consultancy that helps organizations identify, name, and
           dismantle the invisible architectures burning through their most committed talent before the cost becomes
           catastrophic.
         </p>
-        <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+        <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-on-scroll" style="animation-delay:0.2s">
           <a href="/structural-burnout/services" class="btn-teal">View Services & Pricing</a>
           <a href="/structural-burnout/briefing" class="btn-outline-teal">Request Executive Briefing</a>
         </div>
@@ -174,7 +174,7 @@ import Layout from '../../layouts/Layout.astro';
           { icon: '🏫', label: 'Higher Education', desc: 'Universities and academic institutions confronting faculty and staff attrition.' },
           { icon: '💰', label: 'Impact Investors', desc: 'Investors backing scalable solutions at the intersection of leadership and systems change.' },
         ].map((item) => (
-          <div class="card teal-hover animate-on-scroll">
+          <div class="card teal-hover text-center animate-on-scroll">
             <span class="text-2xl block mb-3">{item.icon}</span>
             <p class="font-heading text-light font-semibold text-sm mb-2">{item.label}</p>
             <p class="text-muted text-sm">{item.desc}</p>

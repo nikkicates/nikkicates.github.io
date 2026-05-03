@@ -17,8 +17,8 @@ import Layout from '../../layouts/Layout.astro';
     <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gold"></div>
 
     <div class="container-wide relative z-10 py-24">
-      <div class="max-w-3xl">
-        <span class="uri-tag mb-6 inline-flex animate-on-scroll">
+      <div class="max-w-3xl text-center lg:text-left">
+        <span class="uri-tag mb-6 inline-flex mx-auto lg:mx-0 animate-on-scroll">
           Unbothered Resistance International
         </span>
         <h1 class="font-heading text-5xl md:text-7xl text-light font-bold leading-tight mb-6 animate-on-scroll">
@@ -29,14 +29,14 @@ import Layout from '../../layouts/Layout.astro';
         <p class="text-muted text-xl leading-relaxed mb-4 animate-on-scroll" style="animation-delay:0.1s">
           This is not a motivational program. This is formation work.
         </p>
-        <p class="text-muted text-base leading-relaxed max-w-2xl mb-10 animate-on-scroll" style="animation-delay:0.15s">
+        <p class="text-muted text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10 animate-on-scroll" style="animation-delay:0.15s">
           URI sits at the intersection of <span class="text-light font-semibold">womanist theology</span>,
           <span class="text-light font-semibold">structural analysis</span>, and
           <span class="text-light font-semibold">liberation ethics</span> - forging leaders
           who understand that justice is not a program initiative. It is the theological work of
           right relationship. With people. With structure. With Spirit.
         </p>
-        <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+        <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-on-scroll" style="animation-delay:0.2s">
           <a href="#offerings" class="btn-gold">Explore Formation Tiers</a>
           <a href="#vetting" class="btn-outline-gold">Request Speaking Engagement</a>
         </div>
@@ -49,23 +49,23 @@ import Layout from '../../layouts/Layout.astro';
   <section class="section-pad relative" style="background: linear-gradient(180deg, #0d0718 0%, #100820 100%);">
     <div class="container-mid">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div class="animate-on-scroll">
-          <span class="uri-tag mb-5 inline-flex">What URI Is</span>
+        <div class="text-center md:text-left animate-on-scroll">
+          <span class="uri-tag mb-5 inline-flex mx-auto md:mx-0">What URI Is</span>
           <h2 class="font-heading text-3xl md:text-4xl text-light mb-5">
             The values layer<br/>beneath everything.
           </h2>
-          <p class="text-muted leading-relaxed mb-4">
+          <p class="text-muted leading-relaxed mb-4 max-w-xl mx-auto md:mx-0">
             URI is not a co-brand or a side project. It is the theological and ethical foundation
             from which all of Nikki Cates's work flows. Where Strategic Transformations addresses
             organizational structure, URI addresses the formation of the people who inhabit those structures.
           </p>
-          <p class="text-muted leading-relaxed mb-4">
+          <p class="text-muted leading-relaxed mb-4 max-w-xl mx-auto md:mx-0">
             Rooted in womanist theology and liberation ethics, URI operates from the premise that
             sustainable leadership is <em class="not-italic text-light">covenantal</em> - bound to
             right relationship with community, self, and the God who wades through the waters with
             the most marginalized.
           </p>
-          <p class="text-muted leading-relaxed">
+          <p class="text-muted leading-relaxed max-w-xl mx-auto md:mx-0">
             URI is for leaders willing to be formed, not just trained. To be examined, not just equipped.
             To do the hard, holy work of asking: <em class="not-italic text-gold font-semibold">"Whose liberation is this work actually serving?"</em>
           </p>
@@ -117,7 +117,7 @@ import Layout from '../../layouts/Layout.astro';
             desc: 'Women, BIPOC leaders, and those from marginalized communities are often pushed to lead - without the formation, support, or structural transformation that would make their leadership sustainable.',
           },
         ].map((card) => (
-          <div class="card gold-hover animate-on-scroll">
+          <div class="card gold-hover text-center animate-on-scroll">
             <p class="font-heading text-gold font-semibold mb-3">{card.label}</p>
             <p class="text-muted text-sm leading-relaxed">{card.desc}</p>
           </div>
