@@ -3,17 +3,40 @@ import Layout from '../../layouts/Layout.astro';
 
 const sriApplyUrl = 'https://unmask.nikkicates.com/reset-inquiry';
 
+// ─── BOOTCAMP CTA URL PLACEHOLDERS ────────────────────────────────────────────
+// Replace the values below post-launch with the published Bootcamp registration
+// URL and the Executive Brief PDF download URL. The Executive Briefing URL
+// matches the calendar link on the existing /bootcamp page.
+// Example: 'https://strategictransformations.net/bootcamp/register'
+const bootcampRegisterUrl = 'REPLACE_WITH_BOOTCAMP_REGISTER_URL';
+const executiveBriefPdfUrl = 'REPLACE_WITH_EXECUTIVE_BRIEF_PDF_URL';
+const bootcampBriefingUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
+// ──────────────────────────────────────────────────────────────────────────────
+
 // ─── GHL WEBHOOK PLACEHOLDER ──────────────────────────────────────────────────
 // Replace the value below with your GHL webhook URL once the account transfer
-// is complete. The quiz will POST { name, email, score, profile } to this URL.
+// is complete. The quiz will POST the full payload (see script block at the
+// bottom of this file) to this URL: { name, email, track, score, profile,
+// source, source_variant, answers, unmask_flags, recommended_next_step,
+// secondary_path, submitted_at, page_url }.
 // Example: 'https://hooks.gohighlevel.com/hooks/catch/XXXXXXXX/YYYYYYYY/'
 const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
+// ──────────────────────────────────────────────────────────────────────────────
+
+// ─── SABBATH PROTECTION NOTE ──────────────────────────────────────────────────
+// The webhook submission below fires in real time on form submit so the user
+// receives their results immediately. Real-time result delivery is not an
+// automation trigger and is not subject to Sabbath delay.
+// Downstream automations in GHL (welcome email, nurture sequence, sales
+// outreach) MUST be configured at the GHL workflow level with a "Wait until"
+// step that holds outbound sends from Friday sundown to Saturday sundown.
+// This is enforced in GHL, not in this file.
 // ──────────────────────────────────────────────────────────────────────────────
 ---
 
 <Layout
-  title="AI Readiness Quiz | Strategic Reset Intensive | Strategic Transformations"
-  description="Find out exactly where you stand in navigating AI and your next career move. Take the free 5-question quiz and get your personalized Strategic Reset profile."
+  title="AI Readiness Quiz | Strategic Transformations"
+  description="Find out exactly where you stand in navigating AI, your team, and your next move. Take the free quiz and get your personalized profile in under 3 minutes."
   section="st"
   accentColor="teal"
 >
@@ -24,13 +47,13 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 65% 45%, rgba(13,148,136,0.08) 0%, transparent 65%);"></div>
     <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background: linear-gradient(to bottom, transparent 5%, #0d9488 25%, #0d9488 75%, transparent 95%);"></div>
     <div class="container-wide relative z-10 py-20 md:py-24 text-center">
-      <span class="st-tag mb-5 inline-flex">Strategic Reset Intensive</span>
+      <span class="st-tag mb-5 inline-flex">AI Readiness Quiz</span>
       <h1 class="font-heading font-bold text-light leading-tight mb-5 animate-on-scroll" style="font-size: clamp(2rem, 5vw, 3.5rem);">
         How Ready Are You to Navigate<br/>
-        <span class="text-teal-DEFAULT">AI and Your Next Career Move?</span>
+        <span class="text-teal-DEFAULT">AI, Your Team, and What Comes Next?</span>
       </h1>
       <p class="font-body text-lg text-muted max-w-xl mx-auto mb-4 animate-on-scroll">
-        5 questions. Less than 2 minutes. Your personalized Strategic Reset profile is waiting.
+        6 questions. Less than 3 minutes. Your personalized profile is waiting.
       </p>
       <p class="text-muted text-sm max-w-md mx-auto">
         No fluff. No generic advice. Just an honest look at where you are so we can meet you there.
@@ -44,8 +67,8 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
   <section class="section-pad bg-[#0f172a]">
     <div class="container-wide max-w-2xl mx-auto">
 
-      <!-- PROGRESS BAR -->
-      <div id="quiz-progress-wrap" class="mb-10">
+      <!-- PROGRESS BAR (hidden on gate, shown from Q1 onward) -->
+      <div id="quiz-progress-wrap" class="mb-10 hidden">
         <div class="flex justify-between text-xs text-muted mb-2">
           <span id="progress-label">Question 1 of 5</span>
           <span id="progress-pct">0%</span>
@@ -58,48 +81,205 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
       <!-- QUESTIONS WRAPPER -->
       <div id="quiz-questions">
 
-        <!-- Q1 -->
-        <div class="quiz-step" data-step="1">
+        <!-- ─── GATE QUESTION ─────────────────────────────────────────────── -->
+        <div class="quiz-step" data-step="gate">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Before we start</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            Where are you standing today?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="A">
+              <input type="radio" name="gate" value="A" class="sr-only"/>
+              <span class="quiz-option-inner">I am leading or managing inside an organization, full-time, contract, or hybrid.</span>
+            </label>
+            <label class="quiz-option" data-value="B">
+              <input type="radio" name="gate" value="B" class="sr-only"/>
+              <span class="quiz-option-inner">I am between chapters, navigating a career transition, founder pivot, or rebuild.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-end">
+            <button class="btn-teal quiz-next" data-next="1" disabled>Continue &rarr;</button>
+          </div>
+        </div>
+
+        <!-- ─── TRACK A: MANAGER ──────────────────────────────────────────── -->
+
+        <!-- A-Q1: RAA + ITC (Responsibility-Authority Asymmetry) -->
+        <div class="quiz-step hidden" data-step="1" data-track="A">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 1 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            When AI adoption decisions hit your desk, what is your actual authority to act on them?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="aq1" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">I am responsible for the rollout and the fallout, but I am not the one deciding what gets adopted, when, or why.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="aq1" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">I have some say, but I spend most of my energy translating between leadership intent and team reality.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="aq1" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">I have clear decision rights, and the structure around me supports the calls I need to make.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="gate">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="2" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- A-Q2: SSS (Structural Strain Score) -->
+        <div class="quiz-step hidden" data-step="2" data-track="A">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 2 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            How would you describe the structure your team is actually operating in right now?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="aq2" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">Strained. Roles are blurred, decision rights are unclear, and we are running on workarounds.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="aq2" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">Mixed. Some parts work, but every new initiative exposes a seam we have not fixed.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="aq2" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">Stable enough. The structure is not perfect, but it can carry change without breaking people.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="1">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="3" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- A-Q3: LMI (Leadership Masking Index) -->
+        <div class="quiz-step hidden" data-step="3" data-track="A">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 3 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            When you walk into a leadership meeting carrying real strain, what usually shows up?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="aq3" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">A composed version of me. I have learned that naming the strain costs more than carrying it.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="aq3" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">Some of it. I will name what I think is safe, and hold the rest.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="aq3" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">Most of it. I have built enough trust and structural standing to say what is actually happening.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="2">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="4" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- A-Q4: ABAI (AI Burnout Accelerator Index) -->
+        <div class="quiz-step hidden" data-step="4" data-track="A">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 4 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            How is AI adoption actually landing on your team's workload right now?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="aq4" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">It is adding load. People are learning new tools on top of full plates and the savings have not shown up yet.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="aq4" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">Mixed. A few people have found leverage. Most are still in the cost phase, not the gain phase.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="aq4" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">It is reducing load in measurable places, and we are reinvesting that capacity into higher-leverage work.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="3">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="5" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- A-Q5: Synthesis -->
+        <div class="quiz-step hidden" data-step="5" data-track="A">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 5 of 5</p>
+          <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
+            What is the one thing you most need to move forward with confidence?
+          </h2>
+          <div class="space-y-4">
+            <label class="quiz-option" data-value="1">
+              <input type="radio" name="aq5" value="1" class="sr-only"/>
+              <span class="quiz-option-inner">A structural diagnosis. I need to see what is actually breaking before I can fix anything.</span>
+            </label>
+            <label class="quiz-option" data-value="2">
+              <input type="radio" name="aq5" value="2" class="sr-only"/>
+              <span class="quiz-option-inner">A playbook. I have read enough. I need a clear, sequenced way to lead my team through this.</span>
+            </label>
+            <label class="quiz-option" data-value="3">
+              <input type="radio" name="aq5" value="3" class="sr-only"/>
+              <span class="quiz-option-inner">A peer room and a stress test. I have a plan. I need other operators at my level to sharpen it.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="4">&larr; Back</button>
+            <button class="btn-teal quiz-next" data-next="capture" disabled>See My Results &rarr;</button>
+          </div>
+        </div>
+
+
+        <!-- ─── TRACK B: TRANSITION (existing SRI questions, unchanged copy) ─── -->
+
+        <!-- B-Q1 -->
+        <div class="quiz-step hidden" data-step="1" data-track="B">
           <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 1 of 5</p>
           <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
             When you think about how AI is changing your industry, what is your primary feeling?
           </h2>
           <div class="space-y-4">
             <label class="quiz-option" data-value="1">
-              <input type="radio" name="q1" value="1" class="sr-only"/>
+              <input type="radio" name="bq1" value="1" class="sr-only"/>
               <span class="quiz-option-inner">Overwhelmed. I am already at capacity and this feels like another demand.</span>
             </label>
             <label class="quiz-option" data-value="2">
-              <input type="radio" name="q1" value="2" class="sr-only"/>
+              <input type="radio" name="bq1" value="2" class="sr-only"/>
               <span class="quiz-option-inner">Curious but stuck. I know I need to learn it, but I do not know where to start.</span>
             </label>
             <label class="quiz-option" data-value="3">
-              <input type="radio" name="q1" value="3" class="sr-only"/>
+              <input type="radio" name="bq1" value="3" class="sr-only"/>
               <span class="quiz-option-inner">Strategic. I am already using it, but I need to figure out how to leverage it for my next career move.</span>
             </label>
           </div>
-          <div class="mt-8 flex justify-end">
+          <div class="mt-8 flex justify-between">
+            <button class="btn-outline-teal quiz-back" data-back="gate">&larr; Back</button>
             <button class="btn-teal quiz-next" data-next="2" disabled>Next &rarr;</button>
           </div>
         </div>
 
-        <!-- Q2 -->
-        <div class="quiz-step hidden" data-step="2">
+        <!-- B-Q2 -->
+        <div class="quiz-step hidden" data-step="2" data-track="B">
           <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 2 of 5</p>
           <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
             How would you describe your current career transition status?
           </h2>
           <div class="space-y-4">
             <label class="quiz-option" data-value="1">
-              <input type="radio" name="q2" value="1" class="sr-only"/>
+              <input type="radio" name="bq2" value="1" class="sr-only"/>
               <span class="quiz-option-inner">I am reacting. The market shifted, my role changed, or I was laid off, and I am scrambling.</span>
             </label>
             <label class="quiz-option" data-value="2">
-              <input type="radio" name="q2" value="2" class="sr-only"/>
+              <input type="radio" name="bq2" value="2" class="sr-only"/>
               <span class="quiz-option-inner">I am exploring. I know I cannot stay where I am, but I do not have a clear exit strategy yet.</span>
             </label>
             <label class="quiz-option" data-value="3">
-              <input type="radio" name="q2" value="3" class="sr-only"/>
+              <input type="radio" name="bq2" value="3" class="sr-only"/>
               <span class="quiz-option-inner">I am building. I know what I want next, but I need to position myself in a shifting economy to get it.</span>
             </label>
           </div>
@@ -109,23 +289,23 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           </div>
         </div>
 
-        <!-- Q3 -->
-        <div class="quiz-step hidden" data-step="3">
+        <!-- B-Q3 -->
+        <div class="quiz-step hidden" data-step="3" data-track="B">
           <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 3 of 5</p>
           <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
             If you had to describe your current personal and professional strategy in one sentence, it would be:
           </h2>
           <div class="space-y-4">
             <label class="quiz-option" data-value="1">
-              <input type="radio" name="q3" value="1" class="sr-only"/>
+              <input type="radio" name="bq3" value="1" class="sr-only"/>
               <span class="quiz-option-inner">"I am just trying to survive the week."</span>
             </label>
             <label class="quiz-option" data-value="2">
-              <input type="radio" name="q3" value="2" class="sr-only"/>
+              <input type="radio" name="bq3" value="2" class="sr-only"/>
               <span class="quiz-option-inner">"I have a lot of ideas, but no structured plan to execute them."</span>
             </label>
             <label class="quiz-option" data-value="3">
-              <input type="radio" name="q3" value="3" class="sr-only"/>
+              <input type="radio" name="bq3" value="3" class="sr-only"/>
               <span class="quiz-option-inner">"I have a plan, but I need to stress-test it against the new economic realities."</span>
             </label>
           </div>
@@ -135,23 +315,23 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           </div>
         </div>
 
-        <!-- Q4 -->
-        <div class="quiz-step hidden" data-step="4">
+        <!-- B-Q4 -->
+        <div class="quiz-step hidden" data-step="4" data-track="B">
           <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 4 of 5</p>
           <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
             How are you currently using AI tools in your personal workflow?
           </h2>
           <div class="space-y-4">
             <label class="quiz-option" data-value="1">
-              <input type="radio" name="q4" value="1" class="sr-only"/>
+              <input type="radio" name="bq4" value="1" class="sr-only"/>
               <span class="quiz-option-inner">I am not. I do not trust it or I do not have time to figure it out.</span>
             </label>
             <label class="quiz-option" data-value="2">
-              <input type="radio" name="q4" value="2" class="sr-only"/>
+              <input type="radio" name="bq4" value="2" class="sr-only"/>
               <span class="quiz-option-inner">I use it occasionally for basic tasks, but I do not have a real system.</span>
             </label>
             <label class="quiz-option" data-value="3">
-              <input type="radio" name="q4" value="3" class="sr-only"/>
+              <input type="radio" name="bq4" value="3" class="sr-only"/>
               <span class="quiz-option-inner">I use it regularly, but I want to move from basic productivity to strategic leverage.</span>
             </label>
           </div>
@@ -161,23 +341,23 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           </div>
         </div>
 
-        <!-- Q5 -->
-        <div class="quiz-step hidden" data-step="5">
+        <!-- B-Q5 -->
+        <div class="quiz-step hidden" data-step="5" data-track="B">
           <p class="text-muted text-xs uppercase tracking-widest mb-3">Question 5 of 5</p>
           <h2 class="font-heading text-light text-2xl md:text-3xl mb-8 leading-snug">
             What is the number one thing you need right now to move forward with confidence?
           </h2>
           <div class="space-y-4">
             <label class="quiz-option" data-value="1">
-              <input type="radio" name="q5" value="1" class="sr-only"/>
+              <input type="radio" name="bq5" value="1" class="sr-only"/>
               <span class="quiz-option-inner">Space to breathe and a community that actually understands what I am carrying.</span>
             </label>
             <label class="quiz-option" data-value="2">
-              <input type="radio" name="q5" value="2" class="sr-only"/>
+              <input type="radio" name="bq5" value="2" class="sr-only"/>
               <span class="quiz-option-inner">A clear, step-by-step roadmap for my next chapter so I can stop guessing.</span>
             </label>
             <label class="quiz-option" data-value="3">
-              <input type="radio" name="q5" value="3" class="sr-only"/>
+              <input type="radio" name="bq5" value="3" class="sr-only"/>
               <span class="quiz-option-inner">Advanced tools and economic positioning strategies to make my next move my best move.</span>
             </label>
           </div>
@@ -187,7 +367,8 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           </div>
         </div>
 
-        <!-- EMAIL CAPTURE -->
+
+        <!-- EMAIL CAPTURE (shared across both tracks) -->
         <div class="quiz-step hidden" data-step="capture">
           <div id="quiz-progress-wrap-capture" class="mb-10">
             <div class="flex justify-between text-xs text-muted mb-2">
@@ -202,7 +383,7 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
             Your results are ready.
           </h2>
           <p class="text-muted text-base mb-8">
-            Enter your name and email to reveal your personalized Strategic Reset profile and your recommended next step.
+            Enter your name and email to reveal your personalized profile and your recommended next step.
           </p>
           <form id="quiz-capture-form" class="space-y-5" novalidate>
             <div>
@@ -240,8 +421,137 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
       <!-- ─── RESULTS ──────────────────────────────── -->
       <div id="quiz-results" class="hidden">
 
-        <!-- Result A: Overwhelmed Operator (5-7) -->
-        <div class="quiz-result hidden" data-profile="overwhelmed">
+        <!-- ─── TRACK A RESULTS ─────────────────────────────────────────── -->
+
+        <!-- Track A | Overwhelmed Manager (5-7) -->
+        <div class="quiz-result hidden" data-track="A" data-profile="overwhelmed">
+          <div class="text-center mb-10">
+            <span class="st-tag mb-4 inline-flex">Your Frictionless Manager Profile</span>
+            <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
+              You are <span class="text-teal-DEFAULT">The Overwhelmed Manager.</span>
+            </h2>
+            <p class="text-muted text-base max-w-xl mx-auto leading-relaxed">
+              You are not a struggling manager. You are a competent operator absorbing the structural cost of a system that is asking you to lead AI adoption without giving you the authority, the clarity, or the recovery time to do it well. The strain you are carrying is real, and most of it is not yours. It is structural. The fact that you are still showing up tells me everything I need to know about your standing. What you need next is not another framework. It is a diagnosis honest enough to name what is breaking and a room that does not require you to perform.
+            </p>
+          </div>
+
+          <!-- ─── LOAD-BEARING STAT (sourced) ────────────────────────────────
+               UNMASK frame: RAA + ITC. Source: The Economic Times reporting
+               on US corporate restructuring, 2026. Confirm citation copy
+               with Nikki before final publish. -->
+          <div class="card border-teal-DEFAULT/30 p-6 mb-8">
+            <p class="text-teal-DEFAULT text-xs uppercase tracking-widest mb-2 font-bold">UNMASK Pattern: RAA + ITC</p>
+            <p class="text-muted text-sm leading-relaxed">
+              Companies are actively removing middle management layers to fund AI investments. The managers still standing are carrying more responsibility, less authority, and the invisible coordination cost of teams that no longer have a structural home. You are not failing. You are bearing a structural asymmetry the org has not named.
+            </p>
+            <p class="text-muted text-xs mt-3 italic">Source: The Economic Times, 2026 reporting on US corporate restructuring.</p>
+          </div>
+
+          <div class="card border-teal-DEFAULT/30 p-8 mb-8 text-center">
+            <p class="text-teal-DEFAULT text-sm uppercase tracking-widest mb-3 font-bold">What This Means For You</p>
+            <p class="text-muted text-sm leading-relaxed max-w-lg mx-auto">
+              Before you can lead your team through anything, you need to see the architecture you are working inside. The Frictionless Manager Playbook Bootcamp gives you that diagnosis, the language to name it, and a 90-day plan that does not assume you have unlimited capacity to absorb more.
+            </p>
+          </div>
+          <div class="text-center space-y-4">
+            <a href={executiveBriefPdfUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8 inline-flex">
+              Download the Executive Brief &rarr;
+            </a>
+            <p class="text-muted text-xs">Free PDF. No call required. Read it on your own time.</p>
+            <p class="text-muted text-sm pt-4 border-t border-border max-w-md mx-auto">
+              When you are ready, the next Frictionless Manager Bootcamp cohort opens in September 2026.
+              <a href={bootcampRegisterUrl} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT hover:underline ml-1">See cohort details &rarr;</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Track A | Curious Manager (8-11) -->
+        <div class="quiz-result hidden" data-track="A" data-profile="curious">
+          <div class="text-center mb-10">
+            <span class="st-tag mb-4 inline-flex">Your Frictionless Manager Profile</span>
+            <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
+              You are <span class="text-teal-DEFAULT">The Curious Manager.</span>
+            </h2>
+            <p class="text-muted text-base max-w-xl mx-auto leading-relaxed">
+              You can see the friction clearly. You know AI is exposing structural problems your organization has not fixed, and you know your team is paying the cost of that gap. You have ideas, you have read the right things, and you have already tried more than people give you credit for. What you do not have yet is a sequenced playbook that fits the actual structure you are leading inside, and a peer room of other managers running the same diagnostic in real time. That is the gap the Bootcamp is built to close.
+            </p>
+          </div>
+
+          <!-- ─── LOAD-BEARING STAT (sourced) ────────────────────────────────
+               UNMASK frame: SSS + ABAI. Source: WRITER Enterprise AI Adoption
+               2026. Confirm citation copy with Nikki before final publish. -->
+          <div class="card border-teal-DEFAULT/30 p-6 mb-8">
+            <p class="text-teal-DEFAULT text-xs uppercase tracking-widest mb-2 font-bold">UNMASK Pattern: SSS + ABAI</p>
+            <p class="text-muted text-sm leading-relaxed">
+              <span class="text-light font-semibold">79%</span> of organizations report struggling to implement AI, and <span class="text-light font-semibold">54%</span> of executives say it is tearing their company apart. The structure is the variable. The Bootcamp is where you fix the variable instead of the people.
+            </p>
+            <p class="text-muted text-xs mt-3 italic">Source: WRITER Enterprise AI Adoption, 2026.</p>
+          </div>
+
+          <div class="card border-teal-DEFAULT/30 p-8 mb-8 text-center">
+            <p class="text-teal-DEFAULT text-sm uppercase tracking-widest mb-3 font-bold">What This Means For You</p>
+            <p class="text-muted text-sm leading-relaxed max-w-lg mx-auto">
+              You do not need more theory. You need a clear, ordered playbook you can run on Monday morning, with the diagnostic tools to know what to fix first and the language to bring leadership along with you.
+            </p>
+          </div>
+          <div class="text-center space-y-4">
+            <a href={bootcampRegisterUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8 inline-flex">
+              Register for the September 2026 Cohort &rarr;
+            </a>
+            <p class="text-muted text-xs">Limited seats available. Cohort begins September 2026.</p>
+            <p class="text-muted text-sm pt-4 border-t border-border max-w-md mx-auto">
+              Not ready to register?
+              <a href={executiveBriefPdfUrl} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT hover:underline ml-1">Download the Executive Brief &rarr;</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Track A | Strategic Manager (12-15) -->
+        <div class="quiz-result hidden" data-track="A" data-profile="strategic">
+          <div class="text-center mb-10">
+            <span class="st-tag mb-4 inline-flex">Your Frictionless Manager Profile</span>
+            <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
+              You are <span class="text-teal-DEFAULT">The Strategic Manager.</span>
+            </h2>
+            <p class="text-muted text-base max-w-xl mx-auto leading-relaxed">
+              You are not the manager looking for permission to lead. You are the operator who has already built something that works, and you are sharp enough to know that what works today will not survive what is coming. You are looking for a stress test, a peer room of other strategic operators, and a structural lens that lets you pressure-test the plan you already have. You are also, most likely, the person inside your organization who will decide whether your team gets a Bootcamp seat or not. Both of those conversations are the same room.
+            </p>
+          </div>
+
+          <!-- ─── LOAD-BEARING STAT (sourced) ────────────────────────────────
+               UNMASK frame: LMI. Source: WRITER Enterprise AI Adoption 2026.
+               Confirm citation copy with Nikki before final publish. -->
+          <div class="card border-teal-DEFAULT/30 p-6 mb-8">
+            <p class="text-teal-DEFAULT text-xs uppercase tracking-widest mb-2 font-bold">UNMASK Pattern: LMI</p>
+            <p class="text-muted text-sm leading-relaxed">
+              <span class="text-light font-semibold">73%</span> of CEOs report stress about AI strategy, with many fearing job loss if they fail to deliver. The strongest plans break first when the leader has nowhere to be honest. The Bootcamp is built to be that room.
+            </p>
+            <p class="text-muted text-xs mt-3 italic">Source: WRITER Enterprise AI Adoption, 2026.</p>
+          </div>
+
+          <div class="card border-teal-DEFAULT/30 p-8 mb-8 text-center">
+            <p class="text-teal-DEFAULT text-sm uppercase tracking-widest mb-3 font-bold">What This Means For You</p>
+            <p class="text-muted text-sm leading-relaxed max-w-lg mx-auto">
+              You do not need a starting point. You need a proving ground and a structural diagnostic you can run on your own organization. The Bootcamp is that room, whether you come as an individual operator or scope a cohort for your leadership team.
+            </p>
+          </div>
+          <div class="text-center space-y-4">
+            <a href={bootcampBriefingUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8 inline-flex">
+              Book an Executive Briefing &rarr;
+            </a>
+            <p class="text-muted text-xs">A qualifying conversation to scope a cohort for your team.</p>
+            <p class="text-muted text-sm pt-4 border-t border-border max-w-md mx-auto">
+              Coming as an individual operator?
+              <a href={bootcampRegisterUrl} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT hover:underline ml-1">See September 2026 cohort details &rarr;</a>
+            </p>
+          </div>
+        </div>
+
+
+        <!-- ─── TRACK B RESULTS (existing SRI profiles, unchanged copy) ───── -->
+
+        <!-- Track B | Overwhelmed Operator (5-7) -->
+        <div class="quiz-result hidden" data-track="B" data-profile="overwhelmed">
           <div class="text-center mb-10">
             <span class="st-tag mb-4 inline-flex">Your Strategic Reset Profile</span>
             <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
@@ -265,8 +575,8 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           </div>
         </div>
 
-        <!-- Result B: Curious Contributor (8-11) -->
-        <div class="quiz-result hidden" data-profile="curious">
+        <!-- Track B | Curious Contributor (8-11) -->
+        <div class="quiz-result hidden" data-track="B" data-profile="curious">
           <div class="text-center mb-10">
             <span class="st-tag mb-4 inline-flex">Your Strategic Reset Profile</span>
             <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
@@ -290,8 +600,8 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           </div>
         </div>
 
-        <!-- Result C: Strategic Architect (12-15) -->
-        <div class="quiz-result hidden" data-profile="architect">
+        <!-- Track B | Strategic Architect (12-15) -->
+        <div class="quiz-result hidden" data-track="B" data-profile="architect">
           <div class="text-center mb-10">
             <span class="st-tag mb-4 inline-flex">Your Strategic Reset Profile</span>
             <h2 class="font-heading text-light text-3xl md:text-4xl mb-4">
@@ -347,15 +657,28 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
       background: rgba(13,148,136,0.08);
       color: #e2e8f0;
     }
+    .quiz-option:focus-within .quiz-option-inner {
+      outline: 2px solid #0d9488;
+      outline-offset: 2px;
+    }
     .hidden { display: none; }
   </style>
 
 
   <!-- ─── QUIZ LOGIC ───────────────────────────────── -->
   <script define:vars={{ GHL_WEBHOOK_URL }}>
+    let selectedTrack = null;
     const answers = {};
 
     function updateProgress(step) {
+      const wrap = document.getElementById('quiz-progress-wrap');
+      // Hide progress bar on the gate question.
+      if (step === 'gate') {
+        if (wrap) wrap.classList.add('hidden');
+        return;
+      }
+      if (wrap) wrap.classList.remove('hidden');
+
       const steps = ['1','2','3','4','5'];
       const idx = steps.indexOf(String(step));
       const pct = idx < 0 ? 100 : Math.round((idx / 5) * 100);
@@ -369,7 +692,15 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
 
     function showStep(step) {
       document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
-      const target = document.querySelector(`.quiz-step[data-step="${step}"]`);
+
+      let target;
+      if (step === 'gate' || step === 'capture') {
+        target = document.querySelector(`.quiz-step[data-step="${step}"]`);
+      } else {
+        // Track-aware lookup for diagnostic questions.
+        target = document.querySelector(`.quiz-step[data-step="${step}"][data-track="${selectedTrack}"]`);
+      }
+
       if (target) {
         target.classList.remove('hidden');
         updateProgress(step);
@@ -377,21 +708,55 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
       }
     }
 
+    function resetDiagnosticAnswers() {
+      ['q1','q2','q3','q4','q5'].forEach(k => { delete answers[k]; });
+      // Visually clear any previously selected options across both tracks.
+      document.querySelectorAll('.quiz-step[data-track] .quiz-option.selected').forEach(o => o.classList.remove('selected'));
+      document.querySelectorAll('.quiz-step[data-track] input[type="radio"]:checked').forEach(i => { i.checked = false; });
+      document.querySelectorAll('.quiz-step[data-track] .quiz-next').forEach(b => b.setAttribute('disabled', ''));
+    }
+
     // Option selection
     document.querySelectorAll('.quiz-option').forEach(option => {
       option.addEventListener('click', () => {
-        const step = option.closest('.quiz-step').dataset.step;
+        const stepEl = option.closest('.quiz-step');
+        const step = stepEl.dataset.step;
         const val = option.dataset.value;
-        answers[`q${step}`] = parseInt(val);
 
-        // Deselect siblings
+        if (step === 'gate') {
+          if (selectedTrack && selectedTrack !== val) {
+            // Track changed. Clear prior diagnostic answers so scoring is clean.
+            resetDiagnosticAnswers();
+          }
+          selectedTrack = val;
+          answers.gate = val;
+        } else {
+          answers[`q${step}`] = parseInt(val);
+        }
+
+        // Deselect siblings within this step.
         option.closest('.space-y-4').querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
         option.classList.add('selected');
 
-        // Enable next button
-        const nextBtn = option.closest('.quiz-step').querySelector('.quiz-next');
+        // Sync the hidden radio input for accessibility and form semantics.
+        const input = option.querySelector('input[type="radio"]');
+        if (input) input.checked = true;
+
+        // Enable next button on this step.
+        const nextBtn = stepEl.querySelector('.quiz-next');
         if (nextBtn) nextBtn.removeAttribute('disabled');
       });
+
+      // Keyboard support: Enter or Space activates the option.
+      option.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          option.click();
+        }
+      });
+      // Make options focusable for keyboard navigation.
+      option.setAttribute('tabindex', '0');
+      option.setAttribute('role', 'radio');
     });
 
     // Next buttons
@@ -409,6 +774,53 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
       });
     });
 
+    // ─── Result determination per track ────────────────────────────────────
+    function determineResult() {
+      const score = ['q1','q2','q3','q4','q5'].reduce((sum, k) => sum + (answers[k] || 0), 0);
+
+      let profileSlug;   // for DOM lookup (data-profile attribute)
+      let profileFull;   // for webhook payload
+
+      if (selectedTrack === 'A') {
+        if (score >= 12)      { profileSlug = 'strategic';  profileFull = 'strategic_manager'; }
+        else if (score >= 8)  { profileSlug = 'curious';    profileFull = 'curious_manager'; }
+        else                  { profileSlug = 'overwhelmed'; profileFull = 'overwhelmed_manager'; }
+      } else {
+        if (score >= 12)      { profileSlug = 'architect';  profileFull = 'strategic_architect'; }
+        else if (score >= 8)  { profileSlug = 'curious';    profileFull = 'curious_contributor'; }
+        else                  { profileSlug = 'overwhelmed'; profileFull = 'overwhelmed_operator'; }
+      }
+
+      return { score, profileSlug, profileFull };
+    }
+
+    // ─── UNMASK pattern flags (Track A only) ───────────────────────────────
+    // Q1 = RAA + ITC, Q2 = SSS, Q3 = LMI, Q4 = ABAI.
+    // A flag is set true when the user picked the highest-strain option (1).
+    function buildUnmaskFlags() {
+      if (selectedTrack !== 'A') return null;
+      return {
+        raa_high:  answers.q1 === 1,
+        sss_high:  answers.q2 === 1,
+        lmi_high:  answers.q3 === 1,
+        abai_high: answers.q4 === 1,
+      };
+    }
+
+    // ─── Recommended next step routing ─────────────────────────────────────
+    const recommendations = {
+      A: {
+        overwhelmed_manager: { primary: 'executive_brief_pdf',     secondary: 'bootcamp_register_sept_2026' },
+        curious_manager:     { primary: 'bootcamp_register_sept_2026', secondary: 'executive_brief_pdf' },
+        strategic_manager:   { primary: 'bootcamp_executive_briefing', secondary: 'bootcamp_register_sept_2026' },
+      },
+      B: {
+        overwhelmed_operator: { primary: 'sri_apply', secondary: null },
+        curious_contributor:  { primary: 'sri_apply', secondary: null },
+        strategic_architect:  { primary: 'sri_apply', secondary: null },
+      },
+    };
+
     // Email capture form submission
     document.getElementById('quiz-capture-form').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -416,19 +828,39 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
       const email = document.getElementById('quiz-email').value.trim();
       if (!name || !email) return;
 
-      const score = Object.values(answers).reduce((a, b) => a + b, 0);
-      let profile = 'overwhelmed';
-      if (score >= 12) profile = 'architect';
-      else if (score >= 8) profile = 'curious';
+      const { score, profileSlug, profileFull } = determineResult();
+      const unmaskFlags = buildUnmaskFlags();
+      const rec = recommendations[selectedTrack][profileFull] || { primary: null, secondary: null };
 
       // ─── GHL WEBHOOK SUBMISSION ──────────────────────────────────────────────
-      // Replace GHL_WEBHOOK_URL with your actual GHL webhook once transfer is done.
+      // Replace GHL_WEBHOOK_URL above with your actual GHL webhook once transfer
+      // is done. The payload below carries everything the CRM needs to segment
+      // leads by track, profile, score, and UNMASK pattern flags.
+      //
+      // Sabbath note: this submission fires in real time so the user sees
+      // their results immediately. Downstream automations (welcome email,
+      // nurture, sales outreach) MUST honor the Friday sundown to Saturday
+      // sundown delay window. Configure that at the GHL workflow level.
       if (GHL_WEBHOOK_URL && GHL_WEBHOOK_URL !== 'REPLACE_WITH_GHL_WEBHOOK_URL') {
         try {
           await fetch(GHL_WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, score, profile, source: 'AI Readiness Quiz' }),
+            body: JSON.stringify({
+              name,
+              email,
+              track: selectedTrack,
+              score,
+              profile: profileFull,
+              source: 'AI Readiness Quiz',
+              source_variant: selectedTrack === 'A' ? 'track_a_manager' : 'track_b_transition',
+              answers: { ...answers },
+              unmask_flags: unmaskFlags,
+              recommended_next_step: rec.primary,
+              secondary_path: rec.secondary,
+              submitted_at: new Date().toISOString(),
+              page_url: window.location.href,
+            }),
           });
         } catch (err) {
           console.warn('Webhook submission failed:', err);
@@ -442,7 +874,7 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
       const resultsEl = document.getElementById('quiz-results');
       resultsEl.classList.remove('hidden');
       document.querySelectorAll('.quiz-result').forEach(r => r.classList.add('hidden'));
-      const resultEl = document.querySelector(`.quiz-result[data-profile="${profile}"]`);
+      const resultEl = document.querySelector(`.quiz-result[data-track="${selectedTrack}"][data-profile="${profileSlug}"]`);
       if (resultEl) {
         resultEl.classList.remove('hidden');
         window.scrollTo({ top: resultsEl.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
