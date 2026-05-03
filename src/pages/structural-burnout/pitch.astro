@@ -14,25 +14,25 @@ import Layout from '../../layouts/Layout.astro';
     <div class="absolute inset-0 bg-st-gradient"></div>
     <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(13,148,136,0.08) 0%, transparent 65%);"></div>
-    <div class="container-mid relative z-10">
-      <span class="st-tag mb-5 inline-flex animate-on-scroll">Investor Hub · Confidential Overview</span>
+    <div class="container-mid relative z-10 text-center lg:text-left">
+      <span class="st-tag mb-5 inline-flex mx-auto lg:mx-0 animate-on-scroll">Investor Hub · Confidential Overview</span>
       <h1 class="font-heading text-4xl md:text-6xl text-light font-bold mb-5 animate-on-scroll">
         The $88B Burnout<br/>
         <span class="text-teal-DEFAULT">Market Has No</span><br/>
         Structural Answer.
       </h1>
       <p class="text-muted text-xl mb-3 animate-on-scroll" style="animation-delay:0.1s">Until now.</p>
-      <p class="text-muted text-base max-w-2xl mb-10 animate-on-scroll" style="animation-delay:0.15s">
+      <p class="text-muted text-base max-w-2xl mx-auto lg:mx-0 mb-10 animate-on-scroll" style="animation-delay:0.15s">
         Strategic Transformations is a structural burnout consultancy with a proprietary diagnostic framework,
         a growing multi-channel product ecosystem, a published author platform, and a founder whose
         lived authority cannot be manufactured or replicated. We are building toward scale -
         and seeking aligned capital partners to accelerate the work.
       </p>
-      <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+      <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-on-scroll" style="animation-delay:0.2s">
         <a href="/structural-burnout/briefing" class="btn-teal">Request Investor Briefing →</a>
         <a href="/structural-burnout/services" class="btn-outline-teal">View Service Architecture</a>
       </div>
-      <p class="text-xs text-muted mt-6 animate-on-scroll italic">
+      <p class="text-xs text-muted mt-6 max-w-2xl mx-auto lg:mx-0 animate-on-scroll italic">
         Market figures are sourced from publicly available industry research. Projections are
         forward-looking strategic modeling, not guarantees. Full investor deck available upon request after briefing.
       </p>
@@ -97,7 +97,7 @@ import Layout from '../../layouts/Layout.astro';
             failure: 'People feel seen. Still burned out. The architecture of harm remains intact.',
           },
         ].map((item) => (
-          <div class="card border-red-500/15 animate-on-scroll">
+          <div class="card border-red-500/15 text-center animate-on-scroll">
             <div class="flex items-start justify-between mb-3 gap-3">
               <p class="font-heading text-light font-semibold">{item.label}</p>
               <span class="text-xs text-muted border border-border rounded px-2 py-0.5 shrink-0">{item.size}</span>
