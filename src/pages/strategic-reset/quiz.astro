@@ -8,8 +8,10 @@ const sriApplyUrl = 'https://unmask.nikkicates.com/reset-inquiry';
 // URL and the Executive Brief PDF download URL. The Executive Briefing URL
 // matches the calendar link on the existing /bootcamp page.
 // Example: 'https://strategictransformations.net/bootcamp/register'
-const bootcampRegisterUrl = 'REPLACE_WITH_BOOTCAMP_REGISTER_URL';
-const executiveBriefPdfUrl = 'REPLACE_WITH_EXECUTIVE_BRIEF_PDF_URL';
+// Both interim destinations point to the existing /bootcamp page until the
+// dedicated registration page and Executive Brief PDF are published.
+const bootcampRegisterUrl = '/bootcamp/';
+const executiveBriefPdfUrl = '/bootcamp/';
 const bootcampBriefingUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
 // ──────────────────────────────────────────────────────────────────────────────
 
@@ -439,7 +441,7 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
                UNMASK frame: RAA + ITC. Source: The Economic Times reporting
                on US corporate restructuring, 2026. Confirm citation copy
                with Nikki before final publish. -->
-          <div class="card border-teal-DEFAULT/30 p-6 mb-8">
+          <div class="card border-teal-DEFAULT/30 p-6 mb-8 text-center">
             <p class="text-teal-DEFAULT text-xs uppercase tracking-widest mb-2 font-bold">UNMASK Pattern: RAA + ITC</p>
             <p class="text-muted text-sm leading-relaxed">
               Companies are actively removing middle management layers to fund AI investments. The managers still standing are carrying more responsibility, less authority, and the invisible coordination cost of teams that no longer have a structural home. You are not failing. You are bearing a structural asymmetry the org has not named.
@@ -455,9 +457,9 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           </div>
           <div class="text-center space-y-4">
             <a href={executiveBriefPdfUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8 inline-flex">
-              Download the Executive Brief &rarr;
+              Learn More About the Bootcamp &rarr;
             </a>
-            <p class="text-muted text-xs">Free PDF. No call required. Read it on your own time.</p>
+            <p class="text-muted text-xs">See the full Bootcamp page. No call required.</p>
             <p class="text-muted text-sm pt-4 border-t border-border max-w-md mx-auto">
               When you are ready, the next Frictionless Manager Bootcamp cohort opens in September 2026.
               <a href={bootcampRegisterUrl} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT hover:underline ml-1">See cohort details &rarr;</a>
@@ -480,7 +482,7 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           <!-- ─── LOAD-BEARING STAT (sourced) ────────────────────────────────
                UNMASK frame: SSS + ABAI. Source: WRITER Enterprise AI Adoption
                2026. Confirm citation copy with Nikki before final publish. -->
-          <div class="card border-teal-DEFAULT/30 p-6 mb-8">
+          <div class="card border-teal-DEFAULT/30 p-6 mb-8 text-center">
             <p class="text-teal-DEFAULT text-xs uppercase tracking-widest mb-2 font-bold">UNMASK Pattern: SSS + ABAI</p>
             <p class="text-muted text-sm leading-relaxed">
               <span class="text-light font-semibold">79%</span> of organizations report struggling to implement AI, and <span class="text-light font-semibold">54%</span> of executives say it is tearing their company apart. The structure is the variable. The Bootcamp is where you fix the variable instead of the people.
@@ -500,8 +502,8 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
             </a>
             <p class="text-muted text-xs">Limited seats available. Cohort begins September 2026.</p>
             <p class="text-muted text-sm pt-4 border-t border-border max-w-md mx-auto">
-              Not ready to register?
-              <a href={executiveBriefPdfUrl} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT hover:underline ml-1">Download the Executive Brief &rarr;</a>
+              Want more context first?
+              <a href={executiveBriefPdfUrl} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT hover:underline ml-1">See the full Bootcamp page &rarr;</a>
             </p>
           </div>
         </div>
@@ -521,7 +523,7 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
           <!-- ─── LOAD-BEARING STAT (sourced) ────────────────────────────────
                UNMASK frame: LMI. Source: WRITER Enterprise AI Adoption 2026.
                Confirm citation copy with Nikki before final publish. -->
-          <div class="card border-teal-DEFAULT/30 p-6 mb-8">
+          <div class="card border-teal-DEFAULT/30 p-6 mb-8 text-center">
             <p class="text-teal-DEFAULT text-xs uppercase tracking-widest mb-2 font-bold">UNMASK Pattern: LMI</p>
             <p class="text-muted text-sm leading-relaxed">
               <span class="text-light font-semibold">73%</span> of CEOs report stress about AI strategy, with many fearing job loss if they fail to deliver. The strongest plans break first when the leader has nowhere to be honest. The Bootcamp is built to be that room.

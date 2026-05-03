@@ -21,8 +21,8 @@ const calendarUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
         <!-- Left: Core message -->
-        <div class="lg:col-span-7">
-          <div class="flex flex-wrap items-center gap-3 mb-6">
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
             <span class="st-tag inline-flex">Strategic Transformations</span>
             <span class="text-[10px] uppercase tracking-[0.24em] text-muted border border-border rounded-full px-3 py-1">
               B2O · Organizations &amp; Leadership Teams
@@ -32,16 +32,16 @@ const calendarUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
             The Frictionless<br/>
             <span class="text-teal-DEFAULT">Manager Bootcamp</span>
           </h1>
-          <p class="font-body text-xl text-light leading-relaxed mb-4 max-w-2xl animate-on-scroll" style="animation-delay:0.08s">
+          <p class="font-body text-xl text-light leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0 animate-on-scroll" style="animation-delay:0.08s">
             Your managers are not failing. Your structure is.
           </p>
-          <p class="font-body text-lg text-muted leading-relaxed mb-4 max-w-2xl animate-on-scroll" style="animation-delay:0.12s">
+          <p class="font-body text-lg text-muted leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0 animate-on-scroll" style="animation-delay:0.12s">
             AI adoption is not a technology problem. It is a people architecture problem. When you deploy AI into a structure that is already strained, you do not reduce friction. You accelerate it.
           </p>
-          <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl animate-on-scroll" style="animation-delay:0.16s">
+          <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0 animate-on-scroll" style="animation-delay:0.16s">
             The Frictionless Manager Bootcamp is a single, intensive full-day experience that equips your middle managers with the diagnostic tools, decision frameworks, and structural clarity they need to lead through AI adoption without burning out, checking out, or taking your best people with them.
           </p>
-          <div class="flex flex-wrap gap-4 animate-on-scroll" style="animation-delay:0.2s">
+          <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-on-scroll" style="animation-delay:0.2s">
             <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-7">
               Book an Executive Briefing
               <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
@@ -80,6 +80,23 @@ const calendarUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
       </div>
     </div>
     <div class="absolute bottom-0 left-0 right-0 h-28" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
+  </section>
+
+
+  <!-- ─── QUIZ ENTRY POINT ─────────────────────────── -->
+  <section class="py-12 bg-[#0c1525]">
+    <div class="container-wide max-w-3xl mx-auto text-center">
+      <p class="text-teal-DEFAULT text-xs uppercase tracking-widest mb-3 font-bold">Not sure if the Bootcamp is right for your team?</p>
+      <h2 class="font-heading text-light text-2xl md:text-3xl mb-4 leading-snug">
+        Take the 3-minute AI Readiness Quiz.
+      </h2>
+      <p class="text-muted text-base mb-6 max-w-xl mx-auto leading-relaxed">
+        Answer six questions and get a personalized profile that tells you whether the Frictionless Manager Bootcamp fits where your organization actually is right now.
+      </p>
+      <a href="/strategic-reset/quiz/" class="btn-teal text-base !py-3 !px-7 inline-flex">
+        Start the Quiz &rarr;
+      </a>
+    </div>
   </section>
 
 
