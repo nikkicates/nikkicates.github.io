@@ -3,46 +3,48 @@ import Layout from '../../layouts/Layout.astro';
 
 const tiers = [
   {
-    tag: 'Keynote',
-    name: 'Signature Keynote',
+    tag: 'Speaking',
+    name: 'AI-Era Leadership Keynote',
     price: 'Proposal-based',
     duration: '60–90 min',
-    desc: 'A high-impact keynote designed to shift how leadership teams think about burnout, structure, and human sustainability. Fully customized to your event context and organizational moment.',
+    desc: 'Executive-facing speaking for organizations navigating AI acceleration, hidden labor, burnout, decision friction, and human sustainability. Built around Nikki Cates\' revised Human x AI workforce platform.',
     includes: [
       'Pre-event discovery call',
-      'Custom talk arc aligned to conference theme',
-      'Post-keynote digital resource for attendees',
+      'Custom talk arc aligned to event theme and audience',
+      'Primary topics include AI Accelerates What Exists and The Frictionless Manager',
+      'Post-keynote digital resource or reflection guide for attendees',
       'Travel & hospitality requirements apply (see below)',
     ],
     cta: 'Request Executive Briefing',
     href: '/structural-burnout/briefing',
   },
   {
-    tag: 'Tier 01',
-    name: 'Keynote + Workshop Bundle',
+    tag: 'Workshop',
+    name: 'Frictionless Manager Training',
     price: 'Proposal-based',
-    duration: 'Keynote + Half-Day Workshop',
-    desc: 'Pairs the keynote with an immersive half-day workshop for leadership teams. Participants leave with a structural diagnostic framework they can apply immediately.',
+    duration: 'Half-Day / Full-Day / Series',
+    desc: 'Manager enablement for the Human x AI workplace. This practical training uses UNMASK Leadership Architecture to reduce structural drag, improve communication, pace AI implementation, and realign responsibility with authority.',
     includes: [
-      'Full keynote delivery',
-      'Half-day interactive workshop (up to 40 leaders)',
-      'Custom facilitation guide',
+      'Manager-facing training on structural strain and implementation friction',
+      'DISC-informed communication and behavioral difference mapping',
+      'Emotional intelligence and spiritual intelligence integration',
+      'AI adoption pacing, advocacy upward, and responsibility-authority alignment',
       'Post-workshop integration notes',
-      'Travel & hospitality requirements apply',
     ],
     cta: 'Request Executive Briefing',
     href: '/structural-burnout/briefing',
   },
   {
-    tag: 'Tier 02',
+    tag: 'Diagnostic',
     name: 'UNMASK Diagnostic Architecture',
     price: 'Proposal-based',
     duration: '4–6 Weeks',
-    desc: 'A deep organizational diagnostic using the UNMASK Framework. Surfaces the structural conditions producing burnout, attrition, and silenced capacity, across teams, systems, and leadership layers.',
+    desc: 'A deep organizational diagnostic using the UNMASK Framework. Surfaces structural burnout, hidden labor, leadership masking, authority gaps, and the human strain AI acceleration may intensify.',
     includes: [
       'Organizational intake and structural mapping',
       'UNMASK pillar assessment across 3–5 key teams',
       'Leadership interview protocol',
+      'Responsibility-authority alignment review',
       'Full Diagnostic Report with Findings & Recommendations',
       'Executive Debrief session',
       '90-day monitoring check-in',
@@ -52,13 +54,29 @@ const tiers = [
     featured: true,
   },
   {
-    tag: 'Tier 03',
+    tag: 'Strategic Reset',
+    name: 'Strategic Reset Intensive',
+    price: 'Proposal-based',
+    duration: 'Half-Day / Full-Day / 2-Day',
+    desc: 'A focused leadership recalibration experience for teams preparing for AI implementation, restructuring, growth, or cultural repair. Designed to create shared language, decision clarity, and a prioritized reset agenda.',
+    includes: [
+      'Pre-intensive leadership intake',
+      'Structural burnout and hidden labor mapping',
+      'Decision friction and responsibility-authority review',
+      'Leadership recalibration session using UNMASK Architecture',
+      'Reset priorities and 30-day implementation rhythm',
+    ],
+    cta: 'Request Strategic Reset',
+    href: '/structural-burnout/briefing',
+  },
+  {
+    tag: 'Recalibration',
     name: 'UNMASK Recalibration Engagement',
     price: 'Contact for Scope',
     duration: '90 Days',
-    desc: 'The full recalibration experience. Moves from diagnosis through structural redesign and implementation support, with embedded accountability systems built to outlast the engagement.',
+    desc: 'The full recalibration experience. Moves from diagnosis through structural redesign and implementation support so organizations can reduce drag, protect human capacity, and lead AI-era change with clearer architecture.',
     includes: [
-      'Full Diagnostic Architecture (Tier 02)',
+      'Full Diagnostic Architecture',
       'Structural redesign sessions with leadership team',
       'Department-level recalibration workshops',
       'Implementation roadmap with accountability checkpoints',
@@ -70,11 +88,11 @@ const tiers = [
     href: '/structural-burnout/briefing',
   },
   {
-    tag: 'Tier 04',
-    name: 'Stabilization Retainer',
+    tag: 'Advisory',
+    name: 'Leadership Recalibration Retainer',
     price: 'Contact for Scope',
     duration: 'Ongoing (3-month minimum)',
-    desc: 'For organizations that need ongoing strategic counsel and accountability as they implement structural changes. Monthly advisory access, monitoring, and course correction.',
+    desc: 'For organizations that need ongoing strategic counsel as leaders implement AI-era operating changes, manager enablement, structural repair, and human sustainability priorities.',
     includes: [
       '2 strategic advisory sessions per month',
       'Async communication channel access',
@@ -86,27 +104,39 @@ const tiers = [
     href: '/structural-burnout/briefing',
   },
   {
-    tag: 'AI Audit',
-    name: 'AI Acceleration Burnout Audit',
+    tag: 'AI Readiness',
+    name: 'Human x AI Workforce Readiness Audit',
     price: 'Proposal-based',
     duration: '4–6 Weeks',
-    desc: 'A specialized diagnostic for organizations deploying AI tools at scale. Identifies how automation is disrupting human systems, amplifying structural strain, or breaking the bridge between people and mission.',
+    desc: 'A specialized diagnostic for organizations deploying AI tools at scale. Identifies how automation may accelerate existing burnout patterns, hidden labor, decision bottlenecks, authority gaps, and cultural debt.',
     includes: [
       'AI deployment impact assessment',
-      'Human architecture vulnerability mapping',
+      'Human x AI workforce readiness mapping',
       'Leadership readiness review for AI-era shifts',
+      'Structural strain and hidden labor risk scan',
       'Full Audit Report with Risk Matrix',
       'Strategic mitigation recommendations',
     ],
-    cta: 'Request AI Audit Briefing',
+    cta: 'Request Readiness Briefing',
     href: '/structural-burnout/briefing',
   },
+];
+
+const categories = [
+  'AI-era leadership strategy',
+  'Human x AI workforce readiness',
+  'Frictionless Manager training',
+  'Organizational diagnostics',
+  'Structural burnout and hidden labor',
+  'Responsibility-authority alignment',
+  'UNMASK Leadership Architecture',
+  'Strategic Reset Intensives and leadership recalibration',
 ];
 ---
 
 <Layout
   title="Services - Strategic Transformations"
-  description="From keynote speaking to 90-day organizational recalibration. All Strategic Transformations engagements begin with an Executive Briefing before proposal or scope is confirmed."
+  description="Speaking, workshops, organizational diagnostics, and leadership recalibration for AI-era organizations preparing for the Human x AI workforce alliance."
   section="st"
   accentColor="teal"
 >
@@ -117,16 +147,41 @@ const tiers = [
     <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
     <div class="container-mid relative z-10 text-center">
       <h1 class="font-heading text-4xl md:text-6xl text-light font-bold mb-5 animate-on-scroll">
-        Every engagement begins<br/>with a question.
+        Recalibrate the structure<br/>AI acceleration exposes.
       </h1>
       <p class="text-muted text-lg max-w-2xl mx-auto mb-8 animate-on-scroll" style="animation-delay:0.1s">
-        "Is your organization ready to examine the structure?"
-        All engagements begin with a vetting briefing because transformation requires readiness.
-        Not just interest.
+        Strategic Transformations helps organizations diagnose and recalibrate the human and structural
+        strain AI acceleration reveals: burnout, hidden labor, decision friction, leadership masking,
+        authority gaps, and cultural debt.
       </p>
       <a href="/structural-burnout/briefing" class="btn-teal animate-on-scroll" style="animation-delay:0.2s">
         Request Executive Briefing →
       </a>
+    </div>
+  </section>
+
+
+  <!-- ─── POSITIONING CATEGORIES ───────────────────── -->
+  <section class="py-14 bg-[#0c1525] border-y border-border">
+    <div class="container-wide">
+      <div class="text-center mb-8 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Strategic Transformation Categories</span>
+        <h2 class="font-heading text-2xl md:text-3xl text-light mb-4">
+          Built for leaders preparing the Human x AI workforce alliance.
+        </h2>
+        <p class="text-muted max-w-3xl mx-auto">
+          Nikki Cates works at the intersection of AI-era leadership, structural burnout,
+          organizational diagnostics, behavioral science, emotional intelligence, spiritual intelligence,
+          and human sustainability.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {categories.map((category) => (
+          <div class="card teal-hover py-4 px-5 animate-on-scroll">
+            <p class="text-light text-sm font-semibold">{category}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -195,15 +250,19 @@ const tiers = [
     <div class="container-wide">
       <div class="text-center mb-12 animate-on-scroll">
         <span class="st-tag mb-4 inline-flex">2026 Signature Talks</span>
-        <h2 class="font-heading text-3xl text-light">The Five Talks That Move Rooms</h2>
+        <h2 class="font-heading text-3xl text-light">Signature Speaking Platform</h2>
+        <p class="text-muted max-w-2xl mx-auto mt-4">
+          Premium, practical talks for leadership conferences, associations, universities, nonprofits,
+          and mid-market organizations preparing people and systems for AI-era change.
+        </p>
       </div>
       <div class="space-y-3 max-w-3xl mx-auto">
         {[
-          { num: '01', title: 'Stop the Strain Transfer', desc: 'How organizations unconsciously redistribute unresolved structural pain, and what to do instead.' },
-          { num: '02', title: 'Your Leadership Pipeline Is Leaking', desc: 'Why your pipeline programs keep producing burned-out leaders, and the structural fix your org won\'t like.' },
-          { num: '03', title: 'False Urgency: How "Everything Is Critical" Is Destroying Your Organization', desc: 'The urgent-everything culture is a structural symptom, not a leadership style.' },
-          { num: '04', title: 'Sovereign Power: Leading Without Running on Empty', desc: 'What it looks like when leaders reclaim structural sovereignty, and how to build it organizationally.' },
-          { num: '05', title: 'When AI Breaks the Bridge: Protecting Human Architecture in the Age of Automation', desc: 'The AI conversation no one is having: how automation is amplifying structural burnout, not solving it.' },
+          { num: '01', title: 'AI Accelerates What Exists: Preparing Organizations for the Human x AI Workforce Alliance', desc: 'Helps leaders understand how AI exposes and accelerates existing patterns of burnout, hidden labor, decision friction, authority gaps, and cultural debt.' },
+          { num: '02', title: 'The Frictionless Manager: Equipping Managers to Lead the Human x AI Workforce Alliance', desc: 'Introduces the UNMASK framework as a practical leadership architecture for reducing structural drag, pacing AI implementation, and sustaining human judgment and purpose.' },
+          { num: '03', title: 'Stop the Strain Transfer: Why Your Best Leaders Are Burning Out', desc: 'Shows how organizations redistribute unresolved structural strain onto high-capacity people, and what leaders can recalibrate instead.' },
+          { num: '04', title: 'The Hidden Labor Map: What Your Org Chart Cannot See', desc: 'Names the invisible labor, emotional load, translation work, and repair functions that keep organizations running but rarely receive authority or protection.' },
+          { num: '05', title: 'Responsibility Without Authority: The Leadership Gap AI Will Expose', desc: 'Examines how authority gaps create implementation drag, masked leadership, and decision bottlenecks in the AI-era workplace.' },
         ].map((talk) => (
           <div class="flex items-start gap-5 card teal-hover animate-on-scroll">
             <span class="font-heading text-4xl text-teal-DEFAULT/25 font-bold leading-none mt-1 shrink-0">{talk.num}</span>
@@ -244,9 +303,10 @@ const tiers = [
       <p class="text-center text-xs font-body font-bold uppercase tracking-widest text-muted mb-4">Booking Terms</p>
       <div class="flex flex-wrap gap-x-10 gap-y-3 justify-center text-sm text-muted">
         {[
-          '50% deposit at signing',
+          '50% speaking fee deposit at signing',
           'Balance due 7 days prior',
-          '10% reduction for virtual engagements',
+          'Virtual engagements scoped separately',
+          'Travel billed at actual cost or agreed terms',
           'Signed agreement required for all engagements',
         ].map((term) => (
           <span class="flex items-center gap-2">
