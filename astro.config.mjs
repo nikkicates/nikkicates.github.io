@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://nikkicates.github.io',
+  site: 'https://strategictransformations.net',
   output: 'static',
   integrations: [tailwind()],
 });
