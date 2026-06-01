@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.hastro';
 
-const sriApplyUrl = 'https://unmask.nikkicates.com/reset-inquiry';
+const sriApplyUrl = 'https://unmask.nikkihcates.com/reset-inquiry';
 
 // ─── BOOTCAMP CTA URL PLACEHOLDERS ────────────────────────────────────────────
 // Replace the values below post-launch with the published Bootcamp registration
@@ -22,7 +22,7 @@ const bootcampBriefingUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
 // source, source_variant, answers, unmask_flags, recommended_next_step,
 // secondary_path, submitted_at, page_url }.
 // Example: 'https://hooks.gohighlevel.com/hooks/catch/XXXXXXXX/YYYYYYYY/'
-const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
+const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/31ac4629-043a-4bcf-9a1a-2027bec82f32';
 // ──────────────────────────────────────────────────────────────────────────────
 
 // ─── SABBATH PROTECTION NOTE ──────────────────────────────────────────────────
@@ -843,7 +843,7 @@ const GHL_WEBHOOK_URL = 'REPLACE_WITH_GHL_WEBHOOK_URL';
       // their results immediately. Downstream automations (welcome email,
       // nurture, sales outreach) MUST honor the Friday sundown to Saturday
       // sundown delay window. Configure that at the GHL workflow level.
-      if (GHL_WEBHOOK_URL && GHL_WEBHOOK_URL !== 'REPLACE_WITH_GHL_WEBHOOK_URL') {
+      if (GHL_WEBHOOK_URL && GHL_WEBHOOK_URL !== 'https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/31ac4629-043a-4bcf-9a1a-2027bec82f32') {
         try {
           await fetch(GHL_WEBHOOK_URL, {
             method: 'POST',
