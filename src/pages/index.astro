@@ -676,7 +676,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="mla-agrid" id="mla-answer-grid"></div>
     </div>
   </div>
-  <div class="mla-screen" id="mla-screen-results">
+  <div class="mla-screen" id="mla-screen-capture"><div class="mla-ibody"><div class="mla-slabel" style="color:#0d9488;margin-bottom:12px">Almost There</div><p class="mla-mtitle" style="font-size:18px;line-height:1.4;margin-bottom:10px">Enter your name and email to reveal your Management Layer Assessment results.</p><p class="mla-stitle" style="margin-bottom:20px">No spam. Used only to deliver your results and relevant updates.</p><form id="mla-capture-form"><div style="margin-bottom:10px"><input type="text" id="mla-cap-name" placeholder="First Name" required style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:12px 16px;color:#f8fafc;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;box-sizing:border-box"/></div><div style="margin-bottom:16px"><input type="email" id="mla-cap-email" placeholder="Email Address" required style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:12px 16px;color:#f8fafc;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;box-sizing:border-box"/></div><button type="submit" class="mla-sbtn">Reveal My Results →</button></form></div></div><div class="mla-screen" id="mla-screen-results">
     <div class="mla-rhdr">
       <div class="mla-rrow">
         <div style="flex:1">
@@ -783,7 +783,7 @@ import Layout from '../layouts/Layout.astro';
     answers[questions[current].id]={value:val,label};
     setTimeout(()=>{
       if(current<questions.length-1){current++;renderQuestion();}
-      else showResults();
+      else showScreen('capture');
     },500);
   }
 
@@ -828,7 +828,7 @@ import Layout from '../layouts/Layout.astro';
     showScreen('intro');
   }
 
-  document.getElementById('mla-start-btn').addEventListener('click',startAssessment);
+  document.getElementById('mla-capture-form').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('mla-cap-name').value.trim();var em=document.getElementById('mla-cap-email').value.trim();if(!n||!em)return;var sc=Object.entries(answers).reduce(function(s,arr){var q=questions.find(function(q){return q.id===parseInt(arr[0]);});return s+(q?arr[1].value*q.weight:0);},0);var pct=Math.round((sc/maxScore)*100);var res=results.find(function(r){return pct>=r.min;});fetch('https://services.leadconnectorhq.com/hooks/35XiTsvy0Kt7TRNBabas/webhook-trigger/31ac4629-043a-4bcf-9a1a-2027bec82f32',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,email:em,source:'Management Layer Assessment',score:pct,result_level:res?res.level:'unknown',submitted_at:new Date().toISOString(),page_url:window.location.href})}).catch(function(){});showResults();});document.getElementById('mla-start-btn').addEventListener('click',startAssessment);
   document.getElementById('mla-retake-btn').addEventListener('click',resetAssessment);
   document.getElementById('mla-cta-primary').addEventListener('click',()=>window.open('https://strategictransformations.net','_blank'));
 })();
