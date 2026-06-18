@@ -101,10 +101,6 @@ import Layout from '../../layouts/Layout.astro';
                  class="btn-teal w-full md:w-auto justify-center !text-sm">
                 Get Vol. 1
               </a>
-              <a href="/structural-burnout/briefing"
-                 class="btn-outline-teal w-full md:w-auto justify-center !text-sm">
-                Bulk / Institutional Inquiry
-              </a>
             </div>
           </div>
         </div>
@@ -176,10 +172,7 @@ import Layout from '../../layouts/Layout.astro';
                  class="btn-teal w-full md:w-auto justify-center !text-sm">
                 Get Vol. 2
               </a>
-              <a href="/structural-burnout/briefing"
-                 class="btn-outline-teal w-full md:w-auto justify-center !text-sm">
-                Institutional License Inquiry
-              </a>
+              <p class="text-muted text-xs text-right mt-1">Institutional licensing available 2027</p>
             </div>
           </div>
         </div>
@@ -249,10 +242,6 @@ import Layout from '../../layouts/Layout.astro';
                  class="btn-teal w-full md:w-auto justify-center !text-sm">
                 Get Vol. 3
               </a>
-              <a href="/structural-burnout/briefing"
-                 class="btn-outline-teal w-full md:w-auto justify-center !text-sm">
-                Bulk / Institutional Inquiry
-              </a>
             </div>
           </div>
         </div>
@@ -268,7 +257,7 @@ import Layout from '../../layouts/Layout.astro';
       <p class="font-heading text-xl text-light mb-2">Get the complete series.</p>
       <p class="text-muted text-sm mb-6 max-w-lg mx-auto">
         All three volumes are available in print, eBook, and interactive app formats.
-        Individual, team, and institutional licensing available.
+        Team and institutional licensing available in 2027.
       </p>
       <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener"
          class="btn-teal !text-base !py-3.5 !px-8">
@@ -283,10 +272,10 @@ import Layout from '../../layouts/Layout.astro';
     <div class="container-wide">
       <div class="text-center mb-12 animate-on-scroll">
         <span class="st-tag mb-4 inline-flex">Licensing</span>
-        <h2 class="font-heading text-3xl text-light">Deploy UNMASK in Your Organization</h2>
+        <h2 class="font-heading text-3xl text-light">UNMASK Licensing</h2>
         <p class="text-muted text-sm mt-3 max-w-md mx-auto">
-          The UNMASK Framework is licensable for individual practitioners and institutional deployment.
-          All licensing inquiries begin with the Executive Briefing process.
+          Individual access is available now. Team and institutional licensing launches in 2027.
+          Organizations interested in early access can express interest through the Executive Briefing process.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -302,16 +291,18 @@ import Layout from '../../layouts/Layout.astro';
           {
             icon: '👥',
             name: 'Team License',
-            desc: 'For organizational teams up to 25 people. Includes facilitation guides, team implementation protocols, and the full suite of diagnostic calculators and scenario planners.',
-            cta: 'Inquire About Team',
+            desc: 'For organizational teams. Includes facilitation guides, team implementation protocols, and the full suite of diagnostic calculators and scenario planners. Launching 2027.',
+            cta: 'Express Early Interest',
             href: '/structural-burnout/briefing',
+            comingSoon: true,
           },
           {
             icon: '🏢',
             name: 'Institutional License',
-            desc: 'Enterprise-wide deployment for nonprofits, HBCUs, and mission-driven organizations. Practitioner certification pathway included. Potential for significant annual licensing revenue.',
-            cta: 'Request Institutional Briefing',
+            desc: 'Organization-wide deployment for nonprofits, healthcare systems, and mission-driven organizations. Train-the-Trainer Certification pathway included. Launching Q1-Q2 2027.',
+            cta: 'Express Early Interest',
             href: '/structural-burnout/briefing',
+            comingSoon: true,
           },
         ].map((lic) => (
           <div class="card teal-hover text-center flex flex-col gap-4 animate-on-scroll">
