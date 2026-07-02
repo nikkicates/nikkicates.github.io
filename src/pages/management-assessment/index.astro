@@ -29,6 +29,15 @@ import Layout from '../../layouts/Layout.astro';
 
 <script>
 (function() {
+  // =========================================================================
+  // GHL WIRING — SET THIS BEFORE DEPLOYING
+  // Create in GHL: Automations > Workflows > New Workflow > Trigger: "Inbound Webhook"
+  // (no API key needed for this trigger type — GHL generates a unique POST URL)
+  // Paste that URL below. Until it's set, the quiz still works locally —
+  // it just logs a console warning and skips the network call.
+  // =========================================================================
+  const GHL_WEBHOOK_URL = 'REPLACE_ME_WITH_GHL_INBOUND_WEBHOOK_URL';
+
   const css = `
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -60,6 +69,7 @@ import Layout from '../../layouts/Layout.astro';
 .mla-imt::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);display:inline-block}
 .mla-sbtn{background:linear-gradient(135deg,var(--teal),var(--blue));border:none;border-radius:9px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--dark-bg);cursor:pointer;width:100%;transition:all .2s;letter-spacing:.3px}
 .mla-sbtn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(88,187,194,.3)}
+.mla-sbtn:disabled{opacity:.6;cursor:default;transform:none;box-shadow:none}
 .mla-qbody{padding:28px 32px}
 .mla-qmeta{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .mla-qnum{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:var(--muted-blue);letter-spacing:1px}
@@ -74,6 +84,17 @@ import Layout from '../../layouts/Layout.astro';
 .mla-adot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 .mla-albl{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;color:var(--light-blue)}
 .mla-abtn.selected .mla-albl{color:var(--white);font-weight:500}
+.mla-cbody{padding:32px}
+.mla-ctitle{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:10px;line-height:1.3}
+.mla-csub{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--light-blue);line-height:1.7;margin-bottom:24px;font-weight:300}
+.mla-field{margin-bottom:14px}
+.mla-flabel{display:block;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:var(--muted-blue);text-transform:uppercase;margin-bottom:6px}
+.mla-finput{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--white);outline:none;transition:border-color .2s}
+.mla-finput:focus{border-color:var(--teal)}
+.mla-finput.error{border-color:#e05c8a}
+.mla-ferr{font-family:'DM Sans',sans-serif;font-size:11px;color:#e05c8a;margin-top:5px;min-height:14px}
+.mla-cprivacy{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--muted-blue);line-height:1.6;margin-top:10px}
+.mla-honey{position:absolute !important;left:-9999px !important;top:-9999px !important;opacity:0;height:0;width:0;pointer-events:none}
 .mla-rhdr{padding:28px 32px 20px;border-bottom:1px solid var(--card-border)}
 .mla-rrow{display:flex;align-items:flex-start;gap:18px}
 .mla-rlvl{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin-bottom:6px}
@@ -143,6 +164,28 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </div>
 
+  <div class="mla-screen" id="mla-screen-capture">
+    <div class="mla-cbody">
+      <div class="mla-ctitle">Your results are ready.</div>
+      <div class="mla-csub">Enter your name and email to unlock your full diagnostic — score, dimension breakdown, and strategic insight.</div>
+      <form id="mla-capture-form" novalidate>
+        <div class="mla-field">
+          <label class="mla-flabel" for="mla-name">Full Name</label>
+          <input class="mla-finput" type="text" id="mla-name" name="name" autocomplete="name" />
+          <div class="mla-ferr" id="mla-name-err"></div>
+        </div>
+        <div class="mla-field">
+          <label class="mla-flabel" for="mla-email">Email Address</label>
+          <input class="mla-finput" type="email" id="mla-email" name="email" autocomplete="email" />
+          <div class="mla-ferr" id="mla-email-err"></div>
+        </div>
+        <input class="mla-honey" type="text" id="mla-company" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="mla-sbtn" type="submit" id="mla-capture-submit">Reveal My Results →</button>
+        <div class="mla-cprivacy">We respect your inbox. No spam — occasional strategic insight from Strategic Transformations. Unsubscribe anytime.</div>
+      </form>
+    </div>
+  </div>
+
   <div class="mla-screen" id="mla-screen-results">
     <div class="mla-rhdr">
       <div class="mla-rrow">
@@ -209,6 +252,7 @@ import Layout from '../../layouts/Layout.astro';
 
   let current = 0;
   let answers = {};
+  let pendingResult = null; // computed once quiz is finished, rendered only after successful capture
   const maxScore = questions.reduce((s,q)=>s+q.weight*4,0);
 
   function showScreen(id) {
@@ -221,7 +265,7 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   function startAssessment() {
-    current = 0; answers = {};
+    current = 0; answers = {}; pendingResult = null;
     document.getElementById('mla-subtitle').textContent = 'Question 1 of '+questions.length;
     renderQuestion();
     showScreen('questions');
@@ -257,20 +301,122 @@ import Layout from '../../layouts/Layout.astro';
         current++;
         renderQuestion();
       } else {
-        showResults();
+        goToCapture();
       }
     }, 500);
   }
 
-  function showResults() {
-    document.getElementById('mla-pfill').style.width = '100%';
-    document.getElementById('mla-subtitle').textContent = 'Your Diagnostic Results';
+  // Compute the score once the 7th question is answered, then show the
+  // email/name gate. Results are NOT rendered into the DOM until capture
+  // succeeds (or is skipped for a known-bot honeypot fill).
+  function computeResult() {
     const score = Object.entries(answers).reduce((s, [id, a]) => {
       const q = questions.find(q => q.id === parseInt(id));
       return s + (q ? a.value * q.weight : 0);
     }, 0);
     const pct = Math.round((score/maxScore)*100);
     const result = results.find(r => pct >= r.min);
+    return { pct, result };
+  }
+
+  function goToCapture() {
+    pendingResult = computeResult();
+    document.getElementById('mla-pfill').style.width = '100%';
+    document.getElementById('mla-subtitle').textContent = 'One Last Step';
+    showScreen('capture');
+  }
+
+  function handleCaptureSubmit(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById('mla-name');
+    const emailInput = document.getElementById('mla-email');
+    const companyInput = document.getElementById('mla-company'); // honeypot
+    const nameErr = document.getElementById('mla-name-err');
+    const emailErr = document.getElementById('mla-email-err');
+
+    nameErr.textContent = ''; emailErr.textContent = '';
+    nameInput.classList.remove('error'); emailInput.classList.remove('error');
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    let valid = true;
+    if (!name) { nameErr.textContent = 'Please enter your name.'; nameInput.classList.add('error'); valid = false; }
+    if (!email || !emailRe.test(email)) { emailErr.textContent = 'Please enter a valid email.'; emailInput.classList.add('error'); valid = false; }
+    if (!valid) return;
+
+    const isSuspectedBot = companyInput.value.trim() !== '';
+
+    const submitBtn = document.getElementById('mla-capture-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    const nameParts = name.split(/\s+/);
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
+
+    const payload = {
+      source: 'management-layer-assessment-quiz',
+      submitted_at: new Date().toISOString(),
+      page_url: window.location.href,
+      name: name,
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      quiz_score_pct: pendingResult.pct,
+      quiz_category: pendingResult.result.level,
+      quiz_dimension_breakdown: questions.map(q => ({
+        category: q.category,
+        label: answers[q.id] ? answers[q.id].label : null,
+        value: answers[q.id] ? answers[q.id].value : null,
+      })),
+    };
+
+    function reveal() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Reveal My Results →';
+      renderResults();
+    }
+
+    const webhookConfigured = GHL_WEBHOOK_URL && GHL_WEBHOOK_URL.indexOf('REPLACE_ME') !== 0;
+
+    if (isSuspectedBot) {
+      // Don't tip off the bot — just reveal without sending anything.
+      reveal();
+      return;
+    }
+
+    if (!webhookConfigured) {
+      console.warn('[MLA Quiz] GHL_WEBHOOK_URL is not configured — submission was captured locally only:', payload);
+      reveal();
+      return;
+    }
+
+    fetch(GHL_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload),
+    }).then(function(res) {
+      if (!res.ok) throw new Error('Webhook responded with status ' + res.status);
+      reveal();
+    }).catch(function(err) {
+      // Don't lock the visitor out of their own results over a network hiccup.
+      // Queue locally so a follow-up sync/report can recover it.
+      console.error('[MLA Quiz] GHL submission failed, revealing results anyway and queuing locally for retry:', err);
+      try {
+        const queueKey = 'mla_failed_submissions';
+        const queue = JSON.parse(localStorage.getItem(queueKey) || '[]');
+        queue.push(payload);
+        localStorage.setItem(queueKey, JSON.stringify(queue));
+      } catch (e) { /* localStorage unavailable — nothing more we can do client-side */ }
+      reveal();
+    });
+  }
+
+  function renderResults() {
+    const { pct, result } = pendingResult;
+    document.getElementById('mla-subtitle').textContent = 'Your Diagnostic Results';
 
     document.getElementById('mla-r-label').style.color = result.color;
     document.getElementById('mla-r-level').textContent = result.level;
@@ -307,13 +453,20 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   function resetAssessment() {
-    current = 0; answers = {};
+    current = 0; answers = {}; pendingResult = null;
     document.getElementById('mla-pfill').style.width = '0%';
     document.getElementById('mla-subtitle').textContent = 'Diagnose structural friction before it becomes a crisis';
+    const form = document.getElementById('mla-capture-form');
+    if (form) form.reset();
+    document.getElementById('mla-name-err').textContent = '';
+    document.getElementById('mla-email-err').textContent = '';
+    document.getElementById('mla-name').classList.remove('error');
+    document.getElementById('mla-email').classList.remove('error');
     showScreen('intro');
   }
 
   document.getElementById('mla-start-btn').addEventListener('click', startAssessment);
+  document.getElementById('mla-capture-form').addEventListener('submit', handleCaptureSubmit);
   document.getElementById('mla-retake-btn').addEventListener('click', resetAssessment);
   document.getElementById('mla-cta-primary').addEventListener('click', () => window.open('https://strategictransformations.net', '_blank'));
 })();
