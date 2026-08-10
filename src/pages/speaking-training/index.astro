@@ -1,0 +1,183 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const calendarUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
+---
+
+<Layout
+  title="Speaking & Training | Strategic Transformations"
+  description="Bring the UNMASK Leadership Architecture into your organization: keynotes, executive sessions, and manager training built on the Recalibration Framework. Book a conversation."
+  section="st"
+  accentColor="teal"
+>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative min-h-[70vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-[#0f172a]"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 65% 45%, rgba(13,158,138,0.08) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 85%, rgba(6,70,128,0.1) 0%, transparent 55%);"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background: linear-gradient(to bottom, transparent 5%, #0D9E8A 25%, #0D9E8A 75%, transparent 95%);"></div>
+
+    <div class="container-wide relative z-10 py-20 md:py-24">
+      <div class="max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
+        <div class="st-tag mb-6 mx-auto lg:mx-0 animate-on-scroll">
+          <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+          Speaking &amp; Training
+        </div>
+
+        <h1 class="font-heading font-bold text-light leading-[1.1] mb-6 animate-on-scroll" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">
+          Bring the UNMASK Leadership Architecture<br class="hidden lg:block" /> into your room.
+        </h1>
+
+        <p class="font-body text-teal-DEFAULT text-lg font-semibold italic leading-relaxed mb-6 max-w-2xl mx-auto lg:mx-0 animate-on-scroll" style="animation-delay:0.1s">
+          Keynotes, workshops, and manager enablement built on the same diagnostic thinking behind Strategic Transformations.
+        </p>
+
+        <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0 animate-on-scroll" style="animation-delay:0.15s">
+          Every engagement starts as a conversation, not a proposal. Tell us the room, the audience, and the moment
+          your organization is in, and the talk or training gets shaped around it, not pulled off a shelf.
+        </p>
+
+        <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-on-scroll" style="animation-delay:0.2s">
+          <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-7">
+            Book a Conversation
+          </a>
+          <a href="/structural-burnout/briefing" class="btn-outline-teal text-base !py-3.5">
+            Request an Executive Briefing
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FORMATS ───────────────────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">What This Looks Like</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">Three ways this shows up in a room.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            label: 'Keynotes',
+            desc: 'For conferences and corporate events. Built around reading structural strain before it breaks the room, with a diagnostic lens audiences can use immediately.',
+          },
+          {
+            label: 'Executive Sessions',
+            desc: 'A focused application of the Recalibration Framework to one leadership team: naming authority gaps, hidden labor, and where AI adoption is about to land on existing strain.',
+          },
+          {
+            label: 'Manager Training',
+            desc: 'Including the Frictionless Manager Bootcamp, for organizations building AI-era leadership capacity from the middle out, not just the top down.',
+          },
+        ].map((item) => (
+          <div class="card teal-hover flex flex-col gap-3 animate-on-scroll">
+            <h3 class="font-heading text-xl font-bold text-teal-DEFAULT">{item.label}</h3>
+            <p class="text-muted text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── TRAINING PROGRAMS (Bootcamp + SRI, married) ─── -->
+  <section class="section-pad">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Training Programs</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">Two structured programs, one purpose.</h2>
+        <p class="text-muted text-sm mt-3 max-w-xl mx-auto">
+          Both apply the same Recalibration Framework, one built for organizations preparing their managers,
+          one built for individual professional women in transition.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card teal-hover flex flex-col gap-4 animate-on-scroll">
+          <span class="st-tag text-xs inline-flex">For Organizations</span>
+          <h3 class="font-heading text-2xl font-bold text-light">The Frictionless Manager Bootcamp</h3>
+          <p class="text-muted text-sm leading-relaxed flex-1">
+            A strategic bootcamp helping middle managers lead through AI adoption without structural breakdown.
+            Diagnose the friction before it costs you your best people.
+          </p>
+          <a href="/bootcamp/" class="btn-outline-teal !text-sm justify-center">See the Bootcamp →</a>
+        </div>
+
+        <div class="card teal-hover flex flex-col gap-4 animate-on-scroll" style="animation-delay:0.08s">
+          <span class="st-tag text-xs inline-flex">For Individuals</span>
+          <h3 class="font-heading text-2xl font-bold text-light">The Strategic Reset Intensive</h3>
+          <p class="text-muted text-sm leading-relaxed flex-1">
+            A curated cohort experience for professional women navigating career transitions, economic
+            uncertainty, and AI adoption. A personal strategy, AI confidence, and a clear next step.
+          </p>
+          <a href="/strategic-reset/" class="btn-outline-teal !text-sm justify-center">See the Intensive →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── SIGNATURE TALKS PREVIEW ────────────────────── -->
+  <section class="section-pad bg-[#0c1525]">
+    <div class="container-wide">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Signature Talks</span>
+        <h2 class="font-heading text-3xl md:text-4xl text-light">A few of the rooms this has filled.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          {
+            title: 'Reading the Room Before the Room Breaks',
+            desc: 'The anchor keynote. Equips leaders to diagnose structural strain before it becomes a crisis.',
+          },
+          {
+            title: 'AI Accelerates What Exists',
+            desc: 'How AI accelerates existing patterns of burnout, hidden labor, and authority gaps, and what to do about it.',
+          },
+          {
+            title: 'Responsibility Without Authority',
+            desc: 'The leadership gap AI will expose, and a practical way to realign decision rights before it does.',
+          },
+        ].map((talk) => (
+          <div class="card teal-hover flex flex-col gap-3 animate-on-scroll">
+            <h3 class="font-heading text-lg font-semibold text-light">"{talk.title}"</h3>
+            <p class="text-muted text-sm leading-relaxed">{talk.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10 animate-on-scroll">
+        <p class="text-muted text-sm mb-4 max-w-lg mx-auto">
+          Planning a specific event? See the full speaker kit for every talk description, past audiences,
+          testimonials, and logistics.
+        </p>
+        <a href="/speaker-kit/" class="btn-outline-teal">View the Full Speaker Kit →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FINAL CTA ─────────────────────────────────── -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(13,158,138,0.07) 0%, transparent 65%);"></div>
+    <div class="container-narrow relative z-10 text-center animate-on-scroll">
+      <h2 class="font-heading text-3xl md:text-5xl text-light mb-5 leading-tight">
+        Tell us the room.<br/>
+        <span class="text-teal-DEFAULT">We will shape the rest.</span>
+      </h2>
+      <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+        No proposal required to start. A short conversation is enough to know if this is a fit.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-4 !px-8">
+          Book a Conversation →
+        </a>
+        <a href="/structural-burnout/briefing" class="btn-outline-teal text-base !py-4 !px-8">
+          Request an Executive Briefing
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -13,7 +13,7 @@ import Layout from '../../layouts/Layout.astro';
   <section class="relative min-h-[70vh] flex items-center overflow-hidden">
     <div class="absolute inset-0 uri-gradient"></div>
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(107,33,168,0.2) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 70%, rgba(217,119,6,0.12) 0%, transparent 55%);"></div>
-    <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gold"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:#d97706"></div>
 
     <div class="container-wide relative z-10 py-24">
       <div class="max-w-3xl text-center lg:text-left">
@@ -22,7 +22,7 @@ import Layout from '../../layouts/Layout.astro';
         </span>
         <h1 class="font-heading text-4xl md:text-6xl text-light font-bold leading-tight mb-6 animate-on-scroll">
           The ground everything<br/>
-          <span class="text-gold italic">else</span> grows from.
+          <span class="italic" style="color:#d97706">else</span> grows from.
         </h1>
         <p class="text-muted text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10 animate-on-scroll" style="animation-delay:0.1s">
           URI is the ground I build everything on - faith, and justice as the restoration of
@@ -54,7 +54,7 @@ import Layout from '../../layouts/Layout.astro';
           { icon: '✊🏾', label: 'Justice', desc: 'Justice is the restoration of right relationship - with people, with structure, with Spirit.' },
           { icon: '🔍', label: 'Structure', desc: 'Power and systems examined honestly - not corporate management theory in different clothes.' },
         ].map((item) => (
-          <div class="flex flex-col items-center text-center gap-3 p-5 rounded-md border border-border hover:border-gold/40 transition-colors bg-[#1a0b2e]">
+          <div class="flex flex-col items-center text-center gap-3 p-5 rounded-md border border-border uri-gold-hover transition-colors bg-[#1a0b2e]">
             <span class="text-2xl">{item.icon}</span>
             <p class="font-heading text-light font-semibold text-sm">{item.label}</p>
             <p class="text-muted text-sm">{item.desc}</p>
@@ -153,3 +153,9 @@ import Layout from '../../layouts/Layout.astro';
   </section>
 
 </Layout>
+
+<style>
+  /* URI keeps its own amber/purple identity, decoupled from the site's
+     shared gold token so the ST rebrand does not shift this page. */
+  .uri-gold-hover:hover { border-color: rgba(217,119,6,0.4); }
+</style>

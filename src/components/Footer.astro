@@ -13,7 +13,7 @@ const isURI = section === 'uri';
       <!-- Brand column -->
       <div class="md:col-span-1">
         <p class="font-heading text-lg font-semibold text-light mb-3">
-          Nikki <span class={isURI ? 'text-gold' : 'text-teal-DEFAULT'}>Cates</span>
+          Nikki <span class={isURI ? '' : 'text-teal-DEFAULT'} style={isURI ? 'color:#d97706' : undefined}>Cates</span>
         </p>
         <p class="text-muted text-sm leading-relaxed mb-4">
           Structural Recalibration Strategist · Author · Speaker · Army Veteran
@@ -21,7 +21,7 @@ const isURI = section === 'uri';
         <p class="text-muted text-xs">
           <a
             href="mailto:nikki@strategicunmasking.com"
-            class={`${isURI ? 'text-gold hover:text-gold-light' : 'text-teal-DEFAULT hover:text-teal-light'} transition-colors`}
+            class={isURI ? 'uri-footer-link transition-colors' : 'text-teal-DEFAULT hover:text-teal-light transition-colors'}
           >
             nikki@strategicunmasking.com
           </a>
@@ -35,6 +35,7 @@ const isURI = section === 'uri';
         </p>
         <ul class="space-y-2 text-sm">
           {[
+            { href: '/speaking-training/', label: 'Speaking & Training', external: false },
             { href: '/bootcamp/', label: 'The Frictionless Manager Bootcamp', external: false },
             { href: '/strategic-reset/', label: 'Strategic Reset Intensive', external: false },
             { href: '/structural-burnout/services', label: 'Services', external: false },
@@ -155,3 +156,10 @@ const isURI = section === 'uri';
     </div>
   </div>
 </footer>
+
+<style>
+  /* Kept in the old amber so the URI page's footer instance matches its
+     own identity rather than the ST rebrand's teal/navy/gold. */
+  .uri-footer-link { color: #d97706; }
+  .uri-footer-link:hover { color: #f59e0b; }
+</style>
