@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('insights', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout
+  title="Insights | Strategic Transformations"
+  description="Field notes on structural leadership: essays and frameworks on burnout, authority, and AI-era leadership from Nikki Cates, migrating here from the newsletter."
+  section="st"
+  accentColor="teal"
+>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-st-gradient"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
+    <div class="container-mid relative z-10 text-center lg:text-left">
+      <span class="st-tag mb-5 inline-flex mx-auto lg:mx-0 animate-on-scroll">Insights</span>
+      <h1 class="font-heading text-4xl md:text-6xl text-light font-bold mb-5 animate-on-scroll">
+        Field notes on<br/><span class="text-teal-DEFAULT">structural leadership.</span>
+      </h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto lg:mx-0 animate-on-scroll" style="animation-delay:0.1s">
+        Essays and frameworks on burnout, authority, and AI-era leadership, migrating here from the newsletter.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── POSTS / EMPTY STATE ─────────────────────────── -->
+  <section class="section-pad">
+    <div class="container-mid">
+      {posts.length === 0 ? (
+        <div class="card text-center max-w-xl mx-auto animate-on-scroll">
+          <p class="text-light font-semibold mb-2">This section is newly built and currently empty.</p>
+          <p class="text-muted text-sm leading-relaxed mb-6">
+            New essays will appear here as they are migrated and written. In the meantime, explore the
+            UNMASK Blueprint Series or reach out directly.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="/books/" class="btn-teal !text-sm">Explore the UNMASK Blueprint Series →</a>
+            <a href="mailto:nikki@strategicunmasking.com" class="btn-outline-teal !text-sm">Get in Touch</a>
+          </div>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {posts.map((post) => (
+            <a href={`/insights/${post.slug}/`} class="card teal-hover flex flex-col gap-3 animate-on-scroll">
+              <p class="text-muted text-xs uppercase tracking-widest">
+                {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </p>
+              <h2 class="font-heading text-xl font-bold text-light">{post.data.title}</h2>
+              <p class="text-muted text-sm leading-relaxed flex-1">{post.data.description}</p>
+              <span class="text-teal-DEFAULT text-sm font-semibold">Read more →</span>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+</Layout>

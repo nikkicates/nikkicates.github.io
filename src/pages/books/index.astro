@@ -3,8 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout
-  title="UNMASK Blueprint Series - Books & Manuals"
-  description="The UNMASK Blueprint Series - a three-volume intellectual framework deconstructing burnout through a Womanist lens. Individual, institutional, and collective recalibration."
+  title="UNMASK Blueprint Trilogy | The UNMASK Leadership Architecture in Print"
+  description="The UNMASK Blueprint trilogy is the Recalibration Framework in book form: three volumes taking the UNMASK Leadership Architecture from individual to institutional to collective recalibration. Print, eBook, and app."
   section="st"
   accentColor="teal"
 >
@@ -13,7 +13,7 @@ import Layout from '../../layouts/Layout.astro';
   <section class="relative py-24 overflow-hidden">
     <div class="absolute inset-0 bg-st-gradient"></div>
     <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-teal-DEFAULT"></div>
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 70% 40%, rgba(13,148,136,0.09) 0%, transparent 65%);"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 70% at 70% 40%, rgba(13,158,138,0.09) 0%, transparent 65%);"></div>
     <div class="container-mid relative z-10 text-center lg:text-left">
       <span class="st-tag mb-5 inline-flex mx-auto lg:mx-0 animate-on-scroll">Publications · 2026</span>
       <h1 class="font-heading text-4xl md:text-6xl text-light font-bold mb-5 animate-on-scroll">
@@ -29,7 +29,7 @@ import Layout from '../../layouts/Layout.astro';
         on the proprietary UNMASK Framework: a diagnostic and recalibration methodology that identifies hidden
         strains and rebuilds authentic leadership capacity.
       </p>
-      <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener" class="btn-teal animate-on-scroll" style="animation-delay:0.2s">
+      <a href="https://recalibratehere.com/manual-checkout" target="_blank" rel="noopener" class="btn-teal animate-on-scroll" style="animation-delay:0.2s">
         Access the Series
       </a>
     </div>
@@ -39,10 +39,19 @@ import Layout from '../../layouts/Layout.astro';
   <!-- THE THREE VOLUMES -->
   <section class="section-pad">
     <div class="container-wide">
+
+      <!-- Volume quick-jump -->
+      <nav aria-label="Jump to a volume" class="flex flex-wrap justify-center gap-3 mb-10 animate-on-scroll">
+        <a href="#vol-1" class="st-tag !text-teal-DEFAULT hover:!bg-teal-DEFAULT/10 transition-colors">Volume 1 · Individual</a>
+        <a href="#vol-2" class="st-tag !text-teal-DEFAULT hover:!bg-teal-DEFAULT/10 transition-colors">Volume 2 · Institutional</a>
+        <a href="#vol-3" class="st-tag !text-teal-DEFAULT hover:!bg-teal-DEFAULT/10 transition-colors">Volume 3 · Collective</a>
+        <a href="#licensing" class="st-tag !text-teal-DEFAULT hover:!bg-teal-DEFAULT/10 transition-colors">Licensing</a>
+      </nav>
+
       <div class="space-y-12">
 
         <!-- Vol 1 -->
-        <div class="card teal-hover animate-on-scroll">
+        <div id="vol-1" class="card teal-hover animate-on-scroll scroll-mt-28">
           <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
 
             <div class="md:col-span-2 flex justify-center md:justify-start">
@@ -97,9 +106,12 @@ import Layout from '../../layouts/Layout.astro';
             </div>
 
             <div class="md:col-span-3 flex flex-col gap-3 md:items-end justify-start">
-              <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener"
+              <a href="https://recalibratehere.com/manual-checkout" target="_blank" rel="noopener"
                  class="btn-teal w-full md:w-auto justify-center !text-sm">
                 Get Vol. 1
+              </a>
+              <a href="#vol-2" class="text-muted text-xs hover:text-teal-DEFAULT transition-colors">
+                Continue to Volume 2 →
               </a>
             </div>
           </div>
@@ -107,7 +119,7 @@ import Layout from '../../layouts/Layout.astro';
 
 
         <!-- Vol 2 -->
-        <div class="card teal-hover animate-on-scroll" style="animation-delay:0.08s">
+        <div id="vol-2" class="card teal-hover animate-on-scroll scroll-mt-28" style="animation-delay:0.08s">
           <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
 
             <div class="md:col-span-2 flex justify-center md:justify-start">
@@ -168,18 +180,22 @@ import Layout from '../../layouts/Layout.astro';
             </div>
 
             <div class="md:col-span-3 flex flex-col gap-3 md:items-end justify-start">
-              <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener"
+              <a href="https://recalibratehere.com/manual-checkout" target="_blank" rel="noopener"
                  class="btn-teal w-full md:w-auto justify-center !text-sm">
                 Get Vol. 2
               </a>
               <p class="text-muted text-xs text-right mt-1">Institutional licensing available 2027</p>
+              <div class="flex gap-3 mt-1">
+                <a href="#vol-1" class="text-muted text-xs hover:text-teal-DEFAULT transition-colors">← Volume 1</a>
+                <a href="#vol-3" class="text-muted text-xs hover:text-teal-DEFAULT transition-colors">Volume 3 →</a>
+              </div>
             </div>
           </div>
         </div>
 
 
         <!-- Vol 3 -->
-        <div class="card teal-hover animate-on-scroll" style="animation-delay:0.16s">
+        <div id="vol-3" class="card teal-hover animate-on-scroll scroll-mt-28" style="animation-delay:0.16s">
           <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
 
             <div class="md:col-span-2 flex justify-center md:justify-start">
@@ -238,9 +254,12 @@ import Layout from '../../layouts/Layout.astro';
             </div>
 
             <div class="md:col-span-3 flex flex-col gap-3 md:items-end justify-start">
-              <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener"
+              <a href="https://recalibratehere.com/manual-checkout" target="_blank" rel="noopener"
                  class="btn-teal w-full md:w-auto justify-center !text-sm">
                 Get Vol. 3
+              </a>
+              <a href="#vol-1" class="text-muted text-xs hover:text-teal-DEFAULT transition-colors">
+                ← Start from Volume 1
               </a>
             </div>
           </div>
@@ -259,7 +278,7 @@ import Layout from '../../layouts/Layout.astro';
         All three volumes are available in print, eBook, and interactive app formats.
         Team and institutional licensing available in 2027.
       </p>
-      <a href="https://unmask.nikkicates.com/manual-checkout" target="_blank" rel="noopener"
+      <a href="https://recalibratehere.com/manual-checkout" target="_blank" rel="noopener"
          class="btn-teal !text-base !py-3.5 !px-8">
         Access the UNMASK Checkout
       </a>
@@ -268,7 +287,7 @@ import Layout from '../../layouts/Layout.astro';
 
 
   <!-- LICENSING -->
-  <section class="section-pad">
+  <section id="licensing" class="section-pad scroll-mt-28">
     <div class="container-wide">
       <div class="text-center mb-12 animate-on-scroll">
         <span class="st-tag mb-4 inline-flex">Licensing</span>
@@ -285,7 +304,7 @@ import Layout from '../../layouts/Layout.astro';
             name: 'Individual License',
             desc: 'Personal use for leaders, coaches, and practitioners. Single-user access to all three volumes in print, eBook, and app formats with rights for individual client engagements.',
             cta: 'Purchase Individual',
-            href: 'https://unmask.nikkicates.com/manual-checkout',
+            href: 'https://recalibratehere.com/manual-checkout',
             external: true,
           },
           {
