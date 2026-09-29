@@ -1,13 +1,14 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Nikki Cates
-N:Cates;Nikki;;;
-TITLE:AI-Era Recalibration Strategist | Leadership Architecture | Speaker
-ORG:Strategic Transformations
-TEL;TYPE=CELL:+1-407-693-4449
-EMAIL;TYPE=WORK,INTERNET:nikki@strategictransformations.net
-URL;TYPE=WORK:https://strategictransformations.net
-URL;TYPE=LinkedIn:https://www.linkedin.com/in/nikkicatesmiller
-NOTE:Founder of Strategic Transformations & URI. Creator of the UNMASK Framework. Army Veteran. Author of the UNMASK Blueprint Series. AI-Era Organizational Strategist.
-REV:2026-05-19T00:00:00Z
+FN:Nikki Cates Miller
+N:Miller;Nikki;Cates;;
+NICKNAME:Nikki Cates
+TITLE:Leadership Strategist & Real Estate Advisor
+ORG:Strategic Transformations\; Pure Compass Investments
+TEL;TYPE=CELL,VOICE:+1-407-693-4449
+EMAIL;TYPE=INTERNET,WORK:nikki@strategicunmasking.com
+URL;TYPE=WORK:https://strategictransformations.net/structural-burnout/nexus/
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/nikkicatesmiller
+NOTE:Real estate services: Florida real estate licensee\, eXp Realty\, Referral Division.
+REV:2026-09-29T00:00:00Z
 END:VCARD

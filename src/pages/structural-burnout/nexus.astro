@@ -1,297 +1,266 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+// Neutral personal networking hub (QR-code destination). Standalone on purpose: it does not
+// use Layout.astro, so no Strategic Transformations header, nav, logo, or footer appear here.
 
-const hasPhoto = true;
-const photoSrc = '/images/nc-recalibrate.webp';
+const SITE = 'https://strategictransformations.net';
+const canonicalURL = `${SITE}/structural-burnout/nexus/`;
+
+const NAME = 'Nikki Cates Miller';
+const EMAIL = 'nikki@strategicunmasking.com';
+const PHONE_DISPLAY = '407-693-4449';
+const LICENSE_LINE = 'Nikki Cates Miller, Florida real estate licensee, eXp Realty, Referral Division.';
+
+const title = 'Nikki Cates Miller | Connect';
+const description = 'Connect with Nikki Cates Miller: leadership strategist, real estate advisor, author, and U.S. Army veteran.';
+const photo = '/images/nc-recalibrate.webp';
+
+// MoneyShow Orlando banner: shown through the end of Oct 12, 2026, America/New_York (EDT, UTC-4).
+const BANNER_UNTIL = '2026-10-13T00:00:00-04:00';
+const bannerExpiredAtBuild = Date.now() >= Date.parse(BANNER_UNTIL);
+
+// Inline stroke icons (24x24 viewBox), drawn in the accent color.
+const icons: Record<string, string> = {
+  download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>',
+  calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+  linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
+  phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/>',
+  arrow: '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>',
+  external: '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>',
+  layers: '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+  compass: '<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>',
+};
+const svg = (name: string, size = 20) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]}</svg>`;
+
+const contactActions = [
+  { label: 'Book a 20-Minute Conversation', href: 'https://calendar.app.google/e8ErMQqHhmnHn1hk6', icon: 'calendar', external: true },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nikkicatesmiller', icon: 'linkedin', external: true },
+  { label: `Call or Text ${PHONE_DISPLAY}`, href: 'tel:+14076934449', icon: 'phone' },
+  { label: EMAIL, href: `mailto:${EMAIL}`, icon: 'mail' },
+];
+
+const doors = [
+  {
+    id: 'door-st',
+    kicker: 'Leadership & AI Strategy',
+    label: 'Strategic Transformations',
+    icon: 'layers',
+    line: 'I equip leaders to build institutions where people can thrive, as AI changes how work gets done.',
+    main: { label: 'Visit Strategic Transformations', href: `${SITE}/` },
+    links: [
+      { label: 'Executive Briefing', href: '/structural-burnout/briefing/' },
+      { label: 'Fractional Advisory', href: '/structural-burnout/fractional-lane/' },
+      { label: 'Speaking & Training', href: '/speaking-training/' },
+      { label: 'UNMASK Blueprint Series', href: '/books/' },
+      { label: 'AI Readiness Quiz', href: '/strategic-reset/quiz/' },
+    ],
+  },
+  {
+    id: 'door-pci',
+    kicker: 'Real Estate Advisory',
+    label: 'Pure Compass Investments',
+    icon: 'compass',
+    line: 'Clarity Before Capital. Education, advisory, and referral coordination for first-generation wealth builders, diaspora investors, and inheriting families.',
+    main: { label: 'Visit Pure Compass', href: 'https://purecompassinvest.com/', external: true },
+    links: [
+      { label: 'Book a Strategy Call', href: 'https://api.leadconnectorhq.com/widget/bookings/pure-compass-scheduling', external: true },
+      { label: 'Clarity Before Capital Newsletter', href: 'https://claritybeforecapital.beehiiv.com', external: true },
+    ],
+    fine: `${LICENSE_LINE.replace(/\.$/, '')}. Education and referral coordination only. Not investment management advice.`,
+  },
+];
 ---
 
-<Layout
-  title="Nexus Card - Nikki Cates"
-  description="Digital networking card for Nikki Cates - AI-Era Recalibration Strategist, Author, Army Veteran, and Founder of Strategic Transformations."
-  section="st"
-  accentColor="teal"
->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={`${SITE}${photo}`} />
+    <meta property="og:type" content="profile" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${SITE}${photo}`} />
+    <meta name="theme-color" content="#F7F3EC" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" />
+  </head>
 
-  <section class="min-h-screen flex items-center justify-center py-12 px-4 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[#0f172a]"></div>
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(13,158,138,0.1) 0%, transparent 60%);"></div>
-
-    <div class="relative z-10 w-full max-w-md">
-
-      <!-- Top gradient bar -->
-      <div class="h-[3px] w-full mb-6 rounded-full" style="background: linear-gradient(to right, transparent, #0D9E8A, #064680, transparent);"></div>
-
-      <!-- DOWNLOAD CONTACT CARD - prominent at top -->
-      <a
-        href="/nikki-cates.vcf"
-        class="w-full flex items-center justify-center gap-3 mb-6 py-3.5 px-5 rounded-md border border-teal-DEFAULT/50 font-body font-bold text-sm text-teal-DEFAULT transition-all no-underline"
-        style="background: rgba(13,158,138,0.12);"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        Save Contact to Phone
-      </a>
+  <body class="hub">
+    <main class="wrap">
 
       <!-- Identity -->
-      <div class="text-center mb-7">
+      <header class="identity">
+        <img src={photo} alt={NAME} width="132" height="132" class="photo" loading="eager" fetchpriority="high" />
+        <h1 class="name">{NAME}</h1>
+        <p class="role">Leadership Strategist · Real Estate Advisor · Author · U.S. Army Veteran</p>
+        <p class="intro">I help leaders and families build on solid structure, from institutions to first investments.</p>
+      </header>
 
-        <!-- Photo -->
-        <div class="w-36 h-36 rounded-full mx-auto mb-4 overflow-hidden border-2 border-teal-DEFAULT/50 relative"
-             style="background: linear-gradient(135deg, #064680, #0D9E8A);">
-          {hasPhoto ? (
-            <img
-              src={photoSrc}
-              alt="Nikki Cates"
-              width="144"
-              height="144"
-              class="w-full h-full object-cover object-center"
-              loading="eager"
-              fetchpriority="high"
-            />
-          ) : (
-            <div class="w-full h-full flex items-center justify-center">
-              <span class="font-heading text-white text-2xl font-bold select-none">NC</span>
-            </div>
-          )}
+      <!-- Event banner: removed from builds after the cutoff, hidden client-side once the cutoff passes. -->
+      {!bannerExpiredAtBuild && (
+        <div class="banner" data-show-until={BANNER_UNTIL} hidden>
+          <p><strong>Great meeting you at MoneyShow Orlando.</strong> Save my contact or book a time to continue the conversation.</p>
         </div>
+      )}
+      <script is:inline>
+        document.querySelectorAll('[data-show-until]').forEach(function (el) {
+          el.hidden = Date.now() >= Date.parse(el.getAttribute('data-show-until'));
+        });
+      </script>
 
-        <h1 class="font-heading text-2xl text-light font-bold mb-1">Nikki Cates</h1>
-        <p class="font-body text-teal-DEFAULT text-xs font-bold uppercase tracking-widest mb-2">
-          AI-Era Recalibration Strategist | Leadership Architecture | Speaker
-        </p>
-        <p class="text-muted text-xs leading-relaxed max-w-xs mx-auto">
-          Founder, Strategic Transformations &amp; URI ·
-          Army Veteran · Author · AI-Era Organizational Strategist
-        </p>
-        <p class="text-light text-sm font-semibold leading-relaxed max-w-xs mx-auto mt-4">
-          Burnout is the smoke alarm. Your Leadership Architecture is the fire.
-        </p>
-      </div>
-
-      <!-- Divider -->
-      <div class="h-px bg-border mb-5"></div>
-
-      <!-- About (third-person) -->
-      <div class="bg-surface/60 border border-border rounded-md p-4 mb-5">
-        <p class="text-muted text-sm leading-relaxed">
-          Nikki Cates helps executives, boards, and organizations identify and dismantle the
-          structural conditions producing burnout, attrition, and systemic exhaustion.
-          She is the creator of the <span class="text-teal-DEFAULT font-semibold">UNMASK Framework</span>
-          and author of the three-volume UNMASK Blueprint Series.
-        </p>
-      </div>
-
-      <!-- Entry links -->
-      <div class="space-y-2.5 mb-7">
-        <p class="font-body text-xs font-bold uppercase tracking-widest text-muted text-center mb-3">
-          Leadership Architecture Pathways
-        </p>
-
-        {[
-          {
-            label: '2026 Leadership Architecture Whitepaper',
-            sub: 'Download the UNMASK Diagnostic Suite whitepaper',
-            href: 'https://drive.google.com/file/d/18mGg0ML4pnviaw3KZ90M00rgfNxr3LvM/view?usp=sharing',
-            icon: 'file-text',
-            primary: true,
-            external: true,
-          },
-          {
-            label: 'Take the AI Readiness Quiz',
-            sub: 'Six questions. Personalized readiness profile.',
-            href: '/strategic-reset/quiz/',
-            icon: 'activity',
-          },
-          {
-            label: 'Request Executive Briefing',
-            sub: 'For leadership architecture risk and recalibration decisions',
-            href: '/structural-burnout/briefing/',
-            icon: '📋',
-          },
-          {
-            label: 'Fractional Advisory & Recalibration',
-            sub: 'Embedded partnership and 90-day structural work',
-            href: '/structural-burnout/fractional-lane/',
-            icon: '🏗️',
-          },
-        ].map((link) => (
-          <a
-            href={link.href}
-            target={link.external ? '_blank' : undefined}
-            rel={link.external ? 'noopener' : undefined}
-            class={`flex items-center gap-4 p-3.5 rounded-md border transition-all no-underline group
-              ${link.primary
-                ? 'bg-teal-DEFAULT/10 border-teal-DEFAULT/50 hover:bg-teal-DEFAULT/20'
-                : 'bg-surface/40 border-border hover:border-teal-DEFAULT/30'
-              }`}
-          >
-            <span class="text-xl shrink-0">
-              {link.icon === 'file-text' ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                  <line x1="10" y1="9" x2="8" y2="9" />
-                </svg>
-              ) : link.icon === 'activity' ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
-              ) : (
-                link.icon
-              )}
-            </span>
-            <div class="flex-1 min-w-0">
-              <p class={`font-body font-semibold text-sm ${link.primary ? 'text-teal-DEFAULT' : 'text-light'}`}>
-                {link.label}
-              </p>
-              <p class="text-muted text-xs truncate">{link.sub}</p>
-            </div>
-            <svg class="w-4 h-4 text-muted/50 shrink-0 group-hover:text-teal-DEFAULT group-hover:translate-x-0.5 transition-all" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-            </svg>
-          </a>
-        ))}
-
-        <a
-          href="/bootcamp/"
-          class="flex items-center gap-4 p-3.5 rounded-md border bg-surface/40 border-border hover:border-teal-DEFAULT/30 transition-all no-underline group"
-        >
-          <span class="text-xl shrink-0">🔥</span>
-          <div class="flex-1 min-w-0">
-            <p class="font-body font-semibold text-sm text-light">Frictionless Bootcamp Founding Cohort</p>
-            <p class="text-muted text-xs leading-snug">Retain your best people while implementing Human x AI Alliances. 20 seats. October 2–3, 2026 · SpringHill Suites Orlando Airport.</p>
-          </div>
-          <svg class="w-4 h-4 text-muted/50 shrink-0 group-hover:text-teal-DEFAULT group-hover:translate-x-0.5 transition-all" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-          </svg>
+      <!-- Primary actions. The licensing line is inside this same group, directly under the
+           contact buttons, so it stays adjacent at every width (Fla. Admin. Code R. 61J2-10.025). -->
+      <section class="actions" id="contact" aria-label="Contact">
+        <a href="/nikki-cates.vcf" class="btn btn-primary">
+          <Fragment set:html={svg('download')} />
+          <span>Save Contact to Phone</span>
         </a>
-
-        <div class="flex items-center gap-4 p-3.5 rounded-md border bg-surface/40 border-border opacity-60 no-underline">
-          <span class="text-xl shrink-0">⚙️</span>
-          <div class="flex-1 min-w-0">
-            <p class="font-body font-semibold text-sm text-light">AI Friction Cohort</p>
-            <p class="text-muted text-xs leading-snug">6-week cohort for leaders navigating AI implementation friction. January 2027.</p>
-          </div>
-          <span class="text-[10px] font-body font-bold uppercase tracking-widest text-muted/70 shrink-0">Coming Soon</span>
-        </div>
-      </div>
-
-      <!-- YouTube CTA -->
-      <a
-        href="https://www.youtube.com/@iamnikkicates"
-        target="_blank"
-        rel="noopener"
-        class="w-full flex items-center justify-center gap-3 mb-5 py-3.5 px-5 rounded-md border border-teal-DEFAULT/50 font-body font-bold text-sm text-teal-DEFAULT transition-all no-underline"
-        style="background: rgba(13,158,138,0.12);"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-        </svg>
-        Watch on YouTube
-      </a>
-
-      <!-- Secondary links -->
-      <div class="space-y-2.5 mb-7">
-        <p class="font-body text-[10px] font-bold uppercase tracking-widest text-muted/80 text-center mb-2">
-          Additional Links
-        </p>
-        {[
-          {
-            label: 'URI Formation',
-            sub: 'Leadership formation resources',
-            href: '/uri/',
-            icon: '✊🏾',
-          },
-          {
-            label: 'UNMASK Books',
-            sub: 'Volumes, bundles, and institutional options',
-            href: '/books/',
-            icon: '📖',
-          },
-          {
-            label: 'LinkedIn',
-            sub: 'linkedin.com/in/nikkicatesmiller',
-            href: 'https://www.linkedin.com/in/nikkicatesmiller',
-            icon: '🔗',
-            external: true,
-          },
-        ].map((link) => (
-          <a
-            href={link.href}
-            target={link.external ? '_blank' : undefined}
-            rel={link.external ? 'noopener' : undefined}
-            class="flex items-center gap-4 p-3 rounded-md border border-border/70 bg-surface/20 hover:border-teal-DEFAULT/30 transition-all no-underline group"
-          >
-            <span class="text-lg shrink-0 opacity-80">{link.icon}</span>
-            <div class="flex-1 min-w-0">
-              <p class="font-body font-semibold text-sm text-light/90">{link.label}</p>
-              <p class="text-muted text-xs truncate">{link.sub}</p>
-            </div>
+        {contactActions.map((a) => (
+          <a href={a.href} class="btn btn-outline" target={a.external ? '_blank' : undefined} rel={a.external ? 'noopener' : undefined}>
+            <Fragment set:html={svg(a.icon)} />
+            <span class="btn-text">{a.label}</span>
           </a>
         ))}
-      </div>
+        <p class="license" id="license-line">Real estate services: {LICENSE_LINE}</p>
+      </section>
 
-      <!-- Contact links -->
-      <div class="space-y-2.5 mb-7">
-        {[
-          {
-            label: 'Call or Text',
-            sub: '1-407-693-4449',
-            href: 'tel:+14076934449',
-            icon: '📞',
-          },
-          {
-            label: 'Email Directly',
-            sub: 'nikki@strategictransformations.net',
-            href: 'mailto:nikki@strategictransformations.net',
-            icon: '✉️',
-          },
-        ].map((link) => (
-          <a
-            href={link.href}
-            class="flex items-center gap-4 p-3.5 rounded-md border border-border bg-surface/40 hover:border-teal-DEFAULT/30 transition-all no-underline group"
-          >
-            <span class="text-xl shrink-0">{link.icon}</span>
-            <div class="flex-1 min-w-0">
-              <p class="font-body font-semibold text-sm text-light">{link.label}</p>
-              <p class="text-muted text-xs truncate">{link.sub}</p>
-            </div>
-          </a>
+      <!-- Two doors. Door A first by default; ?focus=pci moves Door B first. -->
+      <div class="doors" id="doors">
+        {doors.map((d) => (
+          <section class="door" id={d.id} aria-labelledby={`${d.id}-label`}>
+            <p class="door-kicker"><Fragment set:html={svg(d.icon, 18)} />{d.kicker}</p>
+            <h2 class="door-label" id={`${d.id}-label`}>{d.label}</h2>
+            <p class="door-line">{d.line}</p>
+            <a href={d.main.href} class="btn btn-primary" target={d.main.external ? '_blank' : undefined} rel={d.main.external ? 'noopener' : undefined}>
+              <span>{d.main.label}</span>
+              <Fragment set:html={svg('arrow', 18)} />
+            </a>
+            <ul class="door-links">
+              {d.links.map((l) => (
+                <li>
+                  <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}>
+                    <span>{l.label}</span>
+                    <Fragment set:html={svg(l.external ? 'external' : 'arrow', 16)} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {d.fine && <p class="door-fine">{d.fine}</p>}
+          </section>
         ))}
       </div>
+      <script is:inline>
+        if (new URLSearchParams(location.search).get('focus') === 'pci') {
+          var doors = document.getElementById('doors');
+          doors.insertBefore(document.getElementById('door-pci'), doors.firstElementChild);
+        }
+      </script>
 
-      <!-- Second download nudge at bottom -->
-      <a
-        href="/nikki-cates.vcf"
-        class="w-full flex items-center justify-center gap-2 mb-5 py-2.5 px-4 rounded-md text-xs font-body font-bold uppercase tracking-widest text-muted border border-border hover:border-teal-DEFAULT/40 hover:text-teal-DEFAULT transition-all no-underline"
-      >
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        Save Contact Card (.vcf)
-      </a>
+      <footer class="foot">© {new Date().getFullYear()} {NAME}</footer>
+    </main>
+  </body>
+</html>
 
-      <!-- Footer -->
-      <div class="text-center">
-        <p class="text-muted text-xs italic mb-1">
-          "Burnout is a design flaw. We named the design."
-        </p>
-        <p class="text-muted/50 text-xs">
-          © {new Date().getFullYear()} Nikki Cates · Strategic Transformations
-        </p>
-      </div>
+<style is:global>
+  :root {
+    --bg: #F7F3EC;
+    --ink: #1F1A24;
+    --accent: #4A2545;
+    --ink-soft: rgba(31, 26, 36, 0.74);
+    --line: rgba(31, 26, 36, 0.14);
+    --card: #FFFFFF;
+    --serif: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+    --sans: 'Work Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  html { background: var(--bg); }
+  body.hub {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hub a { color: inherit; text-decoration: none; }
+  .hub :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 10px; }
 
-      <!-- Bottom gradient bar -->
-      <div class="h-[3px] w-full mt-6 rounded-full" style="background: linear-gradient(to right, transparent, #064680, #0D9E8A, transparent);"></div>
+  .wrap { max-width: 480px; margin: 0 auto; padding: 32px 16px 40px; }
 
-    </div>
-  </section>
+  .identity { text-align: center; margin-bottom: 20px; }
+  .photo {
+    width: 132px; height: 132px; border-radius: 50%; object-fit: cover; object-position: center;
+    display: block; margin: 0 auto 16px; border: 3px solid var(--card); box-shadow: 0 0 0 1px var(--line);
+  }
+  .name { font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .role { font-size: 0.9rem; font-weight: 500; color: var(--accent); margin: 0 0 12px; }
+  .intro { font-size: 1rem; color: var(--ink-soft); margin: 0 auto; max-width: 34ch; }
 
-</Layout>
+  .banner {
+    background: var(--card); border: 1px solid var(--accent); border-left-width: 4px;
+    border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; font-size: 0.95rem;
+  }
+  .banner p { margin: 0; }
+  .banner strong { color: var(--accent); font-weight: 600; }
+
+  .actions { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 52px; padding: 12px 16px; border-radius: 12px;
+    font-family: var(--sans); font-size: 1rem; font-weight: 600; text-align: center;
+    transition: background-color .15s, border-color .15s, color .15s;
+  }
+  .btn svg { flex-shrink: 0; }
+  .btn-primary { background: var(--accent); color: #fff !important; border: 1px solid var(--accent); }
+  .btn-primary:hover { background: #3a1c36; }
+  .btn-outline { background: var(--card); color: var(--ink); border: 1px solid var(--line); min-height: 48px; }
+  .btn-outline svg { color: var(--accent); }
+  .btn-outline:hover { border-color: var(--accent); }
+  .btn-text { overflow-wrap: anywhere; }
+
+  .license { margin: 2px 4px 0; font-size: 0.8rem; line-height: 1.45; color: var(--ink-soft); text-align: center; }
+
+  .doors { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .door {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 20px; display: flex; flex-direction: column;
+  }
+  .door-kicker {
+    display: flex; align-items: center; gap: 8px; margin: 0 0 4px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+  }
+  .door-label { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; line-height: 1.2; margin: 0 0 8px; }
+  .door-line { margin: 0 0 16px; color: var(--ink-soft); font-size: 0.95rem; }
+  .door-links { list-style: none; margin: 12px 0 0; padding: 0; }
+  .door-links li + li { border-top: 1px solid var(--line); }
+  .door-links a {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    min-height: 48px; padding: 8px 4px; font-weight: 500;
+  }
+  .door-links a svg { color: var(--accent); flex-shrink: 0; }
+  .door-links a:hover span { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .door-fine { margin: auto 0 0; padding-top: 14px; font-size: 0.75rem; line-height: 1.45; color: var(--ink-soft); }
+
+  .foot { text-align: center; font-size: 0.8rem; color: var(--ink-soft); margin-top: 32px; }
+
+  @media (min-width: 768px) {
+    .wrap { max-width: 880px; padding-top: 56px; }
+    .identity, .banner, .actions { max-width: 480px; margin-left: auto; margin-right: auto; }
+    .banner { margin-bottom: 16px; }
+    .actions { margin-bottom: 40px; }
+    .doors { grid-template-columns: 1fr 1fr; gap: 20px; }
+  }
+</style>
