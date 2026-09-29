@@ -11,6 +11,9 @@ const PHONE_DISPLAY = '407-693-4449';
 const LICENSE_LINE = 'Nikki Cates Miller, Florida real estate licensee, eXp Realty, Referral Division.';
 
 const title = 'Nikki Cates Miller | Connect';
+// Title-line phrases. Phrases never split; from 360px up the line wraps only between the two
+// pairs (2 + 2), since text-wrap: balance alone would leave the first phrase on its own line.
+const rolePairs = [['Leadership Strategist', 'Real Estate Advisor'], ['Author', 'Army Veteran']];
 const description = 'Connect with Nikki Cates Miller: leadership strategist, real estate advisor, author, and U.S. Army veteran.';
 const photo = '/images/nc-recalibrate.webp';
 
@@ -65,6 +68,7 @@ const doors = [
     main: { label: 'Visit Pure Compass', href: 'https://purecompassinvest.com/', external: true },
     links: [
       { label: 'Book a Strategy Call', href: 'https://api.leadconnectorhq.com/widget/bookings/pure-compass-scheduling', external: true },
+      { label: 'About Nikki', href: 'https://purecompassinvest.com/#founder', external: true },
       { label: 'Clarity Before Capital Newsletter', href: 'https://claritybeforecapital.beehiiv.com', external: true },
     ],
     fine: `${LICENSE_LINE.replace(/\.$/, '')}. Education and referral coordination only. Not investment management advice.`,
@@ -104,7 +108,15 @@ const doors = [
       <header class="identity">
         <img src={photo} alt={NAME} width="132" height="132" class="photo" loading="eager" fetchpriority="high" />
         <h1 class="name">{NAME}</h1>
-        <p class="role">Leadership Strategist · Real Estate Advisor · Author · U.S. Army Veteran</p>
+        <p class="role">
+          {rolePairs.map((pair, p) => (
+            <Fragment>
+              <span class="pair">{pair.map((r, i) => (
+                <Fragment><span class="nowrap">{r}{(p === 0 || i === 0) && ' ·'}</span>{i === 0 && ' '}</Fragment>
+              ))}</span>{p === 0 && ' '}
+            </Fragment>
+          ))}
+        </p>
         <p class="intro">I help leaders and families build on solid structure, from institutions to first investments.</p>
       </header>
 
@@ -147,17 +159,19 @@ const doors = [
               <span>{d.main.label}</span>
               <Fragment set:html={svg('arrow', 18)} />
             </a>
-            <ul class="door-links">
-              {d.links.map((l) => (
-                <li>
-                  <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}>
-                    <span>{l.label}</span>
-                    <Fragment set:html={svg(l.external ? 'external' : 'arrow', 16)} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-            {d.fine && <p class="door-fine">{d.fine}</p>}
+            <div class="door-body">
+              <ul class="door-links">
+                {d.links.map((l) => (
+                  <li>
+                    <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}>
+                      <span>{l.label}</span>
+                      <Fragment set:html={svg(l.external ? 'external' : 'arrow', 16)} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              {d.fine && <p class="door-fine">{d.fine}</p>}
+            </div>
           </section>
         ))}
       </div>
@@ -205,7 +219,9 @@ const doors = [
     display: block; margin: 0 auto 16px; border: 3px solid var(--card); box-shadow: 0 0 0 1px var(--line);
   }
   .name { font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.01em; }
-  .role { font-size: 0.9rem; font-weight: 500; color: var(--accent); margin: 0 0 12px; }
+  .role { font-size: 0.9rem; font-weight: 500; color: var(--accent); margin: 0 0 12px; text-wrap: balance; }
+  .nowrap { white-space: nowrap; }
+  @media (min-width: 360px) { .role .pair { white-space: nowrap; } }
   .intro { font-size: 1rem; color: var(--ink-soft); margin: 0 auto; max-width: 34ch; }
 
   .banner {
@@ -252,7 +268,7 @@ const doors = [
   }
   .door-links a svg { color: var(--accent); flex-shrink: 0; }
   .door-links a:hover span { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-  .door-fine { margin: auto 0 0; padding-top: 14px; font-size: 0.75rem; line-height: 1.45; color: var(--ink-soft); }
+  .door-fine { margin: 0; padding-top: 14px; font-size: 0.75rem; line-height: 1.45; color: var(--ink-soft); }
 
   .foot { text-align: center; font-size: 0.8rem; color: var(--ink-soft); margin-top: 32px; }
 
@@ -262,5 +278,11 @@ const doors = [
     .banner { margin-bottom: 16px; }
     .actions { margin-bottom: 40px; }
     .doors { grid-template-columns: 1fr 1fr; gap: 20px; }
+    /* Equal-height doors whose kicker, label, line, button, and link list share rows, so the
+       link lists start at the same height and leftover space falls at the card bottom. */
+    @supports (grid-template-rows: subgrid) {
+      .doors { row-gap: 0; }
+      .door { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+    }
   }
 </style>
