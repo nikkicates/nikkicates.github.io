@@ -1,97 +1,29 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+import { CALENDAR_URL } from '../../config/site';
+
+// Keynote list trimmed to Stewarding the Shift, bootcamp tiers removed while /bootcamp/ is hidden,
+// and prices removed: every engagement starts with a discovery call.
 const tiers = [
   {
-    tag: 'Keynote',
-    name: 'Reading the Room Before the Room Breaks',
-    price: 'From $12,500',
-    duration: '60–90 min keynote / Workshop format available',
-    desc: 'The anchor keynote for conferences, associations, and corporate events. Equips leaders to diagnose the structural conditions AI acceleration is already exposing before those conditions become a crisis. Submitted to GOSHRM, Florida Restaurant Show, FRLA Summit, and ACHE Central Florida.',
+    tag: 'Keynote / Training',
+    name: 'Stewarding the Shift: Holding the People Who Hold Your Mission',
+    duration: 'Keynote · Team training (half or full day) · Board briefing (60 to 90 minutes, virtual)',
+    desc: 'A keynote for mission-driven and faith-based organizations on readiness training, ethical governance and policy, and sustainability beyond risk. Built on the UNMASK bridge: AI accelerates what exists, and the question is who absorbs the cost.',
     includes: [
-      'Pre-event discovery call and audience alignment',
-      'Custom talk arc for event theme and audience',
-      'Covers structural burnout, hidden labor, decision friction, and authority gaps',
-      'Post-keynote digital resource or reflection guide for attendees',
-      'Workshop format available from $15,000',
-      'Travel and hospitality requirements apply',
+      'Readiness: Uncover, Navigate, and Manage',
+      'Governance: Advocate, with clear decision rights and a written AI policy built on the principles of responsible AI',
+      'Sustainability: Sustain and Kindle',
+      'Begins with a discovery call to align the room, audience, and format',
     ],
-    cta: 'Inquire About Speaking',
-    href: '/structural-burnout/briefing',
-  },
-  {
-    tag: 'Keynote',
-    name: 'AI Accelerates What Exists: Preparing Organizations for the Human x AI Workforce Alliance',
-    price: 'From $12,500',
-    duration: '60–90 min keynote',
-    desc: 'Helps leaders understand how AI exposes and accelerates existing patterns of burnout, hidden labor, decision friction, authority gaps, and cultural debt. Built for executive audiences navigating AI mandates without adequate human architecture.',
-    includes: [
-      'Pre-event discovery call',
-      'Custom talk arc aligned to event theme and audience',
-      'Audience leaves with a clearer understanding of what AI reveals and what must be recalibrated',
-      'Post-keynote digital resource for attendees',
-      'Travel and hospitality requirements apply',
-    ],
-    cta: 'Inquire About Speaking',
-    href: '/structural-burnout/briefing',
-  },
-  {
-    tag: 'Keynote / Workshop',
-    name: 'The Frictionless Manager: Equipping Managers to Lead the Human x AI Workforce Alliance',
-    price: 'From $12,500',
-    duration: '60–90 min keynote / Workshop format available',
-    desc: 'A practical session introducing the UNMASK framework as a leadership architecture for reducing structural drag, pacing AI implementation, and sustaining human judgment and purpose in the Human x AI workplace.',
-    includes: [
-      'Pre-event discovery call',
-      'UNMASK framework introduction for manager-facing audiences',
-      'DISC-informed communication and behavioral difference mapping',
-      'AI adoption pacing, advocacy upward, and responsibility-authority alignment',
-      'Workshop format available from $15,000',
-    ],
-    cta: 'Inquire About Speaking',
-    href: '/structural-burnout/briefing',
-  },
-  {
-    tag: 'Group Training',
-    name: 'Frictionless Manager Bootcamp — Open Cohort',
-    price: '$1,497 per seat (Founding Rate)',
-    duration: 'Day-and-a-half · 24 seats maximum',
-    desc: 'Group training for managers and senior leaders navigating the Human x AI workplace. Quarterly cohort format. Founding cohort launches early October 2026 in Orlando, Florida. This is the founding rate. Price increases to $1,750 for cohort two. Participants leave with the UNMASK diagnostic language, a structural friction map of their own team, and a 90-day recalibration rhythm.',
-    includes: [
-      'UNMASK Leadership Architecture training',
-      'DISC behavioral assessment and facilitated debrief',
-      'Structural burnout and hidden labor mapping',
-      'Responsibility-authority alignment review',
-      'AI adoption pacing and implementation rhythm',
-      '90-day recalibration plan',
-      'Post-bootcamp integration support',
-    ],
-    cta: 'Register Interest',
-    href: '/bootcamp',
+    cta: 'Book a Discovery Call',
+    href: CALENDAR_URL,
     featured: true,
-  },
-  {
-    tag: 'Corporate Training',
-    name: 'Frictionless Manager Bootcamp — Corporate Onsite',
-    price: '$12,500–$15,000',
-    duration: 'Day-and-a-half · Delivered at client location',
-    desc: 'The full Frictionless Manager Bootcamp delivered onsite for an intact leadership team. Designed for organizations that need their managers to build shared language, diagnostic capacity, and a structural recalibration plan together. First corporate delivery targeted Q4 2026.',
-    includes: [
-      'Pre-engagement intake and organizational context review',
-      'Full UNMASK Leadership Architecture training for the team',
-      'DISC behavioral assessment and team-level debrief',
-      'Structural burnout and hidden labor mapping for the organization',
-      'Responsibility-authority alignment review',
-      'Team-level 90-day recalibration plan',
-      'Post-engagement integration notes',
-    ],
-    cta: 'Request Corporate Briefing',
-    href: '/structural-burnout/briefing',
   },
   {
     tag: 'Group Workshop',
     name: 'UNMASK Facilitated Group Workshop',
-    price: '$6,500–$8,500',
     duration: 'Half-Day · Leadership team format',
     desc: 'A half-day facilitated diagnostic experience for leadership teams. Uses the UNMASK framework to surface structural friction, hidden labor, and responsibility-authority gaps before the next initiative lands. Packaging complete Q3 2026. First delivery targeted Q4 2026.',
     includes: [
@@ -108,15 +40,14 @@ const tiers = [
   {
     tag: 'Strategic Advisory',
     name: 'Strategic Advisory',
-    price: 'By inquiry only',
-    duration: 'Scope determined after Executive Briefing',
+    duration: 'Scope determined after a discovery call',
     desc: 'For senior executives and organizations that require direct strategic counsel from Nikki Cates on AI-era operating changes, structural recalibration, and human sustainability priorities. This is a high-touch, exclusive engagement. Not mass-marketed.',
     includes: [
       'Direct access to Nikki Cates',
       'Strategic counsel on AI-era operating priorities',
       'Structural recalibration guidance',
       'Human sustainability and leadership architecture review',
-      'Scope and cadence determined after Executive Briefing',
+      'Scope and cadence determined after a discovery call',
     ],
     cta: 'Request Advisory Briefing',
     href: '/structural-burnout/briefing',
@@ -126,7 +57,7 @@ const tiers = [
 const categories = [
   'AI-era leadership strategy',
   'Human x AI workforce readiness',
-  'Frictionless Manager training',
+  'Stewarding the Shift readiness training',
   'Group diagnostics and workshops',
   'Structural burnout and hidden labor',
   'Responsibility-authority alignment',
@@ -195,7 +126,7 @@ const categories = [
             {tier.featured && (
               <div class="absolute -top-3 left-5">
                 <span class="bg-teal-DEFAULT text-[#0f172a] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-sm font-body">
-                  Founding Cohort · October 2026
+                  Signature Keynote
                 </span>
               </div>
             )}
@@ -204,11 +135,8 @@ const categories = [
                 <span class="st-tag text-xs mb-2 inline-flex">{tier.tag}</span>
                 <h2 class="font-heading text-xl text-light font-bold">{tier.name}</h2>
               </div>
-              <div class="text-right shrink-0">
-                <p class="font-body text-teal-DEFAULT font-bold text-sm">{tier.price}</p>
-                <p class="text-muted text-xs mt-1">{tier.duration}</p>
-              </div>
             </div>
+            <p class="text-muted text-xs">{tier.duration}</p>
             <p class="text-muted text-sm leading-relaxed">{tier.desc}</p>
             <ul class="space-y-2 flex-1">
               {tier.includes.map((item) => (
@@ -218,7 +146,7 @@ const categories = [
                 </li>
               ))}
             </ul>
-            <a href={tier.href} class="btn-teal mt-2 justify-center !text-sm">
+            <a href={tier.href} target={tier.href.startsWith('http') ? '_blank' : undefined} rel={tier.href.startsWith('http') ? 'noopener noreferrer' : undefined} class="btn-teal mt-2 justify-center !text-sm">
               {tier.cta}
             </a>
           </div>
@@ -249,21 +177,15 @@ const categories = [
   <section id="speaking" class="section-pad">
     <div class="container-wide">
       <div class="text-center mb-12 animate-on-scroll">
-        <span class="st-tag mb-4 inline-flex">2026 Signature Talks</span>
+        <span class="st-tag mb-4 inline-flex">Signature Talk</span>
         <h2 class="font-heading text-3xl text-light">Signature Speaking Platform</h2>
         <p class="text-muted max-w-2xl mx-auto mt-4">
-          Premium, practical talks for leadership conferences, associations, healthcare and hospitality organizations,
-          and mid-market companies preparing people and systems for AI-era change.
+          For nonprofits, faith-based organizations, churches, and church bodies preparing their people for AI.
         </p>
       </div>
       <div class="space-y-3 max-w-3xl mx-auto">
         {[
-          { num: '01', title: 'Reading the Room Before the Room Breaks', desc: 'The anchor keynote. Equips leaders to diagnose the structural conditions AI acceleration is already exposing before those conditions become a crisis. Submitted to GOSHRM, Florida Restaurant Show, FRLA Summit, and ACHE Central Florida.' },
-          { num: '02', title: 'AI Accelerates What Exists: Preparing Organizations for the Human x AI Workforce Alliance', desc: 'Helps leaders understand how AI exposes and accelerates existing patterns of burnout, hidden labor, decision friction, authority gaps, and cultural debt.' },
-          { num: '03', title: 'The Frictionless Manager: Equipping Managers to Lead the Human x AI Workforce Alliance', desc: 'Introduces the UNMASK framework as a practical leadership architecture for reducing structural drag, pacing AI implementation, and sustaining human judgment and purpose.' },
-          { num: '04', title: 'Stop the Strain Transfer: Why Your Best Leaders Are Burning Out', desc: 'Shows how organizations redistribute unresolved structural strain onto high-capacity people, and what leaders can recalibrate instead.' },
-          { num: '05', title: 'The Hidden Labor Map: What Your Org Chart Cannot See', desc: 'Names the invisible labor, emotional load, translation work, and repair functions that keep organizations running but rarely receive authority or protection.' },
-          { num: '06', title: 'Responsibility Without Authority: The Leadership Gap AI Will Expose', desc: 'Examines how authority gaps create implementation drag, masked leadership, and decision bottlenecks in the AI-era workplace.' },
+          { num: '01', title: 'Stewarding the Shift: Holding the People Who Hold Your Mission', desc: 'A keynote for mission-driven and faith-based organizations on readiness training, ethical governance and policy, and sustainability beyond risk. Available as a keynote, team training, or board briefing.' },
         ].map((talk) => (
           <div class="flex items-start gap-5 card teal-hover animate-on-scroll">
             <span class="font-heading text-4xl text-teal-DEFAULT/25 font-bold leading-none mt-1 shrink-0">{talk.num}</span>
@@ -279,20 +201,19 @@ const categories = [
       <div class="mt-12 max-w-2xl mx-auto card border-teal-DEFAULT/40 bg-teal-glow p-8 text-center animate-on-scroll">
         <span class="st-tag mb-4 inline-flex">Schedule a Speaking Conversation</span>
         <h3 class="font-heading text-xl text-light font-semibold mb-3">
-          Ready to bring one of these talks to your event?
+          Ready to bring Stewarding the Shift to your organization?
         </h3>
         <p class="text-muted text-sm mb-6 max-w-sm mx-auto">
-          Speaking inquiries begin with an Executive Briefing so the scope, audience, and outcomes can be aligned before booking.
+          Every engagement begins with a discovery call so the scope, audience, and outcomes can be aligned before booking.
         </p>
         <a
-          href="/structural-burnout/briefing"
+          href={CALENDAR_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           class="btn-teal !text-base"
         >
-          Request Executive Briefing →
+          Book a Discovery Call →
         </a>
-        <p class="text-muted text-xs mt-4">
-          Speaking and workshop scope available after Executive Briefing
-        </p>
       </div>
     </div>
   </section>

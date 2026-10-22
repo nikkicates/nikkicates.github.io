@@ -9,6 +9,9 @@ interface Props {
   section?: 'home' | 'st' | 'uri';
   accentColor?: 'teal' | 'gold';
   image?: string;
+  /** Use the title exactly as given, without the " | Nikki Cates" suffix. */
+  fullTitle?: boolean;
+  noindex?: boolean;
 }
 
 const {
@@ -17,9 +20,12 @@ const {
   section = 'home',
   accentColor = 'teal',
   image = '/og-default.jpg',
+  fullTitle = false,
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pageTitle = fullTitle ? title : `${title} | Nikki Cates`;
 ---
 
 <!doctype html>
@@ -30,12 +36,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalURL} />
 
     <!-- SEO -->
-    <title>{title} | Nikki Cates</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Nikki Cates" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph -->
-    <meta property="og:title" content={`${title} | Nikki Cates`} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={new URL(image, Astro.site)} />
@@ -43,7 +50,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | Nikki Cates`} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
 
     <!-- Favicon -->

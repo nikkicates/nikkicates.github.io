@@ -3,11 +3,14 @@ interface Props {
   section?: 'home' | 'st' | 'uri';
   accentColor?: 'teal' | 'gold';
 }
+import { CALENDAR_URL, CONTACT_PAGE } from '../config/site';
+
 const { section = 'home', accentColor = 'teal' } = Astro.props;
 
 const connectLinks = [
+  { href: CONTACT_PAGE, label: 'Contact Me' },
   { href: '/structural-burnout/nexus', label: 'Nexus Card' },
-  { href: 'https://calendar.app.google/e8ErMQqHhmnHn1hk6', label: 'Book an Executive Briefing', external: true },
+  { href: CALENDAR_URL, label: 'Book a Discovery Call', external: true },
 ];
 ---
 
@@ -24,11 +27,13 @@ const connectLinks = [
       </a>
 
       <!-- Desktop nav -->
+      <!-- Investor Hub was removed from the menu; the page stays live at /structural-burnout/pitch.
+           "Free Webinar" is time-bound: remove both links after November 21, 2026. -->
       <nav class="hidden md:flex items-center gap-1" aria-label="Primary navigation">
         <a href="/" class="nav-btn">Home</a>
         <a href="/speaking-training/" class="nav-btn">Speaking &amp; Training</a>
         <a href="/books/" class="nav-btn">Books</a>
-        <a href="/structural-burnout/pitch" class="nav-btn">Investor Hub</a>
+        <a href="/#webinar" class="nav-btn">Free Webinar</a>
         <a href="/uri/" class="nav-btn">Unbothered Resistance Intl</a>
 
         <div class="nav-dropdown-wrap">
@@ -49,8 +54,8 @@ const connectLinks = [
           </div>
         </div>
 
-        <a href="https://calendar.app.google/e8ErMQqHhmnHn1hk6" target="_blank" rel="noopener noreferrer" class="nav-cta">
-          Book an Executive Briefing
+        <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="nav-cta">
+          Book a Discovery Call
         </a>
       </nav>
 
@@ -68,7 +73,7 @@ const connectLinks = [
     <a href="/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Home</a>
     <a href="/speaking-training/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Speaking &amp; Training</a>
     <a href="/books/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Books</a>
-    <a href="/structural-burnout/pitch" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Investor Hub</a>
+    <a href="/#webinar" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Free Webinar</a>
     <a href="/uri/" class="text-sm text-slate-300 py-2.5 border-b border-slate-700/50 hover:text-white transition-colors block">Unbothered Resistance Intl</a>
 
     <p class="text-slate-400 text-xs font-bold uppercase tracking-widest pt-4 pb-2">Connect</p>
@@ -79,7 +84,7 @@ const connectLinks = [
       </a>
     ))}
 
-    <a href="https://calendar.app.google/e8ErMQqHhmnHn1hk6" target="_blank" rel="noopener noreferrer" class="nav-cta mt-4 justify-center block text-center">Book an Executive Briefing</a>
+    <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="nav-cta mt-4 justify-center block text-center">Book a Discovery Call</a>
   </div>
 </header>
 
