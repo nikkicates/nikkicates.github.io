@@ -1069,7 +1069,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/reset-inqui
       if (statusEl) {
         statusEl.classList.remove('hidden');
         statusEl.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
-        statusEl.innerHTML = `<p class="text-red-400 text-sm">Submission is unavailable: missing <code>PUBLIC_N8N_FRACTIONAL_LANE_WEBHOOK_URL</code>. Please email <a href="mailto:info@nikkicates.com" class="underline">info@nikkicates.com</a> directly.</p>`;
+        statusEl.innerHTML = `<p class="text-red-400 text-sm">Submission is unavailable: missing <code>PUBLIC_N8N_FRACTIONAL_LANE_WEBHOOK_URL</code>. Please use the <a href="/contact/" class="underline">contact form</a> instead.</p>`;
         statusEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       return;
@@ -1205,7 +1205,7 @@ const strategicResetIntensiveGhlUrl = 'https://unmask.nikkicates.com/reset-inqui
       if (statusEl) {
         statusEl.classList.remove('hidden');
         statusEl.className = 'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10';
-        statusEl.innerHTML = `<p class="text-red-400 text-sm">Something went wrong. Please email <a href="mailto:info@nikkicates.com" class="underline">info@nikkicates.com</a> directly.</p>`;
+        statusEl.innerHTML = `<p class="text-red-400 text-sm">Something went wrong. Please use the <a href="/contact/" class="underline">contact form</a> instead.</p>`;
         statusEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }

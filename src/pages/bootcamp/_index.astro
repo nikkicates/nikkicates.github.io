@@ -1,4 +1,8 @@
 ---
+// HIDDEN, NOT DELETED. The leading underscore keeps Astro from building this page, and
+// astro.config.mjs redirects /bootcamp/ to /speaking-training/ (noindex, out of the sitemap).
+// To restore: rename back to index.astro, remove the redirect and sitemap filter in
+// astro.config.mjs, and add the links back in Footer.astro and speaking-training/index.astro.
 import Layout from '../../layouts/Layout.astro';
 
 const calendarUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
@@ -9,6 +13,7 @@ const calendarUrl = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
   description="A 2-day strategic bootcamp for organizations helping middle managers lead through AI adoption without structural breakdown. Diagnose the friction before it costs you your best people."
   section="st"
   accentColor="teal"
+  noindex
 >
 
   <!-- ─── PROMO VIDEO ──────────────────────────────── -->

@@ -335,10 +335,9 @@ import Layout from '../../layouts/Layout.astro';
               <label class="form-label" for="engagement-type">Type of Engagement Sought *</label>
               <select class="form-select" id="engagement-type" name="engagementType" required>
                 <option value="">Select type</option>
-                <option>Keynote — Reading the Room Before the Room Breaks</option>
-                <option>Keynote — AI Accelerates What Exists</option>
-                <option>Keynote — The Frictionless Manager</option>
-                <option>Keynote + Workshop Bundle</option>
+                <option>Stewarding the Shift: Keynote</option>
+                <option>Stewarding the Shift: Team Training</option>
+                <option>Stewarding the Shift: Board Briefing</option>
                 <option>Frictionless Manager Bootcamp — Open Cohort Seat</option>
                 <option>Frictionless Manager Bootcamp — Corporate Onsite</option>
                 <option>UNMASK Facilitated Group Workshop</option>
@@ -542,7 +541,7 @@ import Layout from '../../layouts/Layout.astro';
     if (!N8N_WEBHOOK_URL) {
       resetSubmitState();
       showStatusMessage(
-        `<p class="text-red-300 text-sm">Submission is temporarily unavailable: missing <code>PUBLIC_N8N_EXECUTIVE_BRIEFING_WEBHOOK_URL</code>. Please contact <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a>.</p>`,
+        `<p class="text-red-300 text-sm">Submission is temporarily unavailable: missing <code>PUBLIC_N8N_EXECUTIVE_BRIEFING_WEBHOOK_URL</code>. Please use the <a href="/contact/" class="underline">contact form</a>.</p>`,
         'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10'
       );
       return;
@@ -602,7 +601,7 @@ import Layout from '../../layouts/Layout.astro';
     } catch {
       resetSubmitState();
       showStatusMessage(
-        `<p class="text-red-400 text-sm">Submission failed before routing. Please email <a href="mailto:nikki@strategicunmasking.com" class="underline">nikki@strategicunmasking.com</a> directly.</p>`,
+        `<p class="text-red-400 text-sm">Submission failed before routing. Please use the <a href="/contact/" class="underline">contact form</a> instead.</p>`,
         'text-center p-6 rounded-md border border-red-500/40 bg-red-900/10'
       );
     }

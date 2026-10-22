@@ -3,6 +3,8 @@ interface Props {
   section?: 'home' | 'st' | 'uri';
 }
 const { section = 'home' } = Astro.props;
+import { CALENDAR_URL, CONTACT_PAGE } from '../config/site';
+
 const isURI = section === 'uri';
 ---
 
@@ -20,10 +22,10 @@ const isURI = section === 'uri';
         </p>
         <p class="text-muted text-xs">
           <a
-            href="mailto:nikki@strategicunmasking.com"
+            href={CONTACT_PAGE}
             class={isURI ? 'uri-footer-link transition-colors' : 'text-teal-DEFAULT hover:text-teal-light transition-colors'}
           >
-            nikki@strategicunmasking.com
+            Contact Me
           </a>
         </p>
       </div>
@@ -36,7 +38,6 @@ const isURI = section === 'uri';
         <ul class="space-y-2 text-sm">
           {[
             { href: '/speaking-training/', label: 'Speaking & Training', external: false },
-            { href: '/bootcamp/', label: 'The Frictionless Manager Bootcamp', external: false },
             { href: '/strategic-reset/', label: 'Strategic Reset Intensive', external: false },
             { href: '/structural-burnout/services', label: 'Services', external: false },
             { href: '/structural-burnout/pitch', label: 'Investor Hub', external: false },
@@ -87,8 +88,8 @@ const isURI = section === 'uri';
         <ul class="space-y-2 text-sm">
           {[
             { href: '/structural-burnout/nexus', label: 'Nexus Card', external: false },
-            { href: '/mogul-ops/', label: 'Mogul Ops Portal', external: false },
-            { href: 'https://calendar.app.google/e8ErMQqHhmnHn1hk6', label: 'Book an Executive Briefing', external: true },
+            { href: CONTACT_PAGE, label: 'Contact Me', external: false },
+            { href: CALENDAR_URL, label: 'Book a Discovery Call', external: true },
             { href: 'https://unmask.nikkicates.com/reset-inquiry', label: 'Apply for the SRI', external: true },
           ].map((l) => (
             <li>
