@@ -28,6 +28,7 @@ import Layout from '../../layouts/Layout.astro';
 </style>
 
 <script>
+import { CALENDAR_URL } from '../../config/site';
 (function() {
   // =========================================================================
   // GHL WIRING — SET THIS BEFORE DEPLOYING
@@ -211,7 +212,7 @@ import Layout from '../../layouts/Layout.astro';
     <div class="mla-ctablock">
       <div class="mla-ctatxt" id="mla-r-cta"></div>
       <div class="mla-ctabtns">
-        <button class="mla-ctap" id="mla-cta-primary">Learn About the Bootcamp →</button>
+        <button class="mla-ctap" id="mla-cta-primary">Book a Discovery Call →</button>
         <button class="mla-ctas" id="mla-retake-btn">Retake Assessment</button>
       </div>
     </div>
@@ -244,10 +245,10 @@ import Layout from '../../layouts/Layout.astro';
     {label:"Not at All",value:0,color:"#6b2a8a"},
   ];
   const results = [
-    {min:80,level:"Structurally Sound",color:"#58bbc2",headline:"Your management layer has strong foundational support.",insight:"You have built intentional infrastructure around your managers. The next opportunity is deepening recalibration capacity so your organization stays ahead of AI-era complexity rather than reacting to it.",cta:"The Frictionless Manager Bootcamp will sharpen what you have already built."},
-    {min:60,level:"Friction Present",color:"#2a7ca3",headline:"Structural gaps are generating visible and invisible costs.",insight:"Your managers are carrying more than your current systems account for. The gap between their responsibility and their support is costing you in attrition, productivity, and culture — even if the numbers have not caught up yet.",cta:"The Frictionless Manager Bootcamp was built precisely for organizations at this inflection point."},
-    {min:40,level:"Critical Gaps",color:"#ac6dbf",headline:"Your management layer is under significant structural stress.",insight:"The conditions you have identified are not a people problem — they are an organizational design problem. Without intervention, the friction will compound into retention crisis, culture erosion, and leadership failure at the exact moments you need your managers most.",cta:"The Frictionless Manager Bootcamp Founding Cohort is your most direct path to structural recalibration. Launching early October 2026. $1,497 founding rate."},
-    {min:0,level:"Under Pressure",color:"#e05c8a",headline:"Your management layer needs structural intervention now.",insight:"What you are experiencing is not a management failure — it is a system that was never designed to support the leaders you are asking to carry it. The cost of not addressing this is already appearing in your organization.",cta:"Connect with Strategic Transformations directly. The Founding Cohort launches early October 2026 with limited seats at the $1,497 founding rate."},
+    {min:80,level:"Structurally Sound",color:"#58bbc2",headline:"Your management layer has strong foundational support.",insight:"You have built intentional infrastructure around your managers. The next opportunity is deepening recalibration capacity so your organization stays ahead of AI-era complexity rather than reacting to it.",cta:"Stewarding the Shift readiness training can strengthen what you have already built. Book a discovery call to start."},
+    {min:60,level:"Friction Present",color:"#2a7ca3",headline:"Structural gaps are generating visible and invisible costs.",insight:"Your managers are carrying more than your current systems account for. The gap between their responsibility and their support is costing you in attrition, productivity, and culture, even if the numbers have not caught up yet.",cta:"Stewarding the Shift readiness training is built for organizations at this point. Book a discovery call to talk through what your team needs."},
+    {min:40,level:"Critical Gaps",color:"#ac6dbf",headline:"Your management layer is under significant structural stress.",insight:"The conditions you have identified point to an organizational design problem. Without intervention, the friction will compound into retention crisis, culture erosion, and leadership failure at the exact moments you need your managers most.",cta:"A structural review is the most direct next step. Book a discovery call and we will map where the strain sits."},
+    {min:0,level:"Under Pressure",color:"#e05c8a",headline:"Your management layer needs structural intervention now.",insight:"What you are experiencing comes from a system that was never designed to support the leaders you are asking to carry it. The cost of not addressing this is already appearing in your organization.",cta:"Connect with Strategic Transformations directly. Book a discovery call and we will talk through where to start."},
   ];
 
   let current = 0;
@@ -468,6 +469,6 @@ import Layout from '../../layouts/Layout.astro';
   document.getElementById('mla-start-btn').addEventListener('click', startAssessment);
   document.getElementById('mla-capture-form').addEventListener('submit', handleCaptureSubmit);
   document.getElementById('mla-retake-btn').addEventListener('click', resetAssessment);
-  document.getElementById('mla-cta-primary').addEventListener('click', () => window.open('https://strategictransformations.net', '_blank'));
+  document.getElementById('mla-cta-primary').addEventListener('click', () => window.open(CALENDAR_URL, '_blank', 'noopener'));
 })();
 </script>

@@ -1,7 +1,8 @@
 // Shared links used across pages. Change a value here and every page picks it up.
 
-// Zoom link for the Nov 21, 2026 webinar.
-export const WEBINAR_URL = 'https://emory.zoom.us/j/96798324684';
+// Registration form for the Nov 21, 2026 webinar. Do not publish the Zoom link on the site;
+// registrants receive it after signing up.
+export const WEBINAR_URL = 'https://forms.gle/Vt34XUQWqLsD26of7';
 
 export const CALENDAR_URL = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
 
