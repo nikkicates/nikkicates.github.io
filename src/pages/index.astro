@@ -4,9 +4,9 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
 ---
 
 <Layout
-  title="Strategic Transformations | Human x AI Readiness for Mission-Driven Organizations"
+  title="Strategic Transformations Readiness Group | Ethical AI Readiness and Governance for Mission-Driven Organizations"
   fullTitle
-  description="Nikki Cates equips mission-driven and faith-based organizations to prepare their people for AI: readiness training, ethical governance and policy, and sustainability beyond risk."
+  description="Strategic Transformations Readiness Group: Ethical AI readiness and governance for mission-driven organizations. Nikki Cates equips mission-driven and faith-based organizations to prepare their people for AI."
   section="st"
   accentColor="teal"
 >
@@ -24,10 +24,13 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
 
         <!-- Left: Core message -->
         <div class="lg:col-span-7 text-center">
-          <div class="st-tag mb-6 mx-auto animate-on-scroll">
+          <div class="st-tag mb-3 mx-auto animate-on-scroll">
             <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-            Strategic Transformations · The UNMASK Leadership Architecture
+            Strategic Transformations Readiness Group
           </div>
+          <p class="font-heading italic text-light/80 text-base mb-6 mx-auto animate-on-scroll">
+            Ethical AI readiness and governance for mission-driven organizations
+          </p>
 
           <h1 class="font-heading font-bold text-light leading-[1.06] mb-6 animate-on-scroll" style="font-size: clamp(2.4rem, 5.5vw, 4.2rem); animation-delay:0.05s">
             Hold the people<br/>
@@ -35,7 +38,7 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
           </h1>
 
           <p class="font-body text-teal-DEFAULT text-lg font-semibold italic leading-relaxed mb-6 max-w-2xl mx-auto animate-on-scroll" style="animation-delay:0.1s">
-            Strategic Transformations equips international mission-driven and faith-based organizations to redesign the human side of the Human x AI workforce, so they retain their best people, protect the trust they have earned, and reduce risk in the age of AI.
+            Strategic Transformations Readiness Group equips international mission-driven and faith-based organizations to redesign the human side of the Human x AI workforce, so they retain their best people, protect the trust they have earned, and reduce risk in the age of AI.
           </p>
 
           <p class="font-body text-base text-muted leading-relaxed mb-10 max-w-2xl mx-auto animate-on-scroll" style="animation-delay:0.2s">
@@ -76,7 +79,7 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
                style="background: linear-gradient(135deg, #0a2540 0%, #0f172a 100%);">
             <img
               src="/images/nc-recalibrate.webp"
-              alt="Nikki Cates - CEO &amp; Founder, Strategic Transformations"
+              alt="Nikki Cates - CEO &amp; Founder, Strategic Transformations Readiness Group"
               class="w-full h-auto object-cover object-top"
               style="max-height: 420px; object-position: center top;"
               loading="eager"
@@ -88,7 +91,7 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
                  style="background: linear-gradient(to top, rgba(15,23,42,0.92) 60%, transparent);">
               <p class="font-heading text-light text-sm font-semibold">Nikki Cates</p>
               <p class="text-teal-DEFAULT text-xs font-body font-bold uppercase tracking-widest">
-                CEO &amp; Founder, Strategic Transformations
+                CEO &amp; Founder, Strategic Transformations Readiness Group
               </p>
             </div>
           </div>
@@ -112,6 +115,60 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
     </div>
 
     <div class="absolute bottom-0 left-0 right-0 h-28" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
+  </section>
+
+
+  <!-- ─── STATISTICS BAND ──────────────────────────────
+       Approved statistics only. Do not add, round, or change a number without a named, linked source. -->
+  <section class="py-16 bg-[#0c1525]" aria-labelledby="gap-heading">
+    <div class="container-wide">
+      <h2 id="gap-heading" class="font-heading text-3xl md:text-4xl text-light text-center mb-10 animate-on-scroll">
+        The gap is already here
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        {[
+          {
+            num: '58%',
+            text: 'of mission organizations have no AI roadmap.',
+            source: 'The State of Nonprofit AI',
+            detail: 'NTEN and The Bridgespan Group, 2026, 917 nonprofit staff and executives worldwide',
+            href: 'https://nonprofitquarterly.org/how-nonprofits-adopt-and-govern-ai-insights-from-a-new-report/',
+          },
+          {
+            num: '92%',
+            text: 'of nonprofits use AI tools, and <strong class="text-teal-DEFAULT">47%</strong> have no AI governance policy.',
+            source: 'The 2026 Nonprofit AI Adoption Report',
+            detail: 'Virtuous and Fundraising.AI, 346 nonprofits',
+            href: 'https://www.nonprofitpro.com/article/nonprofit-ai-adoption-hits-92-but-only-7-see-major-impact/',
+          },
+          {
+            num: '94%',
+            text: 'of pastors believe a church should have responsible AI guidelines. <strong class="text-teal-DEFAULT">21%</strong> say their church has them.',
+            source: 'Barna',
+            detail: '',
+            href: 'https://www.crosswalk.com/headlines/contributors/michael-foust/seminary-professor-warns-pastors-against-ai-written-sermons-ai-has-no-soul.html',
+          },
+        ].map((stat, i) => (
+          <div class="card teal-hover flex flex-col gap-3 text-center animate-on-scroll" style={`animation-delay:${i * 0.05}s`}>
+            <p class="text-light text-base leading-relaxed flex-1">
+              <span class="block font-heading text-5xl text-teal-DEFAULT font-bold leading-none mb-3">{stat.num}</span>
+              <Fragment set:html={stat.text} />
+            </p>
+            <p class="text-muted text-xs leading-relaxed">
+              Source: <a href={stat.href} target="_blank" rel="noopener noreferrer" class="underline hover:text-teal-DEFAULT transition-colors">{stat.source}<span class="sr-only"> (opens in a new tab)</span></a>{stat.detail && ` (${stat.detail})`}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center animate-on-scroll">
+        <p class="font-heading text-2xl text-light mb-6 mx-auto">Hold the people who hold your mission.</p>
+        <a href={WEBINAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-7">
+          Register for the Free Webinar: Nov&nbsp;21<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+      </div>
+    </div>
   </section>
 
 
@@ -161,37 +218,6 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
         <h2 class="font-heading text-3xl md:text-4xl text-light">
           Mission organizations are adopting AI faster than their structures can hold it.
         </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-        {[
-          {
-            num: '92% / 47%',
-            text: 'In a 2026 survey of 346 nonprofits, 92% were using AI tools and 47% had no AI governance policy.',
-            source: 'The 2026 Nonprofit AI Adoption Report (Virtuous and Fundraising.AI)',
-            href: 'https://www.nonprofitpro.com/article/nonprofit-ai-adoption-hits-92-but-only-7-see-major-impact/',
-          },
-          {
-            num: '94% / 21%',
-            text: '94% of pastors believe a church should have guidelines for responsible AI use. 21% say their church has them.',
-            source: 'Barna',
-            href: 'https://www.crosswalk.com/headlines/contributors/michael-foust/seminary-professor-warns-pastors-against-ai-written-sermons-ai-has-no-soul.html',
-          },
-          {
-            num: '19% vs. 10%',
-            text: 'Nonprofit staff are nearly twice as likely as executives to report being very uncomfortable with AI.',
-            source: '2026 State of Nonprofit AI report',
-            href: 'https://nonprofitquarterly.org/how-nonprofits-adopt-and-govern-ai-insights-from-a-new-report/',
-          },
-        ].map((stat, i) => (
-          <div class="card teal-hover flex flex-col gap-3 animate-on-scroll" style={`animation-delay:${i * 0.05}s`}>
-            <p class="font-heading text-3xl text-teal-DEFAULT font-bold leading-none">{stat.num}</p>
-            <p class="text-light text-sm leading-relaxed flex-1">{stat.text}</p>
-            <p class="text-muted text-xs">
-              Source: <a href={stat.href} target="_blank" rel="noopener noreferrer" class="underline hover:text-teal-DEFAULT transition-colors">{stat.source}</a>
-            </p>
-          </div>
-        ))}
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -285,7 +311,7 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
         <span class="st-tag mb-4 inline-flex">Who We Serve</span>
         <h2 class="font-heading text-3xl md:text-4xl text-light">Built for organizations that carry a mission and a team.</h2>
         <p class="text-muted text-sm mt-3 max-w-md mx-auto">
-          Strategic Transformations partners with mission-driven and faith-based organizations preparing their people for AI.
+          Strategic Transformations Readiness Group partners with mission-driven and faith-based organizations preparing their people for AI.
         </p>
       </div>
 
@@ -383,6 +409,12 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
             Bring Nikki in to prepare your board, leaders, staff, and volunteers for AI.
             Available as a keynote, team training, or board briefing.
           </p>
+          <p class="text-light leading-relaxed mb-1 mx-auto">
+            Nonprofit staff are nearly twice as likely as executives to feel very uncomfortable with AI (19% vs. 10%).
+          </p>
+          <p class="text-muted text-xs mb-4 mx-auto">
+            Source: <a href="https://nonprofitquarterly.org/how-nonprofits-adopt-and-govern-ai-insights-from-a-new-report/" target="_blank" rel="noopener noreferrer" class="underline hover:text-teal-DEFAULT transition-colors">The State of Nonprofit AI<span class="sr-only"> (opens in a new tab)</span></a>, 2026
+          </p>
           <p class="text-muted leading-relaxed mb-8 mx-auto">
             The training is built on the UNMASK Leadership Architecture: six pillars that move your
             organization from readiness, to governance, to sustainability.
@@ -452,7 +484,7 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
         <div class="lg:col-span-6 animate-on-scroll">
           <img
             src="/images/nc-recalibrate-standing.webp"
-            alt="Nikki Cates, CEO and Founder of Strategic Transformations"
+            alt="Nikki Cates, CEO and Founder of Strategic Transformations Readiness Group"
             class="w-full h-auto object-cover object-top"
             loading="lazy"
             decoding="async"
@@ -465,7 +497,7 @@ import { WEBINAR_URL, CALENDAR_URL } from '../config/site';
             Nikki Cates,<br/><span class="text-teal-DEFAULT">CEO &amp; Founder</span>
           </h2>
           <p class="text-muted leading-relaxed mb-4 mx-auto">
-            Nikki Cates is the founder of Strategic Transformations and the creator of the UNMASK
+            Nikki Cates is the founder of Strategic Transformations Readiness Group and the creator of the UNMASK
             diagnostic architecture. Her work helps organizations name the structural conditions
             producing burnout, attrition, leadership overload, and adoption friction.
           </p>
