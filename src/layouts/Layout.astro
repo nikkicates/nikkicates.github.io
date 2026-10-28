@@ -9,7 +9,7 @@ interface Props {
   section?: 'home' | 'st' | 'uri';
   accentColor?: 'teal' | 'gold';
   image?: string;
-  /** Use the title exactly as given, without the " | Nikki Cates" suffix. */
+  /** Use the title exactly as given, without the " | Nikki Cates" or firm-name suffix. */
   fullTitle?: boolean;
   noindex?: boolean;
 }
@@ -25,7 +25,10 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const pageTitle = fullTitle ? title : `${title} | Nikki Cates`;
+// Strategic Transformations pages carry the firm name in the tab title unless the title already has it.
+const FIRM_NAME = 'Strategic Transformations Readiness Group';
+const titleSuffix = section === 'st' && !title.includes(FIRM_NAME) ? FIRM_NAME : 'Nikki Cates';
+const pageTitle = fullTitle ? title : `${title} | ${titleSuffix}`;
 ---
 
 <!doctype html>
