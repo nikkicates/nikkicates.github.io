@@ -6,8 +6,11 @@ export const WEBINAR_URL = 'https://forms.gle/Vt34XUQWqLsD26of7';
 
 export const CALENDAR_URL = 'https://calendar.app.google/e8ErMQqHhmnHn1hk6';
 
-// Every "Contact Me" link points here so no email address is shown on the site.
+// Every "Contact Me" link points here.
 export const CONTACT_PAGE = '/contact/';
+
+// Shown on the contact page as a direct alternative to the form.
+export const CONTACT_EMAIL = 'nikki@streadinessgroup.com';
 
 // TODO: paste a GHL "Inbound Webhook" trigger URL (or n8n webhook) here. The contact form POSTs JSON
 // { name, email, organization, message, source, submitted_at, page_url } to it.

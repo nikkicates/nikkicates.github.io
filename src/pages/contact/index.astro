@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { CALENDAR_URL, CONTACT_WEBHOOK_URL } from '../../config/site';
+import { CALENDAR_URL, CONTACT_EMAIL, CONTACT_WEBHOOK_URL } from '../../config/site';
 ---
 
 <Layout
@@ -18,6 +18,9 @@ import { CALENDAR_URL, CONTACT_WEBHOOK_URL } from '../../config/site';
         <p class="text-muted text-base leading-relaxed max-w-xl mx-auto">
           Tell me about your organization and what you are working on. I will reply by email.
           Ready to talk now? <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT underline">Book a discovery call.</a>
+        </p>
+        <p class="text-muted text-base leading-relaxed max-w-xl mx-auto mt-3">
+          Prefer email? Write to <a href={`mailto:${CONTACT_EMAIL}`} class="text-teal-DEFAULT underline">{CONTACT_EMAIL}</a>.
         </p>
       </div>
 
@@ -53,7 +56,7 @@ import { CALENDAR_URL, CONTACT_WEBHOOK_URL } from '../../config/site';
 
 </Layout>
 
-<script define:vars={{ calendarUrl: CALENDAR_URL }}>
+<script define:vars={{ calendarUrl: CALENDAR_URL, contactEmail: CONTACT_EMAIL }}>
   const form = document.getElementById('contact-form');
   const statusEl = document.getElementById('contact-status');
   const submitBtn = document.getElementById('contact-submit');
@@ -65,7 +68,7 @@ import { CALENDAR_URL, CONTACT_WEBHOOK_URL } from '../../config/site';
       : 'text-center p-5 rounded-md border border-red-500/40 bg-red-900/10';
   }
 
-  const fallback = `Please <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer" class="underline">book a discovery call</a> instead.`;
+  const fallback = `Please email <a href="mailto:${contactEmail}" class="underline">${contactEmail}</a> or <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer" class="underline">book a discovery call</a> instead.`;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
