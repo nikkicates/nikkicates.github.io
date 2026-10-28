@@ -54,9 +54,23 @@ const contactEmail = "nikki@streadinessgroup.com";
     const data = new FormData(form);
     if (data.get('website')) return;
 
+    // No webhook yet: open the visitor's email app with the message addressed and filled in.
     const endpoint = (form.dataset.endpoint || '').trim();
     if (!endpoint) {
-      showStatus(`<p class="text-red-300 text-sm">The contact form is not connected yet. ${fallback}</p>`, false);
+      const name = String(data.get('name') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const organization = String(data.get('organization') || '').trim();
+      const message = String(data.get('message') || '').trim();
+      const subject = `Website inquiry from ${name}${organization ? `, ${organization}` : ''}`;
+      const body = [
+        message,
+        '',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        ...(organization ? [`Organization: ${organization}`] : []),
+      ].join('\n');
+      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      showStatus(`<p class="text-light text-sm">Your email app should open with your message to ${contactEmail}. Press send there to deliver it. If nothing opened, email <a href="mailto:${contactEmail}" class="underline">${contactEmail}</a> directly.</p>`, true);
       return;
     }
 
