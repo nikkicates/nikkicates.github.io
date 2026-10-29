@@ -3,7 +3,7 @@ interface Props {
   section?: 'home' | 'st' | 'uri';
 }
 const { section = 'home' } = Astro.props;
-import { CALENDAR_URL, CONTACT_PAGE } from '../config/site';
+import { CALENDAR_URL, CONTACT_EMAIL, CONTACT_PAGE } from '../config/site';
 
 const isURI = section === 'uri';
 ---
@@ -26,6 +26,14 @@ const isURI = section === 'uri';
             class={isURI ? 'uri-footer-link transition-colors' : 'text-teal-DEFAULT hover:text-teal-light transition-colors'}
           >
             Contact Me
+          </a>
+        </p>
+        <p class="text-muted text-xs mt-2">
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            class={isURI ? 'uri-footer-link transition-colors' : 'text-teal-DEFAULT hover:text-teal-light transition-colors'}
+          >
+            {CONTACT_EMAIL}
           </a>
         </p>
       </div>
@@ -88,7 +96,7 @@ const isURI = section === 'uri';
           {[
             { href: '/structural-burnout/nexus', label: 'Nexus Card', external: false },
             { href: CONTACT_PAGE, label: 'Contact Me', external: false },
-            { href: CALENDAR_URL, label: 'Book a Discovery Call', external: true },
+            { href: CALENDAR_URL, label: 'Book a Call', external: true },
           ].map((l) => (
             <li>
               <a
