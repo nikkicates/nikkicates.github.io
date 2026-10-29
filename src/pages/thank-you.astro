@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CALENDAR_URL, BOOKING_NOTE } from '../config/site';
+---
+
+<!-- The contact form sends visitors here after a successful submission. Kept out of search and the sitemap. -->
+<Layout
+  title="Thank You"
+  description="Thank you for contacting Strategic Transformations Readiness Group."
+  section="st"
+  accentColor="teal"
+  noindex
+>
+
+  <section class="section-pad">
+    <div class="container-narrow text-center">
+      <span class="st-tag mb-4 inline-flex">Message Received</span>
+      <h1 class="font-heading text-3xl md:text-5xl text-light mb-5">Thank you for reaching out.</h1>
+      <p class="text-muted text-lg leading-relaxed mb-8 max-w-xl mx-auto">
+        We'll respond within two business days. Ready to talk sooner?
+      </p>
+      <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-8">
+        Book a Call<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+      <p class="booking-note">{BOOKING_NOTE}</p>
+      <p class="mt-8">
+        <a href="/" class="text-teal-DEFAULT underline hover:text-teal-light transition-colors text-sm">Back to the homepage</a>
+      </p>
+    </div>
+  </section>
+
+</Layout>

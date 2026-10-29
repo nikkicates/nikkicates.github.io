@@ -212,7 +212,7 @@ import { CALENDAR_URL } from '../../config/site';
     <div class="mla-ctablock">
       <div class="mla-ctatxt" id="mla-r-cta"></div>
       <div class="mla-ctabtns">
-        <button class="mla-ctap" id="mla-cta-primary">Book a Discovery Call →</button>
+        <button class="mla-ctap" id="mla-cta-primary">Book a Call →</button>
         <button class="mla-ctas" id="mla-retake-btn">Retake Assessment</button>
       </div>
     </div>
@@ -469,6 +469,6 @@ import { CALENDAR_URL } from '../../config/site';
   document.getElementById('mla-start-btn').addEventListener('click', startAssessment);
   document.getElementById('mla-capture-form').addEventListener('submit', handleCaptureSubmit);
   document.getElementById('mla-retake-btn').addEventListener('click', resetAssessment);
-  document.getElementById('mla-cta-primary').addEventListener('click', () => window.open(CALENDAR_URL, '_blank', 'noopener'));
+  document.getElementById('mla-cta-primary').addEventListener('click', () => window.open(CALENDAR_URL, '_blank', 'noopener,noreferrer'));
 })();
 </script>

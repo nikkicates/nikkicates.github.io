@@ -17,7 +17,7 @@ import { CALENDAR_URL, CONTACT_EMAIL, CONTACT_WEBHOOK_URL } from '../../config/s
         <h1 class="font-heading text-3xl md:text-5xl text-light mb-4">Send a message.</h1>
         <p class="text-muted text-base leading-relaxed max-w-xl mx-auto">
           Tell me about your organization and what you are working on. I will reply by email.
-          Ready to talk now? <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT underline">Book a discovery call.</a>
+          Ready to talk now? <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="text-teal-DEFAULT underline">Book a call.</a>
         </p>
         <p class="text-muted text-base leading-relaxed max-w-xl mx-auto mt-3">
           Prefer email? Write to <a href={`mailto:${CONTACT_EMAIL}`} class="text-teal-DEFAULT underline">{CONTACT_EMAIL}</a>.
@@ -68,7 +68,7 @@ import { CALENDAR_URL, CONTACT_EMAIL, CONTACT_WEBHOOK_URL } from '../../config/s
       : 'text-center p-5 rounded-md border border-red-500/40 bg-red-900/10';
   }
 
-  const fallback = `Please email <a href="mailto:${contactEmail}" class="underline">${contactEmail}</a> or <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer" class="underline">book a discovery call</a> instead.`;
+  const fallback = `Please email <a href="mailto:${contactEmail}" class="underline">${contactEmail}</a> or <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer" class="underline">book a call</a> instead.`;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -117,7 +117,7 @@ import { CALENDAR_URL, CONTACT_EMAIL, CONTACT_WEBHOOK_URL } from '../../config/s
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       form.querySelectorAll('input, textarea').forEach((el) => { el.value = ''; });
-      showStatus('<p class="text-light text-sm">Thank you. Your message was sent, and I will reply by email.</p>', true);
+      window.location.href = '/thank-you/';
     } catch {
       showStatus(`<p class="text-red-300 text-sm">Your message could not be sent. ${fallback}</p>`, false);
     } finally {

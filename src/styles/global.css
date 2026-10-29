@@ -70,6 +70,11 @@ p { max-width: 68ch; }
 }
 
 /* ─── Buttons ────────────────────────────────────── */
+/* Small helper line under "Book a Call" buttons. */
+.booking-note {
+  font-family: 'Inter', sans-serif; font-size: 0.75rem; line-height: 1.5;
+  color: #94a3b8; margin-top: 0.75rem; max-width: 28rem; margin-inline: auto;
+}
 .btn-teal {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: #0D9E8A; color: #fff; font-family: 'Inter', sans-serif;

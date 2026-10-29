@@ -10,7 +10,7 @@ const { section = 'home', accentColor = 'teal' } = Astro.props;
 const connectLinks = [
   { href: CONTACT_PAGE, label: 'Contact Me' },
   { href: '/structural-burnout/nexus', label: 'Nexus Card' },
-  { href: CALENDAR_URL, label: 'Book a Discovery Call', external: true },
+  { href: CALENDAR_URL, label: 'Book a Call', external: true },
 ];
 ---
 
@@ -22,7 +22,7 @@ const connectLinks = [
       <!-- LOGO -->
       <a href="/" class="flex items-center shrink-0" aria-label="Return to homepage">
         {section === 'home' && <img src="/logos/nc-logo.png" alt="Nikki Cates" width="250" height="55" class="h-20 w-auto" loading="eager" fetchpriority="high" />}
-        {section === 'st' && <img src="/logos/st-logo.png" alt="Strategic Transformations Readiness Group" width="275" height="55" class="h-20 w-auto" loading="eager" fetchpriority="high" />}
+        {section === 'st' && <img src="/logos/strg-logo.png" alt="Strategic Transformations Readiness Group" width="600" height="571" class="h-20 w-auto" loading="eager" fetchpriority="high" />}
         {section === 'uri' && <img src="/logos/uri-logo.png" alt="URI" width="250" height="55" class="h-20 w-auto" loading="eager" fetchpriority="high" />}
       </a>
 
@@ -55,7 +55,7 @@ const connectLinks = [
         </div>
 
         <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="nav-cta">
-          Book a Discovery Call
+          Book a Call
         </a>
       </nav>
 
@@ -84,7 +84,7 @@ const connectLinks = [
       </a>
     ))}
 
-    <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="nav-cta mt-4 justify-center block text-center">Book a Discovery Call</a>
+    <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="nav-cta mt-4 justify-center block text-center">Book a Call</a>
   </div>
 </header>
 

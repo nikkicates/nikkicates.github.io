@@ -15,6 +15,6 @@ export default defineConfig({
   },
   integrations: [
     tailwind(),
-    sitemap({ filter: (page) => !page.includes('/bootcamp') && !page.includes('/strategic-reset') }),
+    sitemap({ filter: (page) => !page.includes('/bootcamp') && !page.includes('/strategic-reset') && !page.includes('/thank-you') }),
   ],
 });

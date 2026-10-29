@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-import { CALENDAR_URL } from '../../config/site';
+import { CALENDAR_URL, BOOKING_NOTE } from '../../config/site';
 
 // The Strategic Reset Intensive (former Tier 0) is removed from this page until it is
 // revamped for the mission-driven direction. Restore it from git history (commit b8d78dc).
@@ -63,8 +63,9 @@ import { CALENDAR_URL } from '../../config/site';
         </div>
         <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-on-scroll" style="animation-delay:0.2s">
           <a href="#lane-boundaries" class="btn-teal">See the three lanes</a>
-          <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-outline-teal">Book a Discovery Call</a>
+          <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-outline-teal">Book a Call</a>
         </div>
+        <p class="booking-note">{BOOKING_NOTE}</p>
       </div>
     </div>
   </section>
@@ -213,7 +214,8 @@ import { CALENDAR_URL } from '../../config/site';
         </div>
       </div>
       <div class="animate-on-scroll">
-        <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-outline-teal">Book a Discovery Call</a>
+        <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-outline-teal">Book a Call</a>
+        <p class="booking-note">{BOOKING_NOTE}</p>
         <p class="text-muted text-xs mt-3">By invitation only. Inquiries reviewed before any engagement details are shared.</p>
       </div>
     </div>
@@ -290,7 +292,8 @@ import { CALENDAR_URL } from '../../config/site';
         </div>
       </div>
       <div class="animate-on-scroll">
-        <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal">Book a Discovery Call</a>
+        <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal">Book a Call</a>
+        <p class="booking-note">{BOOKING_NOTE}</p>
         <p class="text-muted text-xs mt-3">By referral and invitation only. Inquiries screened before engagement details are shared.</p>
       </div>
     </div>
@@ -309,7 +312,8 @@ import { CALENDAR_URL } from '../../config/site';
         <p class="text-muted text-base max-w-2xl mx-auto mb-8">
           Every engagement begins with a discovery call. We will talk through your organization, what your leaders are carrying, and which tier fits.
         </p>
-        <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal">Book a Discovery Call</a>
+        <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal">Book a Call</a>
+        <p class="booking-note">{BOOKING_NOTE}</p>
       </div>
     </div>
   </section>
