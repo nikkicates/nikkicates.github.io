@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { WEBINAR_URL, WEBINAR_AGENDA_URL } from '../../config/site';
+
+// Time-bound: after November 21, 2026, replace this page with the webinar recording or remove it.
+const title = 'Stewarding the Shift: What Readiness Looks Like for Your Mission';
+const description = 'AI is already showing up in mission-driven and faith-based organizations, officially or unofficially. When it arrives without a plan, the weight often lands on the people who hold the mission together. This free session walks boards, executives, and ministry and nonprofit leaders through what readiness looks like, so you can retain your best people, protect the trust you\'ve earned, and reduce risk in the age of AI. Every attendee receives a First AI Policy starter sheet.';
+
+const details = [
+  { label: 'Date', value: 'Saturday, November 21, 2026' },
+  { label: 'Time', value: '11:00 to 11:45 a.m. Eastern' },
+  { label: 'Where', value: 'Online, on Zoom' },
+  { label: 'Cost', value: 'Free' },
+];
+
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: title,
+  description,
+  startDate: '2026-11-21T11:00:00-05:00',
+  endDate: '2026-11-21T11:45:00-05:00',
+  eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+  eventStatus: 'https://schema.org/EventScheduled',
+  location: { '@type': 'VirtualLocation', url: WEBINAR_URL },
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', url: WEBINAR_URL, availability: 'https://schema.org/InStock' },
+  organizer: { '@type': 'Organization', name: 'Strategic Transformations Readiness Group', url: 'https://strategictransformations.net' },
+  performer: { '@type': 'Person', name: 'Nikki Cates' },
+};
+---
+
+<Layout
+  title={`Free Webinar: ${title}`}
+  description="Free webinar on Zoom, Saturday, November 21, 2026, 11:00 to 11:45 a.m. Eastern. Nikki Cates walks boards, executives, and ministry and nonprofit leaders through what AI readiness looks like for your mission."
+  section="st"
+  accentColor="teal"
+  image="/images/nikki-cates-speaker.png"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+
+  <section class="section-pad" style="background: radial-gradient(ellipse at 20% 20%, #0d2a45 0%, #06111f 60%);">
+    <div class="container-mid">
+      <div class="text-center mb-10 animate-on-scroll">
+        <span class="st-tag mb-4 inline-flex">Free Webinar</span>
+        <h1 class="font-heading text-3xl md:text-5xl text-light mb-5 leading-tight">
+          Stewarding the Shift: <span class="text-teal">What Readiness Looks Like for Your Mission</span>
+        </h1>
+        <p class="text-teal font-semibold text-lg mx-auto">
+          Saturday, November 21, 2026, 11:00 to 11:45 a.m. Eastern, on Zoom
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 mb-12 animate-on-scroll" style="animation-delay:0.05s">
+        <a href={WEBINAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-8 w-full sm:w-auto justify-center">
+          Register on Zoom<span class="sr-only"> (opens in a new tab)</span>
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </a>
+        <a href={WEBINAR_AGENDA_URL} target="_blank" rel="noopener" class="btn-outline-teal text-base !py-3.5 w-full sm:w-auto justify-center">
+          Download the agenda<span class="sr-only"> (PDF, opens in a new tab)</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 animate-on-scroll" style="animation-delay:0.1s">
+        {details.map((d) => (
+          <div class="card text-center !py-4 !px-3">
+            <p class="font-body text-xs font-bold uppercase tracking-widest text-teal mb-1">{d.label}</p>
+            <p class="text-light text-sm leading-snug">{d.value}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="max-w-2xl mx-auto text-center mb-12 animate-on-scroll" style="animation-delay:0.15s">
+        <p class="font-body text-xs font-bold uppercase tracking-widest text-teal mb-4">About the session</p>
+        <p class="text-light text-base md:text-lg leading-relaxed mb-6">
+          AI is already showing up in mission-driven and faith-based organizations, officially or unofficially. When it arrives without a plan, the weight often lands on the people who hold the mission together.
+        </p>
+        <p class="text-muted text-base leading-relaxed mb-6">
+          This free session walks boards, executives, and ministry and nonprofit leaders through what readiness looks like, so you can retain your best people, protect the trust you've earned, and reduce risk in the age of AI.
+        </p>
+        <p class="text-light text-base font-semibold">
+          Every attendee receives a First AI Policy starter sheet.
+        </p>
+      </div>
+
+      <div class="card max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left mb-12 animate-on-scroll" style="animation-delay:0.2s">
+        <img src="/images/nikki-cates.png" alt="Nikki Cates" width="96" height="96" class="w-24 h-24 rounded-full object-cover object-top shrink-0 border-2 border-teal/40" loading="lazy" />
+        <div>
+          <p class="font-body text-xs font-bold uppercase tracking-widest text-teal mb-1">Presenter</p>
+          <p class="font-heading text-xl text-light font-semibold">Nikki Cates</p>
+          <p class="text-muted text-sm">Founder and CEO, Strategic Transformations Readiness Group</p>
+        </div>
+      </div>
+
+      <div class="text-center animate-on-scroll">
+        <a href={WEBINAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-8 w-full sm:w-auto justify-center">
+          Register on Zoom<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+        <p class="booking-note mt-3">Free. Zoom emails your join link after you register.</p>
+      </div>
+    </div>
+  </section>
+
+</Layout>
