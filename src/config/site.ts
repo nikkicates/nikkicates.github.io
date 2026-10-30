@@ -1,8 +1,12 @@
 // Shared links used across pages. Change a value here and every page picks it up.
 
-// Registration form for the Nov 21, 2026 webinar. Do not publish the Zoom link on the site;
-// registrants receive it after signing up.
-export const WEBINAR_URL = 'https://forms.gle/Vt34XUQWqLsD26of7';
+// Zoom registration page for the Nov 21, 2026 webinar. Registrants receive the join link from Zoom
+// after signing up, so only publish this registration link, never the meeting join link.
+export const WEBINAR_URL = 'https://us06web.zoom.us/meeting/register/2WP14MX2TeCxR2VWrqccYg';
+
+// Event page and downloadable agenda for the Nov 21, 2026 webinar.
+export const WEBINAR_PAGE = '/webinar/';
+export const WEBINAR_AGENDA_URL = '/downloads/stewarding-the-shift-agenda.pdf';
 
 // Microsoft Bookings page (discovery calls, speaking inquiries, and other appointments).
 export const CALENDAR_URL = 'https://bookings.cloud.microsoft/book/STReadinessGroup@strategictransformations.net/';

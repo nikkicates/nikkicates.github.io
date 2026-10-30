@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { WEBINAR_URL, CALENDAR_URL, BOOKING_NOTE } from '../config/site';
+import { WEBINAR_URL, WEBINAR_PAGE, CALENDAR_URL, BOOKING_NOTE } from '../config/site';
 ---
 
 <Layout
@@ -189,6 +189,9 @@ import { WEBINAR_URL, CALENDAR_URL, BOOKING_NOTE } from '../config/site';
           <a href={WEBINAR_URL} target="_blank" rel="noopener noreferrer" class="btn-teal text-base !py-3.5 !px-8">
             Register for Stewarding the Shift, Nov 21
           </a>
+          <p class="text-sm mt-4 mx-auto">
+            <a href={WEBINAR_PAGE} class="text-teal underline hover:text-light transition-colors">See the full webinar details and agenda</a>
+          </p>
         </div>
 
         <div class="animate-on-scroll" style="animation-delay:0.1s">
