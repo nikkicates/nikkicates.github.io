@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { WEBINAR_URL, WEBINAR_AGENDA_URL } from '../../config/site';
+import { WEBINAR_URL, WEBINAR_AGENDA_URL, AI_STARTER_LAB_PAGE } from '../../config/site';
 
 // Time-bound: after November 21, 2026, replace this page with the webinar recording or remove it.
 const title = 'Stewarding the Shift: What Readiness Looks Like for Your Mission';
@@ -81,6 +81,14 @@ const eventSchema = {
         <p class="text-light text-base font-semibold">
           Every attendee receives a First AI Policy starter sheet.
         </p>
+      </div>
+
+      <div class="card max-w-2xl mx-auto text-center mb-12 animate-on-scroll" style="animation-delay:0.18s">
+        <p class="font-body text-xs font-bold uppercase tracking-widest text-teal mb-2">Attendee gift: AI Starter Lab</p>
+        <p class="text-light text-base leading-relaxed mb-5">
+          A free, hands-on practice space for people who serve missions: house rules for safe AI use, starter prompts for your role, a prompt builder, and a seven-day practice challenge.
+        </p>
+        <a href={AI_STARTER_LAB_PAGE} class="btn-outline-teal justify-center w-full sm:w-auto">Get the AI Starter Lab</a>
       </div>
 
       <div class="card max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left mb-12 animate-on-scroll" style="animation-delay:0.2s">

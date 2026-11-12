@@ -15,6 +15,7 @@ export default defineConfig({
   },
   integrations: [
     tailwind(),
-    sitemap({ filter: (page) => !page.includes('/bootcamp') && !page.includes('/strategic-reset') && !page.includes('/thank-you') }),
+    // /ai-starter-lab/lab/ lives in public/ as a standalone file, so the sitemap never sees it.
+    sitemap({ filter: (page) => !page.includes('/bootcamp') && !page.includes('/strategic-reset') && !page.includes('/thank-you') && !page.includes('/ai-starter-lab/thanks') }),
   ],
 });

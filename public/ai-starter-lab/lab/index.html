@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>AI Starter Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a single guided column (a field guide for week one), hex motif from the STRG mark, tools set off as working panels */
+:root{
+  --bg:#f6f8fb; --surface:#ffffff; --ink:#1c2236; --muted:#55607a; --line:#d9e1ec;
+  --navy:#064680; --teal:#2a7ca3; --lteal:#58bbc2; --plum:#31245a; --lav:#ac6dbf;
+  --accent:#2a7ca3; --accent-ink:#ffffff; --soft:#e7f3f6; --lavsoft:#f3eaf7; --warn:#8a4b00; --warnsoft:#fff3e0;
+  --display:"Lora",Georgia,"Times New Roman",serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12142a; --surface:#1b1e38; --ink:#eef1f8; --muted:#a8b0c8; --line:#2f3557;
+  --navy:#8fc3ef; --teal:#6cc3d1; --lteal:#7fd3d9; --plum:#c9b8f0; --lav:#d4a6e3;
+  --accent:#58bbc2; --accent-ink:#0d1b2a; --soft:#173246; --lavsoft:#2c2242; --warn:#ffcf8a; --warnsoft:#3a2a12; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12142a; --surface:#1b1e38; --ink:#eef1f8; --muted:#a8b0c8; --line:#2f3557;
+  --navy:#8fc3ef; --teal:#6cc3d1; --lteal:#7fd3d9; --plum:#c9b8f0; --lav:#d4a6e3;
+  --accent:#58bbc2; --accent-ink:#0d1b2a; --soft:#173246; --lavsoft:#2c2242; --warn:#ffcf8a; --warnsoft:#3a2a12; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;color:var(--ink)}
+h1{font-size:clamp(2rem,5.5vw,3.1rem);line-height:1.12;font-weight:700}
+h2{font-size:clamp(1.45rem,3.4vw,1.9rem);line-height:1.2;font-weight:600}
+h3{font-size:1.1rem;font-weight:600}
+p{margin:0;max-width:65ch}
+a{color:var(--teal)}
+.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal)}
+.lede{font-size:1.15rem;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--navy)}
+.hexes{display:inline-flex;gap:3px}
+.hex{width:14px;height:16px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+/* hero */
+.hero{display:grid;gap:22px}
+.lifecycle{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:6px}
+.stage{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface);display:flex;flex-direction:column;gap:2px}
+.stage b{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stage span{font-family:var(--display);font-weight:600}
+.stage.now{border:2px solid var(--accent);background:var(--soft)}
+.stage.now b{color:var(--teal)}
+.stage.later{opacity:.7}
+.stat{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;background:var(--lavsoft);border-radius:14px;padding:18px 20px}
+.stat .num{font-family:var(--display);font-size:2.6rem;line-height:1;font-weight:700;color:var(--plum);font-variant-numeric:tabular-nums}
+.stat p{flex:1 1 260px;min-width:0}
+.src{font-size:.82rem;color:var(--muted)}
+/* panels */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px clamp(16px,3vw,28px);display:flex;flex-direction:column;gap:16px}
+.rules{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.rules label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:10px 12px;border-radius:10px;border:1px solid var(--line)}
+.rules input{margin-top:5px;width:18px;height:18px;accent-color:var(--teal);flex:none}
+.rules label:has(input:checked){background:var(--soft);border-color:var(--lteal)}
+.rules strong{display:block}
+.rules small{color:var(--muted);font-size:.92rem}
+.meter{font-size:.9rem;color:var(--muted)}
+.callout{background:var(--warnsoft);color:var(--ink);border-radius:12px;padding:14px 16px;font-size:.95rem}
+.callout b{color:var(--warn)}
+/* builder */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.92rem;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chip:focus-visible,.btn:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--lteal);outline-offset:2px}
+.prompts{display:grid;gap:12px}
+.pcard{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pcard .task{font-weight:600}
+.pcard pre{margin:0;white-space:pre-wrap;word-wrap:break-word;font-family:var(--body);font-size:.95rem;background:var(--bg);border-radius:8px;padding:12px;color:var(--ink)}
+.blank{background:var(--lavsoft);color:var(--plum);border-radius:4px;padding:0 4px;font-weight:600}
+.btn{font:inherit;font-weight:600;font-size:.92rem;align-self:flex-start;padding:8px 16px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--teal)}
+.recipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-weight:600;font-size:.95rem}
+.field small{color:var(--muted);font-size:.85rem}
+input[type=text],textarea,select{font:inherit;font-size:.95rem;width:100%;padding:9px 11px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+textarea{min-height:76px;resize:vertical}
+.out{border:2px dashed var(--lteal);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.out pre{margin:0;white-space:pre-wrap;word-wrap:break-word;font-family:var(--body);font-size:.97rem}
+.flag{font-size:.88rem;color:var(--warn);font-weight:600}
+/* challenge */
+.days{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.day{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.day input{width:20px;height:20px;margin-top:4px;accent-color:var(--teal)}
+.day .d{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--teal)}
+.day:has(input:checked){background:var(--soft)}
+.day:has(input:checked) .t{text-decoration:line-through;text-decoration-color:var(--lteal)}
+.progress{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--lav));transition:width .3s}
+@media (prefers-reduced-motion:reduce){.progress span{transition:none}}
+.reflect{display:grid;gap:12px}
+.close{background:var(--plum);color:#fff;border-radius:18px;padding:26px clamp(18px,4vw,34px);display:flex;flex-direction:column;gap:12px}
+.close h2,.close p{color:#fff}
+.close a{color:#bfe9ee}
+:root[data-theme="dark"] .close{background:#2a2050}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .close{background:#2a2050}}
+footer{font-size:.82rem;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:10px;font-size:.92rem;font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="brand"><span class="hexes" aria-hidden="true"><i class="hex" style="background:var(--navy)"></i><i class="hex" style="background:var(--lav)"></i><i class="hex" style="background:var(--teal)"></i></span>Strategic Transformations Readiness Group</div>
+    <div class="stack">
+      <span class="eyebrow">Stewarding the Shift · Attendee gift</span>
+      <h1>AI Starter Lab: your first week with AI, on your terms</h1>
+      <p class="lede">A hands-on practice space for people who serve missions. Learn the house rules, build your first prompts, and try seven small exercises, one a day. No experience needed, and nothing to install.</p>
+    </div>
+    <div class="stack">
+      <p class="src">Where this fits: Kate Gage's AI adoption life cycle, in <em>AI for Nonprofits</em> (Heyman and Contee, Wiley, 2025), moves through four stages. This lab is built for the first one.</p>
+      <div class="lifecycle" role="list" aria-label="AI adoption life cycle">
+        <div class="stage now" role="listitem"><b>Stage 1 · You are here</b><span>Individual use</span></div>
+        <div class="stage later" role="listitem"><b>Stage 2</b><span>Org adoption</span></div>
+        <div class="stage later" role="listitem"><b>Stage 3</b><span>Strategic implementation</span></div>
+        <div class="stage later" role="listitem"><b>Stage 4</b><span>Proprietary solutions</span></div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="num">81%</div>
+      <p>of nonprofits surveyed use AI individually and ad hoc, and 47% have no AI governance policy. People are already experimenting. The goal is to do it wisely, with clear guardrails.<br><span class="src">2026 Nonprofit AI Adoption Report, Virtuous (a software company) and Fundraising.AI, 346 nonprofits, February 2026.</span></p>
+    </div>
+  </header>
+
+  <section class="stack" id="rules" aria-labelledby="rules-h">
+    <span class="eyebrow">Step 1</span>
+    <h2 id="rules-h">Five house rules before you type anything</h2>
+    <p>Read them and check each one when you are ready to commit to it. These protect the people you serve and the trust you have earned.</p>
+    <div class="panel">
+      <ul class="rules" id="ruleList"></ul>
+      <p class="meter" id="ruleMeter" aria-live="polite"></p>
+      <div class="callout"><b>Does your organization have an AI policy?</b> If not, start with the First AI Policy starter sheet you received with this webinar, and ask your leader which tools are approved for work.</div>
+    </div>
+  </section>
+
+  <section class="stack" id="starters" aria-labelledby="starters-h">
+    <span class="eyebrow">Step 2</span>
+    <h2 id="starters-h">Starter prompts for your role</h2>
+    <p>Pick the role closest to yours. Copy a prompt into ChatGPT, Claude, Gemini, or Microsoft Copilot, then replace the <span class="blank">highlighted parts</span> with your own details. Leave out anything private.</p>
+    <div class="panel">
+      <div class="chips" id="roleChips" role="group" aria-label="Choose your role"></div>
+      <div class="prompts" id="promptList" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="stack" id="builder" aria-labelledby="builder-h">
+    <span class="eyebrow">Step 3</span>
+    <h2 id="builder-h">Build your own prompt</h2>
+    <p>Good prompts follow a simple recipe: who the AI should act as, what you need, the background it should know, and what the answer should look like. Fill in the boxes and your prompt builds itself below.</p>
+    <div class="panel">
+      <div class="recipe">
+        <div class="field"><label for="f-role">1. Act as</label><input type="text" id="f-role" value="an experienced volunteer coordinator at a church food pantry"><small>A role or expertise</small></div>
+        <div class="field"><label for="f-task">2. Help me</label><input type="text" id="f-task" value="write a warm thank-you message to our Saturday volunteers"><small>One clear task</small></div>
+        <div class="field"><label for="f-context">3. Here is the background</label><textarea id="f-context">We served 120 families last month. Our volunteers are mostly retirees and high school students. Keep it general; no names.</textarea><small>Facts it needs. No personal or private details.</small></div>
+        <div class="field"><label for="f-format">4. Give it to me as</label><select id="f-format">
+          <option>a short message under 150 words</option>
+          <option>3 options I can choose from</option>
+          <option>a bulleted list</option>
+          <option>a simple table</option>
+          <option>a one-page outline</option>
+        </select><small>Length and shape</small></div>
+        <div class="field"><label for="f-tone">5. Tone</label><select id="f-tone">
+          <option>warm and plain-spoken</option>
+          <option>professional and concise</option>
+          <option>encouraging and hopeful</option>
+          <option>pastoral and gentle</option>
+        </select><small>How it should sound</small></div>
+      </div>
+      <div class="out">
+        <span class="eyebrow">Your prompt</span>
+        <pre id="builtPrompt"></pre>
+        <p class="flag" id="privacyFlag" hidden></p>
+        <button class="btn" id="copyBuilt" type="button">Copy prompt</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="stack" id="challenge" aria-labelledby="challenge-h">
+    <span class="eyebrow">Step 4</span>
+    <h2 id="challenge-h">The seven-day practice challenge</h2>
+    <p>Ten to fifteen minutes a day. Each exercise uses low-risk, everyday work so you can learn what AI does well and where it falls short. Your check marks stay on this device only.</p>
+    <div class="panel">
+      <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+      <p class="meter" id="dayMeter" aria-live="polite"></p>
+      <ul class="days" id="dayList"></ul>
+    </div>
+  </section>
+
+  <section class="stack" id="reflect" aria-labelledby="reflect-h">
+    <span class="eyebrow">Step 5</span>
+    <h2 id="reflect-h">Notice where the weight lands</h2>
+    <p>Readiness starts with honest noticing. At the end of your week, jot a few words for each question. Your notes stay on this device only.</p>
+    <div class="panel reflect">
+      <div class="field"><label for="r1">Where did AI give you time back?</label><textarea id="r1" placeholder="Example: drafting the newsletter intro took 10 minutes instead of 40"></textarea></div>
+      <div class="field"><label for="r2">Where did it get something wrong, or feel wrong?</label><textarea id="r2" placeholder="Example: it invented a statistic, or the tone did not sound like us"></textarea></div>
+      <div class="field"><label for="r3">If your whole team used AI this way, who would carry the extra checking, fixing, or explaining?</label><textarea id="r3" placeholder="Example: our office manager would end up reviewing everything"></textarea></div>
+      <div class="field"><label for="r4">What is one question you want your leaders to answer before AI goes further?</label><textarea id="r4" placeholder="Example: which tools are we allowed to use with donor information?"></textarea></div>
+    </div>
+  </section>
+
+  <section class="close" aria-labelledby="next-h">
+    <span class="eyebrow" style="color:#bfe9ee">When you are ready for stage two: org adoption</span>
+    <h2 id="next-h">Individual use is where readiness begins. It cannot be where it ends.</h2>
+    <p>When one person experiments, one person carries the learning and the risk. Moving to org adoption means deciding who sets the rules, who checks the work, and who is protected. That is the work Strategic Transformations Readiness Group does with mission-driven and faith-based organizations.</p>
+    <p>Bring your reflections to a free discovery call: <a href="https://bookings.cloud.microsoft/book/STReadinessGroup@strategictransformations.net/s/LBqZask5FE-Bm1Z03hX-4A2" target="_blank" rel="noopener">book a time here</a> · 407-693-4449</p>
+  </section>
+
+  <footer>
+    <span>AI Starter Lab, version 1 · Strategic Transformations Readiness Group · Nikki Cates, Founder and CEO</span>
+    <span>This lab teaches safe practice habits and is not legal or compliance advice. Follow your organization's policies. AI tools change often; check each tool's own data settings.</span>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+  var store={get:function(k,d){try{var v=localStorage.getItem('asl-'+k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set:function(k,v){try{localStorage.setItem('asl-'+k,JSON.stringify(v));}catch(e){}}};
+  function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(function(){t.hidden=true;},1800);}
+  function copy(text,fallbackEl){
+    var done=function(){toast('Copied');};
+    try{navigator.clipboard.writeText(text).then(done,function(){sel(fallbackEl);});}catch(e){sel(fallbackEl);}
+  }
+  function sel(el){if(!el)return;var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);toast('Selected. Press Ctrl+C or Cmd+C to copy');}
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+
+  /* Step 1: house rules */
+  var RULES=[
+    ['Keep private information out.','No names, case notes, donor or giving records, health, immigration, or pastoral care details. If you would not post it on a bulletin board, do not paste it in.'],
+    ['You stay the author.','AI drafts; you decide. Read every word before it goes to anyone, and keep a human in the loop.'],
+    ['Check facts, numbers, and quotes.','AI can sound confident and still be wrong, including inventing sources. Verify anything that matters.'],
+    ['Use approved tools for work.','Ask which tools your organization allows. Some tools may use your chats to improve their models unless you change the settings.'],
+    ['Be open about AI help.','Follow your organization’s guidance on when to say AI assisted, especially in anything that speaks for your mission.']
+  ];
+  var ruleState=store.get('rules',[]);
+  var ul=document.getElementById('ruleList');
+  RULES.forEach(function(r,i){
+    var li=el('li'),lab=el('label'),cb=el('input');cb.type='checkbox';cb.id='rule-'+i;cb.checked=!!ruleState[i];
+    var txt=el('span');txt.appendChild(el('strong',null,r[0]));txt.appendChild(el('small',null,r[1]));
+    lab.setAttribute('for',cb.id);lab.appendChild(cb);lab.appendChild(txt);li.appendChild(lab);ul.appendChild(li);
+    cb.addEventListener('change',function(){ruleState[i]=cb.checked;store.set('rules',ruleState);ruleMeter();});
+  });
+  function ruleMeter(){var n=RULES.filter(function(_,i){return ruleState[i];}).length;document.getElementById('ruleMeter').textContent=n===RULES.length?'All five rules in place. You are ready to practice.':n+' of 5 rules checked.';}
+  ruleMeter();
+
+  /* Step 2: starter prompts. [brackets] mark blanks to fill in */
+  var ROLES={
+    'Executive or director':[
+      ['Prepare for a hard conversation','Act as a seasoned nonprofit executive coach. I need to tell my staff that [a program is pausing / a change is coming]. Help me plan a 10-minute team conversation: an opening, three key points, and two questions people are likely to ask, with honest answers. Keep the tone [calm and transparent].'],
+      ['Turn notes into a board update','Act as a nonprofit board liaison. Turn these rough notes into a one-page board update with headings for Wins, Challenges, and Decisions Needed: [paste notes with no personal details]. Keep it under 300 words.'],
+      ['Think through an AI question','I lead a [size] [type of] organization. List the five most important questions my leadership team should answer before staff use AI tools for daily work. For each, explain in one sentence why it matters for staff and the people we serve.']
+    ],
+    'Pastor or ministry leader':[
+      ['Plan a small group gathering','Act as an experienced small group ministry leader. Create a 60-minute gathering plan on [theme or passage] for [audience], with a welcome, a discussion flow, three open questions, and a closing prayer prompt I will write myself.'],
+      ['Draft a volunteer call','Write a short, warm announcement inviting members to serve with our [ministry name] on [day]. Mention [what volunteers will do] and [how to sign up]. Keep it under 120 words and avoid guilt language.'],
+      ['Organize a ministry calendar','Here is a list of upcoming ministry events with dates: [list]. Organize them into a simple month-by-month table and point out any weeks that look overloaded for volunteers.']
+    ],
+    'Program staff':[
+      ['Simplify a hard document','Act as a plain-language editor. Rewrite this public program description so a family with a 6th-grade reading level can understand it: [paste public text]. Keep every fact the same.'],
+      ['Plan a workshop','Help me outline a 45-minute workshop on [topic] for [audience]. Include learning goals, an icebreaker, two activities, and a short closing reflection.'],
+      ['Make a checklist','Turn this process into a step-by-step checklist a new staff member could follow on their first day: [describe the process without client details].']
+    ],
+    'Fundraising and development':[
+      ['Draft an appeal opening','Act as a nonprofit fundraising writer. Write three different opening paragraphs for a year-end appeal about [program]. Use this public impact fact: [fact]. Do not invent statistics or stories.'],
+      ['Thank-you variations','Write five short thank-you note variations for donors who gave to [campaign]. Keep each under 60 words, warm and specific to the mission, without naming anyone.'],
+      ['Grant prep questions','I am preparing a grant proposal to a [type of funder] for [program]. List the questions a reviewer is likely to ask, and the information I should gather before I start writing.']
+    ],
+    'Communications':[
+      ['Repurpose one message','Take this announcement: [paste]. Rewrite it as (1) a 50-word social post, (2) a 2-sentence newsletter blurb, and (3) a text message reminder under 160 characters.'],
+      ['Headline options','Give me eight headline options for a story about [topic]. Make half of them hopeful and half of them practical. Avoid clickbait.'],
+      ['Check clarity','Review this draft for clarity and tone: [paste]. Point out confusing sentences, jargon, and anything that may land poorly with [audience]. Do not rewrite it; just give me notes.']
+    ],
+    'Operations and administration':[
+      ['Write a clear policy email','Act as an office manager. Draft a short, friendly email reminding staff about [policy or process], with three bullet points of what to do and who to ask with questions.'],
+      ['Meeting agenda','Create a 30-minute staff meeting agenda covering [topics], with time blocks and one decision we need to make by the end.'],
+      ['Spreadsheet help','Explain, step by step, how to [task, such as count entries by month] in [Excel or Google Sheets]. Assume I am a beginner.']
+    ],
+    'Board member':[
+      ['Prepare for a board meeting','I serve on the board of a [type of] nonprofit. Based on this public agenda: [paste], list the three most important questions I should ask and why each matters for governance.'],
+      ['Learn a governance term','Explain [term, such as fiduciary duty or human in the loop] in plain language, with one example from a small nonprofit or church.'],
+      ['AI oversight questions','What should a nonprofit board ask its executive director about how staff are using AI? Give me six questions, grouped by risk, people, and mission.']
+    ],
+    'Volunteer coordinator':[
+      ['Volunteer role description','Write a one-page volunteer role description for [role] at a [type of organization], including purpose, tasks, time commitment, and the support volunteers will receive.'],
+      ['Reminder messages','Write three friendly reminder texts for volunteers serving on [day], each under 160 characters, with [arrival time and location].'],
+      ['Training outline','Create a 20-minute orientation outline for new volunteers at [program], including safety basics and how to ask for help.']
+    ]
+  };
+  var roleNames=Object.keys(ROLES);
+  var current=store.get('role',roleNames[0]);if(!ROLES[current])current=roleNames[0];
+  var chips=document.getElementById('roleChips'),list=document.getElementById('promptList');
+  roleNames.forEach(function(name,i){
+    var b=el('button','chip',name);b.type='button';b.id='role-'+i;
+    b.addEventListener('click',function(){current=name;store.set('role',name);renderRole();});
+    chips.appendChild(b);
+  });
+  function withBlanks(text,pre){
+    var parts=text.split(/(\[[^\]]+\])/);
+    parts.forEach(function(p){if(/^\[.*\]$/.test(p)){pre.appendChild(el('span','blank',p));}else{pre.appendChild(document.createTextNode(p));}});
+  }
+  function renderRole(){
+    Array.prototype.forEach.call(chips.children,function(c){c.setAttribute('aria-pressed',String(c.textContent===current));});
+    list.innerHTML='';
+    ROLES[current].forEach(function(p){
+      var card=el('div','pcard');card.appendChild(el('span','task',p[0]));
+      var pre=el('pre');withBlanks(p[1],pre);card.appendChild(pre);
+      var b=el('button','btn ghost','Copy');b.type='button';b.addEventListener('click',function(){copy(p[1],pre);});
+      card.appendChild(b);list.appendChild(card);
+    });
+  }
+  renderRole();
+
+  /* Step 3: prompt builder */
+  var ids=['f-role','f-task','f-context','f-format','f-tone'];
+  var saved=store.get('builder',null);
+  if(saved){ids.forEach(function(id){if(saved[id]!=null)document.getElementById(id).value=saved[id];});}
+  var risky=/\b(ssn|social security|diagnos|medical|medication|address|phone|date of birth|dob|case note|immigration|account number|password)\b|@\w+\.\w+|\d{3}[-.\s]\d{3}[-.\s]\d{4}/i;
+  function build(){
+    var v={};ids.forEach(function(id){v[id]=document.getElementById(id).value.trim();});
+    var out='Act as '+(v['f-role']||'[a role]')+'.\n\nHelp me '+(v['f-task']||'[one clear task]')+'.\n\nBackground: '+(v['f-context']||'[the facts it needs]')+'\n\nGive it to me as '+v['f-format']+', in a '+v['f-tone']+' tone. If anything is unclear, ask me a question before you answer. Do not invent facts, numbers, or quotes.';
+    document.getElementById('builtPrompt').textContent=out;
+    var f=document.getElementById('privacyFlag');
+    if(risky.test(v['f-context']+' '+v['f-task'])){f.hidden=false;f.textContent='Check this: your prompt may include private information (like contact details, health, or case details). Remove it before you copy.';}else{f.hidden=true;}
+    store.set('builder',v);return out;
+  }
+  ids.forEach(function(id){document.getElementById(id).addEventListener('input',build);document.getElementById(id).addEventListener('change',build);});
+  build();
+  document.getElementById('copyBuilt').addEventListener('click',function(){copy(build(),document.getElementById('builtPrompt'));});
+
+  /* Step 4: seven-day challenge */
+  var DAYS=[
+    ['Rewrite one email','Paste a routine email you wrote (no names or private details) and ask AI to make it clearer and kinder. Compare the two. Which parts would you keep?'],
+    ['Summarize something public','Ask AI to summarize a public article or report in five bullet points. Then skim the original. Did it miss or invent anything?'],
+    ['Brainstorm','Ask for 15 ideas for an upcoming event, theme, or fundraiser. Circle the two best. Notice how many you would never use.'],
+    ['Plan a meeting','Use the prompt builder to create an agenda for a real upcoming meeting. Edit it until it sounds like you.'],
+    ['Say thank you','Draft a thank-you note to volunteers, donors, or a colleague. Then add one sentence only you could write.'],
+    ['Ask for feedback','Paste something you wrote and ask AI to critique it without rewriting it. Decide which notes you agree with.'],
+    ['Reflect','Answer the four questions in Step 5. Share one insight with your supervisor or team lead.']
+  ];
+  var dayState=store.get('days',[]);
+  var dl=document.getElementById('dayList');
+  DAYS.forEach(function(d,i){
+    var li=el('li','day'),cb=el('input');cb.type='checkbox';cb.id='day-'+(i+1);cb.checked=!!dayState[i];
+    var lab=el('label');lab.setAttribute('for',cb.id);
+    lab.appendChild(el('span','d','Day '+(i+1)));
+    var t=el('div','t');t.appendChild(el('strong',null,d[0]));lab.appendChild(t);
+    lab.appendChild(el('p',null,d[1]));
+    li.appendChild(cb);li.appendChild(lab);dl.appendChild(li);
+    cb.addEventListener('change',function(){dayState[i]=cb.checked;store.set('days',dayState);dayMeter();});
+  });
+  function dayMeter(){var n=DAYS.filter(function(_,i){return dayState[i];}).length;document.getElementById('bar').style.width=(n/7*100)+'%';document.getElementById('dayMeter').textContent=n===7?'All seven days complete. Well done.':n+' of 7 days complete.';}
+  dayMeter();
+
+  /* Step 5: reflections */
+  ['r1','r2','r3','r4'].forEach(function(id){var t=document.getElementById(id);t.value=store.get(id,'');t.addEventListener('input',function(){store.set(id,t.value);});});
+})();
+</script>
+</body>
+</html>
