@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { WEBINAR_URL, WEBINAR_PAGE, CALENDAR_URL, BOOKING_NOTE } from '../config/site';
+import { WEBINAR_URL, WEBINAR_PAGE, CALENDAR_URL, BOOKING_NOTE, AI_STARTER_LAB_PAGE } from '../config/site';
 ---
 
 <Layout
@@ -209,6 +209,9 @@ import { WEBINAR_URL, WEBINAR_PAGE, CALENDAR_URL, BOOKING_NOTE } from '../config
             ))}
           </div>
           <p class="text-muted text-sm italic mx-auto text-center">Everyone who attends receives the First AI Policy starter sheet.</p>
+          <p class="text-sm mt-3 mx-auto text-center">
+            <a href={AI_STARTER_LAB_PAGE} class="text-teal underline hover:text-light transition-colors">Attendee gift: AI Starter Lab</a>
+          </p>
         </div>
       </div>
     </div>

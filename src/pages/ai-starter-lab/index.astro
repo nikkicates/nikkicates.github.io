@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { KIT_FORM_ACTION, WEBINAR_PAGE } from '../../config/site';
+
+// Sign-up page for the AI Starter Lab, the gift for Stewarding the Shift attendees.
+// The form posts directly to Kit (no server code). Kit adds the subscriber, sends the
+// confirmation email that links to /ai-starter-lab/lab/, and redirects to /ai-starter-lab/thanks/.
+// This is a soft gate: the tool page is public to anyone with the link.
+
+const inside = [
+  'Five house rules for safe AI use',
+  'Starter prompts for eight roles',
+  'A prompt builder',
+  'A seven-day practice challenge',
+  'Four reflection questions',
+];
+
+const roles = [
+  'Executive',
+  'Pastor or ministry leader',
+  'Program staff',
+  'Fundraising',
+  'Communications',
+  'Operations',
+  'Board member',
+  'Volunteer coordinator',
+  'Other',
+];
+---
+
+<Layout
+  title="Get the AI Starter Lab"
+  description="A free, hands-on practice space for people who serve missions. Learn five house rules for safe AI use, copy starter prompts for your role, build your own prompts, and take a seven-day practice challenge."
+  section="st"
+  accentColor="teal"
+>
+
+  <section class="section-pad" style="background: radial-gradient(ellipse at 20% 20%, #0d2a45 0%, #06111f 60%);">
+    <div class="container-mid">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+
+        <div class="text-center lg:text-left">
+          <span class="st-tag mb-4 inline-flex">Attendee gift: Stewarding the Shift</span>
+          <h1 class="font-heading text-3xl md:text-5xl text-light mb-5 leading-tight">Get the AI Starter Lab</h1>
+          <p class="text-muted text-base md:text-lg leading-relaxed mb-8">
+            A free, hands-on practice space for people who serve missions. Learn five house rules for safe AI use, copy starter prompts for your role, build your own prompts, and take a seven-day practice challenge.
+          </p>
+
+          <p class="font-body text-xs font-bold uppercase tracking-widest text-teal mb-4">What's inside</p>
+          <ul class="space-y-2 mb-4 text-left max-w-md mx-auto lg:mx-0">
+            {inside.map((item) => (
+              <li class="flex items-start gap-3 text-light text-sm md:text-base leading-relaxed">
+                <span class="text-teal shrink-0" aria-hidden="true">→</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-muted text-sm leading-relaxed mb-6 max-w-md mx-auto lg:mx-0">
+            The starter prompts cover eight roles: executive, pastor or ministry leader, program staff, fundraising, communications, operations, board member, and volunteer coordinator.
+          </p>
+          <p class="text-light text-sm italic leading-relaxed max-w-md mx-auto lg:mx-0">
+            Built for the first stage of the AI adoption life cycle: individual use.
+          </p>
+        </div>
+
+        <div class="card !p-6 md:!p-8">
+          <form id="lab-form" action={KIT_FORM_ACTION} method="post" class="space-y-5">
+            <div class="form-group">
+              <label class="form-label" for="lab-first-name">First name</label>
+              <input class="form-input" type="text" id="lab-first-name" name="fields[first_name]" autocomplete="given-name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lab-email">Email</label>
+              <input class="form-input" type="email" id="lab-email" name="email_address" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lab-org">Organization <span class="normal-case tracking-normal font-normal">(optional)</span></label>
+              <input class="form-input" type="text" id="lab-org" name="fields[organization]" autocomplete="organization" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lab-role">Role <span class="normal-case tracking-normal font-normal">(optional)</span></label>
+              <div class="relative">
+                <select class="form-select pr-10" id="lab-role" name="fields[role]">
+                  <option value="">Choose your role</option>
+                  {roles.map((r) => <option value={r}>{r}</option>)}
+                </select>
+                <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted" aria-hidden="true">▾</span>
+              </div>
+            </div>
+            <button type="submit" class="btn-teal w-full justify-center text-base !py-3.5">Send me the Lab</button>
+            <p class="text-muted text-xs leading-relaxed text-center">
+              You'll get the link by email, plus occasional notes from Nikki Cates and STRG about AI readiness. Unsubscribe anytime.
+            </p>
+          </form>
+        </div>
+
+      </div>
+
+      <p class="text-center text-sm mt-12">
+        <a href={WEBINAR_PAGE} class="text-teal underline hover:text-light transition-colors">About the Stewarding the Shift webinar</a>
+      </p>
+    </div>
+  </section>
+
+</Layout>

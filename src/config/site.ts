@@ -8,6 +8,14 @@ export const WEBINAR_URL = 'https://us06web.zoom.us/meeting/register/2WP14MX2TeC
 export const WEBINAR_PAGE = '/webinar/';
 export const WEBINAR_AGENDA_URL = '/downloads/stewarding-the-shift-agenda.pdf';
 
+// AI Starter Lab: the free gift for Stewarding the Shift attendees.
+// The sign-up form on /ai-starter-lab/ posts straight to the Kit form "AI Starter Lab".
+// KIT_FORM_ID is the number in that form's embed code (app.kit.com/forms/<ID>/subscriptions).
+export const KIT_FORM_ID = '10181749';
+export const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`;
+export const AI_STARTER_LAB_PAGE = '/ai-starter-lab/';
+export const AI_STARTER_LAB_TOOL = '/ai-starter-lab/lab/';
+
 // Microsoft Bookings page (discovery calls, speaking inquiries, and other appointments).
 export const CALENDAR_URL = 'https://bookings.cloud.microsoft/book/STReadinessGroup@strategictransformations.net/';
 

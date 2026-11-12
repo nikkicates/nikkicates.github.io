@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { AI_STARTER_LAB_TOOL, BOOKING_SERVICES } from '../../config/site';
+
+// Kit redirects here after someone signs up on /ai-starter-lab/. Kept out of search and the sitemap.
+const discoveryCall = BOOKING_SERVICES.find((s) => s.name === 'Discovery Call')!.href;
+---
+
+<Layout
+  title="Your AI Starter Lab Is Ready"
+  description="Your AI Starter Lab is ready."
+  section="st"
+  accentColor="teal"
+  noindex
+>
+
+  <section class="section-pad">
+    <div class="container-narrow text-center">
+      <span class="st-tag mb-4 inline-flex">AI Starter Lab</span>
+      <h1 class="font-heading text-3xl md:text-5xl text-light mb-8 leading-tight">You're in. Your AI Starter Lab is ready.</h1>
+      <a href={AI_STARTER_LAB_TOOL} class="btn-teal text-lg !py-4 !px-10 w-full sm:w-auto justify-center">
+        Open the AI Starter Lab
+      </a>
+      <p class="text-muted text-base leading-relaxed mt-5 mb-14 max-w-md mx-auto">
+        We also emailed you the link so you can come back anytime.
+      </p>
+
+      <div class="card max-w-xl mx-auto !p-6 md:!p-8">
+        <p class="text-light text-base leading-relaxed mb-5">
+          When you're ready to talk about what AI readiness could look like across your whole team, we'd be glad to hear about your mission.
+        </p>
+        <a href={discoveryCall} target="_blank" rel="noopener noreferrer" class="btn-outline-teal justify-center w-full sm:w-auto">
+          Book a free discovery call<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
