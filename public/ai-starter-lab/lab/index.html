@@ -77,6 +77,10 @@ a{color:var(--teal)}
 .blank{background:var(--lavsoft);color:var(--plum);border-radius:4px;padding:0 4px;font-weight:600}
 .btn{font:inherit;font-weight:600;font-size:.92rem;align-self:flex-start;padding:8px 16px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer}
 .btn.ghost{background:transparent;color:var(--teal)}
+a.btn{display:inline-block;text-decoration:none;text-align:center}
+.callout p{margin:0}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 10px}
+.callnote{color:var(--muted);font-size:.85rem}
 .recipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field label{font-weight:600;font-size:.95rem}
@@ -139,7 +143,14 @@ footer{font-size:.82rem;color:var(--muted);display:flex;flex-direction:column;ga
     <div class="panel">
       <ul class="rules" id="ruleList"></ul>
       <p class="meter" id="ruleMeter" aria-live="polite"></p>
-      <div class="callout"><b>Does your organization have an AI policy?</b> If not, start with the First AI Policy starter sheet you received with this webinar, and ask your leader which tools are approved for work.</div>
+      <div class="callout">
+        <p><b>Does your organization have an AI policy?</b> If not, start with Your First AI Policy: Starter Template, and ask your leader which tools are approved for work.</p>
+        <div class="btnrow">
+          <a class="btn" href="https://docs.google.com/document/d/1ONLbjYKzjSYBrPflubLLGJWgRa8M4JmE0pWniDmkJyU/copy" target="_blank" rel="noopener">Get the editable template</a>
+          <a class="btn ghost" href="https://drive.google.com/file/d/12W0RzA5KTEEJ4bcrnStQh1fFsM4jpWFM/view" target="_blank" rel="noopener">View the PDF</a>
+        </div>
+        <p class="callnote">The editable version opens as your own copy in Google Docs (sign in with a Google account). It is available only here in the Lab.</p>
+      </div>
     </div>
   </section>
 
