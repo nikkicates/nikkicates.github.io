@@ -12,6 +12,8 @@ interface Props {
   /** Use the title exactly as given, without the " | Nikki Cates" or firm-name suffix. */
   fullTitle?: boolean;
   noindex?: boolean;
+  /** Optional line shown under the STRG name in the footer. */
+  footerTagline?: string;
 }
 
 const {
@@ -22,6 +24,7 @@ const {
   image = '/og-default.jpg',
   fullTitle = false,
   noindex = false,
+  footerTagline,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -77,7 +80,7 @@ const pageTitle = fullTitle ? title : `${title} | ${titleSuffix}`;
       <slot />
     </main>
 
-    <Footer section={section} />
+    <Footer section={section} tagline={footerTagline} />
 
     <!-- Scroll Animation Observer -->
     <script>
