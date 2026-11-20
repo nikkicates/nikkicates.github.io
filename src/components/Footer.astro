@@ -1,8 +1,9 @@
 ---
 interface Props {
   section?: 'home' | 'st' | 'uri';
+  tagline?: string;
 }
-const { section = 'home' } = Astro.props;
+const { section = 'home', tagline } = Astro.props;
 import { CALENDAR_URL, CONTACT_EMAIL, CONTACT_PAGE } from '../config/site';
 
 const isURI = section === 'uri';
@@ -43,6 +44,9 @@ const isURI = section === 'uri';
         <p class="font-body text-xs font-700 uppercase tracking-widest text-muted mb-4">
           Strategic Transformations Readiness Group
         </p>
+        {tagline && (
+          <p class="font-body text-xs text-muted -mt-2 mb-4">{tagline}</p>
+        )}
         <ul class="space-y-2 text-sm">
           {[
             { href: '/speaking-training/', label: 'Speaking & Training', external: false },
